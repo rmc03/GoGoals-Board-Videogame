@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://k00k3f18mfs7"]
 
-[ext_resource type="Texture2D" uid="uid://bmrd2h15nf8ku" path="res://Imágenes a Añadir/UI/button_round_depth_gloss.png" id="1_vpkxi"]
+[ext_resource type="Texture2D" uid="uid://bmrd2h15nf8ku" path="res://Assets/images/UI/button_round_depth_gloss.png" id="1_vpkxi"]
 
 [node name="FichaJugador" type="Node2D"]
 

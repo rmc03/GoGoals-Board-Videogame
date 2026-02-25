@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://ctnyhy0lcruxg"]
 
-[ext_resource type="Texture2D" uid="uid://dcoma2yws0y5f" path="res://Imágenes a Añadir/Personaje/blue_body_squircle.png" id="1_n2tpq"]
-[ext_resource type="Texture2D" uid="uid://tmnftc7pdn60" path="res://Imágenes a Añadir/Personaje/face_e.png" id="2_fqstu"]
-[ext_resource type="Texture2D" uid="uid://c4r13ucxdj684" path="res://Imágenes a Añadir/Personaje/blue_hand_rock.png" id="3_qqos1"]
+[ext_resource type="Texture2D" uid="uid://dcoma2yws0y5f" path="res://Assets/images/Personaje/blue_body_squircle.png" id="1_n2tpq"]
+[ext_resource type="Texture2D" uid="uid://tmnftc7pdn60" path="res://Assets/images/Personaje/face_e.png" id="2_fqstu"]
+[ext_resource type="Texture2D" uid="uid://c4r13ucxdj684" path="res://Assets/images/Personaje/blue_hand_rock.png" id="3_qqos1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ppwu"]
 size = Vector2(158, 155)

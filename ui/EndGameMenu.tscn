@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dtrpt4bfwt3cq"]
 
-[ext_resource type="Script" uid="uid://c7u0jag1s6s26" path="res://EndGameMenu.gd" id="1_rp854"]
+[ext_resource type="Script" uid="uid://c7u0jag1s6s26" path="res://ui/EndGameMenu.gd" id="1_rp854"]
 
 [node name="Control" type="Control"]
 layout_mode = 3

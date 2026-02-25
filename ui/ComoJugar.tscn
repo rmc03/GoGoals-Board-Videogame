@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://bd42qkqabxdii"]
 
-[ext_resource type="Script" uid="uid://iefx31y0t5xf" path="res://ComoJugar.gd" id="1_4ti22"]
-[ext_resource type="Texture2D" uid="uid://crxx577tg2c6o" path="res://Imágenes a Añadir/quiz/Screenshot 2025-12-10 201025.png" id="2_52ok7"]
-[ext_resource type="Texture2D" uid="uid://cwd5cyg8knpg3" path="res://Imágenes a Añadir/quiz/Screenshot 2025-12-10 201219.png" id="3_7w5bd"]
-[ext_resource type="Texture2D" uid="uid://raqw7nbpqsth" path="res://Imágenes a Añadir/quiz/Screenshot 2025-12-10 201254.png" id="4_k10nk"]
-[ext_resource type="Texture2D" uid="uid://bxgopnmho2dja" path="res://Imágenes a Añadir/quiz/Screenshot 2025-12-10 201338.png" id="5_u40oj"]
-[ext_resource type="Texture2D" uid="uid://cwent3thvovu2" path="res://Imágenes a Añadir/Icons/cross_large.png" id="6_52ok7"]
+[ext_resource type="Script" uid="uid://iefx31y0t5xf" path="res://ui/ComoJugar.gd" id="1_4ti22"]
+[ext_resource type="Texture2D" uid="uid://crxx577tg2c6o" path="res://Assets/images/quiz/Screenshot 2025-12-10 201025.png" id="2_52ok7"]
+[ext_resource type="Texture2D" uid="uid://cwd5cyg8knpg3" path="res://Assets/images/quiz/Screenshot 2025-12-10 201219.png" id="3_7w5bd"]
+[ext_resource type="Texture2D" uid="uid://raqw7nbpqsth" path="res://Assets/images/quiz/Screenshot 2025-12-10 201254.png" id="4_k10nk"]
+[ext_resource type="Texture2D" uid="uid://bxgopnmho2dja" path="res://Assets/images/quiz/Screenshot 2025-12-10 201338.png" id="5_u40oj"]
+[ext_resource type="Texture2D" uid="uid://cwent3thvovu2" path="res://Assets/images/Icons/cross_large.png" id="6_52ok7"]
 
 [node name="ComoJugar" type="Control"]
 layout_mode = 3

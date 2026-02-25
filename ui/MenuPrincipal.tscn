@@ -1,14 +1,14 @@
 [gd_scene load_steps=12 format=3 uid="uid://cv1w1xwh0p6eg"]
 
-[ext_resource type="Script" uid="uid://s3jj4ryslvkp" path="res://MenuPrincipal.gd" id="1_0oe1n"]
-[ext_resource type="Texture2D" uid="uid://dvj5xfmcrxp71" path="res://Imágenes a Añadir/Wallpapers/Picsart_25-12-10_19-09-01-870.jpg" id="2_oh4jq"]
-[ext_resource type="FontFile" uid="uid://e43x2moucoqe" path="res://Fonts/ticketing/TICKETING/Ticketing.ttf" id="3_5dpk2"]
-[ext_resource type="Texture2D" uid="uid://c3j0yq6fhx5v8" path="res://Imágenes a Añadir/Flotantes/image-Picsart-BackgroundRemover (3).png" id="4_knros"]
-[ext_resource type="Script" uid="uid://bnqloxjj2itlb" path="res://IconoFlotante.gd" id="5_348rq"]
-[ext_resource type="Texture2D" uid="uid://xpf6yre73ng1" path="res://Imágenes a Añadir/Flotantes/image-Picsart-BackgroundRemover (4).png" id="5_oh4jq"]
-[ext_resource type="Texture2D" uid="uid://bdwsc2nalq80q" path="res://Imágenes a Añadir/Flotantes/image-Picsart-BackgroundRemover (5).png" id="6_348rq"]
-[ext_resource type="Texture2D" uid="uid://cmgbe0nyiwiud" path="res://Imágenes a Añadir/Flotantes/image-Picsart-BackgroundRemover (6).png" id="8_348rq"]
-[ext_resource type="Texture2D" uid="uid://cwent3thvovu2" path="res://Imágenes a Añadir/Icons/cross_large.png" id="9_xhhru"]
+[ext_resource type="Script" uid="uid://s3jj4ryslvkp" path="res://ui/MenuPrincipal.gd" id="1_0oe1n"]
+[ext_resource type="Texture2D" uid="uid://dvj5xfmcrxp71" path="res://Assets/images/Wallpapers/Picsart_25-12-10_19-09-01-870.jpg" id="2_oh4jq"]
+[ext_resource type="FontFile" uid="uid://e43x2moucoqe" path="res://Assets/Fonts/ticketing/TICKETING/Ticketing.ttf" id="3_5dpk2"]
+[ext_resource type="Texture2D" uid="uid://c3j0yq6fhx5v8" path="res://Assets/images/Flotantes/image-Picsart-BackgroundRemover (3).png" id="4_knros"]
+[ext_resource type="Script" uid="uid://bnqloxjj2itlb" path="res://scripts/IconoFlotante.gd" id="5_348rq"]
+[ext_resource type="Texture2D" uid="uid://xpf6yre73ng1" path="res://Assets/images/Flotantes/image-Picsart-BackgroundRemover (4).png" id="5_oh4jq"]
+[ext_resource type="Texture2D" uid="uid://bdwsc2nalq80q" path="res://Assets/images/Flotantes/image-Picsart-BackgroundRemover (5).png" id="6_348rq"]
+[ext_resource type="Texture2D" uid="uid://cmgbe0nyiwiud" path="res://Assets/images/Flotantes/image-Picsart-BackgroundRemover (6).png" id="8_348rq"]
+[ext_resource type="Texture2D" uid="uid://cwent3thvovu2" path="res://Assets/images/Icons/cross_large.png" id="9_xhhru"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ba235"]
 font = ExtResource("3_5dpk2")
