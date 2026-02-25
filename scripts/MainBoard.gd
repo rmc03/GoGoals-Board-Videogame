@@ -196,10 +196,15 @@ func show_quiz(ods_id: int) -> void:
 	var buttons: Array = [$CanvasLayer/PanelQuiz/BtnOp1, $CanvasLayer/PanelQuiz/BtnOp2, $CanvasLayer/PanelQuiz/BtnOp3]
 	
 	for i in range(buttons.size()):
-		buttons[i].text = options[i]
-		if buttons[i].pressed.is_connected(_on_answer_selected):
-			buttons[i].pressed.disconnect(_on_answer_selected)
-		buttons[i].pressed.connect(_on_answer_selected.bind(i == correct_idx))
+		if i < options.size():
+			buttons[i].text = options[i]
+			buttons[i].show()
+			
+			if buttons[i].pressed.is_connected(_on_answer_selected):
+				buttons[i].pressed.disconnect(_on_answer_selected)
+			buttons[i].pressed.connect(_on_answer_selected.bind(i == correct_idx))
+		else:
+			buttons[i].hide() # Ocultar botones sin opción
 	
 	quiz_panel.show()
 
