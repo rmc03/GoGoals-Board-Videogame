@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8gkw5ud1npkm"]
+
+[ext_resource type="Texture2D" uid="uid://dowmpktwv8f4t" path="res://Imágenes a Añadir/image-Picsart-BackgroundRemover (7).png" id="1_qjqtg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ye8q"]
+size = Vector2(65.25, 61.5)
+
+[node name="Casilla Generica" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -1.9073486e-06)
+scale = Vector2(0.62500006, 0.5632296)
+texture = ExtResource("1_qjqtg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7ye8q")

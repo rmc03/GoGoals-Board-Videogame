@@ -1,0 +1,479 @@
+[gd_scene load_steps=30 format=3 uid="uid://hswppedjgclq"]
+
+[ext_resource type="Script" uid="uid://clqxwipny3crt" path="res://MainBoard.gd" id="1_injw7"]
+[ext_resource type="Texture2D" uid="uid://bmwtixx30tahr" path="res://Imágenes a Añadir/Personaje/Picsart_25-12-10_18-11-30-417.png" id="2_2drks"]
+[ext_resource type="PackedScene" uid="uid://5qm5d5egkaw3" path="res://Assets/Casilla ODS.tscn" id="3_0k5li"]
+[ext_resource type="Texture2D" uid="uid://ct5r1hhwo58iv" path="res://Imágenes a Añadir/Personaje/Picsart_25-12-10_18-11-53-389.png" id="3_80wyr"]
+[ext_resource type="PackedScene" uid="uid://c8gkw5ud1npkm" path="res://Assets/Casilla Generica.tscn" id="4_2drks"]
+[ext_resource type="Texture2D" uid="uid://dfg3pis1nyg60" path="res://Imágenes a Añadir/Personaje/Picsart_25-12-10_18-10-51-039.png" id="4_j1l1s"]
+[ext_resource type="PackedScene" uid="uid://c86htdxnb8ftx" path="res://Assets/Casilla Desplazamiento.tscn" id="5_80wyr"]
+[ext_resource type="Texture2D" uid="uid://dyikafyuejum7" path="res://Imágenes a Añadir/Personaje/Picsart_25-12-10_18-10-23-091.png" id="5_fd6nh"]
+[ext_resource type="AudioStream" uid="uid://c6j07tj8bm66a" path="res://Audio/click_001.ogg" id="6_2me0o"]
+[ext_resource type="AudioStream" uid="uid://lqrdm8g6pfen" path="res://Audio/switch_003.ogg" id="6_2ovio"]
+[ext_resource type="Texture2D" uid="uid://ccx5q1ihd5hwf" path="res://Imágenes a Añadir/Wallpapers/Picsart_25-12-10_23-12-02-751.jpg" id="6_fd6nh"]
+[ext_resource type="AudioStream" uid="uid://cciufm4n8gwbj" path="res://Audio/The_Legend_of_Dragoon_OST_Royal_Castle_ExtendedMP3_160K.mp3" id="6_mk414"]
+[ext_resource type="AudioStream" uid="uid://cgfbftipvpqat" path="res://Audio/maximize_001.ogg" id="8_mk414"]
+[ext_resource type="AudioStream" uid="uid://d1x8siwyguftt" path="res://Audio/maximize_006.ogg" id="9_ic1vc"]
+[ext_resource type="Texture2D" uid="uid://dg74gbx3uxqfp" path="res://Imágenes a Añadir/Flotantes/Picsart_25-12-10_23-33-29-505-Picsart-BackgroundRemover.png" id="9_q8jts"]
+[ext_resource type="Texture2D" uid="uid://b4dtk1mhhlemy" path="res://Imágenes a Añadir/image-Picsart-BackgroundRemover.png" id="10_80wyr"]
+[ext_resource type="AudioStream" uid="uid://bstq1aqjkico4" path="res://Audio/confirmation_002.ogg" id="10_m0ce2"]
+[ext_resource type="AudioStream" uid="uid://cy1l0veuoimrl" path="res://Audio/error_004.ogg" id="11_iwr2h"]
+[ext_resource type="Texture2D" uid="uid://muyf2m04rotp" path="res://Imágenes a Añadir/dice_detailed.png" id="11_j1l1s"]
+[ext_resource type="Texture2D" uid="uid://kikntsdvc0o1" path="res://Imágenes a Añadir/Flotantes/Picsart_25-12-10_23-43-27-820-Picsart-BackgroundRemover.png" id="11_o0hyk"]
+[ext_resource type="AudioStream" uid="uid://dgoabxj5q2tha" path="res://Audio/question_004.ogg" id="12_r02rp"]
+[ext_resource type="Script" uid="uid://bnqloxjj2itlb" path="res://IconoFlotante.gd" id="13_38h61"]
+[ext_resource type="Texture2D" uid="uid://87wxytyb68dl" path="res://Imágenes a Añadir/Flotantes/image-Picsart-BackgroundRemover (12).png" id="15_m1tsj"]
+[ext_resource type="Texture2D" uid="uid://8kpufbvuyeo1" path="res://Imágenes a Añadir/Flotantes/image-Picsart-BackgroundRemover (11).png" id="16_2me0o"]
+[ext_resource type="Texture2D" uid="uid://brgs5ryvhgjvq" path="res://Imágenes a Añadir/Flotantes/image-Picsart-BackgroundRemover (10).png" id="17_sdu42"]
+[ext_resource type="Texture2D" uid="uid://34dyh0w4l5em" path="res://Imágenes a Añadir/Flotantes/image-Picsart-BackgroundRemover (9).png" id="18_x0q1v"]
+[ext_resource type="Texture2D" uid="uid://bpfpf0hweihbl" path="res://Imágenes a Añadir/Flotantes/image-Picsart-BackgroundRemover (8).png" id="19_t1jn0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j1l1s"]
+size = Vector2(96, 47.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m1tsj"]
+bg_color = Color(0.0836, 0.16544, 0.22, 0.9607843)
+
+[node name="Pantalla de Juego" type="Node2D" node_paths=PackedStringArray("board_tiles")]
+script = ExtResource("1_injw7")
+board_tiles = [NodePath("Casilla Start"), NodePath("Casilla Generica 1"), NodePath("Casilla ODS 1"), NodePath("Casilla Generica 2"), NodePath("Casilla Generica 3"), NodePath("Casilla Generica 4"), NodePath("Casilla ODS 2"), NodePath("Casilla Generica 5"), NodePath("Casilla Desplazamiento 1"), NodePath("Casilla Generica 6"), NodePath("Casilla Generica 7"), NodePath("Casilla ODS 3"), NodePath("Casilla Generica 8"), NodePath("Casilla Generica 9"), NodePath("Casilla ODS 4"), NodePath("Casilla Generica 10"), NodePath("Casilla Generica 11"), NodePath("Casilla ODS 5"), NodePath("Casilla Desplazamiento 2"), NodePath("Casilla ODS 6"), NodePath("Casilla Generica 12"), NodePath("Casilla Generica 13"), NodePath("Casilla Generica 14"), NodePath("Casilla ODS 7"), NodePath("Casilla Generica 15"), NodePath("Casilla Generica 16"), NodePath("Casilla Generica 17"), NodePath("Casilla ODS 8"), NodePath("Casilla Desplazamiento 3"), NodePath("Casilla Generica 18"), NodePath("Casilla Generica 19"), NodePath("Casilla ODS 9"), NodePath("Casilla Generica 20"), NodePath("Casilla Generica 21"), NodePath("Casilla ODS 10"), NodePath("Casilla Generica 22"), NodePath("Casilla Generica 23"), NodePath("Casilla ODS 11"), NodePath("Casilla Generica 24"), NodePath("Casilla Generica 25"), NodePath("Casilla Desplazamiento 4"), NodePath("Casilla ODS 12"), NodePath("Casilla Generica 26"), NodePath("Casilla Desplazamiento 5"), NodePath("Casilla ODS 13"), NodePath("Casilla Generica 27"), NodePath("Casilla Generica 28"), NodePath("Casilla ODS 14"), NodePath("Casilla Generica 29"), NodePath("Casilla Generica 30"), NodePath("Casilla Generica 31"), NodePath("Casilla Generica 32"), NodePath("Casilla ODS 15"), NodePath("Casilla Generica 33"), NodePath("Casilla Generica 34"), NodePath("Casilla ODS 16"), NodePath("Casilla Generica 35"), NodePath("Casilla Generica 36"), NodePath("Casilla Generica 37"), NodePath("Casilla Desplazamiento 6"), NodePath("Casilla Generica 38"), NodePath("Casilla ODS 17"), NodePath("Casilla Generica 39"), NodePath("Casilla 2030")]
+player_textures = Array[Texture2D]([ExtResource("2_2drks"), ExtResource("3_80wyr"), ExtResource("4_j1l1s"), ExtResource("5_fd6nh")])
+music_background = ExtResource("6_mk414")
+sfx_dice_roll = ExtResource("6_2ovio")
+sfx_step = ExtResource("6_2me0o")
+sfx_ladder = ExtResource("8_mk414")
+sfx_slide = ExtResource("9_ic1vc")
+sfx_correct = ExtResource("10_m0ce2")
+sfx_wrong = ExtResource("11_iwr2h")
+sfx_win = ExtResource("12_r02rp")
+
+[node name="CapturaDePantalla20251011211215" type="Sprite2D" parent="."]
+position = Vector2(683, 382.5)
+scale = Vector2(0.7114583, 0.7083334)
+texture = ExtResource("6_fd6nh")
+
+[node name="Casilla ODS 1" parent="." instance=ExtResource("3_0k5li")]
+position = Vector2(315, 663)
+rotation = -0.058575556
+scale = Vector2(0.8983054, 0.8495948)
+
+[node name="Casilla Start" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(104, 679)
+scale = Vector2(-1.1167462, -0.6862064)
+
+[node name="Picsart251210233329505PicsartBackgroundRemover" type="Sprite2D" parent="."]
+position = Vector2(721, 569)
+rotation = 0.2617994
+scale = Vector2(0.4710301, 0.45382687)
+texture = ExtResource("9_q8jts")
+script = ExtResource("13_38h61")
+speed = 0.1
+float_range = 0.5
+rotate_speed = 0.5
+rotate_range = 2.0
+
+[node name="Picsart251210233329505PicsartBackgroundRemover2" type="Sprite2D" parent="."]
+position = Vector2(776.4001, 187.65001)
+rotation = 0.2617994
+scale = Vector2(0.58706266, 0.40956095)
+texture = ExtResource("9_q8jts")
+
+[node name="Casilla Desplazamiento 1" parent="." instance=ExtResource("5_80wyr")]
+position = Vector2(736, 693)
+scale = Vector2(0.65282625, 0.56744045)
+
+[node name="Casilla Generica 1" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(212.00005, 673)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla Generica 2" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(404.00003, 658)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla Generica 3" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(448, 708)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Picsart251210234327820PicsartBackgroundRemover" type="Sprite2D" parent="."]
+position = Vector2(1145.6758, 561.29456)
+rotation = -2.6179938
+scale = Vector2(0.6875873, 0.8810114)
+texture = ExtResource("11_o0hyk")
+
+[node name="Picsart251210234327820PicsartBackgroundRemover2" type="Sprite2D" parent="."]
+position = Vector2(581.51135, 449.53577)
+rotation = -2.6179938
+scale = Vector2(0.4066151, 0.5173322)
+texture = ExtResource("11_o0hyk")
+
+[node name="Picsart251210234327820PicsartBackgroundRemover3" type="Sprite2D" parent="."]
+position = Vector2(287.99997, 595)
+rotation = -2.0943952
+scale = Vector2(0.4066151, 0.55884784)
+texture = ExtResource("11_o0hyk")
+
+[node name="Picsart251210234327820PicsartBackgroundRemover4" type="Sprite2D" parent="."]
+position = Vector2(230, 313)
+rotation = -3.1415927
+scale = Vector2(0.38982132, 0.48090395)
+texture = ExtResource("11_o0hyk")
+
+[node name="Casilla Generica 4" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(533, 705.00006)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla ODS 2" parent="." instance=ExtResource("3_0k5li")]
+position = Vector2(593, 643.00006)
+rotation = -0.058575556
+scale = Vector2(0.8983054, 0.8495948)
+
+[node name="Casilla Generica 5" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(684.00006, 644.00006)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla Desplazamiento 2" parent="." instance=ExtResource("5_80wyr")]
+position = Vector2(1185.0001, 438.00003)
+scale = Vector2(0.65282625, 0.56744045)
+
+[node name="Casilla Generica 6" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(812, 692.00006)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla ODS 3" parent="." instance=ExtResource("3_0k5li")]
+position = Vector2(956.0001, 630)
+rotation = -0.058575556
+scale = Vector2(0.8983054, 0.8495948)
+
+[node name="Casilla Generica 7" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(857.0001, 648)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla ODS 4" parent="." instance=ExtResource("3_0k5li")]
+position = Vector2(1205, 673)
+rotation = -0.058575556
+scale = Vector2(0.8983054, 0.8495948)
+
+[node name="Casilla Desplazamiento 3" parent="." instance=ExtResource("5_80wyr")]
+position = Vector2(354, 529)
+scale = Vector2(0.65282625, 0.56744045)
+
+[node name="Casilla Generica 8" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(1054.0001, 632)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla Generica 9" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(1108, 680)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla Generica 10" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(1246, 618.00006)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla Generica 11" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(1279, 561)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla ODS 5" parent="." instance=ExtResource("3_0k5li")]
+position = Vector2(1240, 494.00003)
+rotation = -0.058575556
+scale = Vector2(0.8983054, 0.8495948)
+
+[node name="Casilla ODS 6" parent="." instance=ExtResource("3_0k5li")]
+position = Vector2(1166.0001, 364)
+rotation = -0.058575556
+scale = Vector2(0.8983054, 0.8495948)
+
+[node name="Casilla ODS 7" parent="." instance=ExtResource("3_0k5li")]
+position = Vector2(818, 442)
+rotation = -0.058575556
+scale = Vector2(0.8983054, 0.8495948)
+
+[node name="Casilla ODS 8" parent="." instance=ExtResource("3_0k5li")]
+position = Vector2(458.00003, 521)
+rotation = -0.058575556
+scale = Vector2(0.8983054, 0.8495948)
+
+[node name="Casilla ODS 9" parent="." instance=ExtResource("3_0k5li")]
+position = Vector2(130, 577.99994)
+rotation = -0.058575556
+scale = Vector2(0.8983054, 0.8495948)
+
+[node name="Casilla ODS 10" parent="." instance=ExtResource("3_0k5li")]
+position = Vector2(163, 396.00003)
+rotation = -0.058575556
+scale = Vector2(0.8983054, 0.8495948)
+
+[node name="Casilla ODS 11" parent="." instance=ExtResource("3_0k5li")]
+position = Vector2(381, 427.00003)
+rotation = -0.058575556
+scale = Vector2(0.8983054, 0.8495948)
+
+[node name="Casilla ODS 12" parent="." instance=ExtResource("3_0k5li")]
+position = Vector2(685, 367.00003)
+rotation = -0.058575556
+scale = Vector2(0.8983054, 0.8495948)
+
+[node name="Casilla ODS 13" parent="." instance=ExtResource("3_0k5li")]
+position = Vector2(903, 297.00006)
+rotation = -0.058575556
+scale = Vector2(0.8983054, 0.8495948)
+
+[node name="Casilla ODS 14" parent="." instance=ExtResource("3_0k5li")]
+position = Vector2(933, 115.00006)
+rotation = -0.058575556
+scale = Vector2(0.8983054, 0.8495948)
+
+[node name="Casilla ODS 15" parent="." instance=ExtResource("3_0k5li")]
+position = Vector2(527, 74.00001)
+rotation = -0.058575556
+scale = Vector2(0.8983054, 0.8495948)
+
+[node name="Casilla ODS 16" parent="." instance=ExtResource("3_0k5li")]
+position = Vector2(247.00002, 88)
+rotation = -0.058575556
+scale = Vector2(0.8983054, 0.8495948)
+
+[node name="Casilla ODS 17" parent="." instance=ExtResource("3_0k5li")]
+position = Vector2(376, 201.00002)
+rotation = -0.058575556
+scale = Vector2(0.8983054, 0.8495948)
+
+[node name="Casilla Generica 12" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(1062.0001, 352.00003)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla Generica 13" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(971.00006, 370)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla Generica 14" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(905, 417)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla Generica 15" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(712.00006, 451)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla Generica 16" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(644, 503)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla Generica 17" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(556.00006, 514)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla Generica 18" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(276.00018, 530)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla Generica 19" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(225.00012, 576)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla Generica 20" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(79, 515)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla Generica 21" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(104.00001, 457)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla Generica 22" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(251.00003, 382)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla Generica 23" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(327.00012, 369)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla Generica 24" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(471, 420)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla Generica 25" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(517, 376)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla Generica 26" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(778, 355)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla Generica 27" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(947, 235.00002)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla Generica 28" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(986.00006, 179.00002)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla Generica 29" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(833, 111)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla Generica 30" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(779, 65)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla Generica 31" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(699.00006, 68)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla Generica 32" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(617.00006, 65)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla Generica 33" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(424, 75)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla Generica 34" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(338, 76)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla Generica 35" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(143.00002, 97)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla Generica 36" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(103.00006, 147)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla Generica 37" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(140.00005, 202)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla Generica 38" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(277, 208)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla Generica 39" parent="." instance=ExtResource("4_2drks")]
+position = Vector2(469.00003, 205.00002)
+scale = Vector2(0.5999999, 0.4799903)
+
+[node name="Casilla Desplazamiento 4" parent="." instance=ExtResource("5_80wyr")]
+position = Vector2(598.00006, 380.00003)
+scale = Vector2(0.65282625, 0.56744045)
+
+[node name="Casilla Desplazamiento 5" parent="." instance=ExtResource("5_80wyr")]
+position = Vector2(815.00006, 308.00003)
+scale = Vector2(0.65282625, 0.56744045)
+
+[node name="Casilla Desplazamiento 6" parent="." instance=ExtResource("5_80wyr")]
+position = Vector2(213.00002, 236.00002)
+scale = Vector2(0.65282625, 0.56744045)
+
+[node name="Casilla 2030" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Casilla 2030"]
+position = Vector2(600.00006, 202.00002)
+scale = Vector2(0.32366917, 0.3032227)
+texture = ExtResource("10_80wyr")
+script = ExtResource("13_38h61")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Casilla 2030"]
+position = Vector2(600, 203)
+shape = SubResource("RectangleShape2D_j1l1s")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BotonDado" type="Button" parent="CanvasLayer"]
+offset_left = 1101.0
+offset_top = 100.0
+offset_right = 1281.0
+offset_bottom = 159.0
+text = "Tirar Dados"
+icon = ExtResource("11_j1l1s")
+expand_icon = true
+
+[node name="LabelResultado" type="Label" parent="CanvasLayer"]
+offset_left = 1102.0
+offset_top = 164.0
+offset_right = 1280.0
+offset_bottom = 215.0
+
+[node name="LabelTurnos" type="Label" parent="CanvasLayer"]
+offset_left = 1104.0
+offset_top = 196.0
+offset_right = 1198.0
+offset_bottom = 233.0
+
+[node name="LabelCronometro" type="Label" parent="CanvasLayer"]
+offset_left = 1102.0
+offset_top = 57.0
+offset_right = 1170.0
+offset_bottom = 93.0
+
+[node name="PanelQuiz" type="Panel" parent="CanvasLayer"]
+visible = false
+offset_left = 118.0
+offset_top = 98.0
+offset_right = 1254.0
+offset_bottom = 632.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_m1tsj")
+
+[node name="LabelPregunta" type="Label" parent="CanvasLayer/PanelQuiz"]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 21.0
+offset_right = 960.0
+offset_bottom = 208.0
+theme_override_font_sizes/font_size = 28
+autowrap_mode = 3
+
+[node name="BtnOp1" type="Button" parent="CanvasLayer/PanelQuiz"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 262.0
+offset_right = 920.0
+offset_bottom = 332.0
+
+[node name="BtnOp2" type="Button" parent="CanvasLayer/PanelQuiz"]
+layout_mode = 0
+offset_left = 154.0
+offset_top = 347.0
+offset_right = 919.0
+offset_bottom = 417.0
+
+[node name="BtnOp3" type="Button" parent="CanvasLayer/PanelQuiz"]
+layout_mode = 0
+offset_left = 153.0
+offset_top = 431.0
+offset_right = 918.0
+offset_bottom = 501.0
+
+[node name="ImagePicsartBackgroundRemover(12)" type="Sprite2D" parent="."]
+position = Vector2(527.00006, 597)
+scale = Vector2(0.35121107, 0.3057971)
+texture = ExtResource("15_m1tsj")
+script = ExtResource("13_38h61")
+speed = 0.5
+float_range = 1.0
+
+[node name="ImagePicsartBackgroundRemover(11)" type="Sprite2D" parent="."]
+position = Vector2(820.00006, 575)
+scale = Vector2(0.3265306, 0.33458647)
+texture = ExtResource("16_2me0o")
+script = ExtResource("13_38h61")
+speed = 1.0
+float_range = 3.0
+
+[node name="ImagePicsartBackgroundRemover(10)" type="Sprite2D" parent="."]
+position = Vector2(1162.7499, 314.75)
+scale = Vector2(0.3309663, 0.2855263)
+texture = ExtResource("17_sdu42")
+script = ExtResource("13_38h61")
+speed = 0.5
+float_range = 1.0
+
+[node name="ImagePicsartBackgroundRemover(9)" type="Sprite2D" parent="."]
+position = Vector2(108.00001, 315)
+scale = Vector2(0.5285088, 0.4207693)
+texture = ExtResource("18_x0q1v")
+script = ExtResource("13_38h61")
+speed = 0.5
+float_range = 1.0
+
+[node name="ImagePicsartBackgroundRemover(8)" type="Sprite2D" parent="."]
+position = Vector2(1000, 77)
+scale = Vector2(0.31228667, 0.33529413)
+texture = ExtResource("19_t1jn0")

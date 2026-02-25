@@ -1,0 +1,31 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="GoGoals"
+run/main_scene="uid://cv1w1xwh0p6eg"
+config/features=PackedStringArray("4.5", "Mobile")
+config/icon="res://icon.svg"
+
+[autoload]
+
+GameData="*res://GameData.gd"
+RecordsManager="*res://RecordsManager.gd"
+AudioManager="*res://AudioManager.gd"
+
+[display]
+
+window/size/viewport_width=1366
+window/size/viewport_height=766
+
+[rendering]
+
+renderer/rendering_method="mobile"

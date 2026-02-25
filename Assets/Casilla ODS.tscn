@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://5qm5d5egkaw3"]
+
+[ext_resource type="Texture2D" uid="uid://b84ps8rqier1p" path="res://Imágenes a Añadir/Picsart_25-12-10_11-57-01-036.png" id="1_acott"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylcch"]
+size = Vector2(65.25, 61.5)
+
+[node name="Casilla ODS" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -1.9073486e-06)
+scale = Vector2(0.5025964, 0.41392735)
+texture = ExtResource("1_acott")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ylcch")

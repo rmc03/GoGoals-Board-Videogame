@@ -1,0 +1,95 @@
+[gd_scene load_steps=7 format=3 uid="uid://bd42qkqabxdii"]
+
+[ext_resource type="Script" uid="uid://iefx31y0t5xf" path="res://ComoJugar.gd" id="1_4ti22"]
+[ext_resource type="Texture2D" uid="uid://crxx577tg2c6o" path="res://Imágenes a Añadir/quiz/Screenshot 2025-12-10 201025.png" id="2_52ok7"]
+[ext_resource type="Texture2D" uid="uid://cwd5cyg8knpg3" path="res://Imágenes a Añadir/quiz/Screenshot 2025-12-10 201219.png" id="3_7w5bd"]
+[ext_resource type="Texture2D" uid="uid://raqw7nbpqsth" path="res://Imágenes a Añadir/quiz/Screenshot 2025-12-10 201254.png" id="4_k10nk"]
+[ext_resource type="Texture2D" uid="uid://bxgopnmho2dja" path="res://Imágenes a Añadir/quiz/Screenshot 2025-12-10 201338.png" id="5_u40oj"]
+[ext_resource type="Texture2D" uid="uid://cwent3thvovu2" path="res://Imágenes a Añadir/Icons/cross_large.png" id="6_52ok7"]
+
+[node name="ComoJugar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1366.0
+offset_bottom = 766.0
+script = ExtResource("1_4ti22")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1366.0
+offset_bottom = 766.0
+
+[node name="TabContainer" type="TabContainer" parent="TextureRect"]
+layout_mode = 0
+offset_right = 1366.0
+offset_bottom = 766.0
+current_tab = 0
+
+[node name="Reglas del Juego" type="ScrollContainer" parent="TextureRect/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/TabContainer/Reglas del Juego"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureRect/TabContainer/Reglas del Juego/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][b][font_size=40]¡Bienvenidos a GoGoals![/font_size][/b][/center]
+
+[font_size=24]
+[b]1. El Objetivo[/b]
+Tu misión es viajar desde el inicio hasta la casilla final [color=gold]2030[/color]. ¡El primero que llegue gana!
+
+[b]2. Cómo Moverse[/b]
+Lanza el dado y avanza tantas casillas como diga el número.
+
+[b]3. Escaleras y Ríos[/b]
+[color=green]Escaleras:[/color] Si caes al pie de una escalera... ¡Subes volando hasta arriba! (Es un atajo).
+[color=blue]Ríos:[/color] Si caes en la parte de arriba de un río... ¡Resbalas hasta abajo! (Retrocedes).
+
+[b]4. Preguntas ODS[/b]
+Si caes en una casilla de colores (ODS), te haremos una pregunta.
+[color=green]¿Acertaste?[/color] ¡Genial! Tiras el dado otra vez.
+[color=red]¿Fallaste?[/color] Te quedas donde estás y pasa el turno.
+
+[b]5. Llegada Exacta[/b]
+Para ganar, debes caer exactamente en la casilla 2030. Si sacas un número muy alto, \"rebotarás\" hacia atrás.
+[/font_size]"
+fit_content = true
+
+[node name="Galería ODS" type="ScrollContainer" parent="TextureRect/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="GridContainer" type="GridContainer" parent="TextureRect/TabContainer/Galería ODS"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 4
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/TabContainer/Galería ODS/GridContainer"]
+layout_mode = 2
+texture = ExtResource("2_52ok7")
+
+[node name="TextureRect2" type="TextureRect" parent="TextureRect/TabContainer/Galería ODS/GridContainer"]
+layout_mode = 2
+texture = ExtResource("3_7w5bd")
+
+[node name="TextureRect3" type="TextureRect" parent="TextureRect/TabContainer/Galería ODS/GridContainer"]
+layout_mode = 2
+texture = ExtResource("4_k10nk")
+
+[node name="TextureRect4" type="TextureRect" parent="TextureRect/TabContainer/Galería ODS/GridContainer"]
+layout_mode = 2
+texture = ExtResource("5_u40oj")
+
+[node name="BotonVolver" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1287.0
+offset_right = 1366.0
+offset_bottom = 59.0
+icon = ExtResource("6_52ok7")

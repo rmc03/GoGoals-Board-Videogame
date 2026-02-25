@@ -1,0 +1,193 @@
+[gd_scene load_steps=12 format=3 uid="uid://cv1w1xwh0p6eg"]
+
+[ext_resource type="Script" uid="uid://s3jj4ryslvkp" path="res://MenuPrincipal.gd" id="1_0oe1n"]
+[ext_resource type="Texture2D" uid="uid://dvj5xfmcrxp71" path="res://Imágenes a Añadir/Wallpapers/Picsart_25-12-10_19-09-01-870.jpg" id="2_oh4jq"]
+[ext_resource type="FontFile" uid="uid://e43x2moucoqe" path="res://Fonts/ticketing/TICKETING/Ticketing.ttf" id="3_5dpk2"]
+[ext_resource type="Texture2D" uid="uid://c3j0yq6fhx5v8" path="res://Imágenes a Añadir/Flotantes/image-Picsart-BackgroundRemover (3).png" id="4_knros"]
+[ext_resource type="Script" uid="uid://bnqloxjj2itlb" path="res://IconoFlotante.gd" id="5_348rq"]
+[ext_resource type="Texture2D" uid="uid://xpf6yre73ng1" path="res://Imágenes a Añadir/Flotantes/image-Picsart-BackgroundRemover (4).png" id="5_oh4jq"]
+[ext_resource type="Texture2D" uid="uid://bdwsc2nalq80q" path="res://Imágenes a Añadir/Flotantes/image-Picsart-BackgroundRemover (5).png" id="6_348rq"]
+[ext_resource type="Texture2D" uid="uid://cmgbe0nyiwiud" path="res://Imágenes a Añadir/Flotantes/image-Picsart-BackgroundRemover (6).png" id="8_348rq"]
+[ext_resource type="Texture2D" uid="uid://cwent3thvovu2" path="res://Imágenes a Añadir/Icons/cross_large.png" id="9_xhhru"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ba235"]
+font = ExtResource("3_5dpk2")
+font_size = 60
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xhhru"]
+bg_color = Color(0.20133239, 0.16896665, 0.43076494, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1366.0
+offset_bottom = 766.0
+script = ExtResource("1_0oe1n")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1366.0
+offset_bottom = 766.0
+texture = ExtResource("2_oh4jq")
+expand_mode = 1
+
+[node name="ButtonJugar" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 566.0
+offset_top = 256.0
+offset_right = 799.0
+offset_bottom = 320.0
+text = "Jugar"
+
+[node name="ButtonOptions" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 566.0
+offset_top = 474.0
+offset_right = 799.0
+offset_bottom = 538.0
+text = "Opciones"
+
+[node name="ButtonComoJugar" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 566.0
+offset_top = 328.0
+offset_right = 799.0
+offset_bottom = 392.0
+text = "¿Cómo Jugar?
+"
+
+[node name="ButtonRanking" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 566.0
+offset_top = 402.0
+offset_right = 799.0
+offset_bottom = 466.0
+text = "Ranking
+"
+
+[node name="ButtonSalir" type="Button" parent="."]
+layout_mode = 0
+offset_left = 566.0
+offset_top = 544.0
+offset_right = 799.0
+offset_bottom = 608.0
+text = "Salir"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 281.0
+offset_top = 60.0
+offset_right = 1091.0
+offset_bottom = 195.0
+text = "Aventura Sostenible: 
+La Búsqueda de los 17 Tesoros."
+label_settings = SubResource("LabelSettings_ba235")
+horizontal_alignment = 1
+
+[node name="ImagePicsartBackgroundRemover(3)" type="Sprite2D" parent="."]
+position = Vector2(141.99998, 255.99998)
+scale = Vector2(0.9693396, 0.90829694)
+texture = ExtResource("4_knros")
+script = ExtResource("5_348rq")
+
+[node name="ImagePicsartBackgroundRemover(4)" type="Sprite2D" parent="."]
+position = Vector2(406, 405)
+texture = ExtResource("5_oh4jq")
+script = ExtResource("5_348rq")
+
+[node name="ImagePicsartBackgroundRemover(5)" type="Sprite2D" parent="."]
+position = Vector2(207, 604)
+texture = ExtResource("6_348rq")
+script = ExtResource("5_348rq")
+speed = 1.5
+float_range = 15.0
+
+[node name="ImagePicsartBackgroundRemover(6)" type="Sprite2D" parent="."]
+position = Vector2(1176, 300)
+texture = ExtResource("8_348rq")
+script = ExtResource("5_348rq")
+
+[node name="PanelSeleccion" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 505.0
+offset_top = 195.0
+offset_right = 856.0
+offset_bottom = 613.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xhhru")
+
+[node name="Label" type="Label" parent="PanelSeleccion"]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 47.0
+offset_right = 257.0
+offset_bottom = 362.0
+text = "¿Cuántos Jugadores?
+"
+
+[node name="Btn1P" type="Button" parent="PanelSeleccion"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 125.0
+offset_right = 223.0
+offset_bottom = 169.0
+text = "1 Judador"
+
+[node name="Btn2P" type="Button" parent="PanelSeleccion"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 179.0
+offset_right = 223.0
+offset_bottom = 223.0
+text = "2 Jugadores"
+
+[node name="Btn3P" type="Button" parent="PanelSeleccion"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 237.0
+offset_right = 223.0
+offset_bottom = 281.0
+text = "3 Jugadores"
+
+[node name="Btn4P" type="Button" parent="PanelSeleccion"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 292.0
+offset_right = 223.0
+offset_bottom = 339.0
+text = "4 Jugadores"
+
+[node name="BtnCancelar" type="Button" parent="PanelSeleccion"]
+layout_mode = 0
+offset_left = 305.0
+offset_right = 352.0
+offset_bottom = 44.0
+icon = ExtResource("9_xhhru")
+expand_icon = true
+
+[node name="VentanaRanking" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 460.0
+offset_top = 195.0
+offset_right = 899.0
+offset_bottom = 707.0
+
+[node name="BotonCerrar" type="Button" parent="VentanaRanking"]
+layout_mode = 0
+offset_left = 387.0
+offset_right = 439.0
+offset_bottom = 47.0
+icon = ExtResource("9_xhhru")
+expand_icon = true
+
+[node name="LabelRanking" type="RichTextLabel" parent="VentanaRanking"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 61.0
+offset_right = 384.0
+offset_bottom = 465.0
+bbcode_enabled = true

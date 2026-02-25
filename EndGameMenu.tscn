@@ -1,0 +1,65 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtrpt4bfwt3cq"]
+
+[ext_resource type="Script" uid="uid://c7u0jag1s6s26" path="res://EndGameMenu.gd" id="1_rp854"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -2.0
+offset_top = 10.0
+offset_right = 757.0
+offset_bottom = 311.0
+script = ExtResource("1_rp854")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 344.0
+offset_top = 197.0
+offset_right = 1060.0
+offset_bottom = 532.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 317.0
+offset_top = 16.0
+offset_right = 419.0
+offset_bottom = 39.0
+text = "Fin del Juego"
+
+[node name="InputName" type="LineEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 159.0
+offset_right = 560.0
+offset_bottom = 194.0
+
+[node name="LabelStats" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 228.0
+offset_top = 39.0
+offset_right = 506.0
+offset_bottom = 148.0
+
+[node name="ButtonSubmit" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 266.0
+offset_top = 209.0
+offset_right = 449.0
+offset_bottom = 246.0
+text = "Guardar la Puntuación"
+
+[node name="ButtonMenu" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 263.0
+offset_right = 503.0
+offset_bottom = 302.0
+text = "Regresar al Menú"
+
+[node name="ButtonRestart" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 263.0
+offset_right = 345.0
+offset_bottom = 301.0
+text = "Volver a Jugar"
