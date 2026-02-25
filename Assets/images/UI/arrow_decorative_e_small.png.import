@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://csvl0wfbuss51"
-path="res://.godot/imported/arrow_decorative_e_small.png-467eecb089b3e6ae9d1d1d7c3ba03a4f.ctex"
+path="res://.godot/imported/arrow_decorative_e_small.png-0ad062a8949bb606b78fdaa3fbc99cac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imágenes a Añadir/UI/arrow_decorative_e_small.png"
-dest_files=["res://.godot/imported/arrow_decorative_e_small.png-467eecb089b3e6ae9d1d1d7c3ba03a4f.ctex"]
+source_file="res://Assets/images/UI/arrow_decorative_e_small.png"
+dest_files=["res://.godot/imported/arrow_decorative_e_small.png-0ad062a8949bb606b78fdaa3fbc99cac.ctex"]
 
 [params]
 

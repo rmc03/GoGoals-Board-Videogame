@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bvionyftyu8o5"
-path="res://.godot/imported/check_round_grey.png-549515a5f3efc3d6bc450130de071edc.ctex"
+path="res://.godot/imported/check_round_grey.png-54a5e102ebac8c83b7121cf5c8dd4b54.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imágenes a Añadir/UI/check_round_grey.png"
-dest_files=["res://.godot/imported/check_round_grey.png-549515a5f3efc3d6bc450130de071edc.ctex"]
+source_file="res://Assets/images/UI/check_round_grey.png"
+dest_files=["res://.godot/imported/check_round_grey.png-54a5e102ebac8c83b7121cf5c8dd4b54.ctex"]
 
 [params]
 

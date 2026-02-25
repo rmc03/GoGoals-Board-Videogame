@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://bhpw0ps6w7ta7"
-path="res://.godot/imported/Adventure ReQuest.otf-c8629a8e33cfaafbf049cd0478d0bfc0.fontdata"
+path="res://.godot/imported/Adventure ReQuest.otf-b92f2ba8a0211118112093ce90a1dfb1.fontdata"
 
 [deps]
 
-source_file="res://Fonts/adventure-request/Adventure ReQuest.otf"
-dest_files=["res://.godot/imported/Adventure ReQuest.otf-c8629a8e33cfaafbf049cd0478d0bfc0.fontdata"]
+source_file="res://Assets/Fonts/adventure-request/Adventure ReQuest.otf"
+dest_files=["res://.godot/imported/Adventure ReQuest.otf-b92f2ba8a0211118112093ce90a1dfb1.fontdata"]
 
 [params]
 

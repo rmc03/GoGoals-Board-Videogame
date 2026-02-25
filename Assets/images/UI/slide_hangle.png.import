@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqmsugyg3p3we"
-path="res://.godot/imported/slide_hangle.png-da3cffc70ff46e606ed558666a620fef.ctex"
+path="res://.godot/imported/slide_hangle.png-1791833f7dff1ae1dbc091ee6120b2e0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imágenes a Añadir/UI/slide_hangle.png"
-dest_files=["res://.godot/imported/slide_hangle.png-da3cffc70ff46e606ed558666a620fef.ctex"]
+source_file="res://Assets/images/UI/slide_hangle.png"
+dest_files=["res://.godot/imported/slide_hangle.png-1791833f7dff1ae1dbc091ee6120b2e0.ctex"]
 
 [params]
 

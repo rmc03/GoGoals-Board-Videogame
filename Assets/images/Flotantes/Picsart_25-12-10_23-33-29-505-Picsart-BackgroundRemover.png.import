@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dg74gbx3uxqfp"
-path="res://.godot/imported/Picsart_25-12-10_23-33-29-505-Picsart-BackgroundRemover.png-81cca7abe7505c4248d2263914d75be3.ctex"
+path="res://.godot/imported/Picsart_25-12-10_23-33-29-505-Picsart-BackgroundRemover.png-6ffd071951eb43022843a769d6d3aa87.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imágenes a Añadir/Flotantes/Picsart_25-12-10_23-33-29-505-Picsart-BackgroundRemover.png"
-dest_files=["res://.godot/imported/Picsart_25-12-10_23-33-29-505-Picsart-BackgroundRemover.png-81cca7abe7505c4248d2263914d75be3.ctex"]
+source_file="res://Assets/images/Flotantes/Picsart_25-12-10_23-33-29-505-Picsart-BackgroundRemover.png"
+dest_files=["res://.godot/imported/Picsart_25-12-10_23-33-29-505-Picsart-BackgroundRemover.png-6ffd071951eb43022843a769d6d3aa87.ctex"]
 
 [params]
 

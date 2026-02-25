@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dvj5xfmcrxp71"
-path="res://.godot/imported/Picsart_25-12-10_19-09-01-870.jpg-f341fc0d04bb6f78bf7cd6b756a708c5.ctex"
+path="res://.godot/imported/Picsart_25-12-10_19-09-01-870.jpg-debca9e65a20ad33d6342b8a5736e4f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imágenes a Añadir/Wallpapers/Picsart_25-12-10_19-09-01-870.jpg"
-dest_files=["res://.godot/imported/Picsart_25-12-10_19-09-01-870.jpg-f341fc0d04bb6f78bf7cd6b756a708c5.ctex"]
+source_file="res://Assets/images/Wallpapers/Picsart_25-12-10_19-09-01-870.jpg"
+dest_files=["res://.godot/imported/Picsart_25-12-10_19-09-01-870.jpg-debca9e65a20ad33d6342b8a5736e4f2.ctex"]
 
 [params]
 

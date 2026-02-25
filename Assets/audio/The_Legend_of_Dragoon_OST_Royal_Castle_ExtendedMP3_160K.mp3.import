@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://cciufm4n8gwbj"
-path="res://.godot/imported/The_Legend_of_Dragoon_OST_Royal_Castle_ExtendedMP3_160K.mp3-d4249c5c6ba536c4269cceb8a96999ac.mp3str"
+path="res://.godot/imported/The_Legend_of_Dragoon_OST_Royal_Castle_ExtendedMP3_160K.mp3-4e10d2cc168718b05c0e1adc88b78992.mp3str"
 
 [deps]
 
-source_file="res://Audio/The_Legend_of_Dragoon_OST_Royal_Castle_ExtendedMP3_160K.mp3"
-dest_files=["res://.godot/imported/The_Legend_of_Dragoon_OST_Royal_Castle_ExtendedMP3_160K.mp3-d4249c5c6ba536c4269cceb8a96999ac.mp3str"]
+source_file="res://Assets/audio/The_Legend_of_Dragoon_OST_Royal_Castle_ExtendedMP3_160K.mp3"
+dest_files=["res://.godot/imported/The_Legend_of_Dragoon_OST_Royal_Castle_ExtendedMP3_160K.mp3-4e10d2cc168718b05c0e1adc88b78992.mp3str"]
 
 [params]
 

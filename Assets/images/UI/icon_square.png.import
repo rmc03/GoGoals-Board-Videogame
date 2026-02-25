@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dqblayebymxbl"
-path="res://.godot/imported/icon_square.png-c7497570604350f6adde52f91f1ad41e.ctex"
+path="res://.godot/imported/icon_square.png-ece55978bf67b661d4de34f63ee6dc7c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imágenes a Añadir/UI/icon_square.png"
-dest_files=["res://.godot/imported/icon_square.png-c7497570604350f6adde52f91f1ad41e.ctex"]
+source_file="res://Assets/images/UI/icon_square.png"
+dest_files=["res://.godot/imported/icon_square.png-ece55978bf67b661d4de34f63ee6dc7c.ctex"]
 
 [params]
 
