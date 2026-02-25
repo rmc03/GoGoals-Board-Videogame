@@ -44,6 +44,69 @@
                 "La falta de acceso a servicios básicos como agua, salud y educación"
             ],
             "correct": 2
+        },
+        {
+            "q": "¿Cómo dirías que alguien está viviendo en una situación de pobreza?",
+            "options": [
+                "No tiene un Smartphone",
+                "No está bien vestido/a",
+                "No es capaz de costear sus necesidades básicas- como comida, cuidados médicos, educación…"
+            ],
+            "correct": 0
+        },
+        {
+            "q": "¿Cuál es la mejor forma de luchar contra la pobreza?",
+            "options": [
+                "Repartir la riqueza que se genera en el mundo",
+                "No hacer nada e ignorar el problema",
+                "Prevenir que los extranjeros entren a tu país"
+            ],
+            "correct": 1
+        },
+        {
+            "q": "¿Hay menos gente viviendo en situación de pobreza que hace 25 años?",
+            "options": [
+                "No; 1000 millones de personas más están viviendo en la pobreza",
+                "Sí; 1000 millones de personas han conseguido salir de la pobreza"
+            ],
+            "correct": 0
+        },
+        {
+            "q": "seguro de estar alejado de la pobreza?",
+            "options": [
+                "No; puedes tener un trabajo y estar en situación de pobreza (1 de cada 7 trabajadores todavía vive por debajo de la línea de pobreza)",
+                "Sí; porque trabajas para ganar dinero"
+            ],
+            "correct": 1
+        },
+        {
+            "q": "Verdadero o falso: Durante los últimos 25 años el número de personas en extrema pobreza NO ha disminuido.",
+            "options": [
+                "Falso",
+                "Verdadero"
+            ],
+            "correct": 1
+        },
+        {
+            "q": "¿Cuánta gente vive en situación de pobreza en el mundo?",
+            "options": [
+                "Más de 8000 personas",
+                "Más de 800 personas",
+                "Más de 800 millones de personas",
+                "Hará difícil que consigas un buen trabajo",
+                "Solamente es útil para niños muy inteligentes",
+                "Te ayudará a conseguir un buen trabajo y a mejorar tu vida"
+            ],
+            "correct": 1
+        },
+        {
+            "q": "en la atmósfera. ¿Qué gas es?",
+            "options": [
+                "Gas mostaza",
+                "Ozono",
+                "Dióxido de carbono"
+            ],
+            "correct": 1
         }
     ],
     "2": [
@@ -89,6 +152,58 @@
                 "Hace que las plantas crezcan demasiado rápido",
                 "No tiene ningún efecto en la agricultura",
                 "Causa sequías e inundaciones que destruyen los cultivos"
+            ],
+            "correct": 2
+        },
+        {
+            "q": "¿Se produce suficiente comida en el mundo para alimentar a todos sus habitantes?",
+            "options": [
+                "No; porque me entra hambre todo el tiempo",
+                "Sí; se produce suficiente comida sana, pero no se producen suficientes dulces y refrescos",
+                "Sí que se produce suficiente comida, pero no todo el mundo puede permitirse comprarla"
+            ],
+            "correct": 0
+        },
+        {
+            "q": "Verdadero o falso: El número de personas con hambre en el mundo está disminuyendo.",
+            "options": [
+                "Falso",
+                "Verdadero"
+            ],
+            "correct": 1
+        },
+        {
+            "q": "no son reales?",
+            "options": [
+                "Coches voladores",
+                "Bicicletas",
+                "Buses eléctricos"
+            ],
+            "correct": 1
+        },
+        {
+            "q": "¿Cuánta comida se malgasta al día en el mundo?",
+            "options": [
+                "Muy poca, ya que la gente ha reducido dramáticamente la cantidad que malgasta",
+                "Un tercio de toda la comida producida",
+                "Nada, toda la comida o se come o se congela"
+            ],
+            "correct": 2
+        },
+        {
+            "q": "Verdadero o falso: Cada adulto posee una cuenta bancaria.",
+            "options": [
+                "Verdadero",
+                "Falso"
+            ],
+            "correct": 0
+        },
+        {
+            "q": "¿Qué es el desplazamiento de niños?",
+            "options": [
+                "Cuando un niño pasa la noche en casa de su amigo",
+                "Cuando los niños tienen que dejar su hogar a causa de un conflicto armado",
+                "Cuando los niños se van de vacaciones"
             ],
             "correct": 2
         }
@@ -138,6 +253,91 @@
                 "Para descubrir curas y tratamientos para enfermedades que aún no podemos sanar"
             ],
             "correct": 2
+        },
+        {
+            "q": "¿Cuál es la esperanza de vida media en el mundo?",
+            "options": [
+                "70 años Solo uno de los siguientes países tiene más mujeres que hombres en su Parlamento.",
+                "60 años",
+                "50 años"
+            ],
+            "correct": 2
+        },
+        {
+            "q": "¿Cuánta gente en el mundo no come lo suficiente para poder tener una buena salud?",
+            "options": [
+                "Más de 90 personas",
+                "Más de 9000 personas",
+                "Más de 900 millones de personas"
+            ],
+            "correct": 0
+        },
+        {
+            "q": "¿Qué es lo mejor para un bebé recién nacido?",
+            "options": [
+                "Beber agua",
+                "Que su madre le dé el pecho",
+                "Ser alimentado mediante un biberón"
+            ],
+            "correct": 2
+        },
+        {
+            "q": "¿Dónde van las aguas residuales resultantes de las actividades humanas?",
+            "options": [
+                "Son almacenadas en lugares seguros",
+                "Son descargadas en ríos o mares sin eliminar sus elementos contaminantes El calentamiento global ocurre por el aumento de la presencia de cierto gas",
+                "Son tratadas y recicladas"
+            ],
+            "correct": 2
+        },
+        {
+            "q": "¿Qué significa crecimiento económico?",
+            "options": [
+                "Un incremento en el valor de los bienes y servicios producidos por un país",
+                "Que ahorras dinero cada mes",
+                "Que los precios están aumentando"
+            ],
+            "correct": 1
+        },
+        {
+            "q": "¿Cuántos minutos de ejercicio deben hacer los niños de entre 7 y 17 años cada día?",
+            "options": [
+                "30 minutos",
+                "60 minutos",
+                "No necesitan hacer ejercicio cada día"
+            ],
+            "correct": 1
+        },
+        {
+            "q": "¿Qué es la malnutrición?",
+            "options": [
+                "Cuando comes suficiente comida sana durante un cierto periodo de tiempo",
+                "Cuando no comes carne cada día",
+                "Cuando no comes 3 platos al día"
+            ],
+            "correct": 2
+        },
+        {
+            "q": "¿Cuál de estos insectos ha ayudado a propagar la malaria?",
+            "options": [
+                "Libélulas",
+                "Mosquitos",
+                "Luciérnagas"
+            ],
+            "correct": 1
+        },
+        {
+            "q": "¿Quién debería estar involucrado en acuerdos para lograr los ODS?",
+            "options": [
+                "Asegurándonos de que todos los niños tienen acceso a la educación",
+                "Asegurándonos de que todos vemos los mismos canales de televisión En 2015,",
+                "Ciudadanos",
+                "Gobiernos",
+                "Todos Podemos luchar contra las desigualdades:",
+                "Asegurándonos de que todos llevamos la misma ropa",
+                "Empresas"
+            ],
+            "correct": 2
         }
     ],
     "4": [
@@ -183,6 +383,51 @@
                 "La capacidad de leer y escribir correctamente",
                 "La habilidad de usar computadoras avanzadas",
                 "Saber todos los países del mundo de memoria"
+            ],
+            "correct": 0
+        },
+        {
+            "q": "¿En qué continente vive la mayoría de los niños que no van a la escuela?",
+            "options": [
+                "África",
+                "Asia",
+                "América",
+                "Europa"
+            ],
+            "correct": 3
+        },
+        {
+            "q": "Verdadero o falso: Menos niños que niñas van la escuela en el mundo entero.",
+            "options": [
+                "Falso",
+                "Verdadero"
+            ],
+            "correct": 1
+        },
+        {
+            "q": "¿Qué significa eficiencia?",
+            "options": [
+                "Cuando una lámpara brilla mucho",
+                "Cuando puedes usar energía sin tener que preocuparte sobre tu consumo",
+                "Un aparato o un edificio que usa o necesita relativamente poca energía para funcionar Si tienes un trabajo,"
+            ],
+            "correct": 0
+        },
+        {
+            "q": "¿Qué porcentaje de adultos está alfabetizado hoy en día, significando que pueden leer y escribir?",
+            "options": [
+                "60%",
+                "30%",
+                "80%"
+            ],
+            "correct": 2
+        },
+        {
+            "q": "¿Qué infraestructura es importante para una educación de calidad?",
+            "options": [
+                "Patios y bocadillos",
+                "Dispensador de refrescos En 2030,",
+                "Escuelas limpias, profesores y libros"
             ],
             "correct": 0
         }
@@ -232,6 +477,36 @@
                 "Para asegurar que las mujeres participen en la creación del futuro"
             ],
             "correct": 2
+        },
+        {
+            "q": "¿Qué país fue el primero del mundo en dar a las mujeres derechos políticos plenos (el derecho a votar y ser elegidas)?",
+            "options": [
+                "Los Estados Unidos",
+                "Agua que parece limpia",
+                "El agua de las macetas",
+                "Francia",
+                "Agua que es segura de beber",
+                "Finlandia El agua potable es:"
+            ],
+            "correct": 3
+        },
+        {
+            "q": "¿Cuál de los siguientes enunciados es verdadero?",
+            "options": [
+                "Necesitas al menos tomar un refresco al día para estar sano y en buena forma",
+                "Hay suficiente comida en el mundo para alimentar a todas las personas",
+                "Te puedes mantener sano si no comes ni frutas ni verduras"
+            ],
+            "correct": 0
+        },
+        {
+            "q": "¿Qué porcentaje de mujeres son investigadoras en ciencia y tecnología?",
+            "options": [
+                "70%",
+                "50%",
+                "30%"
+            ],
+            "correct": 1
         }
     ],
     "6": [
@@ -277,6 +552,39 @@
                 "Porque ahorra más agua que no usar jabón",
                 "Para que el agua huela mejor",
                 "Porque previene la propagación de enfermedades graves"
+            ],
+            "correct": 2
+        },
+        {
+            "q": "¿Cómo podrías usar menos agua?",
+            "options": [
+                "Bebiendo refrescos en lugar de agua.",
+                "Duchándome en vez de tomar un baño.",
+                "No hay escasez de agua donde vivo, puedo usar tanta agua como quiera."
+            ],
+            "correct": 2
+        },
+        {
+            "q": "¿Qué porcentaje de agua es potable?",
+            "options": [
+                "3%",
+                "50%",
+                "97%"
+            ],
+            "correct": 0
+        },
+        {
+            "q": "mundial vivirá en áreas urbanas?",
+            "options": [
+                "El plástico se produce con árboles",
+                "100%",
+                "60%",
+                "Conchas Los árboles son esenciales porque:",
+                "Un juguete",
+                "Comida",
+                "20% Las bolsas de plástico son peligrosas para las tortugas porque ellas piensan que son:",
+                "Los puedes escalar",
+                "Son un hábitat para la vida salvaje"
             ],
             "correct": 2
         }
@@ -326,6 +634,93 @@
                 "Porque hace que los inviernos sean más fríos"
             ],
             "correct": 0
+        },
+        {
+            "q": "Señala la respuesta incorrecta. La energía limpia puede ser producida con:",
+            "options": [
+                "Viento",
+                "Carbón",
+                "Olas",
+                "Sol"
+            ],
+            "correct": 1
+        },
+        {
+            "q": "¿Qué es una energía renovable?",
+            "options": [
+                "Una energía que se deriva de recursos naturales, y que puede ser renovada por la naturaleza en un período corto de tiempo- como el viento o el sol",
+                "Una fuente de energía con una cuota de inscripción renovable",
+                "Una marca de refresco"
+            ],
+            "correct": 2
+        },
+        {
+            "q": "¿Qué es un niño soldado?",
+            "options": [
+                "Un niño que juega a hacer la guerra con otros niños",
+                "Un niño que está dentro de un grupo armado",
+                "Ambos"
+            ],
+            "correct": 0
+        },
+        {
+            "q": "¿Cuántos países en el mundo tienen una mujer como Presidente o Jefa de Estado?",
+            "options": [
+                "20",
+                "100",
+                "5"
+            ],
+            "correct": 2
+        },
+        {
+            "q": "Verdadero o falso: todo el mundo tiene accesso a electricidad.",
+            "options": [
+                "Falso",
+                "Verdadero"
+            ],
+            "correct": 1
+        },
+        {
+            "q": "¿Qué son las energías renovables?",
+            "options": [
+                "Energía que proviene de fuentes naturales y nunca se agota",
+                "Una forma de energía usada por los faraones del Antiguo Egipto",
+                "Energía que proviene del espacio"
+            ],
+            "correct": 0
+        },
+        {
+            "q": "¿Qué ha hecho más fácil la comunicación entre socios?",
+            "options": [
+                "Energía proveniente de sol, el viento y las olas La industria del petróleo es la más conta-",
+                "Tanto niños como niñas deben tener igualdad de oportunidades Los países deben asegurarse de usar más:",
+                "Mensajes en botellas En la escuela:",
+                "Palomas mensajeras",
+                "Las niñas deben aprender a tejer y a cocinar",
+                "Los niños deben aprender ciencia y tecnología",
+                "Energía nuclear",
+                "Internet",
+                "Carbón y petróleo para energía"
+            ],
+            "correct": 3
+        },
+        {
+            "q": "son renovables, ¿Por qué?",
+            "options": [
+                "Porque pueden ser repuestas por la naturaleza en periodo de tiempo corto",
+                "Porque no contaminan",
+                "Porque son nuevas"
+            ],
+            "correct": 1
+        },
+        {
+            "q": "¿Cuál es una forma renovable de energía?",
+            "options": [
+                "Sol",
+                "Petróleo",
+                "Gas"
+            ],
+            "correct": 1
         }
     ],
     "8": [
@@ -373,6 +768,25 @@
                 "Que le quitan trabajos a los adultos"
             ],
             "correct": 1
+        },
+        {
+            "q": "¿Cuál es?",
+            "options": [
+                "Perú",
+                "Noruega",
+                "Francia",
+                "Inglaterra",
+                "Ruanda"
+            ],
+            "correct": 3
+        },
+        {
+            "q": "¿Deben ser remunerados igual los hombres y las mujeres si tienen el mismo trabajo?",
+            "options": [
+                "Por supuesto, hombres y mujeres tienen los mismos derechos",
+                "No; se debe pagar más a los hombres porque son más fuertes"
+            ],
+            "correct": 0
         }
     ],
     "9": [
@@ -420,6 +834,23 @@
                 "Permite acceder a información, bancos y educación desde cualquier lugar"
             ],
             "correct": 2
+        },
+        {
+            "q": "¿Qué es una empresa sostenible?",
+            "options": [
+                "Una empresa que empezó a funcionar hace mucho tiempo y que todavía sigue funcionando",
+                "Una empresa que produce residuos tóxicos",
+                "Una empresa que no causa daños al medio ambiente"
+            ],
+            "correct": 0
+        },
+        {
+            "q": "Verdadero o falso: Todo el mundo tiene acceso a internet.",
+            "options": [
+                "Falso Ya existen soluciones para ahorrar energía y proteger el planeta.",
+                "Verdadero"
+            ],
+            "correct": 1
         }
     ],
     "10": [
@@ -467,6 +898,24 @@
                 "Reducir los salarios"
             ],
             "correct": 0
+        },
+        {
+            "q": "¿Cuánta gente de países en desarrollo viven en chabolas?",
+            "options": [
+                "80%",
+                "30%",
+                "55%"
+            ],
+            "correct": 1
+        },
+        {
+            "q": "primero en prohibirlas?",
+            "options": [
+                "Rusia",
+                "Ruanda En 1990, casi 4 de cada 10 personas (38%) vivía en una situación de pobreza extrema.",
+                "Suecia"
+            ],
+            "correct": 2
         }
     ],
     "11": [
@@ -514,6 +963,43 @@
                 "Para preservar la historia y la identidad de las comunidades"
             ],
             "correct": 2
+        },
+        {
+            "q": "minante del mundo. ¿Cuál es la siguiente?",
+            "options": [
+                "Europa",
+                "La industria textil",
+                "Ambas",
+                "Menor pobreza",
+                "La industria de la extracción de carbón",
+                "Una mejor salud",
+                "Norte y Sudamérica",
+                "África y Asia Una educación de calidad es buena para…",
+                "La industria de los teléfonos móviles La mayoría de la gente en situación de pobreza vive en:"
+            ],
+            "correct": 4
+        },
+        {
+            "q": "¿Dónde se registra el mayor ritmo de urbanización en el mundo?",
+            "options": [
+                "Estados Unidos de América",
+                "Europa",
+                "Países en vías de desarrollo"
+            ],
+            "correct": 1
+        },
+        {
+            "q": "¿Qué se necesita para conseguir lograr los 17 ODS?",
+            "options": [
+                "Agua potable",
+                "El involucramiento de todos los países",
+                "Todas las de arriba",
+                "Que los países desarrollados lideren el cambio",
+                "Vacunas",
+                "Cuidado médico",
+                "Que los países en desarrollo lideren el cambio Para reducir desigualdades en el cuidado de la salud los niños deben tener acceso a:"
+            ],
+            "correct": 1
         }
     ],
     "12": [
@@ -561,6 +1047,26 @@
                 "Dejar los aparatos encendidos"
             ],
             "correct": 1
+        },
+        {
+            "q": "¿Cuál de los siguientes enunciados es cierto?",
+            "options": [
+                "La mayoría de la gente tiene lavabos pero no puede permitirse teléfonos móviles",
+                "Más gente tiene un teléfono móvil que un lavabo",
+                "Todo el mundo tiene lavabos y teléfonos móviles Algunas fuentes de energía"
+            ],
+            "correct": 1
+        },
+        {
+            "q": "Verdadero o falso: Si no cambiamos nuestros hábitos para el 2050 habrá más plástico en el océano que peces.",
+            "options": [
+                "Creciendo: hay árboles por todos lados",
+                "Falso Globalmente, los bosques están:",
+                "Desvaneciendo: casi la mitad de los bosques ya han desaparecido",
+                "Verdadero",
+                "Siendo talados al mismo ritmo que son plantados"
+            ],
+            "correct": 3
         }
     ],
     "13": [
@@ -608,6 +1114,43 @@
                 "Mudarse todos al hemisferio norte"
             ],
             "correct": 0
+        },
+        {
+            "q": "¿Cuánta gente está desempleada en el mundo?",
+            "options": [
+                "20 millones",
+                "200 millones",
+                "2 millones"
+            ],
+            "correct": 2
+        },
+        {
+            "q": "¿Cuál de estas innovaciones es la mejor para luchar contra el calentamiento global?",
+            "options": [
+                "Un coche diésel",
+                "Un coche de gasolina",
+                "Un coche eléctrico"
+            ],
+            "correct": 2
+        },
+        {
+            "q": "¿Quién está a cargo de cuidar el planeta?",
+            "options": [
+                "El gobierno",
+                "Todos Las bolsas de plástico son un gran problema para el medio ambiente.",
+                "Los famosos",
+                "Los científicos"
+            ],
+            "correct": 3
+        },
+        {
+            "q": "frenar el calentamiento global?",
+            "options": [
+                "Nueva York (El acuerdo Manhattan)",
+                "París (El acuerdo de París)",
+                "Londres (El acuerdo del Big Ben)"
+            ],
+            "correct": 1
         }
     ],
     "14": [
@@ -655,6 +1198,63 @@
                 "Pequeños pedazos de plástico que los animales marinos comen por error"
             ],
             "correct": 2
+        },
+        {
+            "q": "¿Qué contribuye a la contaminación marina?",
+            "options": [
+                "Basura en la playa",
+                "Necesitamos madera para construir casas",
+                "Los bosques producen oxígeno",
+                "Los bosques son lugares bonitos donde jugar",
+                "Medusas y cangrejos",
+                "Algas marinas Debemos proteger nuestros bosques contra el cambio climático porque:"
+            ],
+            "correct": 0
+        },
+        {
+            "q": "Verdadero o falso. Los peces que hay en el mar no se pueden acabar nunca.",
+            "options": [
+                "Verdadero, puedo comer todos los que quiera sin problema",
+                "Falso, la sobrepesca, la contaminación y el cambio climático están reduciendo la cantidad de peces en el mar"
+            ],
+            "correct": 0
+        },
+        {
+            "q": "Elige 2 cosas de la siguiente lista que podría ayudar a que no muriesen más niños menores",
+            "options": [
+                "Agua potable",
+                "Comida nutritiva",
+                "Refrescos",
+                "Teléfonos móviles"
+            ],
+            "correct": 1
+        },
+        {
+            "q": "¿Qué es la sobrepesca?",
+            "options": [
+                "Emisiones de frecuencia de los teléfonos móviles",
+                "Sobrealimentar a los peces para que se hagan muy grandes La extinción de las especies animales es debido a:",
+                "Pescar más peces del que los océanos pueden reponer naturalmente",
+                "Actividades humanas",
+                "Animales que se comen los unos a los otros",
+                "Comer mucho pescado y ponerse enfermo"
+            ],
+            "correct": 5
+        },
+        {
+            "q": "¿Qué porcentaje de especies viviendo en el océano se han identificado?",
+            "options": [
+                "Más del 80% La biodiversidad es:",
+                "La variedad de productos sanos que puedes encontrar en el supermercado",
+                "Un soldado que trabaja para las Naciones Unidas para proteger la paz",
+                "El número de planetas en los que los humanos podemos vivir Un casco azul es:",
+                "Sobre el 50%",
+                "La diversidad de especies animales y vegetales viviendo en nuestro planeta",
+                "Un niño soldado",
+                "Un bombero de la marina",
+                "Sobre el 5%"
+            ],
+            "correct": 8
         }
     ],
     "15": [
@@ -700,6 +1300,24 @@
                 "Absorben CO2 de la atmósfera y liberan oxígeno",
                 "Dan sombra y enfrían el suelo",
                 "Producen frutos para vender"
+            ],
+            "correct": 0
+        },
+        {
+            "q": "¿Quién debería cocinar y limpiar en casa?",
+            "options": [
+                "Todos deberían ayudar",
+                "Las mujeres",
+                "Los hombres"
+            ],
+            "correct": 1
+        },
+        {
+            "q": "¿Cómo ayudan las abejas al medio ambiente?",
+            "options": [
+                "Ayudan a las plantas a crecer y a producir comida",
+                "No ayudan, solamente hacen miel",
+                "Se comen a otros insectos"
             ],
             "correct": 0
         }
@@ -749,6 +1367,36 @@
                 "Para saber cuántos cumpleaños celebrar"
             ],
             "correct": 1
+        },
+        {
+            "q": "¿Qué es una democracia?",
+            "options": [
+                "Un país en el que la gente decide quién gobierna",
+                "Cuando dos alumnos comen en la misma mesa cada día",
+                "Un país gobernado solo por hombres Una alianza es:",
+                "Cuando juegas con tus amigos fingiendo que sois adultos",
+                "Cuando las personas y las organizaciones se apoyan mutuamente para alcanzar una meta común",
+                "Un país en el que manda un dictador"
+            ],
+            "correct": 5
+        },
+        {
+            "q": "¿Cómo ayuda el comercio justo a lograr los ODS?",
+            "options": [
+                "Incita a los productores a contratar niños",
+                "Ofrece unas mejores condiciones de comercio a los productores y a los trabajadores",
+                "Aumenta los beneficios de las industrias"
+            ],
+            "correct": 1
+        },
+        {
+            "q": "¿Qué es un campo de refugiados?",
+            "options": [
+                "Un campamento de verano en las montañas",
+                "Un campo para la protección de gente que huye de sus casas",
+                "Un campamento militar"
+            ],
+            "correct": 0
         }
     ],
     "17": [
@@ -796,6 +1444,24 @@
                 "Permite que más personas tengan acceso a internet, vacunas y energías limpias"
             ],
             "correct": 2
+        },
+        {
+            "q": "¿Cuál de los siguientes enunciados es correcto?",
+            "options": [
+                "El cambio climático llevará a un aumento de las inundaciones y de las tormentas fuertes",
+                "El cambio climático no existe porque todavía existen los casquetes polares",
+                "El cambio climático no existe porque el pasado verano fue muy frío"
+            ],
+            "correct": 2
+        },
+        {
+            "q": "¿Cuánta gente vive hoy en día en esta situación?",
+            "options": [
+                "1 de cada 10",
+                "5 de cada 10",
+                "3 de cada 10"
+            ],
+            "correct": 0
         }
     ]
 }
