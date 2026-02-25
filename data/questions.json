@@ -4,7 +4,7 @@
             "q": "¿Cuánto dinero gana al día una persona en pobreza extrema según las Naciones Unidas?",
             "options": [
                 "Menos de 2 dólares",
-                "Menos de 10 dólares",
+                "Menos de 50 dólares",
                 "Menos de 20 dólares"
             ],
             "correct": 0
@@ -12,36 +12,36 @@
         {
             "q": "¿Qué grupos de personas sufren más la pobreza en el mundo?",
             "options": [
-                "Las mujeres y los niños",
-                "Los deportistas",
-                "Los científicos"
+                "Los hombres adultos",
+                "Los ancianos",
+                "Las mujeres y los niños"
             ],
-            "correct": 0
+            "correct": 2
         },
         {
             "q": "¿En qué año se quiere eliminar la pobreza extrema del mundo?",
             "options": [
-                "En 2025",
                 "En 2030",
+                "En 2100",
                 "En 2050"
             ],
-            "correct": 1
+            "correct": 0
         },
         {
             "q": "Además de dinero, ¿qué más necesitan las personas para salir de la pobreza?",
             "options": [
+                "Vivir en la capital",
                 "Acceso a educación y salud",
-                "Tener videojuegos",
-                "Vivir en ciudades grandes"
+                "Tener un teléfono móvil"
             ],
-            "correct": 0
+            "correct": 1
         },
         {
             "q": "¿Qué pueden hacer los países para ayudar a terminar con la pobreza?",
             "options": [
                 "Crear empleos dignos y dar oportunidades",
-                "Construir más tiendas",
-                "Vender más juguetes"
+                "Construir más escuelas solamente",
+                "Dar dinero gratis a todos"
             ],
             "correct": 0
         }
@@ -51,8 +51,8 @@
             "q": "¿Qué significa tener 'Hambre Cero' en el mundo?",
             "options": [
                 "Que nadie pase hambre y todos tengan comida nutritiva",
-                "Que haya restaurantes en todas partes",
-                "Que todos coman dulces"
+                "Que haya supermercados en cada ciudad",
+                "Que todos coman carne todos los días"
             ],
             "correct": 0
         },
@@ -60,16 +60,16 @@
             "q": "¿Qué tipo de agricultura ayuda a cuidar el planeta mientras produce alimentos?",
             "options": [
                 "Agricultura sostenible",
-                "Agricultura con muchos químicos",
-                "Agricultura solo en invernaderos"
+                "Agricultura industrial",
+                "Agricultura de monocultivo"
             ],
             "correct": 0
         },
         {
             "q": "¿Cuántas personas aproximadamente pasan hambre en el mundo?",
             "options": [
-                "Menos de 100 millones",
-                "Alrededor de 500 millones",
+                "Alrededor de 50 millones",
+                "Unos 10 millones",
                 "Más de 800 millones"
             ],
             "correct": 2
@@ -77,67 +77,67 @@
         {
             "q": "¿A quiénes quiere ayudar especialmente el ODS 2 a producir más alimentos?",
             "options": [
-                "A los pequeños agricultores y granjeros",
-                "A las grandes empresas",
-                "Solo a los países ricos"
+                "A los supermercados gigantes",
+                "A los dueños de restaurantes",
+                "A los pequeños agricultores y granjeros"
             ],
-            "correct": 0
+            "correct": 2
         },
         {
             "q": "¿Por qué es importante guardar diferentes tipos de semillas de plantas?",
             "options": [
-                "Para tener variedad de alimentos en el futuro",
-                "Para hacer colecciones",
-                "Para venderlas más caras"
+                "Para que los jardines sean más bonitos",
+                "Para venderlas a otros países",
+                "Para tener variedad de alimentos en el futuro"
             ],
-            "correct": 0
+            "correct": 2
         }
     ],
     "3": [
         {
             "q": "¿Qué quiere lograr el ODS 3 para las mamás que tienen bebés?",
             "options": [
-                "Que estén más sanas y seguras durante el embarazo",
-                "Que tengan descuentos en tiendas",
-                "Que trabajen menos horas"
+                "Que tengan más días de vacaciones",
+                "Que trabajen menos horas",
+                "Que estén más sanas y seguras durante el embarazo"
             ],
-            "correct": 0
+            "correct": 2
         },
         {
             "q": "¿Qué enfermedades importantes quiere combatir el ODS 3",
             "options": [
                 "El VIH/SIDA, la tuberculosis y la malaria",
-                "El resfriado común",
-                "Los dolores de cabeza"
+                "El dolor de cabeza crónico",
+                "Las alergias comunes"
             ],
             "correct": 0
         },
         {
             "q": "¿Qué significa 'cobertura sanitaria universal'?",
             "options": [
-                "Que todos puedan ir al médico cuando lo necesiten",
-                "Que haya muchos hospitales grandes",
-                "Que todos tengan seguro privado"
+                "Que todos tengan un seguro médico privado",
+                "Que haya hospitales de lujo",
+                "Que todos puedan ir al médico cuando lo necesiten"
             ],
-            "correct": 0
+            "correct": 2
         },
         {
             "q": "¿Qué debe pasar con los bebés recién nacidos según el ODS 3",
             "options": [
                 "Que todos sobrevivan y crezcan sanos",
-                "Que todos nazcan en hospitales grandes",
-                "Que todos tengan el mismo peso"
+                "Que todos pesen lo mismo al nacer",
+                "Que todos nazcan en hospitales muy grandes"
             ],
             "correct": 0
         },
         {
             "q": "¿Por qué es importante tener acceso a medicinas?",
             "options": [
-                "Para que las personas se curen cuando están enfermas",
-                "Para guardarlas en casa",
-                "Para que los doctores ganen dinero"
+                "Para que las farmacias puedan existir",
+                "Para tenerlas de repuesto en casa",
+                "Para que las personas se curen cuando están enfermas"
             ],
-            "correct": 0
+            "correct": 2
         }
     ],
     "4": [
@@ -145,64 +145,64 @@
             "q": "¿Hasta qué nivel de educación deberían poder estudiar todos los niños y niñas?",
             "options": [
                 "Primaria y secundaria completas",
-                "Solo hasta los 10 años",
-                "Solo primaria"
+                "Solo la universidad",
+                "Solo aprender a leer y escribir"
             ],
             "correct": 0
         },
         {
             "q": "¿Qué necesitan aprender los jóvenes para conseguir buenos trabajos?",
             "options": [
-                "Habilidades técnicas y profesionales",
-                "Solo a memorizar fechas",
-                "Solo a usar redes sociales"
+                "Deportes de alto rendimiento",
+                "Solo a usar computadoras",
+                "Habilidades técnicas y profesionales"
             ],
-            "correct": 0
+            "correct": 2
         },
         {
             "q": "¿Quiénes deben tener las mismas oportunidades de estudiar?",
             "options": [
+                "Solo los niños de las ciudades",
                 "Todas las personas, incluyendo niñas y niños con discapacidad",
-                "Solo los que viven en ciudades",
-                "Solo los que tienen dinero"
+                "Solo los que sacan buenas notas"
             ],
-            "correct": 0
+            "correct": 1
         },
         {
             "q": "¿Qué es importante que aprendan los niños además de matemáticas y lectura?",
             "options": [
+                "Solo a tocar instrumentos musicales",
                 "Sobre los derechos humanos y cuidar el planeta",
-                "Solo deportes",
-                "Solo arte"
+                "Solo deportes y gimnasia"
             ],
-            "correct": 0
+            "correct": 1
         },
         {
             "q": "¿Cómo debería ser la educación según este objetivo?",
             "options": [
+                "Solo obligatoria para los niños",
                 "Gratuita, de calidad y para todos",
-                "Muy cara y exclusiva",
-                "Solo los fines de semana"
+                "Costosa y exclusiva"
             ],
-            "correct": 0
+            "correct": 1
         }
     ],
     "5": [
         {
             "q": "¿Qué prácticas dañinas quiere eliminar el ODS 5",
             "options": [
+                "Los juegos y juguetes tradicionales",
                 "El matrimonio infantil y forzado",
-                "Los juegos de niños",
                 "Las fiestas de cumpleaños"
             ],
-            "correct": 0
+            "correct": 1
         },
         {
             "q": "¿Dónde deben poder participar las mujeres de forma igualitaria?",
             "options": [
                 "En todos los lugares de decisión y liderazgo",
-                "Solo en la cocina",
-                "Solo en deportes femeninos"
+                "Solo en las oficinas pequeñas",
+                "Solo en trabajos manuales"
             ],
             "correct": 0
         },
@@ -210,28 +210,28 @@
             "q": "¿Qué significa igualdad de género?",
             "options": [
                 "Que niñas y niños tengan las mismas oportunidades",
-                "Que todos hagan lo mismo",
-                "Que solo las niñas estudien"
+                "Que no haya diferencias de gustos",
+                "Que todos hagan exactamente las mismas cosas"
             ],
             "correct": 0
         },
         {
             "q": "¿Qué trabajo importante hacen muchas mujeres sin recibir pago?",
             "options": [
-                "Cuidar de la familia y las tareas del hogar",
-                "Jugar videojuegos",
-                "Hacer ejercicio"
+                "Ir de compras al mercado",
+                "Organizar fiestas familiares",
+                "Cuidar de la familia y las tareas del hogar"
             ],
-            "correct": 0
+            "correct": 2
         },
         {
             "q": "¿Cómo puede ayudar la tecnología según el ODS 5?",
             "options": [
-                "A dar poder y oportunidades a las mujeres y niñas",
-                "Solo a hacer fotos bonitas",
-                "A pasar más tiempo en redes sociales"
+                "Haciendo que pasen más tiempo en redes sociales",
+                "Regalando teléfonos móviles",
+                "A dar poder y oportunidades a las mujeres y niñas"
             ],
-            "correct": 0
+            "correct": 2
         }
     ],
     "6": [
@@ -239,8 +239,8 @@
             "q": "¿Qué quiere lograr el ODS 6 sobre el agua potable?",
             "options": [
                 "Que todas las personas tengan agua limpia para beber",
-                "Que haya piscinas en todas partes",
-                "Que el agua sea gratis solo para algunos"
+                "Que todos tengan agua embotellada siempre",
+                "Que haya suficientes piscinas"
             ],
             "correct": 0
         },
@@ -248,35 +248,35 @@
             "q": "¿Qué es el 'estrés hídrico'?",
             "options": [
                 "Cuando no hay suficiente agua para todos",
-                "Miedo a nadar",
-                "Agua muy fría"
+                "Cuando el agua del mar sube",
+                "Cuando el agua está muy fría"
             ],
             "correct": 0
         },
         {
             "q": "¿Por qué es importante tener servicios de saneamiento (baños limpios)?",
             "options": [
-                "Para proteger la salud y evitar enfermedades",
-                "Para que todo se vea bonito",
-                "Solo para visitantes"
+                "Para que las calles huelan bien",
+                "Solo para cuando vengan visitas",
+                "Para proteger la salud y evitar enfermedades"
             ],
-            "correct": 0
+            "correct": 2
         },
         {
             "q": "¿Qué debe hacerse con el agua sucia que se usa en casas y fábricas?",
             "options": [
-                "Limpiarla antes de devolverla a la naturaleza",
-                "Tirarla directamente a los ríos",
-                "Guardarla en tanques"
+                "Dejar que se evapore con el sol",
+                "Guardarla en botellas grandes",
+                "Limpiarla antes de devolverla a la naturaleza"
             ],
-            "correct": 0
+            "correct": 2
         },
         {
             "q": "¿Cuántas personas en el mundo no tienen baños seguros y limpios?",
             "options": [
                 "Más de 3,600 millones",
-                "Menos de 100 millones",
-                "Solo 1,000 personas"
+                "Unos 10 millones",
+                "Solo 500.000 personas"
             ],
             "correct": 0
         }
@@ -286,8 +286,8 @@
             "q": "¿Qué tipo de energía debemos usar más para cuidar el planeta?",
             "options": [
                 "Energía renovable como el sol y el viento",
-                "Solo carbón",
-                "Solo petróleo"
+                "Energía nuclear solamente",
+                "Gas natural y carbón limpio"
             ],
             "correct": 0
         },
@@ -295,35 +295,35 @@
             "q": "¿Cuántas personas deberían tener electricidad en sus casas para el año 2030?",
             "options": [
                 "Todas las personas del mundo",
-                "Solo la mitad",
-                "Solo en las ciudades grandes"
+                "Solo el 50% de las personas",
+                "Solo quienes viven en las capitales"
             ],
             "correct": 0
         },
         {
             "q": "¿Qué significa 'eficiencia energética'?",
             "options": [
+                "Usar la misma energía más rápido",
                 "Usar menos energía para hacer las mismas cosas",
-                "Usar toda la energía posible",
-                "Solo usar energía de noche"
+                "Tener cables eléctricos más gruesos"
             ],
-            "correct": 0
+            "correct": 1
         },
         {
             "q": "¿Cuántas personas todavía viven sin electricidad en el mundo?",
             "options": [
-                "Alrededor de 760 millones",
-                "Menos de 1,000",
-                "Solo 100 millones"
+                "Menos de 1 millón",
+                "Unos 5 millones",
+                "Alrededor de 760 millones"
             ],
-            "correct": 0
+            "correct": 2
         },
         {
             "q": "¿Por qué es importante la energía limpia?",
             "options": [
                 "Porque no contamina el aire y cuida el planeta",
-                "Porque es más cara",
-                "Porque solo la usan los ricos"
+                "Porque se ve más moderna",
+                "Porque es mucho más barata y hace menos ruido"
             ],
             "correct": 0
         }
@@ -332,65 +332,65 @@
         {
             "q": "¿Qué debe pasar para que la economía crezca sin dañar la naturaleza?",
             "options": [
-                "Crecer cuidando el medio ambiente",
-                "Talar todos los bosques",
-                "Usar solo plástico"
+                "Fabricar más cosas de plástico barato",
+                "Producir más rápido aunque contamine un poco",
+                "Crecer cuidando el medio ambiente"
             ],
-            "correct": 0
+            "correct": 2
         },
         {
             "q": "¿Qué práctica terrible quiere eliminar el ODS 8?",
             "options": [
                 "El trabajo forzoso y la esclavitud",
-                "El trabajo en equipo",
-                "Las vacaciones laborales"
+                "El trabajo en fábricas",
+                "Los trabajos manuales"
             ],
             "correct": 0
         },
         {
             "q": "¿Qué oportunidades deben tener los jóvenes según el ODS 8",
             "options": [
-                "Trabajo digno, estudios o capacitación",
-                "Solo jugar videojuegos",
-                "No hacer nada"
+                "Solo aprender un idioma nuevo",
+                "Solo estudiar en la universidad",
+                "Trabajo digno, estudios o capacitación"
             ],
-            "correct": 0
+            "correct": 2
         },
         {
             "q": "¿Qué tipo de negocios quiere apoyar el ODS 8?",
             "options": [
+                "Las grandes corporaciones internacionales",
                 "Los pequeños emprendimientos y empresas locales",
-                "Solo las grandes corporaciones",
-                "Solo tiendas online"
+                "Las empresas que venden por internet"
             ],
-            "correct": 0
+            "correct": 1
         },
         {
             "q": "¿Qué significa tener un 'trabajo decente'?",
             "options": [
-                "Un trabajo seguro, bien pagado y con derechos",
-                "Trabajar muchas horas sin descanso",
-                "Solo trabajar los fines de semana"
+                "Trabajar solo 4 horas al día",
+                "Tener un trabajo donde no haya jefes",
+                "Un trabajo seguro, bien pagado y con derechos"
             ],
-            "correct": 0
+            "correct": 2
         }
     ],
     "9": [
         {
             "q": "¿Qué tipo de carreteras, puentes y edificios necesitamos construir?",
             "options": [
-                "Resistentes, sostenibles y para todos",
-                "Solo en ciudades ricas",
-                "Sin pensar en el futuro"
+                "Edificios de cristal muy altos",
+                "Carreteras para coches más veloces",
+                "Resistentes, sostenibles y para todos"
             ],
-            "correct": 0
+            "correct": 2
         },
         {
             "q": "¿Por qué es importante la innovación y la tecnología?",
             "options": [
                 "Para resolver problemas y mejorar la vida de las personas",
-                "Solo para jugar",
-                "Para complicar las cosas"
+                "Para tener los últimos modelos de teléfonos",
+                "Para hacer viajes al espacio más baratos"
             ],
             "correct": 0
         },
@@ -398,73 +398,73 @@
             "q": "¿Qué deben poder usar las pequeñas empresas para crecer?",
             "options": [
                 "Servicios financieros y préstamos justos",
-                "Solo dinero gratis",
-                "No necesitan ayuda"
+                "Oficinas más grandes",
+                "Computadoras de última generación"
             ],
             "correct": 0
         },
         {
             "q": "¿Qué tipo de internet necesitan tener todas las personas?",
             "options": [
-                "Acceso asequible y de calidad",
-                "Solo internet caro",
-                "Internet solo para estudiar"
+                "Internet gratis y muy rápido para jugar",
+                "Solo internet para leer noticias",
+                "Acceso asequible y de calidad"
             ],
-            "correct": 0
+            "correct": 2
         },
         {
             "q": "¿Por qué es importante invertir en investigación científica?",
             "options": [
-                "Para crear nuevas soluciones a problemas del mundo",
-                "Solo para ganar premios",
-                "Para hacer experimentos peligrosos"
+                "Para inventar nuevos aparatos electrónicos",
+                "Para ganar premios internaciones importantes",
+                "Para crear nuevas soluciones a problemas del mundo"
             ],
-            "correct": 0
+            "correct": 2
         }
     ],
     "10": [
         {
             "q": "¿Qué significa reducir las desigualdades?",
             "options": [
+                "Que todos tengan el mismo dinero",
                 "Que todos tengan oportunidades justas sin importar quiénes sean",
-                "Que todos sean iguales",
-                "Que nadie pueda destacar"
+                "Que todos vivan en casas iguales"
             ],
-            "correct": 0
+            "correct": 1
         },
         {
             "q": "¿Cómo deben ser las leyes según este objetivo?",
             "options": [
+                "Leyes especiales para las personas importantes",
                 "Justas y sin discriminación para nadie",
-                "Solo para algunos grupos",
-                "Diferentes para cada persona"
+                "Leyes diferentes según la ciudad"
             ],
-            "correct": 0
+            "correct": 1
         },
         {
             "q": "¿Qué debe pasar con las familias más pobres?",
             "options": [
                 "Deben tener oportunidades de mejorar sus ingresos",
-                "Deben quedarse siempre igual",
-                "No necesitan ayuda"
+                "Deben recibir dinero del gobierno siempre",
+                "No deben pagar ningún impuesto"
             ],
             "correct": 0
         },
         {
             "q": "¿Cómo debe ser la migración de personas entre países?",
             "options": [
+                "Debe evitarse en lo posible",
                 "Segura, ordenada y respetuosa",
-                "Prohibida siempre",
-                "Sin reglas"
+                "Totalmente libre sin ningún control"
             ],
-            "correct": 0
+            "correct": 1
         },
         {
             "q": "¿Quiénes deben participar en las decisiones de su comunidad?",
             "options": [
                 "Todas las personas, sin excluir a nadie",
-                "Solo los adultos mayores",
-                "Solo los más ricos"
+                "Solo los líderes políticos",
+                "Los adultos mayores y expertos"
             ],
             "correct": 0
         }
@@ -473,92 +473,92 @@
         {
             "q": "¿Cómo deben ser las ciudades del futuro?",
             "options": [
-                "Seguras, inclusivas y que cuiden el ambiente",
-                "Solo para ricos",
-                "Con muchos coches y contaminación"
+                "Con calles más anchas para más coches",
+                "Con edificios más grandes y modernos",
+                "Seguras, inclusivas y que cuiden el ambiente"
             ],
-            "correct": 0
+            "correct": 2
         },
         {
             "q": "¿Qué espacios son importantes tener en todas las ciudades?",
             "options": [
+                "Centros comerciales más grandes",
                 "Parques y áreas verdes para todos",
-                "Solo centros comerciales",
-                "Solo estacionamientos"
+                "Aparcamientos para todos"
             ],
-            "correct": 0
+            "correct": 1
         },
         {
             "q": "¿Cómo debe ser el transporte público en las ciudades?",
             "options": [
                 "Seguro, barato y que no contamine",
-                "Solo para adultos",
-                "Solo coches privados"
+                "Gratis para todas las edades",
+                "Subterráneo en todas las ciudades del mundo"
             ],
             "correct": 0
         },
         {
             "q": "¿Qué porcentaje de personas vive actualmente en ciudades?",
             "options": [
+                "Apenas un 25%",
                 "Más de la mitad de la población mundial",
-                "Menos del 10%",
-                "Casi nadie"
+                "Menos del 10%"
             ],
-            "correct": 0
+            "correct": 1
         },
         {
             "q": "¿Por qué es importante planificar bien el crecimiento de las ciudades?",
             "options": [
+                "Para que haya más tiendas para comprar",
                 "Para que sean lugares buenos para vivir sin dañar la naturaleza",
-                "Para hacer todo de cemento",
-                "Para que solo crezcan las grandes ciudades"
+                "Para evitar que la gente use coches"
             ],
-            "correct": 0
+            "correct": 1
         }
     ],
     "12": [
         {
             "q": "¿Cuánta comida se desperdicia en el mundo que podríamos aprovechar?",
             "options": [
+                "Un 10% aproximadamente",
                 "Muchísima, más de la mitad per cápita",
-                "Casi nada",
-                "Solo la comida fea"
+                "Casi nada, muy poca"
             ],
-            "correct": 0
+            "correct": 1
         },
         {
             "q": "¿Qué deben hacer las empresas para ser más responsables?",
             "options": [
                 "Producir de forma sostenible y cuidar el planeta",
-                "Solo pensar en ganar dinero",
-                "Usar muchos plásticos"
+                "Vender siempre los productos más baratos",
+                "Regalar una parte de lo que fabrican"
             ],
             "correct": 0
         },
         {
             "q": "¿Qué significa consumir de forma responsable?",
             "options": [
+                "Tener cosas que duren mucho tiempo",
                 "Comprar lo necesario y cuidar los recursos",
-                "Comprar todo lo que queramos",
-                "Solo comprar cosas caras"
+                "Comprar solo cuando hay descuentos"
             ],
-            "correct": 0
+            "correct": 1
         },
         {
             "q": "¿Qué debemos hacer con los residuos y la basura?",
             "options": [
+                "Quemar la basura en lugares lejanos",
                 "Reducir, reutilizar y reciclar",
-                "Tirar todo a la calle",
-                "Quemarlo todo"
+                "Guardar todo en vertederos especiales"
             ],
-            "correct": 0
+            "correct": 1
         },
         {
             "q": "¿Por qué es importante usar bien los recursos naturales?",
             "options": [
                 "Para que haya suficiente para nosotros y las futuras generaciones",
-                "Solo para ahorrar dinero",
-                "No es importante"
+                "Para que los productos sean más baratos de comprar",
+                "Para que las empresas puedan fabricar más rápido"
             ],
             "correct": 0
         }
@@ -567,36 +567,36 @@
         {
             "q": "¿Qué es el cambio climático?",
             "options": [
+                "El cambio de estaciones entre verano e invierno",
                 "Cambios en el clima de la Tierra por contaminación",
-                "Que hace frío en invierno",
-                "El clima normal de cada día"
+                "Que ahora llueve más en primavera"
             ],
-            "correct": 0
+            "correct": 1
         },
         {
             "q": "¿Qué acuerdo importante firmaron muchos países para cuidar el clima?",
             "options": [
-                "El Acuerdo de París",
-                "El Acuerdo de los Helados",
-                "El Tratado de las Nubes"
+                "El Tratado de los Océanos",
+                "El Acuerdo de las Naciones Unidas",
+                "El Acuerdo de París"
             ],
-            "correct": 0
+            "correct": 2
         },
         {
             "q": "¿Cuánto debe subir máximo la temperatura del planeta según los científicos?",
             "options": [
+                "Unos 5 grados",
                 "Menos de 2 grados, idealmente 1.5 grados",
-                "10 grados",
-                "No importa cuánto suba"
+                "Hasta 3 grados máximo"
             ],
-            "correct": 0
+            "correct": 1
         },
         {
             "q": "¿Qué pueden hacer los niños para ayudar con el cambio climático?",
             "options": [
                 "Aprender sobre el tema y tomar acciones pequeñas",
-                "No pueden hacer nada",
-                "Solo esperar a ser adultos"
+                "No usar la luz eléctrica nunca",
+                "Decirles a sus padres qué comprar"
             ],
             "correct": 0
         },
@@ -604,8 +604,8 @@
             "q": "¿Qué riesgos trae el cambio climático?",
             "options": [
                 "Fenómenos extremos como sequías, inundaciones y tormentas",
-                "Solo días más calurosos",
-                "Más días de vacaciones"
+                "Inviernos mucho más largos y fríos",
+                "Veranos más cortos pero lloviosos"
             ],
             "correct": 0
         }
@@ -614,45 +614,45 @@
         {
             "q": "¿Qué está dañando gravemente los océanos?",
             "options": [
-                "La contaminación, especialmente el plástico",
-                "Los peces grandes",
-                "Las olas"
+                "Las plantas marinas que crecen mucho",
+                "El exceso de peces pequeños",
+                "La contaminación, especialmente el plástico"
             ],
-            "correct": 0
+            "correct": 2
         },
         {
             "q": "¿Por qué son importantes los océanos?",
             "options": [
+                "Para que podamos ir a la playa en vacaciones",
                 "Producen oxígeno y son hogar de miles de especies",
-                "Solo para nadar",
-                "Solo para pescar"
+                "Solo para el transporte en grandes barcos"
             ],
-            "correct": 0
+            "correct": 1
         },
         {
             "q": "¿Qué porcentaje de los océanos debe protegerse?",
             "options": [
-                "Al menos el 10%",
-                "Todo el océano",
-                "Solo el 1%"
+                "Solamente el 5%",
+                "El 100% de los mares",
+                "Al menos el 10%"
             ],
-            "correct": 0
+            "correct": 2
         },
         {
             "q": "¿Qué está pasando con los océanos por el cambio climático?",
             "options": [
-                "Se están volviendo más ácidos",
-                "Se están volviendo dulces",
-                "Se están congelando"
+                "El agua se está volviendo más dulce",
+                "Tienen olas más grandes y peligrosas",
+                "Se están volviendo más ácidos"
             ],
-            "correct": 0
+            "correct": 2
         },
         {
             "q": "¿Qué tipo de pesca debe eliminarse?",
             "options": [
                 "La pesca ilegal que no respeta las reglas",
-                "Toda la pesca",
-                "Solo la pesca con caña"
+                "La pesca en ríos de montaña",
+                "La pesca con cañas en las playas"
             ],
             "correct": 0
         }
@@ -662,44 +662,44 @@
             "q": "¿Qué está pasando con los bosques del mundo?",
             "options": [
                 "Se están perdiendo por la tala excesiva",
-                "Están creciendo más",
-                "No pasa nada"
+                "Tienen menos animales porque se escapan",
+                "Están creciendo en los países más ricos"
             ],
             "correct": 0
         },
         {
             "q": "¿Por qué son importantes los bosques y las selvas?",
             "options": [
+                "Para construir casas más rurales",
                 "Son el hogar de animales y plantas, y limpian el aire",
-                "Solo para hacer muebles",
-                "No son importantes"
+                "Para poder recolectar frutos y madera libremente"
             ],
-            "correct": 0
+            "correct": 1
         },
         {
             "q": "¿Qué está pasando con muchas especies de animales y plantas?",
             "options": [
+                "Se están acostumbrando a la contaminación",
                 "Están en peligro de desaparecer para siempre",
-                "Están aumentando",
-                "No pasa nada"
+                "Están migrando a vivir a las ciudades"
             ],
-            "correct": 0
+            "correct": 1
         },
         {
             "q": "¿Qué es la desertificación?",
             "options": [
+                "Cuando la arena del desierto se mueve por el viento",
                 "Cuando la tierra fértil se convierte en desierto",
-                "Cuando hay muchos desiertos",
-                "Un tipo de planta"
+                "Las sequías que ocurren en verano"
             ],
-            "correct": 0
+            "correct": 1
         },
         {
             "q": "¿Qué debemos hacer para proteger la vida terrestre?",
             "options": [
                 "Cuidar los bosques, plantar árboles y proteger animales",
-                "Construir en todos los bosques",
-                "Cazar todos los animales"
+                "No construir nada cerca de los bosques",
+                "Mover a los animales a zoológicos seguros"
             ],
             "correct": 0
         }
@@ -708,92 +708,92 @@
         {
             "q": "¿Qué busca reducir el ODS 16 en todo el mundo?",
             "options": [
-                "La violencia y los conflictos",
-                "Los juegos",
-                "Las celebraciones"
+                "El ruido en las calles y ciudades",
+                "Los castigos en los colegios",
+                "La violencia y los conflictos"
             ],
-            "correct": 0
+            "correct": 2
         },
         {
             "q": "¿Qué derecho tienen todos los niños según el ODS 16?",
             "options": [
                 "Tener una identidad legal y estar protegidos",
-                "Solo jugar",
-                "Solo estudiar"
+                "Tener dinero y juguetes básicos",
+                "Tener derecho a jugar todos los días"
             ],
             "correct": 0
         },
         {
             "q": "¿Qué significa tener 'acceso a la justicia'?",
             "options": [
-                "Que todos puedan defender sus derechos ante la ley",
-                "Solo los adultos pueden ir a juicios",
-                "Solo los ricos tienen derechos"
+                "Que existan abogados gratis para todo el mundo",
+                "Que los juicios sean siempre muy rápidos",
+                "Que todos puedan defender sus derechos ante la ley"
             ],
-            "correct": 0
+            "correct": 2
         },
         {
             "q": "¿Qué tipo de instituciones (gobiernos, escuelas) necesitamos?",
             "options": [
                 "Honestas, justas y que escuchen a todos",
-                "Solo para algunos",
-                "Que solo beneficien a los poderosos"
+                "Muy severas y estrictas para asustar",
+                "Que hagan muchas leyes nuevas diferentes"
             ],
             "correct": 0
         },
         {
             "q": "¿Qué debe terminarse según el ODS 16?",
             "options": [
-                "El maltrato y la explotación de niños",
-                "Los deportes",
-                "Las tareas escolares"
+                "Los videojuegos violentos",
+                "Los regaños fuertes a los niños",
+                "El maltrato y la explotación de niños"
             ],
-            "correct": 0
+            "correct": 2
         }
     ],
     "17": [
         {
             "q": "¿Cómo pueden lograrse todos los Objetivos de Desarrollo Sostenible?",
             "options": [
+                "Que cada continente se ponga de acuerdo solo",
                 "Trabajando juntos, países, personas y organizaciones",
-                "Cada país solo",
-                "No se pueden lograr"
+                "Dejando que un país decida por los demás"
             ],
-            "correct": 0
+            "correct": 1
         },
         {
             "q": "¿Por qué es importante que los países se ayuden entre sí?",
             "options": [
+                "Para evitar que haya guerras en el futuro",
                 "Porque los problemas globales necesitan soluciones globales",
-                "No es importante",
-                "Solo para competir"
+                "Para que no haya países ricos y pobres"
             ],
-            "correct": 0
+            "correct": 1
         },
         {
             "q": "¿Qué deben compartir los países ricos con los más pobres?",
             "options": [
-                "Tecnología, conocimientos y recursos",
-                "Solo deportistas",
-                "Solo entretenimiento"
+                "Los materiales de construcción",
+                "Las medicinas sobrantes",
+                "Tecnología, conocimientos y recursos"
             ],
-            "correct": 0
+            "correct": 2
         },
         {
             "q": "¿Cómo debe ser el comercio entre países?",
             "options": [
+                "Que siempre gane el país que vende",
                 "Justo y equitativo para todos",
-                "Solo beneficiar a los más fuertes",
-                "Sin reglas"
+                "Totalmente libre en todos lados"
             ],
-            "correct": 0
+            "correct": 1
         },
         {
             "q": "¿Quiénes deben participar para lograr un mundo mejor?",
             "options": [
                 "Todos: gobiernos, empresas, escuelas y personas como tú",
-                "Solo los presidentes",
-                "Solo los adultos"
+                "Principalmente los grandes científicos",
+                "Solo las personas adultas que trabajan"
             ],
             "correct": 0
         }
