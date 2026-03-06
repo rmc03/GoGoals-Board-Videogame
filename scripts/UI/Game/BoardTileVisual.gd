@@ -56,8 +56,8 @@ func _ensure_visual_nodes() -> void:
 	if title_label == null:
 		title_label = _create_label(
 			"TitleLabel",
-			Vector2(-50.0, -16.0),
-			Vector2(108.0, 90.0),
+			Vector2(-45.0, -22.0),
+			Vector2(90.0, 90.0),
 			14,
 			LIGHT_TEXT,
 			3
@@ -65,8 +65,8 @@ func _ensure_visual_nodes() -> void:
 		title_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		title_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		title_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		title_label.clip_text = false
-		title_label.text_overrun_behavior = TextServer.OVERRUN_NO_TRIMMING
+		title_label.clip_text = true
+		title_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 
 	if badge_label == null:
 		badge_label = _create_label(
@@ -120,8 +120,8 @@ func _reset_visual_state() -> void:
 	title_label.visible = false
 	title_label.text = ""
 	title_label.modulate = Color.WHITE
-	title_label.position = Vector2(-50.0, -16.0)
-	title_label.size = Vector2(108.0, 90.0)
+	title_label.position = Vector2(-45.0, -22.0)
+	title_label.size = Vector2(90.0, 90.0)
 
 	badge_label.visible = false
 	badge_label.text = ""
@@ -157,15 +157,7 @@ func _configure_quiz(data: Dictionary) -> void:
 	var ods_id: int = int(data.get("ods_id", 0))
 	var ods_meta: Dictionary = data.get("ods_meta", {})
 	var title: String = str(ods_meta.get("title", "ODS"))
-	var base_font_size: int = int(ods_meta.get("font_size", 13))
-	var plain_length: int = title.replace("\n", "").length()
-	var line_count: int = title.split("\n").size()
-	var max_font_size: int = 12
-	if line_count >= 4 or plain_length >= 40:
-		max_font_size = 10
-	elif line_count == 3 or plain_length >= 30:
-		max_font_size = 11
-	var font_size: int = mini(base_font_size, max_font_size)
+	var font_size: int = 10
 	var color_code: String = str(ods_meta.get("color", "#56C02B"))
 	var tile_color := Color.from_string(color_code, Color(0.34, 0.75, 0.17, 1.0))
 
