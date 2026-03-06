@@ -57,7 +57,7 @@ func _ensure_visual_nodes() -> void:
 		title_label = _create_label(
 			"TitleLabel",
 			Vector2(-50.0, -16.0),
-			Vector2(100.0, 86.0),
+			Vector2(108.0, 90.0),
 			14,
 			LIGHT_TEXT,
 			3
@@ -65,6 +65,8 @@ func _ensure_visual_nodes() -> void:
 		title_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		title_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		title_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		title_label.clip_text = false
+		title_label.text_overrun_behavior = TextServer.OVERRUN_NONE
 
 	if badge_label == null:
 		badge_label = _create_label(
@@ -155,8 +157,14 @@ func _configure_quiz(data: Dictionary) -> void:
 	var ods_id: int = int(data.get("ods_id", 0))
 	var ods_meta: Dictionary = data.get("ods_meta", {})
 	var title: String = str(ods_meta.get("title", "ODS"))
-	# Limit font size to keep text inside the hexagon
-	var font_size: int = mini(int(ods_meta.get("font_size", 13)), 13)
+	var base_font_size: int = int(ods_meta.get("font_size", 13))
+	var plain_length: int = title.replace("\n", "").length()
+	var max_font_size: int = 13
+	if plain_length >= 40:
+		max_font_size = 11
+	elif plain_length >= 30:
+		max_font_size = 12
+	var font_size: int = mini(base_font_size, max_font_size)
 	var color_code: String = str(ods_meta.get("color", "#56C02B"))
 	var tile_color := Color.from_string(color_code, Color(0.34, 0.75, 0.17, 1.0))
 
