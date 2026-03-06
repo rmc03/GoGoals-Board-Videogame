@@ -164,9 +164,8 @@ func _configure_quiz(data: Dictionary) -> void:
 	sprite.texture = HEX_NEUTRAL_TEXTURE
 	sprite.modulate = tile_color
 
-	number_label.visible = true
-	number_label.text = str(ods_id)
-	_set_label_style(number_label, 14, LIGHT_TEXT, 3)
+	number_label.visible = false
+	number_label.text = ""
 
 	title_label.visible = true
 	title_label.text = title
