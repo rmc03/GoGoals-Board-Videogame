@@ -56,8 +56,8 @@ func _ensure_visual_nodes() -> void:
 	if title_label == null:
 		title_label = _create_label(
 			"TitleLabel",
-			Vector2(-45.0, -22.0),
-			Vector2(90.0, 90.0),
+			Vector2(-45.0, -28.0),
+			Vector2(90.0, 82.0),
 			14,
 			LIGHT_TEXT,
 			3
@@ -120,8 +120,8 @@ func _reset_visual_state() -> void:
 	title_label.visible = false
 	title_label.text = ""
 	title_label.modulate = Color.WHITE
-	title_label.position = Vector2(-45.0, -22.0)
-	title_label.size = Vector2(90.0, 90.0)
+	title_label.position = Vector2(-45.0, -28.0)
+	title_label.size = Vector2(90.0, 82.0)
 
 	badge_label.visible = false
 	badge_label.text = ""
