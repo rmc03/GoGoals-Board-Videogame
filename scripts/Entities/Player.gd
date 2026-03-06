@@ -22,7 +22,7 @@ func _ready() -> void:
 	else:
 		sprite = get_node("Sprite")
 
-	sprite.scale = scale_factor
+	scale = scale_factor
 
 	if texture != null:
 		sprite.texture = texture
