@@ -85,6 +85,12 @@ flowchart LR
     classDef config fill:#fff2cc,stroke:#bf9000,color:#111,stroke-width:1.5px;
 ```
 
+### Diagrama de componentes en imagen
+
+La siguiente version presenta la arquitectura como diagrama de componentes, con estilo visual mas cercano a una herramienta UML como Visual Paradigm.
+
+![Diagrama de componentes de GoGoals](./images/diagrama_componentes.png)
+
 ## 3. Flujo contextual de una partida
 
 ### 3.1 Entrada al sistema
