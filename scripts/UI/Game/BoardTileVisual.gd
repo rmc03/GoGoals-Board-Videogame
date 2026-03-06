@@ -121,7 +121,7 @@ func _reset_visual_state() -> void:
 	title_label.text = ""
 	title_label.modulate = Color.WHITE
 	title_label.position = Vector2(-50.0, -16.0)
-	title_label.size = Vector2(100.0, 86.0)
+	title_label.size = Vector2(108.0, 90.0)
 
 	badge_label.visible = false
 	badge_label.text = ""
@@ -159,11 +159,12 @@ func _configure_quiz(data: Dictionary) -> void:
 	var title: String = str(ods_meta.get("title", "ODS"))
 	var base_font_size: int = int(ods_meta.get("font_size", 13))
 	var plain_length: int = title.replace("\n", "").length()
-	var max_font_size: int = 13
-	if plain_length >= 40:
+	var line_count: int = title.split("\n").size()
+	var max_font_size: int = 12
+	if line_count >= 4 or plain_length >= 40:
+		max_font_size = 10
+	elif line_count == 3 or plain_length >= 30:
 		max_font_size = 11
-	elif plain_length >= 30:
-		max_font_size = 12
 	var font_size: int = mini(base_font_size, max_font_size)
 	var color_code: String = str(ods_meta.get("color", "#56C02B"))
 	var tile_color := Color.from_string(color_code, Color(0.34, 0.75, 0.17, 1.0))
