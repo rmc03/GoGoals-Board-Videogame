@@ -25,10 +25,6 @@ var target_position: int = 0  # Para LADDER o SLIDE
 # --- REFERENCIAS ---
 @export var sprite: Sprite2D
 
-# --- SEÑALES ---
-signal tile_entered(player_index: int)
-signal tile_triggered(player_index: int, target_pos: int)
-
 func _ready() -> void:
 	_setup_visual()
 
@@ -70,31 +66,6 @@ func setup_as_slide(index: int, target: int) -> void:
 	tile_index = index
 	tile_type = TileType.SLIDE
 	target_position = target
-
-# --- GESTIÓN DE EVENTOS ---
-
-func on_player_enter(player_index: int) -> void:
-	tile_entered.emit(player_index)
-	
-	# Si es una casilla especial, manejar el efecto
-	if tile_type == TileType.LADDER or tile_type == TileType.SLIDE:
-		trigger_special(player_index)
-	elif tile_type == TileType.QUIZ:
-		trigger_quiz(player_index)
-	elif tile_type == TileType.FINISH:
-		trigger_finish(player_index)
-
-func trigger_special(player_index: int) -> void:
-	var is_ladder = tile_type == TileType.LADDER
-	tile_triggered.emit(player_index, target_position)
-	GameEvents.emit_special_tile_triggered(player_index, tile_index, target_position, is_ladder)
-
-func trigger_quiz(player_index: int) -> void:
-	GameEvents.emit_quiz_started(player_index, ods_id)
-
-func trigger_finish(player_index: int) -> void:
-	# El manager de juego manejará la victoria
-	pass
 
 # --- UTILIDADES ---
 

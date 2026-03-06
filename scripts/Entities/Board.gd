@@ -18,7 +18,6 @@ var quiz_tiles: Dictionary = {}  # {casilla: id_ods}
 
 # --- SEÑALES ---
 signal board_loaded(tile_count: int)
-signal tile_triggered(tile_index: int, player_index: int)
 
 func _ready() -> void:
 	pass
@@ -120,10 +119,3 @@ func calculate_path(from_pos: int, steps: int) -> Array[int]:
 	
 	return path
 
-# --- EVENTOS ---
-
-func on_player_arrived(tile_index: int, player_index: int) -> void:
-	if tile_index >= 0 and tile_index < tiles.size():
-		var tile = tiles[tile_index]
-		tile.on_player_enter(player_index)
-		tile_triggered.emit(tile_index, player_index)
