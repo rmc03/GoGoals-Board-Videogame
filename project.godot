@@ -20,6 +20,7 @@ config/icon="res://Assets/images/icon.svg"
 GameData="*res://autoloads/GameData.gd"
 RecordsManager="*res://autoloads/RecordsManager.gd"
 AudioManager="*res://autoloads/AudioManager.gd"
+GameEvents="*res://scripts/Core/Events.gd"
 
 [display]
 

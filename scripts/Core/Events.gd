@@ -1,5 +1,4 @@
 extends Node
-class_name GameEvents
 
 # ============================================
 # SISTEMA DE EVENTOS CENTRALIZADO
@@ -66,33 +65,33 @@ signal questions_load_failed(error_message: String)
 # --- FUNCIONES HELPER ---
 
 # Emite la señal de dados rolados
-static func emit_dice_rolled(player_index: int, dice_result: int) -> void:
+func emit_dice_rolled(player_index: int, dice_result: int) -> void:
 	dice_rolled.emit(player_index, dice_result)
 
 # Emite la señal de turno cambiado
-static func emit_turn_changed(player_index: int, turn_number: int) -> void:
+func emit_turn_changed(player_index: int, turn_number: int) -> void:
 	turn_changed.emit(player_index, turn_number)
 
 # Emite la señal de quiz iniciado
-static func emit_quiz_started(player_index: int, ods_id: int) -> void:
+func emit_quiz_started(player_index: int, ods_id: int) -> void:
 	quiz_started.emit(player_index, ods_id)
 
 # Emite la señal de quiz respondido
-static func emit_quiz_answered(player_index: int, is_correct: bool) -> void:
+func emit_quiz_answered(player_index: int, is_correct: bool) -> void:
 	quiz_answered.emit(player_index, is_correct)
 
 # Emite la señal de jugador movido
-static func emit_player_moved(player_index: int, final_pos: int) -> void:
+func emit_player_moved(player_index: int, final_pos: int) -> void:
 	player_moved.emit(player_index, final_pos)
 
 # Emite la señal de victoria
-static func emit_game_won(player_index: int, time: float, turns: int) -> void:
+func emit_game_won(player_index: int, time: float, turns: int) -> void:
 	game_won.emit(player_index, time, turns)
 
 # Emite la señal de juego terminado
-static func emit_game_ended() -> void:
+func emit_game_ended() -> void:
 	game_ended.emit()
 
 # Emite la señal de casilla especial
-static func emit_special_tile_triggered(player_index: int, from_pos: int, to_pos: int, is_ladder: bool) -> void:
+func emit_special_tile_triggered(player_index: int, from_pos: int, to_pos: int, is_ladder: bool) -> void:
 	special_tile_triggered.emit(player_index, from_pos, to_pos, is_ladder)

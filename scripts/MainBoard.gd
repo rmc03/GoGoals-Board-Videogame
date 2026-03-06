@@ -61,7 +61,8 @@ func _create_quiz_ui() -> void:
 	quiz_ui = QuizPanelUI.new()
 	quiz_ui.name = "QuizPanelUI"
 	add_child(quiz_ui)
-	quiz_ui.setup(quiz_panel, quiz_lbl, [btn_op_1, btn_op_2, btn_op_3])
+	var answer_buttons: Array[Button] = [btn_op_1, btn_op_2, btn_op_3]
+	quiz_ui.setup(quiz_panel, quiz_lbl, answer_buttons)
 
 func _connect_flow() -> void:
 	game_hud.dice_requested.connect(_on_dice_requested)

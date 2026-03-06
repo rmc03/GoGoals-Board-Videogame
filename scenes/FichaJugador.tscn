@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://k00k3f18mfs7"]
+[gd_scene load_steps=3 format=3 uid="uid://k00k3f18mfs7"]
 
-[ext_resource type="Texture2D" uid="uid://bmrd2h15nf8ku" path="res://Assets/images/UI/button_round_depth_gloss.png" id="1_vpkxi"]
+[ext_resource type="Script" path="res://scripts/Entities/Player.gd" id="1_v0d6t"]
+[ext_resource type="Texture2D" uid="uid://bmrd2h15nf8ku" path="res://Assets/images/UI/button_round_depth_gloss.png" id="2_vpkxi"]
 
 [node name="FichaJugador" type="Node2D"]
+script = ExtResource("1_v0d6t")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 scale = Vector2(0.0699463, 0.07012941)
-texture = ExtResource("1_vpkxi")
+texture = ExtResource("2_vpkxi")
