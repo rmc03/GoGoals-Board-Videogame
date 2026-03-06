@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://c86htdxnb8ftx"]
+[gd_scene load_steps=4 format=3 uid="uid://c86htdxnb8ftx"]
 
+[ext_resource type="Script" path="res://scripts/UI/Game/BoardTileVisual.gd" id="1_erq42"]
 [ext_resource type="Texture2D" uid="uid://cfyikocqn2b42" path="res://Assets/images/Picsart_25-12-10_11-45-06-505-Picsart-BackgroundRemover.png" id="1_h2wmx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ylcch"]
 size = Vector2(65.25, 61.5)
 
 [node name="Casilla Desplazamiento" type="StaticBody2D"]
+script = ExtResource("1_erq42")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1.1920929e-07, 1.1920929e-07)

@@ -15,6 +15,7 @@ var total_tiles: int = 63  # Tablero tradicional de 0-62
 var ladders: Dictionary = {}    # {casilla_origen: casillas_destino}
 var slides: Dictionary = {}     # {casilla_origen: casillas_destino}
 var quiz_tiles: Dictionary = {}  # {casilla: id_ods}
+var ods_visuals: Dictionary = {}
 
 # --- SEÑALES ---
 signal board_loaded(tile_count: int)
@@ -49,16 +50,23 @@ func setup(board_nodes: Array[Node2D]) -> void:
 		else:
 			tile.setup(i, TileEntity.TileType.NORMAL)
 		
+		_apply_tile_visual(board_nodes[i], tile)
 		tiles.append(tile)
 	
 	board_loaded.emit(tiles.size())
 
 # --- CARGAR DESDE CONFIGURACIÓN ---
 
-func load_config(ladders_config: Dictionary, slides_config: Dictionary, quiz_config: Dictionary) -> void:
+func load_config(
+	ladders_config: Dictionary,
+	slides_config: Dictionary,
+	quiz_config: Dictionary,
+	ods_visuals_config: Dictionary = {}
+) -> void:
 	ladders = ladders_config
 	slides = slides_config
 	quiz_tiles = quiz_config
+	ods_visuals = ods_visuals_config
 
 # --- CONSULTAS ---
 
@@ -119,4 +127,30 @@ func calculate_path(from_pos: int, steps: int) -> Array[int]:
 		path.append(current_pos)
 
 	return path
+
+func _apply_tile_visual(board_node: Node2D, tile: TileEntity) -> void:
+	if board_node == null or not board_node.has_method("configure_visual"):
+		return
+
+	var visual_kind: String = "normal"
+	match tile.tile_type:
+		TileEntity.TileType.START:
+			visual_kind = "start"
+		TileEntity.TileType.FINISH:
+			visual_kind = "finish"
+		TileEntity.TileType.QUIZ:
+			visual_kind = "quiz"
+		TileEntity.TileType.LADDER:
+			visual_kind = "ladder"
+		TileEntity.TileType.SLIDE:
+			visual_kind = "slide"
+
+	var visual_data: Dictionary = {
+		"kind": visual_kind,
+		"tile_index": tile.tile_index,
+		"ods_id": tile.ods_id,
+		"target_position": tile.target_position,
+		"ods_meta": ods_visuals.get(tile.ods_id, {}).duplicate(true)
+	}
+	board_node.configure_visual(visual_data)
 

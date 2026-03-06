@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8gkw5ud1npkm"]
+[gd_scene load_steps=4 format=3 uid="uid://c8gkw5ud1npkm"]
 
+[ext_resource type="Script" path="res://scripts/UI/Game/BoardTileVisual.gd" id="1_rkjq0"]
 [ext_resource type="Texture2D" uid="uid://dowmpktwv8f4t" path="res://Assets/images/image-Picsart-BackgroundRemover (7).png" id="1_qjqtg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ye8q"]
 size = Vector2(65.25, 61.5)
 
 [node name="Casilla Generica" type="StaticBody2D"]
+script = ExtResource("1_rkjq0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -1.9073486e-06)

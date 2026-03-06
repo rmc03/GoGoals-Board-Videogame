@@ -124,7 +124,12 @@ func initialize_game(board_nodes: Array[Node2D], player_count: int, textures: Ar
 	board = BoardEntity.new()
 	board.name = "Board"
 	add_child(board)
-	board.load_config(board_config.get_ladders(), board_config.get_slides(), board_config.get_quiz_tiles())
+	board.load_config(
+		board_config.get_ladders(),
+		board_config.get_slides(),
+		board_config.get_quiz_tiles(),
+		board_config.get_ods_visuals()
+	)
 	board.setup(board_nodes)
 
 	game_state.initialize_game(player_count)

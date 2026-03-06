@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://5qm5d5egkaw3"]
+[gd_scene load_steps=4 format=3 uid="uid://5qm5d5egkaw3"]
 
+[ext_resource type="Script" path="res://scripts/UI/Game/BoardTileVisual.gd" id="1_lavoq"]
 [ext_resource type="Texture2D" uid="uid://b84ps8rqier1p" path="res://Assets/images/Picsart_25-12-10_11-57-01-036.png" id="1_acott"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ylcch"]
 size = Vector2(65.25, 61.5)
 
 [node name="Casilla ODS" type="StaticBody2D"]
+script = ExtResource("1_lavoq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -1.9073486e-06)
