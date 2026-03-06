@@ -13,6 +13,7 @@ const SCENE_COMO_JUGAR := "res://ui/ComoJugar.tscn"
 
 # --- RUTAS DE RECURSOS ---
 const QUESTIONS_FILE := "res://data/questions.json"
+const SETTINGS_FILE := "user://settings.save"
 
 # --- CONFIGURACIÓN DE JUEGO ---
 const MIN_PLAYERS := 1
@@ -35,6 +36,10 @@ const SPECIAL_MOVE_TWEEN_DURATION := 0.5
 # --- CONFIGURACIÓN DE AUDIO ---
 const MUSIC_VOLUME_DEFAULT := -10.0
 const SFX_VOLUME_DEFAULT := 0.0
+const MUSIC_VOLUME_MIN := -24.0
+const MUSIC_VOLUME_MAX := 0.0
+const SFX_VOLUME_MIN := -24.0
+const SFX_VOLUME_MAX := 0.0
 const SFX_STEP_VOLUME_MOD := -5.0
 
 # --- CONFIGURACIÓN DE RÉCORDS ---

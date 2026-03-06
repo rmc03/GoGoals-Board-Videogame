@@ -8,7 +8,7 @@ var current_question_data: Dictionary = {}
 var current_player: int = 0
 var current_ods_id: int = 0
 
-signal answer_selected(is_correct: bool)
+signal answer_selected(answer_result: Dictionary)
 
 func setup(target_panel: Panel, target_label: Label, buttons: Array[Button]) -> void:
 	panel = target_panel
@@ -47,6 +47,7 @@ func _style_panel() -> void:
 
 	question_label.add_theme_color_override("font_color", Color(0.95, 0.95, 1.0))
 	question_label.add_theme_font_size_override("font_size", 24)
+	question_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 
 	for button in option_buttons:
 		if button:
@@ -83,12 +84,42 @@ func _style_button(button: Button) -> void:
 	button.add_theme_color_override("font_color", Color(0.9, 0.95, 1.0))
 	button.add_theme_color_override("font_hover_color", Color(1, 1, 0.85))
 
+func _set_button_feedback(button: Button, base_color: Color) -> void:
+	if button == null:
+		return
+
+	var style: StyleBoxFlat = StyleBoxFlat.new()
+	style.bg_color = base_color
+	style.corner_radius_top_left = 10
+	style.corner_radius_top_right = 10
+	style.corner_radius_bottom_left = 10
+	style.corner_radius_bottom_right = 10
+	style.border_width_left = 2
+	style.border_width_right = 2
+	style.border_width_top = 2
+	style.border_width_bottom = 2
+	style.border_color = base_color.lightened(0.18)
+	style.content_margin_left = 15
+	style.content_margin_right = 15
+	style.content_margin_top = 10
+	style.content_margin_bottom = 10
+	button.add_theme_stylebox_override("normal", style)
+	button.add_theme_stylebox_override("hover", style)
+	button.add_theme_stylebox_override("pressed", style)
+
+func _reset_button_visuals() -> void:
+	for button in option_buttons:
+		if button:
+			button.modulate = Color.WHITE
+			_style_button(button)
+
 func show_question(question_data: Dictionary, player_index: int, ods_id: int) -> void:
 	current_question_data = question_data.duplicate(true)
 	current_player = player_index
 	current_ods_id = ods_id
+	_reset_button_visuals()
 
-	question_label.text = "📝 Pregunta para J%d:\n\n%s" % [player_index + 1, current_question_data.get("q", "")]
+	question_label.text = "ODS %02d  |  Pregunta para J%d\n\n%s" % [ods_id, player_index + 1, current_question_data.get("q", "")]
 
 	var options: Array = current_question_data.get("options", [])
 	for i in range(option_buttons.size()):
@@ -112,6 +143,11 @@ func show_question(question_data: Dictionary, player_index: int, ods_id: int) ->
 	tween.tween_property(panel, "modulate", Color(1, 1, 1, 1), 0.3)
 	tween.tween_property(panel, "scale", Vector2(1, 1), 0.3).set_trans(Tween.TRANS_BACK)
 
+	for button in option_buttons:
+		if button and button.visible:
+			button.grab_focus()
+			break
+
 func _on_option_selected(option_index: int) -> void:
 	if current_question_data.is_empty():
 		return
@@ -119,8 +155,41 @@ func _on_option_selected(option_index: int) -> void:
 	set_enabled(false)
 	var correct_index: int = int(current_question_data.get("correct", -1))
 	var is_correct: bool = option_index == correct_index
+	var result_data: Dictionary = {
+		"is_correct": is_correct,
+		"selected_index": option_index,
+		"correct_index": correct_index,
+		"selected_text": option_buttons[option_index].text if option_index < option_buttons.size() else "",
+		"correct_text": str(current_question_data.get("correct_text", "")),
+		"explanation": str(current_question_data.get("explanation", "")),
+		"ods_id": current_ods_id,
+		"question": str(current_question_data.get("q", ""))
+	}
+	await _show_answer_feedback(option_index, correct_index, result_data)
 	await hide_panel()
-	answer_selected.emit(is_correct)
+	answer_selected.emit(result_data)
+
+func _show_answer_feedback(selected_index: int, correct_index: int, result_data: Dictionary) -> void:
+	if selected_index >= 0 and selected_index < option_buttons.size():
+		var selected_button: Button = option_buttons[selected_index]
+		if result_data.get("is_correct", false):
+			_set_button_feedback(selected_button, Color(0.18, 0.48, 0.26))
+		else:
+			_set_button_feedback(selected_button, Color(0.55, 0.18, 0.2))
+
+	if correct_index >= 0 and correct_index < option_buttons.size():
+		_set_button_feedback(option_buttons[correct_index], Color(0.18, 0.48, 0.26))
+
+	var status_title: String = "Respuesta correcta" if result_data.get("is_correct", false) else "Respuesta incorrecta"
+	var correct_text: String = str(result_data.get("correct_text", ""))
+	var explanation: String = str(result_data.get("explanation", "")).strip_edges()
+	question_label.text = "%s\n\n%s" % [status_title, current_question_data.get("q", "")]
+	if not correct_text.is_empty():
+		question_label.text += "\n\nCorrecta: %s" % correct_text
+	if not explanation.is_empty():
+		question_label.text += "\n%s" % explanation
+
+	await get_tree().create_timer(1.8).timeout
 
 func hide_panel() -> void:
 	if panel == null or not panel.visible:
@@ -137,6 +206,7 @@ func _reset_panel() -> void:
 	current_question_data.clear()
 	current_player = 0
 	current_ods_id = 0
+	_reset_button_visuals()
 	if panel:
 		panel.hide()
 		panel.scale = Vector2.ONE
