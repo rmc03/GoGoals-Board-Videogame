@@ -140,13 +140,15 @@ func _add_display_mode_row(y: float) -> void:
 	panel.add_child(display_mode_option)
 
 func _sync_display_mode() -> void:
-	if display_mode_option == null: return
-	var current_mode = DisplayServer.window_get_mode()
+	if display_mode_option == null:
+		return
+	var current_mode: int = DisplayServer.window_get_mode()
 	if current_mode == DisplayServer.WINDOW_MODE_FULLSCREEN or current_mode == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN:
 		display_mode_option.selected = 0
-	elif current_mode == DisplayServer.WINDOW_MODE_WINDOWED:
-		var flags = DisplayServer.window_get_flag(DisplayServer.WINDOW_FLAG_BORDERLESS)
-		if flags:
+	else:
+		# In windowed or maximized mode, check borderless flag
+		var is_borderless: bool = DisplayServer.window_get_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, 0)
+		if is_borderless:
 			display_mode_option.selected = 2
 		else:
 			display_mode_option.selected = 1
@@ -233,6 +235,7 @@ func show_menu() -> void:
 		return
 
 	_sync_slider_values()
+	_sync_display_mode()
 	root.show()
 	if resume_button:
 		resume_button.grab_focus()

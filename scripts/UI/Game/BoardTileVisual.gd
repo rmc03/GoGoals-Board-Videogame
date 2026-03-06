@@ -90,8 +90,8 @@ func _create_label(
 	label.name = node_name
 	label.position = node_position
 	label.size = node_size
-	label.clip_text = false
-	label.text_overrun_behavior = TextServer.OVERRUN_NO_TRIMMING
+	label.clip_text = true
+	label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 
 	var settings := LabelSettings.new()
 	settings.font_size = font_size
@@ -155,7 +155,8 @@ func _configure_quiz(data: Dictionary) -> void:
 	var ods_id: int = int(data.get("ods_id", 0))
 	var ods_meta: Dictionary = data.get("ods_meta", {})
 	var title: String = str(ods_meta.get("title", "ODS"))
-	var font_size: int = int(ods_meta.get("font_size", 17))
+	# Limit font size to keep text inside the hexagon
+	var font_size: int = mini(int(ods_meta.get("font_size", 13)), 13)
 	var color_code: String = str(ods_meta.get("color", "#56C02B"))
 	var tile_color := Color.from_string(color_code, Color(0.34, 0.75, 0.17, 1.0))
 
@@ -164,11 +165,11 @@ func _configure_quiz(data: Dictionary) -> void:
 
 	number_label.visible = true
 	number_label.text = str(ods_id)
-	_set_label_style(number_label, 18, LIGHT_TEXT, 4)
+	_set_label_style(number_label, 14, LIGHT_TEXT, 3)
 
 	title_label.visible = true
 	title_label.text = title
-	_set_label_style(title_label, font_size, LIGHT_TEXT, 4)
+	_set_label_style(title_label, font_size, LIGHT_TEXT, 3)
 
 func _set_label_style(label: Label, font_size: int, font_color: Color, outline_size: int) -> void:
 	var settings: LabelSettings = label.label_settings
