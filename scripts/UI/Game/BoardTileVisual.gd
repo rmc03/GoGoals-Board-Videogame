@@ -66,7 +66,7 @@ func _ensure_visual_nodes() -> void:
 		title_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		title_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		title_label.clip_text = false
-		title_label.text_overrun_behavior = TextServer.OVERRUN_NONE
+		title_label.text_overrun_behavior = TextServer.OVERRUN_NO_TRIMMING
 
 	if badge_label == null:
 		badge_label = _create_label(
