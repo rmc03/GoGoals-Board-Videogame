@@ -102,20 +102,21 @@ func get_quiz_id(tile_index: int) -> int:
 
 func calculate_path(from_pos: int, steps: int) -> Array[int]:
 	var path: Array[int] = []
-	var target = from_pos + steps
-	
-	# Ajustar si se pasa del final
-	if target >= tiles.size():
-		var excess = target - (tiles.size() - 1)
-		target = (tiles.size() - 1) - excess
-	
-	# Generar camino
-	if target > from_pos:
-		for i in range(from_pos + 1, target + 1):
-			path.append(i)
-	else:
-		for i in range(from_pos - 1, target - 1, -1):
-			path.append(i)
-	
+	if steps <= 0 or tiles.is_empty():
+		return path
+
+	var finish_index: int = tiles.size() - 1
+	var current_pos: int = from_pos
+	var direction: int = 1
+
+	for _step in range(steps):
+		if current_pos >= finish_index:
+			direction = -1
+		elif current_pos <= 0 and direction < 0:
+			direction = 1
+
+		current_pos += direction
+		path.append(current_pos)
+
 	return path
 
