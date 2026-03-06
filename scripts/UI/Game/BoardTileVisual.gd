@@ -56,11 +56,11 @@ func _ensure_visual_nodes() -> void:
 	if title_label == null:
 		title_label = _create_label(
 			"TitleLabel",
-			Vector2(-66.0, -16.0),
-			Vector2(132.0, 86.0),
-			16,
+			Vector2(-50.0, -16.0),
+			Vector2(100.0, 86.0),
+			14,
 			LIGHT_TEXT,
-			4
+			3
 		)
 		title_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		title_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
@@ -118,8 +118,8 @@ func _reset_visual_state() -> void:
 	title_label.visible = false
 	title_label.text = ""
 	title_label.modulate = Color.WHITE
-	title_label.position = Vector2(-66.0, -16.0)
-	title_label.size = Vector2(132.0, 86.0)
+	title_label.position = Vector2(-50.0, -16.0)
+	title_label.size = Vector2(100.0, 86.0)
 
 	badge_label.visible = false
 	badge_label.text = ""
@@ -141,9 +141,9 @@ func _configure_start() -> void:
 	_configure_normal()
 	title_label.visible = true
 	title_label.text = "INICIO"
-	title_label.position = Vector2(-66.0, -18.0)
-	title_label.size = Vector2(132.0, 40.0)
-	_set_label_style(title_label, 18, DARK_TEXT, 3)
+	title_label.position = Vector2(-50.0, -18.0)
+	title_label.size = Vector2(100.0, 40.0)
+	_set_label_style(title_label, 16, DARK_TEXT, 3)
 
 func _configure_special(text: String, accent: Color) -> void:
 	_configure_normal()

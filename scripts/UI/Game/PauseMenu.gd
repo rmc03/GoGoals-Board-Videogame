@@ -16,6 +16,7 @@ var sfx_value_label: Label
 var resume_button: Button
 var restart_button: Button
 var menu_button: Button
+var display_mode_option: OptionButton
 
 func setup(target_host: CanvasLayer) -> void:
 	host = target_host
@@ -35,7 +36,7 @@ func _build_menu() -> void:
 	root.add_child(overlay)
 
 	panel = Panel.new()
-	panel.size = Vector2(430, 350)
+	panel.size = Vector2(430, 410)
 	panel.mouse_filter = Control.MOUSE_FILTER_STOP
 	root.add_child(panel)
 
@@ -71,9 +72,11 @@ func _build_menu() -> void:
 	_add_slider_row("Musica", 118, true)
 	_add_slider_row("Efectos", 184, false)
 
-	resume_button = _build_button("Continuar", Vector2(30, 262), Vector2(170, 44), Color(0.16, 0.45, 0.84))
-	restart_button = _build_button("Reiniciar", Vector2(230, 262), Vector2(170, 44), Color(0.18, 0.32, 0.58))
-	menu_button = _build_button("Menu principal", Vector2(30, 314), Vector2(370, 44), Color(0.32, 0.18, 0.24))
+	_add_display_mode_row(250)
+
+	resume_button = _build_button("Continuar", Vector2(30, 310), Vector2(170, 44), Color(0.16, 0.45, 0.84))
+	restart_button = _build_button("Reiniciar", Vector2(230, 310), Vector2(170, 44), Color(0.18, 0.32, 0.58))
+	menu_button = _build_button("Menu principal", Vector2(30, 362), Vector2(370, 44), Color(0.32, 0.18, 0.24))
 
 	resume_button.pressed.connect(func(): resume_requested.emit())
 	restart_button.pressed.connect(func(): restart_requested.emit())
@@ -115,6 +118,49 @@ func _add_slider_row(label_text: String, y: float, is_music: bool) -> void:
 		sfx_slider = slider
 		sfx_value_label = value_label
 		sfx_slider.value_changed.connect(_on_sfx_slider_changed)
+
+func _add_display_mode_row(y: float) -> void:
+	var row_label: Label = Label.new()
+	row_label.text = "Pantalla"
+	row_label.position = Vector2(30, y)
+	row_label.add_theme_font_size_override("font_size", 18)
+	row_label.add_theme_color_override("font_color", Color(0.88, 0.92, 1.0))
+	panel.add_child(row_label)
+
+	display_mode_option = OptionButton.new()
+	display_mode_option.position = Vector2(110, y - 4)
+	display_mode_option.size = Vector2(290, 32)
+	
+	display_mode_option.add_item("Pantalla Completa", 0)
+	display_mode_option.add_item("Ventana", 1)
+	display_mode_option.add_item("Sin Bordes", 2)
+	
+	_sync_display_mode()
+	display_mode_option.item_selected.connect(_on_display_mode_selected)
+	panel.add_child(display_mode_option)
+
+func _sync_display_mode() -> void:
+	if display_mode_option == null: return
+	var current_mode = DisplayServer.window_get_mode()
+	if current_mode == DisplayServer.WINDOW_MODE_FULLSCREEN or current_mode == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN:
+		display_mode_option.selected = 0
+	elif current_mode == DisplayServer.WINDOW_MODE_WINDOWED:
+		var flags = DisplayServer.window_get_flag(DisplayServer.WINDOW_FLAG_BORDERLESS)
+		if flags:
+			display_mode_option.selected = 2
+		else:
+			display_mode_option.selected = 1
+
+func _on_display_mode_selected(index: int) -> void:
+	match index:
+		0: # Pantalla Completa
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		1: # Ventana
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
+		2: # Sin Bordes
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
 
 func _build_button(text: String, position: Vector2, size: Vector2, color: Color) -> Button:
 	var button: Button = Button.new()
