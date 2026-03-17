@@ -7,6 +7,11 @@ var option_buttons: Array[Button] = []
 var current_question_data: Dictionary = {}
 var current_player: int = 0
 var current_ods_id: int = 0
+var ods_chip_label: Label
+var player_chip_label: Label
+var status_chip_panel: PanelContainer
+var status_chip_label: Label
+var answer_label: Label
 
 signal answer_selected(answer_result: Dictionary)
 
@@ -48,17 +53,101 @@ func _ensure_layout() -> void:
 	vbox.add_theme_constant_override("separation", 18)
 	layout.add_child(vbox)
 
+	var header := HBoxContainer.new()
+	header.name = "QuizHeader"
+	header.add_theme_constant_override("separation", 8)
+	vbox.add_child(header)
+
+	var ods_chip_data := _create_chip("ODS 00", Color(0.12, 0.2, 0.35), Color(0.35, 0.6, 1.0), Color(0.9, 0.95, 1.0))
+	header.add_child(ods_chip_data["panel"])
+	ods_chip_label = ods_chip_data["label"]
+
+	var player_chip_data := _create_chip("J1", Color(0.16, 0.24, 0.18), Color(0.4, 0.9, 0.6), Color(0.9, 1.0, 0.92))
+	header.add_child(player_chip_data["panel"])
+	player_chip_label = player_chip_data["label"]
+
+	var spacer := Control.new()
+	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	header.add_child(spacer)
+
+	var status_chip_data := _create_chip("Respuesta", Color(0.2, 0.2, 0.2), Color(0.4, 0.4, 0.4), Color(1.0, 1.0, 1.0))
+	status_chip_panel = status_chip_data["panel"]
+	status_chip_label = status_chip_data["label"]
+	status_chip_panel.visible = false
+	header.add_child(status_chip_panel)
+
+	var divider := ColorRect.new()
+	divider.color = Color(1, 1, 1, 0.08)
+	divider.custom_minimum_size = Vector2(0, 1)
+	vbox.add_child(divider)
+
 	question_label.reparent(vbox)
 	question_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	question_label.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	question_label.vertical_alignment = VERTICAL_ALIGNMENT_TOP
 	question_label.clip_text = true
 
+	answer_label = Label.new()
+	answer_label.text = ""
+	answer_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	answer_label.clip_text = true
+	answer_label.visible = false
+	vbox.add_child(answer_label)
+
 	for button in option_buttons:
 		if button == null:
 			continue
 		button.reparent(vbox)
 		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+
+func _create_chip(text: String, bg: Color, border: Color, font_color: Color) -> Dictionary:
+	var panel_chip := PanelContainer.new()
+	panel_chip.custom_minimum_size = Vector2(0, 0)
+
+	var chip_style: StyleBoxFlat = StyleBoxFlat.new()
+	chip_style.bg_color = bg
+	chip_style.corner_radius_top_left = 10
+	chip_style.corner_radius_top_right = 10
+	chip_style.corner_radius_bottom_left = 10
+	chip_style.corner_radius_bottom_right = 10
+	chip_style.border_width_left = 1
+	chip_style.border_width_right = 1
+	chip_style.border_width_top = 1
+	chip_style.border_width_bottom = 1
+	chip_style.border_color = border
+	chip_style.content_margin_left = 8
+	chip_style.content_margin_right = 8
+	chip_style.content_margin_top = 3
+	chip_style.content_margin_bottom = 3
+	panel_chip.add_theme_stylebox_override("panel", chip_style)
+
+	var label := Label.new()
+	label.text = text
+	label.add_theme_font_size_override("font_size", 12)
+	label.add_theme_color_override("font_color", font_color)
+	panel_chip.add_child(label)
+
+	return {"panel": panel_chip, "label": label}
+
+func _apply_chip_style(panel_chip: PanelContainer, bg: Color, border: Color) -> void:
+	if panel_chip == null:
+		return
+	var chip_style: StyleBoxFlat = StyleBoxFlat.new()
+	chip_style.bg_color = bg
+	chip_style.corner_radius_top_left = 10
+	chip_style.corner_radius_top_right = 10
+	chip_style.corner_radius_bottom_left = 10
+	chip_style.corner_radius_bottom_right = 10
+	chip_style.border_width_left = 1
+	chip_style.border_width_right = 1
+	chip_style.border_width_top = 1
+	chip_style.border_width_bottom = 1
+	chip_style.border_color = border
+	chip_style.content_margin_left = 8
+	chip_style.content_margin_right = 8
+	chip_style.content_margin_top = 3
+	chip_style.content_margin_bottom = 3
+	panel_chip.add_theme_stylebox_override("panel", chip_style)
 
 func _connect_buttons() -> void:
 	for i in range(option_buttons.size()):
@@ -89,6 +178,9 @@ func _style_panel() -> void:
 	question_label.add_theme_color_override("font_color", Color(0.95, 0.95, 1.0))
 	question_label.add_theme_font_size_override("font_size", 24)
 	question_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	if answer_label:
+		answer_label.add_theme_color_override("font_color", Color(0.82, 0.9, 1.0))
+		answer_label.add_theme_font_size_override("font_size", 16)
 
 	for button in option_buttons:
 		if button:
@@ -162,7 +254,17 @@ func show_question(question_data: Dictionary, player_index: int, ods_id: int) ->
 	current_ods_id = ods_id
 	_reset_button_visuals()
 
-	question_label.text = "ODS %02d  |  Pregunta para J%d\n\n%s" % [ods_id, player_index + 1, current_question_data.get("q", "")]
+	if ods_chip_label:
+		ods_chip_label.text = "ODS %02d" % ods_id
+	if player_chip_label:
+		player_chip_label.text = "J%d" % (player_index + 1)
+	if status_chip_panel:
+		status_chip_panel.visible = false
+	if answer_label:
+		answer_label.text = ""
+		answer_label.visible = false
+
+	question_label.text = str(current_question_data.get("q", ""))
 
 	var options: Array = current_question_data.get("options", [])
 	for i in range(option_buttons.size()):
@@ -228,14 +330,25 @@ func _show_answer_feedback(selected_index: int, correct_index: int, result_data:
 		elif i == selected_index:
 			_set_button_feedback(button, Color(0.55, 0.18, 0.2))
 
-	var status_title: String = "Respuesta correcta" if result_data.get("is_correct", false) else "Respuesta incorrecta"
+	var is_correct: bool = result_data.get("is_correct", false)
+	var status_title: String = "Correcta" if is_correct else "Incorrecta"
 	var correct_text: String = str(result_data.get("correct_text", ""))
 	var explanation: String = str(result_data.get("explanation", "")).strip_edges()
-	question_label.text = "%s\n\n%s" % [status_title, current_question_data.get("q", "")]
-	if not correct_text.is_empty():
-		question_label.text += "\n\nCorrecta: %s" % correct_text
-	if not explanation.is_empty():
-		question_label.text += "\n%s" % explanation
+
+	if status_chip_panel and status_chip_label:
+		status_chip_panel.visible = true
+		status_chip_label.text = "Respuesta " + status_title
+		var status_color: Color = Color(0.18, 0.48, 0.26) if is_correct else Color(0.55, 0.18, 0.2)
+		_apply_chip_style(status_chip_panel, status_color.darkened(0.2), status_color)
+
+	if answer_label:
+		var lines: Array[String] = []
+		if not correct_text.is_empty():
+			lines.append("Correcta: %s" % correct_text)
+		if not explanation.is_empty():
+			lines.append(explanation)
+		answer_label.text = "\n".join(lines)
+		answer_label.visible = not answer_label.text.is_empty()
 
 	await get_tree().create_timer(1.8).timeout
 
@@ -259,6 +372,11 @@ func _reset_panel() -> void:
 		panel.hide()
 		panel.scale = Vector2.ONE
 		panel.modulate = Color.WHITE
+	if status_chip_panel:
+		status_chip_panel.visible = false
+	if answer_label:
+		answer_label.text = ""
+		answer_label.visible = false
 
 func set_enabled(enabled: bool) -> void:
 	for button in option_buttons:
