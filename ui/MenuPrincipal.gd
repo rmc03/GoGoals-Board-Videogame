@@ -292,6 +292,7 @@ func _ensure_ranking_ui() -> void:
 	vbox.anchor_right = 1.0
 	vbox.anchor_bottom = 1.0
 	vbox.add_theme_constant_override("separation", 10)
+	vbox.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	ranking_root.add_child(vbox)
 
 	var title_row := HBoxContainer.new()
@@ -330,6 +331,8 @@ func _ensure_ranking_ui() -> void:
 
 	var list_panel := PanelContainer.new()
 	list_panel.add_theme_stylebox_override("panel", _list_style())
+	list_panel.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	list_panel.custom_minimum_size = Vector2(0, 260)
 	vbox.add_child(list_panel)
 
 	var list_margin := MarginContainer.new()
@@ -356,6 +359,7 @@ func _ensure_ranking_ui() -> void:
 	ranking_rows.add_theme_constant_override("separation", 8)
 	ranking_rows.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	ranking_rows.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+	ranking_rows.custom_minimum_size = Vector2(0, 0)
 	ranking_scroll.add_child(ranking_rows)
 
 	ranking_empty_label = Label.new()
