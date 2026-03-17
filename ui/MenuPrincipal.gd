@@ -24,6 +24,7 @@ var options_menu: MenuOptionsUI
 var ranking_root: Control
 var ranking_rows: VBoxContainer
 var ranking_empty_label: Label
+var ranking_scroll: ScrollContainer
 
 func _ready() -> void:
 	btn_jugar.pressed.connect(_on_jugar_pressed)
@@ -135,6 +136,7 @@ func display_leaderboard() -> void:
 
 		var row_panel := PanelContainer.new()
 		row_panel.add_theme_stylebox_override("panel", _row_style(i))
+		row_panel.custom_minimum_size = Vector2(0, 34)
 		ranking_rows.add_child(row_panel)
 
 		var row_margin := MarginContainer.new()
@@ -150,9 +152,9 @@ func display_leaderboard() -> void:
 		row.add_theme_constant_override("separation", 10)
 		row_margin.add_child(row)
 
-		row.add_child(_make_cell("%d%s" % [i + 1, medal], 44, HORIZONTAL_ALIGNMENT_CENTER, true))
-		row.add_child(_make_cell(str(record_turns), 70, HORIZONTAL_ALIGNMENT_CENTER))
-		row.add_child(_make_cell(time_str, 90, HORIZONTAL_ALIGNMENT_CENTER))
+		row.add_child(_make_cell("%d%s" % [i + 1, medal], 52, HORIZONTAL_ALIGNMENT_CENTER, true))
+		row.add_child(_make_cell(str(record_turns), 86, HORIZONTAL_ALIGNMENT_CENTER))
+		row.add_child(_make_cell(time_str, 110, HORIZONTAL_ALIGNMENT_CENTER))
 		row.add_child(_make_cell(record_name, 0, HORIZONTAL_ALIGNMENT_LEFT))
 
 func _style_menu() -> void:
@@ -227,10 +229,10 @@ func _center_ranking_panel() -> void:
 	ventana_ranking.anchor_right = 0.5
 	ventana_ranking.anchor_top = 0.5
 	ventana_ranking.anchor_bottom = 0.5
-	ventana_ranking.offset_left = -240.0
-	ventana_ranking.offset_right = 240.0
-	ventana_ranking.offset_top = -260.0
-	ventana_ranking.offset_bottom = 260.0
+	ventana_ranking.offset_left = -270.0
+	ventana_ranking.offset_right = 270.0
+	ventana_ranking.offset_top = -300.0
+	ventana_ranking.offset_bottom = 300.0
 
 func _style_close_button(button: Button) -> void:
 	if button == null:
@@ -298,7 +300,7 @@ func _ensure_ranking_ui() -> void:
 
 	var title := Label.new()
 	title.text = "🏆 RANKING"
-	title.add_theme_font_size_override("font_size", 22)
+	title.add_theme_font_size_override("font_size", 26)
 	title.add_theme_color_override("font_color", Color(0.95, 0.97, 1.0))
 	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -322,8 +324,8 @@ func _ensure_ranking_ui() -> void:
 	header_margin.add_child(header)
 
 	header.add_child(_make_header_cell("#", 44))
-	header.add_child(_make_header_cell("Turnos", 70))
-	header.add_child(_make_header_cell("Tiempo", 90))
+	header.add_child(_make_header_cell("Turnos", 86))
+	header.add_child(_make_header_cell("Tiempo", 110))
 	header.add_child(_make_header_cell("Jugador", 0))
 
 	var list_panel := PanelContainer.new()
@@ -333,24 +335,35 @@ func _ensure_ranking_ui() -> void:
 	var list_margin := MarginContainer.new()
 	list_margin.anchor_right = 1.0
 	list_margin.anchor_bottom = 1.0
-	list_margin.offset_left = 6.0
-	list_margin.offset_top = 6.0
-	list_margin.offset_right = -6.0
-	list_margin.offset_bottom = -6.0
+	list_margin.offset_left = 8.0
+	list_margin.offset_top = 8.0
+	list_margin.offset_right = -8.0
+	list_margin.offset_bottom = -8.0
 	list_panel.add_child(list_margin)
+
+	ranking_scroll = ScrollContainer.new()
+	ranking_scroll.anchor_right = 1.0
+	ranking_scroll.anchor_bottom = 1.0
+	ranking_scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	ranking_scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	ranking_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	ranking_scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
+	list_margin.add_child(ranking_scroll)
 
 	ranking_rows = VBoxContainer.new()
 	ranking_rows.anchor_right = 1.0
 	ranking_rows.anchor_bottom = 1.0
-	ranking_rows.add_theme_constant_override("separation", 6)
-	list_margin.add_child(ranking_rows)
+	ranking_rows.add_theme_constant_override("separation", 8)
+	ranking_rows.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	ranking_rows.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+	ranking_scroll.add_child(ranking_rows)
 
 	ranking_empty_label = Label.new()
 	ranking_empty_label.text = "Aún no hay registros."
-	ranking_empty_label.add_theme_font_size_override("font_size", 16)
+	ranking_empty_label.add_theme_font_size_override("font_size", 18)
 	ranking_empty_label.add_theme_color_override("font_color", Color(0.75, 0.8, 0.9))
 	ranking_empty_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	ranking_empty_label.custom_minimum_size = Vector2(0, 60)
+	ranking_empty_label.custom_minimum_size = Vector2(0, 80)
 	ranking_rows.add_child(ranking_empty_label)
 
 func _make_header_cell(text: String, width: float) -> Control:
@@ -364,7 +377,7 @@ func _make_cell(text: String, width: float, align: int, bold: bool = false, head
 	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL if width <= 0.0 else Control.SIZE_SHRINK_CENTER
 	if width > 0.0:
 		label.custom_minimum_size = Vector2(width, 0)
-	var font_size: int = 14 if not header else 13
+	var font_size: int = 16 if not header else 15
 	label.add_theme_font_size_override("font_size", font_size)
 	if bold:
 		label.add_theme_color_override("font_color", Color(0.95, 0.97, 1.0))
