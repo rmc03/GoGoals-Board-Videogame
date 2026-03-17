@@ -25,6 +25,8 @@ AudioManager="*res://autoloads/AudioManager.gd"
 
 window/size/viewport_width=1366
 window/size/viewport_height=766
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [rendering]
 
