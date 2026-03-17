@@ -94,9 +94,13 @@ func _on_dice_requested() -> void:
 	game_manager.roll_dice()
 
 func _on_quiz_requested(player_index: int, ods_id: int, question_data: Dictionary) -> void:
+	if game_hud:
+		game_hud.set_quiz_active(true)
 	quiz_ui.show_question(question_data, player_index, ods_id)
 
 func _on_answer_selected(answer_result: Dictionary) -> void:
+	if game_hud:
+		game_hud.set_quiz_active(false)
 	game_manager.answer_quiz(answer_result)
 
 func _on_pause_requested() -> void:

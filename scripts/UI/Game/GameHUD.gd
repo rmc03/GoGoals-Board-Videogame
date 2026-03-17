@@ -15,7 +15,8 @@ var legacy_result_label: Label
 var dice_button: Button
 var game_manager: GameManager
 
-var hud_panel: Panel
+var stats_panel: Panel
+var dice_panel: Panel
 var timer_display: Label
 var turn_display: Label
 var dice_result_label: Label
@@ -50,14 +51,136 @@ func _hide_legacy_labels() -> void:
 		legacy_result_label.visible = false
 
 func _build_hud() -> void:
-	hud_panel = Panel.new()
-	hud_panel.offset_left = 1065
-	hud_panel.offset_top = 30
-	hud_panel.offset_right = 1340
-	hud_panel.offset_bottom = 280
+	var edge_margin := 18.0
+	var stats_width := 260.0
+	var stats_height := 250.0
+	var dice_width := 260.0
+	var dice_height := 160.0
 
+	stats_panel = Panel.new()
+	stats_panel.anchor_left = 1.0
+	stats_panel.anchor_right = 1.0
+	stats_panel.anchor_top = 0.0
+	stats_panel.anchor_bottom = 0.0
+	stats_panel.offset_left = -(stats_width + edge_margin)
+	stats_panel.offset_top = edge_margin
+	stats_panel.offset_right = -edge_margin
+	stats_panel.offset_bottom = stats_height + edge_margin
+	_apply_panel_style(stats_panel, Color(0.05, 0.08, 0.15, 0.9), Color(0.3, 0.6, 1.0, 0.6))
+	hud_host.add_child(stats_panel)
+
+	var stats_margin := MarginContainer.new()
+	stats_margin.anchor_right = 1.0
+	stats_margin.anchor_bottom = 1.0
+	stats_margin.offset_left = 14.0
+	stats_margin.offset_top = 12.0
+	stats_margin.offset_right = -14.0
+	stats_margin.offset_bottom = -12.0
+	stats_panel.add_child(stats_margin)
+
+	var stats_box := VBoxContainer.new()
+	stats_box.anchor_right = 1.0
+	stats_box.anchor_bottom = 1.0
+	stats_box.offset_left = 0.0
+	stats_box.offset_top = 0.0
+	stats_box.offset_right = 0.0
+	stats_box.offset_bottom = 0.0
+	stats_box.add_theme_constant_override("separation", 8)
+	stats_margin.add_child(stats_box)
+
+	var stats_title := Label.new()
+	stats_title.text = "ESTADÍSTICAS"
+	stats_title.add_theme_font_size_override("font_size", 12)
+	stats_title.add_theme_color_override("font_color", Color(0.6, 0.75, 0.95))
+	stats_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+	stats_box.add_child(stats_title)
+
+	var header_row := HBoxContainer.new()
+	header_row.add_theme_constant_override("separation", 8)
+	stats_box.add_child(header_row)
+
+	timer_display = Label.new()
+	timer_display.text = "⏱ 00:00.00"
+	timer_display.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	timer_display.add_theme_font_size_override("font_size", 18)
+	timer_display.add_theme_color_override("font_color", Color(0.7, 0.85, 1.0))
+	header_row.add_child(timer_display)
+
+	pause_button = Button.new()
+	pause_button.text = "Pausa"
+	pause_button.custom_minimum_size = Vector2(84, 30)
+	_style_pause_button()
+	header_row.add_child(pause_button)
+
+	turn_display = Label.new()
+	turn_display.text = ""
+	turn_display.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+	turn_display.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	turn_display.add_theme_font_size_override("font_size", 15)
+	turn_display.add_theme_color_override("font_color", Color(0.85, 0.85, 0.9))
+	stats_box.add_child(turn_display)
+
+	feedback_label = Label.new()
+	feedback_label.text = ""
+	feedback_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+	feedback_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	feedback_label.add_theme_font_size_override("font_size", 14)
+	feedback_label.add_theme_color_override("font_color", Color(0.6, 1.0, 0.6))
+	stats_box.add_child(feedback_label)
+
+	hint_label = Label.new()
+	hint_label.text = "ESC para pausar"
+	hint_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+	hint_label.add_theme_font_size_override("font_size", 12)
+	hint_label.add_theme_color_override("font_color", Color(0.65, 0.72, 0.82))
+	stats_box.add_child(hint_label)
+
+	dice_panel = Panel.new()
+	dice_panel.anchor_left = 1.0
+	dice_panel.anchor_right = 1.0
+	dice_panel.anchor_top = 1.0
+	dice_panel.anchor_bottom = 1.0
+	dice_panel.offset_left = -(dice_width + edge_margin)
+	dice_panel.offset_top = -(dice_height + edge_margin)
+	dice_panel.offset_right = -edge_margin
+	dice_panel.offset_bottom = -edge_margin
+	_apply_panel_style(dice_panel, Color(0.06, 0.12, 0.22, 0.92), Color(0.4, 0.75, 1.0, 0.7))
+	hud_host.add_child(dice_panel)
+
+	var dice_margin := MarginContainer.new()
+	dice_margin.anchor_right = 1.0
+	dice_margin.anchor_bottom = 1.0
+	dice_margin.offset_left = 14.0
+	dice_margin.offset_top = 12.0
+	dice_margin.offset_right = -14.0
+	dice_margin.offset_bottom = -12.0
+	dice_panel.add_child(dice_margin)
+
+	var dice_box := VBoxContainer.new()
+	dice_box.anchor_right = 1.0
+	dice_box.anchor_bottom = 1.0
+	dice_box.offset_left = 0.0
+	dice_box.offset_top = 0.0
+	dice_box.offset_right = 0.0
+	dice_box.offset_bottom = 0.0
+	dice_box.add_theme_constant_override("separation", 8)
+	dice_margin.add_child(dice_box)
+
+	dice_button.reparent(dice_box)
+	dice_button.custom_minimum_size = Vector2(0, 56)
+	dice_button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_style_dice_button()
+
+	dice_result_label = Label.new()
+	dice_result_label.text = ""
+	dice_result_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	dice_result_label.add_theme_font_size_override("font_size", 20)
+	dice_result_label.add_theme_color_override("font_color", Color(1, 0.9, 0.4))
+	dice_box.add_child(dice_result_label)
+
+func _apply_panel_style(panel: Panel, bg: Color, border: Color) -> void:
 	var hud_style: StyleBoxFlat = StyleBoxFlat.new()
-	hud_style.bg_color = Color(0.05, 0.08, 0.15, 0.85)
+	hud_style.bg_color = bg
 	hud_style.corner_radius_top_left = 16
 	hud_style.corner_radius_top_right = 16
 	hud_style.corner_radius_bottom_left = 16
@@ -66,69 +189,10 @@ func _build_hud() -> void:
 	hud_style.border_width_right = 2
 	hud_style.border_width_top = 2
 	hud_style.border_width_bottom = 2
-	hud_style.border_color = Color(0.3, 0.6, 1.0, 0.6)
+	hud_style.border_color = border
 	hud_style.shadow_color = Color(0, 0, 0, 0.4)
 	hud_style.shadow_size = 6
-	hud_panel.add_theme_stylebox_override("panel", hud_style)
-	hud_host.add_child(hud_panel)
-
-	timer_display = Label.new()
-	timer_display.text = "⏱ 00:00.00"
-	timer_display.position = Vector2(15, 12)
-	timer_display.add_theme_font_size_override("font_size", 18)
-	timer_display.add_theme_color_override("font_color", Color(0.7, 0.85, 1.0))
-	hud_panel.add_child(timer_display)
-
-	pause_button = Button.new()
-	pause_button.text = "Pausa"
-	pause_button.position = Vector2(175, 10)
-	pause_button.size = Vector2(85, 30)
-	_style_pause_button()
-	hud_panel.add_child(pause_button)
-
-	dice_button.reparent(hud_panel)
-	dice_button.position = Vector2(15, 45)
-	dice_button.size = Vector2(245, 55)
-	_style_dice_button()
-
-	dice_result_label = Label.new()
-	dice_result_label.text = ""
-	dice_result_label.position = Vector2(15, 110)
-	dice_result_label.size = Vector2(245, 30)
-	dice_result_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	dice_result_label.add_theme_font_size_override("font_size", 20)
-	dice_result_label.add_theme_color_override("font_color", Color(1, 0.9, 0.4))
-	hud_panel.add_child(dice_result_label)
-
-	feedback_label = Label.new()
-	feedback_label.text = ""
-	feedback_label.position = Vector2(15, 145)
-	feedback_label.size = Vector2(245, 50)
-	feedback_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	feedback_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	feedback_label.add_theme_font_size_override("font_size", 16)
-	feedback_label.add_theme_color_override("font_color", Color(0.6, 1.0, 0.6))
-	hud_panel.add_child(feedback_label)
-
-	turn_display = Label.new()
-	turn_display.text = ""
-	turn_display.position = Vector2(15, 205)
-	turn_display.size = Vector2(245, 55)
-	turn_display.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	turn_display.add_theme_font_size_override("font_size", 15)
-	turn_display.add_theme_color_override("font_color", Color(0.85, 0.85, 0.9))
-	hud_panel.add_child(turn_display)
-
-	hint_label = Label.new()
-	hint_label.text = "ESC para pausar"
-	hint_label.position = Vector2(15, 270)
-	hint_label.size = Vector2(245, 22)
-	hint_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	hint_label.add_theme_font_size_override("font_size", 13)
-	hint_label.add_theme_color_override("font_color", Color(0.65, 0.72, 0.82))
-	hud_panel.add_child(hint_label)
-
-	hud_panel.offset_bottom = 305
+	panel.add_theme_stylebox_override("panel", hud_style)
 
 func _style_dice_button() -> void:
 	var btn_normal: StyleBoxFlat = StyleBoxFlat.new()
@@ -247,6 +311,13 @@ func show_feedback(text: String, color: Color) -> void:
 func set_dice_enabled(enabled: bool) -> void:
 	if dice_button:
 		dice_button.disabled = not enabled
+
+func set_quiz_active(active: bool) -> void:
+	var visible_state := not active
+	if stats_panel:
+		stats_panel.visible = visible_state
+	if dice_panel:
+		dice_panel.visible = visible_state
 
 func _animate_dice_roll(final_value: int) -> void:
 	var dice_faces: Array[String] = ["⚀", "⚁", "⚂", "⚃", "⚄", "⚅"]
