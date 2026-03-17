@@ -217,33 +217,34 @@ func _on_sfx_slider_changed(value: float) -> void:
 func _sync_display_mode() -> void:
 	if display_mode_option == null:
 		return
-	var window_id: int = _get_window_id()
-	var current_mode: int = DisplayServer.window_get_mode(window_id)
-	if current_mode == DisplayServer.WINDOW_MODE_FULLSCREEN or current_mode == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN:
+	var window := _get_window()
+	var current_mode: int = window.mode
+	if current_mode == Window.MODE_FULLSCREEN or current_mode == Window.MODE_EXCLUSIVE_FULLSCREEN:
 		display_mode_option.selected = 0
 	else:
-		var is_borderless: bool = DisplayServer.window_get_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, window_id)
-		display_mode_option.selected = 2 if is_borderless else 1
+		display_mode_option.selected = 2 if window.borderless else 1
 
 func _on_display_mode_selected(index: int) -> void:
-	var window_id: int = _get_window_id()
+	var window := _get_window()
 	match index:
 		0:
-			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false, window_id)
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN, window_id)
+			window.borderless = false
+			window.mode = Window.MODE_FULLSCREEN
+			if window.mode != Window.MODE_FULLSCREEN:
+				window.mode = Window.MODE_EXCLUSIVE_FULLSCREEN
 		1:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED, window_id)
-			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false, window_id)
+			window.borderless = false
+			window.mode = Window.MODE_WINDOWED
 		2:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED, window_id)
-			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true, window_id)
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED, window_id)
+			window.mode = Window.MODE_WINDOWED
+			window.borderless = true
+			window.mode = Window.MODE_MAXIMIZED
 
-func _get_window_id() -> int:
+func _get_window() -> Window:
 	var window := get_window()
-	if window:
-		return window.get_window_id()
-	return 0
+	if window == null:
+		window = get_tree().get_root()
+	return window
 
 func _on_reset_audio_pressed() -> void:
 	AudioManager.reset_settings()
