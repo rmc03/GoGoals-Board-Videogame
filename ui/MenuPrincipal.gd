@@ -1,6 +1,7 @@
 extends Control
 
 const MenuOptionsUIScript := preload("res://scripts/UI/Menu/OptionsMenu.gd")
+const DEBUG_SEED_RANKING := true
 
 @onready var btn_jugar: Button = $ButtonJugar
 @onready var btn_ranking: Button = $ButtonRanking
@@ -85,6 +86,10 @@ func _on_options_pressed() -> void:
 # --- UTILS ---
 
 func display_leaderboard() -> void:
+	if DEBUG_SEED_RANKING and OS.is_debug_build():
+		if RecordsManager.get_leaderboard().is_empty():
+			RecordsManager.debug_seed_records()
+
 	var leaderboard: Array = RecordsManager.get_leaderboard() 
 	var text: String = "[center][b]🏆 RANKING 🏆[/b][/center]\n\n"
 	

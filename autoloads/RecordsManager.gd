@@ -4,6 +4,18 @@ var records: Array = []
 
 const MAX_RECORDS: int = 10 
 const RECORDS_FILE: String = "user://records.save"
+const DEBUG_SAMPLE_RECORDS: Array = [
+	{"name": "Ana", "time": 92.45, "turns": 10},
+	{"name": "Luis", "time": 138.12, "turns": 11},
+	{"name": "Marta", "time": 118.33, "turns": 12},
+	{"name": "Diego", "time": 150.2, "turns": 12},
+	{"name": "Sofi", "time": 176.88, "turns": 13},
+	{"name": "Camilo", "time": 141.6, "turns": 14},
+	{"name": "Valen", "time": 210.5, "turns": 15},
+	{"name": "Nico", "time": 198.9, "turns": 16},
+	{"name": "Paula", "time": 240.0, "turns": 17},
+	{"name": "Jota", "time": 260.75, "turns": 18}
+]
 
 func _ready() -> void:
 	load_records()
@@ -64,3 +76,12 @@ func get_leaderboard() -> Array:
 func reset_records() -> void:
 	records.clear()
 	save_records()
+
+func debug_seed_records(force: bool = false) -> void:
+	if not force and not records.is_empty():
+		return
+
+	records.clear()
+	for entry in DEBUG_SAMPLE_RECORDS:
+		records.append(entry.duplicate(true))
+	_organize_and_save()
