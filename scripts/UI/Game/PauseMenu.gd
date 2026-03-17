@@ -142,27 +142,37 @@ func _add_display_mode_row(y: float) -> void:
 func _sync_display_mode() -> void:
 	if display_mode_option == null:
 		return
-	var current_mode: int = DisplayServer.window_get_mode()
+	var window_id: int = _get_window_id()
+	var current_mode: int = DisplayServer.window_get_mode(window_id)
 	if current_mode == DisplayServer.WINDOW_MODE_FULLSCREEN or current_mode == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN:
 		display_mode_option.selected = 0
 	else:
 		# In windowed or maximized mode, check borderless flag
-		var is_borderless: bool = DisplayServer.window_get_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, 0)
+		var is_borderless: bool = DisplayServer.window_get_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, window_id)
 		if is_borderless:
 			display_mode_option.selected = 2
 		else:
 			display_mode_option.selected = 1
 
 func _on_display_mode_selected(index: int) -> void:
+	var window_id: int = _get_window_id()
 	match index:
 		0: # Pantalla Completa
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false, window_id)
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN, window_id)
 		1: # Ventana
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED, window_id)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false, window_id)
 		2: # Sin Bordes
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED, window_id)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true, window_id)
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED, window_id)
+
+func _get_window_id() -> int:
+	var window := get_window()
+	if window:
+		return window.get_window_id()
+	return 0
 
 func _build_button(text: String, position: Vector2, size: Vector2, color: Color) -> Button:
 	var button: Button = Button.new()
