@@ -21,8 +21,9 @@ var timer_display: Label
 var turn_display: Label
 var dice_result_label: Label
 var feedback_label: Label
-var hint_label: Label
 var pause_button: Button
+var dice_base_text: String = ""
+var dice_text_before_pause: String = ""
 
 signal dice_requested()
 signal pause_requested()
@@ -30,6 +31,8 @@ signal pause_requested()
 func setup(host: Node, button: Button, timer_label: Label, turn_label: Label, result_label: Label, manager: GameManager) -> void:
 	hud_host = host
 	dice_button = button
+	if dice_button:
+		dice_base_text = dice_button.text
 	legacy_timer_label = timer_label
 	legacy_turn_label = turn_label
 	legacy_result_label = result_label
@@ -52,8 +55,8 @@ func _hide_legacy_labels() -> void:
 
 func _build_hud() -> void:
 	var edge_margin := 18.0
-	var stats_width := 260.0
-	var stats_height := 250.0
+	var stats_width := 220.0
+	var stats_height := 200.0
 	var dice_width := 260.0
 	var dice_height := 160.0
 
@@ -72,10 +75,10 @@ func _build_hud() -> void:
 	var stats_margin := MarginContainer.new()
 	stats_margin.anchor_right = 1.0
 	stats_margin.anchor_bottom = 1.0
-	stats_margin.offset_left = 14.0
-	stats_margin.offset_top = 12.0
-	stats_margin.offset_right = -14.0
-	stats_margin.offset_bottom = -12.0
+	stats_margin.offset_left = 12.0
+	stats_margin.offset_top = 10.0
+	stats_margin.offset_right = -12.0
+	stats_margin.offset_bottom = -10.0
 	stats_panel.add_child(stats_margin)
 
 	var stats_box := VBoxContainer.new()
@@ -85,38 +88,28 @@ func _build_hud() -> void:
 	stats_box.offset_top = 0.0
 	stats_box.offset_right = 0.0
 	stats_box.offset_bottom = 0.0
-	stats_box.add_theme_constant_override("separation", 8)
+	stats_box.add_theme_constant_override("separation", 6)
 	stats_margin.add_child(stats_box)
-
-	var stats_title := Label.new()
-	stats_title.text = "ESTADÍSTICAS"
-	stats_title.add_theme_font_size_override("font_size", 12)
-	stats_title.add_theme_color_override("font_color", Color(0.6, 0.75, 0.95))
-	stats_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
-	stats_box.add_child(stats_title)
-
-	var header_row := HBoxContainer.new()
-	header_row.add_theme_constant_override("separation", 8)
-	stats_box.add_child(header_row)
 
 	timer_display = Label.new()
 	timer_display.text = "⏱ 00:00.00"
 	timer_display.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	timer_display.add_theme_font_size_override("font_size", 18)
+	timer_display.add_theme_font_size_override("font_size", 17)
 	timer_display.add_theme_color_override("font_color", Color(0.7, 0.85, 1.0))
-	header_row.add_child(timer_display)
+	stats_box.add_child(timer_display)
 
 	pause_button = Button.new()
 	pause_button.text = "Pausa"
-	pause_button.custom_minimum_size = Vector2(84, 30)
+	pause_button.custom_minimum_size = Vector2(0, 28)
+	pause_button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_style_pause_button()
-	header_row.add_child(pause_button)
+	stats_box.add_child(pause_button)
 
 	turn_display = Label.new()
 	turn_display.text = ""
 	turn_display.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 	turn_display.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	turn_display.add_theme_font_size_override("font_size", 15)
+	turn_display.add_theme_font_size_override("font_size", 14)
 	turn_display.add_theme_color_override("font_color", Color(0.85, 0.85, 0.9))
 	stats_box.add_child(turn_display)
 
@@ -124,16 +117,9 @@ func _build_hud() -> void:
 	feedback_label.text = ""
 	feedback_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 	feedback_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	feedback_label.add_theme_font_size_override("font_size", 14)
+	feedback_label.add_theme_font_size_override("font_size", 13)
 	feedback_label.add_theme_color_override("font_color", Color(0.6, 1.0, 0.6))
 	stats_box.add_child(feedback_label)
-
-	hint_label = Label.new()
-	hint_label.text = "ESC para pausar"
-	hint_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
-	hint_label.add_theme_font_size_override("font_size", 12)
-	hint_label.add_theme_color_override("font_color", Color(0.65, 0.72, 0.82))
-	stats_box.add_child(hint_label)
 
 	dice_panel = Panel.new()
 	dice_panel.anchor_left = 1.0
@@ -163,20 +149,13 @@ func _build_hud() -> void:
 	dice_box.offset_top = 0.0
 	dice_box.offset_right = 0.0
 	dice_box.offset_bottom = 0.0
-	dice_box.add_theme_constant_override("separation", 8)
+	dice_box.add_theme_constant_override("separation", 6)
 	dice_margin.add_child(dice_box)
 
 	dice_button.reparent(dice_box)
 	dice_button.custom_minimum_size = Vector2(0, 56)
 	dice_button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_style_dice_button()
-
-	dice_result_label = Label.new()
-	dice_result_label.text = ""
-	dice_result_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	dice_result_label.add_theme_font_size_override("font_size", 20)
-	dice_result_label.add_theme_color_override("font_color", Color(1, 0.9, 0.4))
-	dice_box.add_child(dice_result_label)
 
 func _apply_panel_style(panel: Panel, bg: Color, border: Color) -> void:
 	var hud_style: StyleBoxFlat = StyleBoxFlat.new()
@@ -280,7 +259,8 @@ func _on_dice_rolled(_player_index: int, value: int) -> void:
 	_animate_dice_roll(value)
 
 func _on_victory(_player_index: int, _time: float, _turns: int) -> void:
-	dice_result_label.text = "🏆 ¡Victoria!"
+	if dice_button:
+		dice_button.text = "🏆 ¡Victoria!"
 	set_dice_enabled(false)
 	if pause_button:
 		pause_button.disabled = true
@@ -288,10 +268,13 @@ func _on_victory(_player_index: int, _time: float, _turns: int) -> void:
 func _on_pause_state_changed(paused: bool) -> void:
 	if pause_button:
 		pause_button.text = "Reanudar" if paused else "Pausa"
-	if paused:
-		dice_result_label.text = "⏸ Pausado"
-	elif dice_result_label.text == "⏸ Pausado":
-		dice_result_label.text = ""
+	if dice_button:
+		if paused:
+			dice_text_before_pause = dice_button.text
+			dice_button.text = "⏸ Pausado"
+		elif not dice_text_before_pause.is_empty():
+			dice_button.text = dice_text_before_pause
+			dice_text_before_pause = ""
 
 func update_timer(time: float) -> void:
 	var minutes: int = floor(time / 60.0)
@@ -311,6 +294,8 @@ func show_feedback(text: String, color: Color) -> void:
 func set_dice_enabled(enabled: bool) -> void:
 	if dice_button:
 		dice_button.disabled = not enabled
+		if enabled:
+			dice_button.text = dice_base_text
 
 func set_quiz_active(active: bool) -> void:
 	var visible_state := not active
@@ -325,14 +310,14 @@ func _animate_dice_roll(final_value: int) -> void:
 
 	for _i in range(8):
 		var random_face: String = dice_faces[randi() % dice_faces.size()]
-		tween.tween_callback(func(): dice_result_label.text = random_face + " ...")
+		tween.tween_callback(func(): dice_button.text = random_face + " ...")
 		tween.tween_interval(0.06)
 
 	tween.tween_callback(func():
-		dice_result_label.text = dice_faces[final_value - 1] + "  ¡" + str(final_value) + "!"
-		dice_result_label.add_theme_font_size_override("font_size", 26)
+		dice_button.text = dice_faces[final_value - 1] + "  ¡" + str(final_value) + "!"
+		dice_button.add_theme_font_size_override("font_size", 22)
 	)
 	tween.tween_interval(0.15)
 	tween.tween_callback(func():
-		dice_result_label.add_theme_font_size_override("font_size", 20)
+		dice_button.add_theme_font_size_override("font_size", 20)
 	)
