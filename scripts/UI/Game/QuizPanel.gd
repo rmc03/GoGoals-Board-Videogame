@@ -211,15 +211,20 @@ func _on_option_selected(option_index: int) -> void:
 	answer_selected.emit(result_data)
 
 func _show_answer_feedback(selected_index: int, correct_index: int, result_data: Dictionary) -> void:
-	if selected_index >= 0 and selected_index < option_buttons.size():
-		var selected_button: Button = option_buttons[selected_index]
-		if result_data.get("is_correct", false):
-			_set_button_feedback(selected_button, Color(0.18, 0.48, 0.26))
-		else:
-			_set_button_feedback(selected_button, Color(0.55, 0.18, 0.2))
+	var has_correct: bool = correct_index >= 0 and correct_index < option_buttons.size()
 
-	if correct_index >= 0 and correct_index < option_buttons.size():
-		_set_button_feedback(option_buttons[correct_index], Color(0.18, 0.48, 0.26))
+	for i in range(option_buttons.size()):
+		var button: Button = option_buttons[i]
+		if button == null or not button.visible:
+			continue
+
+		if has_correct:
+			if i == correct_index:
+				_set_button_feedback(button, Color(0.18, 0.48, 0.26))
+			else:
+				_set_button_feedback(button, Color(0.55, 0.18, 0.2))
+		elif i == selected_index:
+			_set_button_feedback(button, Color(0.55, 0.18, 0.2))
 
 	var status_title: String = "Respuesta correcta" if result_data.get("is_correct", false) else "Respuesta incorrecta"
 	var correct_text: String = str(result_data.get("correct_text", ""))
