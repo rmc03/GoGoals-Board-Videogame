@@ -56,8 +56,7 @@ offset_left = 566.0
 offset_top = 328.0
 offset_right = 799.0
 offset_bottom = 392.0
-text = "¿Cómo Jugar?
-"
+text = "¿Cómo Jugar?"
 
 [node name="ButtonRanking" type="Button" parent="."]
 layout_mode = 1
@@ -66,8 +65,7 @@ offset_left = 566.0
 offset_top = 402.0
 offset_right = 799.0
 offset_bottom = 466.0
-text = "Ranking
-"
+text = "Ranking"
 
 [node name="ButtonSalir" type="Button" parent="."]
 layout_mode = 0
@@ -125,8 +123,7 @@ offset_left = 97.0
 offset_top = 47.0
 offset_right = 257.0
 offset_bottom = 362.0
-text = "¿Cuántos Jugadores?
-"
+text = "¿Cuántos Jugadores?"
 
 [node name="Btn1P" type="Button" parent="PanelSeleccion"]
 layout_mode = 0
@@ -134,7 +131,7 @@ offset_left = 124.0
 offset_top = 125.0
 offset_right = 223.0
 offset_bottom = 169.0
-text = "1 Judador"
+text = "1 Jugador"
 
 [node name="Btn2P" type="Button" parent="PanelSeleccion"]
 layout_mode = 0
