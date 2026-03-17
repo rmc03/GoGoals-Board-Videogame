@@ -15,9 +15,50 @@ func setup(target_panel: Panel, target_label: Label, buttons: Array[Button]) -> 
 	question_label = target_label
 	option_buttons = buttons
 
+	_ensure_layout()
 	_style_panel()
 	_connect_buttons()
 	_reset_panel()
+
+func _ensure_layout() -> void:
+	if panel == null or question_label == null:
+		return
+
+	if panel.get_node_or_null("QuizLayout") != null:
+		return
+
+	var layout := MarginContainer.new()
+	layout.name = "QuizLayout"
+	layout.anchor_right = 1.0
+	layout.anchor_bottom = 1.0
+	layout.offset_left = 40.0
+	layout.offset_top = 30.0
+	layout.offset_right = -40.0
+	layout.offset_bottom = -30.0
+	panel.add_child(layout)
+
+	var vbox := VBoxContainer.new()
+	vbox.name = "QuizVBox"
+	vbox.anchor_right = 1.0
+	vbox.anchor_bottom = 1.0
+	vbox.offset_left = 0.0
+	vbox.offset_top = 0.0
+	vbox.offset_right = 0.0
+	vbox.offset_bottom = 0.0
+	vbox.add_theme_constant_override("separation", 18)
+	layout.add_child(vbox)
+
+	question_label.reparent(vbox)
+	question_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	question_label.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	question_label.vertical_alignment = VERTICAL_ALIGNMENT_TOP
+	question_label.clip_text = true
+
+	for button in option_buttons:
+		if button == null:
+			continue
+		button.reparent(vbox)
+		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 
 func _connect_buttons() -> void:
 	for i in range(option_buttons.size()):
