@@ -225,20 +225,51 @@ func _sync_display_mode() -> void:
 		display_mode_option.selected = 2 if window.borderless else 1
 
 func _on_display_mode_selected(index: int) -> void:
-	var window := _get_window()
 	match index:
 		0:
-			window.borderless = false
-			window.mode = Window.MODE_FULLSCREEN
-			if window.mode != Window.MODE_FULLSCREEN:
-				window.mode = Window.MODE_EXCLUSIVE_FULLSCREEN
+			_request_window_mode(Window.MODE_FULLSCREEN, false, false)
 		1:
-			window.borderless = false
-			window.mode = Window.MODE_WINDOWED
+			_request_window_mode(Window.MODE_WINDOWED, false, false)
 		2:
-			window.mode = Window.MODE_WINDOWED
-			window.borderless = true
-			window.mode = Window.MODE_MAXIMIZED
+			_request_window_mode(Window.MODE_WINDOWED, true, true)
+
+func _request_window_mode(target_mode: int, borderless: bool, maximize: bool) -> void:
+	call_deferred("_apply_window_mode", target_mode, borderless, maximize)
+
+func _apply_window_mode(target_mode: int, borderless: bool, maximize: bool) -> void:
+	var window := _get_window()
+	if window == null:
+		return
+
+	window.borderless = borderless
+	window.mode = target_mode
+	if target_mode == Window.MODE_FULLSCREEN and window.mode != Window.MODE_FULLSCREEN:
+		window.mode = Window.MODE_EXCLUSIVE_FULLSCREEN
+
+	if maximize:
+		window.mode = Window.MODE_MAXIMIZED
+
+	_apply_displayserver_fallback(window, target_mode, borderless, maximize)
+
+func _apply_displayserver_fallback(window: Window, target_mode: int, borderless: bool, maximize: bool) -> void:
+	var window_id: int = window.get_window_id()
+	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, borderless, window_id)
+	DisplayServer.window_set_mode(_to_displayserver_mode(target_mode), window_id)
+	if maximize:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED, window_id)
+
+func _to_displayserver_mode(window_mode: int) -> int:
+	match window_mode:
+		Window.MODE_WINDOWED:
+			return DisplayServer.WINDOW_MODE_WINDOWED
+		Window.MODE_FULLSCREEN:
+			return DisplayServer.WINDOW_MODE_FULLSCREEN
+		Window.MODE_EXCLUSIVE_FULLSCREEN:
+			return DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN
+		Window.MODE_MAXIMIZED:
+			return DisplayServer.WINDOW_MODE_MAXIMIZED
+		_:
+			return DisplayServer.WINDOW_MODE_WINDOWED
 
 func _get_window() -> Window:
 	var window := get_window()
