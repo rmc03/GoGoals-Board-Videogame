@@ -147,6 +147,8 @@ func _set_button_feedback(button: Button, base_color: Color) -> void:
 	button.add_theme_stylebox_override("normal", style)
 	button.add_theme_stylebox_override("hover", style)
 	button.add_theme_stylebox_override("pressed", style)
+	button.add_theme_stylebox_override("disabled", style)
+	button.add_theme_color_override("font_disabled_color", Color(0.98, 0.98, 1.0))
 
 func _reset_button_visuals() -> void:
 	for button in option_buttons:
