@@ -60,3 +60,7 @@ func _sort_records(a: Dictionary, b: Dictionary) -> bool:
 
 func get_leaderboard() -> Array:
 	return records
+
+func reset_records() -> void:
+	records.clear()
+	save_records()

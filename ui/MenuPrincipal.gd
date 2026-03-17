@@ -1,8 +1,11 @@
 extends Control
 
+const MenuOptionsUIScript := preload("res://scripts/UI/Menu/OptionsMenu.gd")
+
 @onready var btn_jugar: Button = $ButtonJugar
 @onready var btn_ranking: Button = $ButtonRanking
 @onready var btn_salir: Button = $ButtonSalir
+@onready var btn_options: Button = $ButtonOptions
 
 @onready var panel_seleccion: Panel = $PanelSeleccion
 @onready var btn_1p: Button = $PanelSeleccion/Btn1P
@@ -16,11 +19,14 @@ extends Control
 @onready var ranking_lbl: RichTextLabel = $VentanaRanking/LabelRanking
 @onready var btn_cerrar_ranking: Button = $VentanaRanking/BotonCerrar
 
+var options_menu: MenuOptionsUI
+
 func _ready() -> void:
 	btn_jugar.pressed.connect(_on_jugar_pressed)
 	btn_ranking.pressed.connect(_on_ranking_pressed)
 	btn_salir.pressed.connect(_on_salir_pressed)
 	btn_como_jugar.pressed.connect(_on_como_jugar_pressed)
+	btn_options.pressed.connect(_on_options_pressed)
 	
 	btn_1p.pressed.connect(_on_players_selected.bind(1))
 	btn_2p.pressed.connect(_on_players_selected.bind(2))
@@ -33,6 +39,13 @@ func _ready() -> void:
 	
 	ventana_ranking.visible = false
 	panel_seleccion.visible = false
+	_create_options_menu()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_ESCAPE:
+		if options_menu and options_menu.is_open():
+			options_menu.hide_menu()
+			get_viewport().set_input_as_handled()
 
 # --- EVENTS ---
 
@@ -56,6 +69,12 @@ func _on_como_jugar_pressed() -> void:
 func _on_salir_pressed() -> void:
 	get_tree().quit()
 
+func _on_options_pressed() -> void:
+	if options_menu:
+		panel_seleccion.visible = false
+		ventana_ranking.visible = false
+		options_menu.show_menu()
+
 # --- UTILS ---
 
 func display_leaderboard() -> void:
@@ -77,3 +96,9 @@ func display_leaderboard() -> void:
 			text += "%3d | %6d | %7s | %s\n" % [i + 1, record.turns, time_str, record.name]
 
 	ranking_lbl.text = text
+
+func _create_options_menu() -> void:
+	options_menu = MenuOptionsUIScript.new()
+	options_menu.name = "MenuOptionsUI"
+	add_child(options_menu)
+	options_menu.setup(self)
