@@ -290,6 +290,12 @@ func _request_quiz(player_idx: int, ods_id: int) -> void:
 		_end_turn()
 		return
 
+	if board_config != null:
+		var ods_meta: Dictionary = board_config.get_ods_visual(ods_id)
+		var raw_title: String = str(ods_meta.get("title", "")).strip_edges()
+		if not raw_title.is_empty():
+			question_data["ods_title"] = raw_title.replace("\n", " ")
+
 	is_moving = false
 	is_quiz_active = true
 	game_state.is_moving = false

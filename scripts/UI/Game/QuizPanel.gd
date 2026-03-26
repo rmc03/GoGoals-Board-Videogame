@@ -62,7 +62,7 @@ func _ensure_layout() -> void:
 	header.add_child(ods_chip_data["panel"])
 	ods_chip_label = ods_chip_data["label"]
 
-	var player_chip_data := _create_chip("J1", Color(0.16, 0.24, 0.18), Color(0.4, 0.9, 0.6), Color(0.9, 1.0, 0.92))
+	var player_chip_data := _create_chip("Jugador 1", Color(0.16, 0.24, 0.18), Color(0.4, 0.9, 0.6), Color(0.9, 1.0, 0.92))
 	header.add_child(player_chip_data["panel"])
 	player_chip_label = player_chip_data["label"]
 
@@ -255,9 +255,13 @@ func show_question(question_data: Dictionary, player_index: int, ods_id: int) ->
 	_reset_button_visuals()
 
 	if ods_chip_label:
-		ods_chip_label.text = "ODS %02d" % ods_id
+		var ods_title: String = str(current_question_data.get("ods_title", "")).strip_edges()
+		if ods_title.is_empty():
+			ods_chip_label.text = "ODS %02d" % ods_id
+		else:
+			ods_chip_label.text = "ODS %02d: %s" % [ods_id, ods_title]
 	if player_chip_label:
-		player_chip_label.text = "J%d" % (player_index + 1)
+		player_chip_label.text = "Jugador %d" % (player_index + 1)
 	if status_chip_panel:
 		status_chip_panel.visible = false
 	if answer_label:
