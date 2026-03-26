@@ -196,15 +196,21 @@ func _style_dice_button() -> void:
 	btn_normal.corner_radius_top_right = 12
 	btn_normal.corner_radius_bottom_left = 12
 	btn_normal.corner_radius_bottom_right = 12
-	btn_normal.border_width_bottom = 0
-	btn_normal.border_color = Color(0, 0, 0, 0)
+	btn_normal.border_width_left = 2
+	btn_normal.border_width_right = 2
+	btn_normal.border_width_top = 2
+	btn_normal.border_width_bottom = 2
+	btn_normal.border_color = Color(0.7, 0.88, 1.0, 0.85)
+	btn_normal.shadow_color = Color(0.2, 0.4, 0.7, 0.35)
+	btn_normal.shadow_size = 6
 
 	var btn_hover: StyleBoxFlat = btn_normal.duplicate()
 	btn_hover.bg_color = Color(0.2, 0.55, 0.95)
 
 	var btn_pressed: StyleBoxFlat = btn_normal.duplicate()
 	btn_pressed.bg_color = Color(0.1, 0.35, 0.7)
-	btn_pressed.border_width_bottom = 0
+	btn_pressed.border_color = Color(0.6, 0.82, 1.0, 0.7)
+	btn_pressed.shadow_size = 3
 
 	var btn_disabled: StyleBoxFlat = btn_normal.duplicate()
 	btn_disabled.bg_color = Color(0.25, 0.25, 0.3)
