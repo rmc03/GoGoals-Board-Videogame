@@ -5,6 +5,8 @@ A fun educational board game about Sustainable Development Goals (SDGs) built wi
 ![Godot Version](https://img.shields.io/badge/Godot-4.x-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
+**Documentacion (ES):** [Como funciona el juego](./docs/COMO_FUNCIONA_JUEGO.md)
+
 ## 🎮 Overview
 
 GoGoals is a board game where players race to reach the final tile by answering questions about the UN Sustainable Development Goals (SDGs). Players answer questions correctly to gain advantages and climb the ranking.
