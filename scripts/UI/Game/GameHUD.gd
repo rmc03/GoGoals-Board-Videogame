@@ -130,7 +130,7 @@ func _build_hud() -> void:
 	dice_panel.offset_top = -(dice_height + edge_margin)
 	dice_panel.offset_right = -edge_margin
 	dice_panel.offset_bottom = -edge_margin
-	_apply_panel_style(dice_panel, Color(0.06, 0.12, 0.22, 0.92), Color(0.4, 0.75, 1.0, 0.7))
+	_apply_dice_container_style(dice_panel)
 	hud_host.add_child(dice_panel)
 
 	var dice_margin := MarginContainer.new()
@@ -171,6 +171,22 @@ func _apply_panel_style(panel: Panel, bg: Color, border: Color) -> void:
 	hud_style.border_color = border
 	hud_style.shadow_color = Color(0, 0, 0, 0.4)
 	hud_style.shadow_size = 6
+	panel.add_theme_stylebox_override("panel", hud_style)
+
+func _apply_dice_container_style(panel: Panel) -> void:
+	var hud_style: StyleBoxFlat = StyleBoxFlat.new()
+	hud_style.bg_color = Color(0, 0, 0, 0)
+	hud_style.corner_radius_top_left = 16
+	hud_style.corner_radius_top_right = 16
+	hud_style.corner_radius_bottom_left = 16
+	hud_style.corner_radius_bottom_right = 16
+	hud_style.border_width_left = 0
+	hud_style.border_width_right = 0
+	hud_style.border_width_top = 0
+	hud_style.border_width_bottom = 0
+	hud_style.border_color = Color(0, 0, 0, 0)
+	hud_style.shadow_color = Color(0, 0, 0, 0)
+	hud_style.shadow_size = 0
 	panel.add_theme_stylebox_override("panel", hud_style)
 
 func _style_dice_button() -> void:
