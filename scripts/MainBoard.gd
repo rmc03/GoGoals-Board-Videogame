@@ -128,4 +128,4 @@ func _on_victory(_player_index: int, time: float, turns: int) -> void:
 	end_game_menu.final_turns = turns
 	end_game_menu.winner_index = _player_index
 	end_game_menu.final_summary = game_manager.get_match_summary(_player_index)
-	add_child(end_game_menu)
+	canvas_layer.add_child(end_game_menu)
