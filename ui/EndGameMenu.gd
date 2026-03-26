@@ -33,6 +33,8 @@ func _ready() -> void:
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_RESIZED:
+		if panel == null:
+			return
 		_layout_panel()
 
 func _build_overlay() -> void:
@@ -136,6 +138,8 @@ func _style_panel() -> void:
 	menu_btn.custom_minimum_size = Vector2(0, 44)
 
 func _layout_panel() -> void:
+	if panel == null:
+		return
 	var viewport_size: Vector2 = get_viewport_rect().size
 	var target_width: float = clamp(viewport_size.x * 0.75, 700.0, 980.0)
 	var target_height: float = clamp(viewport_size.y * 0.82, 520.0, 700.0)
