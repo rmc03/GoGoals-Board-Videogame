@@ -115,15 +115,15 @@ func _create_chip(text: String, bg: Color, border: Color, font_color: Color) -> 
 	chip_style.border_width_top = 1
 	chip_style.border_width_bottom = 1
 	chip_style.border_color = border
-	chip_style.content_margin_left = 8
-	chip_style.content_margin_right = 8
-	chip_style.content_margin_top = 3
-	chip_style.content_margin_bottom = 3
+	chip_style.content_margin_left = 10
+	chip_style.content_margin_right = 10
+	chip_style.content_margin_top = 4
+	chip_style.content_margin_bottom = 4
 	panel_chip.add_theme_stylebox_override("panel", chip_style)
 
 	var label := Label.new()
 	label.text = text
-	label.add_theme_font_size_override("font_size", 12)
+	label.add_theme_font_size_override("font_size", 14)
 	label.add_theme_color_override("font_color", font_color)
 	panel_chip.add_child(label)
 
@@ -143,10 +143,10 @@ func _apply_chip_style(panel_chip: PanelContainer, bg: Color, border: Color) -> 
 	chip_style.border_width_top = 1
 	chip_style.border_width_bottom = 1
 	chip_style.border_color = border
-	chip_style.content_margin_left = 8
-	chip_style.content_margin_right = 8
-	chip_style.content_margin_top = 3
-	chip_style.content_margin_bottom = 3
+	chip_style.content_margin_left = 10
+	chip_style.content_margin_right = 10
+	chip_style.content_margin_top = 4
+	chip_style.content_margin_bottom = 4
 	panel_chip.add_theme_stylebox_override("panel", chip_style)
 
 func _connect_buttons() -> void:
