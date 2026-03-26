@@ -180,15 +180,15 @@ func _style_dice_button() -> void:
 	btn_normal.corner_radius_top_right = 12
 	btn_normal.corner_radius_bottom_left = 12
 	btn_normal.corner_radius_bottom_right = 12
-	btn_normal.border_width_bottom = 4
-	btn_normal.border_color = Color(0.1, 0.3, 0.6)
+	btn_normal.border_width_bottom = 0
+	btn_normal.border_color = Color(0, 0, 0, 0)
 
 	var btn_hover: StyleBoxFlat = btn_normal.duplicate()
 	btn_hover.bg_color = Color(0.2, 0.55, 0.95)
 
 	var btn_pressed: StyleBoxFlat = btn_normal.duplicate()
 	btn_pressed.bg_color = Color(0.1, 0.35, 0.7)
-	btn_pressed.border_width_bottom = 1
+	btn_pressed.border_width_bottom = 0
 
 	var btn_disabled: StyleBoxFlat = btn_normal.duplicate()
 	btn_disabled.bg_color = Color(0.25, 0.25, 0.3)
