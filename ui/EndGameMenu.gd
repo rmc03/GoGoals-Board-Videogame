@@ -14,6 +14,7 @@ var final_summary: Dictionary = {}
 @onready var accuracy_value: Label = $Center/Panel/Margin/Content/HighlightsRow/CardAccuracy/CardAccuracyBox/CardAccuracyValue
 @onready var questions_value: Label = $Center/Panel/Margin/Content/HighlightsRow/CardQuestions/CardQuestionsBox/CardQuestionsValue
 @onready var details_panel: Panel = $Center/Panel/Margin/Content/DetailsPanel
+@onready var details_scroll: ScrollContainer = $Center/Panel/Margin/Content/DetailsPanel/DetailsMargin/DetailsScroll
 @onready var details_lbl: RichTextLabel = $Center/Panel/Margin/Content/DetailsPanel/DetailsMargin/DetailsScroll/DetailsLabel
 @onready var input_name: LineEdit = $Center/Panel/Margin/Content/NameBox/InputName
 @onready var submit_btn: Button = $Center/Panel/Margin/Content/ButtonsRow/ButtonSubmit
@@ -89,6 +90,10 @@ func _style_panel() -> void:
 	_style_card_text($Center/Panel/Margin/Content/HighlightsRow/CardTurns/CardTurnsBox)
 	_style_card_text($Center/Panel/Margin/Content/HighlightsRow/CardAccuracy/CardAccuracyBox)
 	_style_card_text($Center/Panel/Margin/Content/HighlightsRow/CardQuestions/CardQuestionsBox)
+	_apply_card_padding($Center/Panel/Margin/Content/HighlightsRow/CardTime/CardTimeBox)
+	_apply_card_padding($Center/Panel/Margin/Content/HighlightsRow/CardTurns/CardTurnsBox)
+	_apply_card_padding($Center/Panel/Margin/Content/HighlightsRow/CardAccuracy/CardAccuracyBox)
+	_apply_card_padding($Center/Panel/Margin/Content/HighlightsRow/CardQuestions/CardQuestionsBox)
 
 	var details_title: Label = $Center/Panel/Margin/Content/DetailsTitle
 	details_title.add_theme_font_size_override("font_size", 16)
@@ -117,7 +122,11 @@ func _style_panel() -> void:
 	details_lbl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	details_lbl.add_theme_font_size_override("normal_font_size", 15)
 	details_lbl.add_theme_color_override("default_color", Color(0.85, 0.9, 1.0))
-	details_lbl.fit_content = false
+	details_scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	details_scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	details_lbl.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	details_lbl.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	details_lbl.fit_content = true
 	details_lbl.scroll_active = false
 
 	var name_title: Label = $Center/Panel/Margin/Content/NameBox/NameLabel
@@ -166,6 +175,16 @@ func _style_card_text(box: VBoxContainer) -> void:
 			child.add_theme_color_override("font_color", Color(0.8, 0.9, 1.0))
 	box.get_child(0).add_theme_font_size_override("font_size", 12)
 	box.get_child(1).add_theme_font_size_override("font_size", 20)
+
+func _apply_card_padding(box: Control, left: float = 12.0, top: float = 10.0, right: float = 12.0, bottom: float = 10.0) -> void:
+	box.anchor_left = 0.0
+	box.anchor_top = 0.0
+	box.anchor_right = 1.0
+	box.anchor_bottom = 1.0
+	box.offset_left = left
+	box.offset_top = top
+	box.offset_right = -right
+	box.offset_bottom = -bottom
 
 func _style_line_edit(line: LineEdit) -> void:
 	var normal: StyleBoxFlat = StyleBoxFlat.new()
