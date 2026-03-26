@@ -211,8 +211,10 @@ func _style_button(button: Button) -> void:
 	pressed.bg_color = Color(0.08, 0.2, 0.4)
 
 	button.add_theme_stylebox_override("normal", normal)
+	button.add_theme_stylebox_override("focus", normal)
 	button.add_theme_stylebox_override("hover", hover)
 	button.add_theme_stylebox_override("pressed", pressed)
+	button.focus_mode = Control.FOCUS_NONE
 	button.add_theme_font_size_override("font_size", 18)
 	button.add_theme_color_override("font_color", Color(0.9, 0.95, 1.0))
 	button.add_theme_color_override("font_hover_color", Color(1, 1, 0.85))
