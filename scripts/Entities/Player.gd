@@ -15,6 +15,8 @@ signal position_changed(new_position: int)
 signal texture_changed(new_texture: Texture2D)
 
 func _ready() -> void:
+	z_as_relative = false
+	z_index = 20
 	if not has_node("Sprite"):
 		sprite = Sprite2D.new()
 		sprite.name = "Sprite"
