@@ -69,7 +69,7 @@ func _build_hud() -> void:
 	stats_panel.offset_top = edge_margin
 	stats_panel.offset_right = -edge_margin
 	stats_panel.offset_bottom = stats_height + edge_margin
-	_apply_panel_style(stats_panel, Color(0.05, 0.08, 0.15, 0.9), Color(0.3, 0.6, 1.0, 0.6))
+	_apply_stats_panel_style(stats_panel)
 	hud_host.add_child(stats_panel)
 
 	var stats_margin := MarginContainer.new()
@@ -94,8 +94,8 @@ func _build_hud() -> void:
 	timer_display = Label.new()
 	timer_display.text = "⏱ 00:00.00"
 	timer_display.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	timer_display.add_theme_font_size_override("font_size", 17)
-	timer_display.add_theme_color_override("font_color", Color(0.7, 0.85, 1.0))
+	timer_display.add_theme_font_size_override("font_size", 18)
+	timer_display.add_theme_color_override("font_color", Color(0.98, 0.83, 0.26))
 	stats_box.add_child(timer_display)
 
 	pause_button = Button.new()
@@ -155,6 +155,8 @@ func _build_hud() -> void:
 	dice_button.reparent(dice_box)
 	dice_button.custom_minimum_size = Vector2(0, 56)
 	dice_button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	dice_button.add_theme_constant_override("icon_max_width", 36)
+	dice_button.add_theme_constant_override("h_separation", 10)
 	_style_dice_button()
 
 func _apply_panel_style(panel: Panel, bg: Color, border: Color) -> void:
@@ -189,9 +191,25 @@ func _apply_dice_container_style(panel: Panel) -> void:
 	hud_style.shadow_size = 0
 	panel.add_theme_stylebox_override("panel", hud_style)
 
+func _apply_stats_panel_style(panel: Panel) -> void:
+	var hud_style: StyleBoxFlat = StyleBoxFlat.new()
+	hud_style.bg_color = Color(0.11, 0.1, 0.08, 0.92)
+	hud_style.corner_radius_top_left = 18
+	hud_style.corner_radius_top_right = 18
+	hud_style.corner_radius_bottom_left = 18
+	hud_style.corner_radius_bottom_right = 18
+	hud_style.border_width_left = 2
+	hud_style.border_width_right = 2
+	hud_style.border_width_top = 2
+	hud_style.border_width_bottom = 2
+	hud_style.border_color = Color(0.94, 0.79, 0.45, 0.75)
+	hud_style.shadow_color = Color(0.05, 0.04, 0.03, 0.5)
+	hud_style.shadow_size = 8
+	panel.add_theme_stylebox_override("panel", hud_style)
+
 func _style_dice_button() -> void:
 	var btn_normal: StyleBoxFlat = StyleBoxFlat.new()
-	btn_normal.bg_color = Color(0.15, 0.45, 0.85)
+	btn_normal.bg_color = Color(0.98, 0.62, 0.18)
 	btn_normal.corner_radius_top_left = 12
 	btn_normal.corner_radius_top_right = 12
 	btn_normal.corner_radius_bottom_left = 12
@@ -200,16 +218,16 @@ func _style_dice_button() -> void:
 	btn_normal.border_width_right = 2
 	btn_normal.border_width_top = 2
 	btn_normal.border_width_bottom = 2
-	btn_normal.border_color = Color(0.7, 0.88, 1.0, 0.85)
-	btn_normal.shadow_color = Color(0.2, 0.4, 0.7, 0.35)
+	btn_normal.border_color = Color(0.98, 0.84, 0.45, 0.9)
+	btn_normal.shadow_color = Color(0.35, 0.2, 0.05, 0.3)
 	btn_normal.shadow_size = 6
 
 	var btn_hover: StyleBoxFlat = btn_normal.duplicate()
-	btn_hover.bg_color = Color(0.2, 0.55, 0.95)
+	btn_hover.bg_color = Color(1.0, 0.7, 0.25)
 
 	var btn_pressed: StyleBoxFlat = btn_normal.duplicate()
-	btn_pressed.bg_color = Color(0.1, 0.35, 0.7)
-	btn_pressed.border_color = Color(0.6, 0.82, 1.0, 0.7)
+	btn_pressed.bg_color = Color(0.9, 0.55, 0.16)
+	btn_pressed.border_color = Color(0.95, 0.8, 0.4, 0.75)
 	btn_pressed.shadow_size = 3
 
 	var btn_disabled: StyleBoxFlat = btn_normal.duplicate()
