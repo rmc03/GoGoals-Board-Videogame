@@ -207,6 +207,8 @@ func _style_menu_button(button: Button, base_color: Color) -> void:
 	button.add_theme_font_size_override("font_size", 18)
 	button.add_theme_color_override("font_color", Color(0.98, 0.99, 1.0))
 	button.add_theme_color_override("font_hover_color", Color(1, 1, 0.9))
+	button.add_theme_color_override("font_outline_color", Color(0, 0, 0, 0.95))
+	button.add_theme_constant_override("outline_size", 1)
 
 func _apply_panel_style(panel: Panel) -> void:
 	if panel == null:
