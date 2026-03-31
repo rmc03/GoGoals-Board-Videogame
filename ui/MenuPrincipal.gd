@@ -8,8 +8,6 @@ const DISPLAY_FONT := preload("res://Assets/Fonts/adventure-request/Adventure Re
 @onready var btn_ranking: Button = $ButtonRanking
 @onready var btn_salir: Button = $ButtonSalir
 @onready var btn_options: Button = $ButtonOptions
-@onready var main_title_label: Label = $Label
-
 @onready var panel_seleccion: Panel = $PanelSeleccion
 @onready var selection_title_label: Label = $PanelSeleccion/Label
 @onready var btn_1p: Button = $PanelSeleccion/Btn1P
@@ -169,8 +167,6 @@ func _style_menu() -> void:
 	_style_menu_button(btn_ranking, Color(0.14, 0.32, 0.55))
 	_style_menu_button(btn_options, Color(0.12, 0.26, 0.48))
 	_style_menu_button(btn_salir, Color(0.55, 0.18, 0.2))
-	_style_main_title()
-
 	_setup_selection_modal()
 	_apply_panel_style(ventana_ranking)
 	_center_ranking_panel()
@@ -211,23 +207,6 @@ func _style_menu_button(button: Button, base_color: Color) -> void:
 	button.add_theme_font_size_override("font_size", 20)
 	button.add_theme_color_override("font_color", Color(0.98, 0.99, 1.0))
 	button.add_theme_color_override("font_hover_color", Color(1, 1, 0.9))
-
-func _style_main_title() -> void:
-	if main_title_label == null:
-		return
-
-	var settings: LabelSettings = main_title_label.label_settings
-	if settings == null:
-		settings = LabelSettings.new()
-	else:
-		settings = settings.duplicate()
-
-	settings.font = DISPLAY_FONT
-	settings.font_size = 62
-	settings.font_color = Color(0.97, 0.99, 1.0)
-	settings.outline_size = 6
-	settings.outline_color = Color(0.04, 0.08, 0.14, 0.85)
-	main_title_label.label_settings = settings
 
 func _apply_panel_style(panel: Panel) -> void:
 	if panel == null:
