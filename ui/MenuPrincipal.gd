@@ -2,7 +2,7 @@ extends Control
 
 const MenuOptionsUIScript := preload("res://scripts/UI/Menu/OptionsMenu.gd")
 const DEBUG_SEED_RANKING := true
-const DISPLAY_FONT := preload("res://Assets/Fonts/adventure-request/Adventure ReQuest.otf")
+const DISPLAY_FONT := preload("res://Assets/Fonts/fredoka/Fredoka[wdth,wght].ttf")
 
 @onready var btn_jugar: Button = $ButtonJugar
 @onready var btn_ranking: Button = $ButtonRanking
