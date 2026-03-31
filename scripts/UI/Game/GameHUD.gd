@@ -59,7 +59,7 @@ func _hide_legacy_labels() -> void:
 func _build_hud() -> void:
 	var edge_margin := 18.0
 	var stats_width := 280.0
-	var stats_height := 146.0
+	var stats_height := 162.0
 
 	stats_panel = Panel.new()
 	stats_panel.anchor_left = 1.0
