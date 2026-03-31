@@ -165,7 +165,7 @@ func _build_content() -> void:
 	lower_sections_grid.add_child(_make_controls_panel())
 	lower_sections_grid.add_child(_make_tips_panel())
 
-	content.add_child(_make_section_title("Pantallas del juego"))
+	content.add_child(_make_section_title("Ejemplos de preguntas ODS"))
 	content.add_child(_make_gallery_grid())
 
 	var footer := Label.new()
@@ -421,10 +421,26 @@ func _make_gallery_grid() -> Control:
 	gallery_grid.add_theme_constant_override("v_separation", 14)
 
 	var gallery_items := [
-		{"title": "Tablero principal", "caption": "Vista general del recorrido y las casillas especiales.", "texture": SCREENSHOT_BOARD},
-		{"title": "Pregunta ODS", "caption": "Panel donde eliges la respuesta durante una casilla temática.", "texture": SCREENSHOT_QUIZ},
-		{"title": "Resultado de respuesta", "caption": "La interfaz resalta aciertos y errores después de responder.", "texture": SCREENSHOT_RESULT},
-		{"title": "Pausa y ajustes", "caption": "Aquí puedes retomar, reiniciar o volver al menú principal.", "texture": SCREENSHOT_PAUSE}
+		{
+			"title": "ODS 06: Agua limpia y saneamiento",
+			"caption": "Ejemplo de pregunta sobre ahorro de agua. La respuesta correcta apunta a ducharse en vez de llenar una bañera.",
+			"texture": SCREENSHOT_BOARD
+		},
+		{
+			"title": "ODS 09: Industria, innovación e infraestructura",
+			"caption": "Aquí se evalúa qué significa una empresa sostenible: una que opera sin causar daños al medio ambiente.",
+			"texture": SCREENSHOT_QUIZ
+		},
+		{
+			"title": "ODS 15: Vida de ecosistemas terrestres",
+			"caption": "Ejemplo centrado en la protección de los bosques. La clave es reconocer que producen oxígeno y sostienen la vida.",
+			"texture": SCREENSHOT_RESULT
+		},
+		{
+			"title": "ODS 16: Paz e instituciones sólidas",
+			"caption": "Pregunta sobre democracia y participación ciudadana. Sirve para conectar el tablero con valores cívicos y sociales.",
+			"texture": SCREENSHOT_PAUSE
+		}
 	]
 
 	for item in gallery_items:
