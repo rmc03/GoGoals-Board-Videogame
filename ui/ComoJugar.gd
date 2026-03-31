@@ -65,7 +65,7 @@ func _refresh_layout() -> void:
 		lower_sections_grid.columns = 1 if target_size.x < 920.0 else 2
 
 	if gallery_grid != null:
-		gallery_grid.columns = 1 if target_size.x < 960.0 else 2
+		gallery_grid.columns = 1 if target_size.x < 1280.0 else 2
 
 func _style_shell() -> void:
 	var panel_style := StyleBoxFlat.new()
@@ -416,7 +416,7 @@ func _make_tips_panel() -> Control:
 
 func _make_gallery_grid() -> Control:
 	gallery_grid = GridContainer.new()
-	gallery_grid.columns = 2
+	gallery_grid.columns = 1
 	gallery_grid.add_theme_constant_override("h_separation", 14)
 	gallery_grid.add_theme_constant_override("v_separation", 14)
 
@@ -451,7 +451,7 @@ func _make_gallery_grid() -> Control:
 func _make_gallery_card(title: String, caption: String, texture: Texture2D) -> Control:
 	var card := PanelContainer.new()
 	card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	card.custom_minimum_size = Vector2(0, 272)
+	card.custom_minimum_size = Vector2(0, 332)
 	card.add_theme_stylebox_override("panel", _panel_style(Color(0.08, 0.12, 0.18, 0.94), Color(0.29, 0.46, 0.73, 0.35), 18))
 
 	var margin := MarginContainer.new()
@@ -467,7 +467,7 @@ func _make_gallery_card(title: String, caption: String, texture: Texture2D) -> C
 
 	var image := TextureRect.new()
 	image.texture = texture
-	image.custom_minimum_size = Vector2(0, 164)
+	image.custom_minimum_size = Vector2(0, 224)
 	image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	box.add_child(image)
