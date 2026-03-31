@@ -59,13 +59,14 @@ func _hide_legacy_labels() -> void:
 func _build_hud() -> void:
 	var edge_margin := 16.0
 	var stats_width := 236.0
-	var stats_height := 148.0
+	var stats_height := 158.0
 
 	stats_panel = Panel.new()
 	stats_panel.anchor_left = 1.0
 	stats_panel.anchor_right = 1.0
 	stats_panel.anchor_top = 0.0
 	stats_panel.anchor_bottom = 0.0
+	stats_panel.clip_contents = true
 	stats_panel.offset_left = -(stats_width + edge_margin)
 	stats_panel.offset_top = edge_margin
 	stats_panel.offset_right = -edge_margin
@@ -76,10 +77,10 @@ func _build_hud() -> void:
 	var stats_margin := MarginContainer.new()
 	stats_margin.anchor_right = 1.0
 	stats_margin.anchor_bottom = 1.0
-	stats_margin.offset_left = 12.0
-	stats_margin.offset_top = 10.0
-	stats_margin.offset_right = -12.0
-	stats_margin.offset_bottom = -10.0
+	stats_margin.offset_left = 14.0
+	stats_margin.offset_top = 12.0
+	stats_margin.offset_right = -14.0
+	stats_margin.offset_bottom = -12.0
 	stats_panel.add_child(stats_margin)
 
 	var stats_box := VBoxContainer.new()
@@ -227,8 +228,8 @@ func _style_dice_button() -> void:
 	btn_normal.border_width_top = 2
 	btn_normal.border_width_bottom = 2
 	btn_normal.border_color = Color(1.0, 0.84, 0.53, 0.95)
-	btn_normal.shadow_color = Color(0.27, 0.12, 0.03, 0.35)
-	btn_normal.shadow_size = 6
+	btn_normal.shadow_color = Color(0.27, 0.12, 0.03, 0.2)
+	btn_normal.shadow_size = 2
 
 	var btn_hover: StyleBoxFlat = btn_normal.duplicate()
 	btn_hover.bg_color = Color(0.97, 0.56, 0.18)
