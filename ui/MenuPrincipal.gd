@@ -507,13 +507,13 @@ func _setup_selection_modal() -> void:
 	content.add_child(grid)
 
 	btn_1p.reparent(grid)
-	_configure_player_button(btn_1p, "1 jugador", "Partida individual\nIdeal para aprender el tablero.", Color(0.22, 0.56, 0.78))
+	_configure_player_button(btn_1p, "1 jugador", "Partida individual\nPara aprender el tablero.", Color(0.22, 0.56, 0.78))
 
 	btn_2p.reparent(grid)
-	_configure_player_button(btn_2p, "2 jugadores", "Modo recomendado\nRitmo equilibrado y competitivo.", Color(0.23, 0.6, 0.44))
+	_configure_player_button(btn_2p, "2 jugadores", "Modo recomendado\nEquilibrado y competitivo.", Color(0.23, 0.6, 0.44))
 
 	btn_3p.reparent(grid)
-	_configure_player_button(btn_3p, "3 jugadores", "Más rotación\nPerfecto para partidas dinámicas.", Color(0.77, 0.53, 0.18))
+	_configure_player_button(btn_3p, "3 jugadores", "Más rotación\nPartida más dinámica.", Color(0.77, 0.53, 0.18))
 
 	btn_4p.reparent(grid)
 	_configure_player_button(btn_4p, "4 jugadores", "Modo completo\nIdeal para jugar en grupo.", Color(0.72, 0.32, 0.48))
@@ -589,7 +589,7 @@ func _configure_player_button(button: Button, title: String, description: String
 	button.text = ""
 	button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	button.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	button.custom_minimum_size = Vector2(0, 112)
+	button.custom_minimum_size = Vector2(0, 118)
 	button.focus_mode = Control.FOCUS_NONE
 	_style_selection_option_button(button, accent)
 
@@ -612,11 +612,13 @@ func _configure_player_button(button: Button, title: String, description: String
 	content.offset_top = 0.0
 	content.offset_right = 0.0
 	content.offset_bottom = 0.0
-	content.add_theme_constant_override("separation", 8)
+	content.add_theme_constant_override("separation", 10)
 	margin.add_child(content)
 
 	var title_label := Label.new()
 	title_label.text = title
+	title_label.custom_minimum_size = Vector2(0, 36)
+	title_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	title_label.add_theme_font_size_override("font_size", 24)
 	title_label.add_theme_color_override("font_color", Color(0.96, 0.98, 1.0))
 	title_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -624,6 +626,9 @@ func _configure_player_button(button: Button, title: String, description: String
 
 	var description_label := Label.new()
 	description_label.text = description
+	description_label.custom_minimum_size = Vector2(0, 42)
+	description_label.vertical_alignment = VERTICAL_ALIGNMENT_TOP
+	description_label.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	description_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	description_label.add_theme_font_size_override("font_size", 14)
 	description_label.add_theme_color_override("font_color", Color(0.72, 0.8, 0.9))
