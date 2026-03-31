@@ -58,8 +58,8 @@ func _hide_legacy_labels() -> void:
 
 func _build_hud() -> void:
 	var edge_margin := 16.0
-	var stats_width := 236.0
-	var stats_height := 158.0
+	var stats_width := 244.0
+	var stats_height := 170.0
 
 	stats_panel = Panel.new()
 	stats_panel.anchor_left = 1.0
@@ -148,11 +148,20 @@ func _build_hud() -> void:
 
 	feedback_label = turn_display
 	dice_panel = stats_panel
-	dice_button.reparent(stats_box)
-	dice_button.custom_minimum_size = Vector2(0, 42)
+
+	var button_inset := MarginContainer.new()
+	button_inset.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	button_inset.add_theme_constant_override("margin_left", 2)
+	button_inset.add_theme_constant_override("margin_top", 2)
+	button_inset.add_theme_constant_override("margin_right", 2)
+	button_inset.add_theme_constant_override("margin_bottom", 4)
+	stats_box.add_child(button_inset)
+
+	dice_button.reparent(button_inset)
+	dice_button.custom_minimum_size = Vector2(0, 40)
 	dice_button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	dice_button.add_theme_constant_override("icon_max_width", 30)
-	dice_button.add_theme_constant_override("h_separation", 8)
+	dice_button.add_theme_constant_override("icon_max_width", 26)
+	dice_button.add_theme_constant_override("h_separation", 10)
 	_style_dice_button()
 
 func _apply_panel_style(panel: Panel, bg: Color, border: Color) -> void:
@@ -223,13 +232,17 @@ func _style_dice_button() -> void:
 	btn_normal.corner_radius_top_right = 12
 	btn_normal.corner_radius_bottom_left = 12
 	btn_normal.corner_radius_bottom_right = 12
-	btn_normal.border_width_left = 2
-	btn_normal.border_width_right = 2
-	btn_normal.border_width_top = 2
-	btn_normal.border_width_bottom = 2
+	btn_normal.border_width_left = 1
+	btn_normal.border_width_right = 1
+	btn_normal.border_width_top = 1
+	btn_normal.border_width_bottom = 1
 	btn_normal.border_color = Color(1.0, 0.84, 0.53, 0.95)
-	btn_normal.shadow_color = Color(0.27, 0.12, 0.03, 0.2)
-	btn_normal.shadow_size = 2
+	btn_normal.shadow_color = Color(0, 0, 0, 0)
+	btn_normal.shadow_size = 0
+	btn_normal.content_margin_left = 12
+	btn_normal.content_margin_right = 12
+	btn_normal.content_margin_top = 7
+	btn_normal.content_margin_bottom = 7
 
 	var btn_hover: StyleBoxFlat = btn_normal.duplicate()
 	btn_hover.bg_color = Color(0.97, 0.56, 0.18)
