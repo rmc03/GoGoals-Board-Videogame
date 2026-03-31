@@ -65,7 +65,7 @@ func _refresh_layout() -> void:
 		lower_sections_grid.columns = 1 if target_size.x < 920.0 else 2
 
 	if gallery_grid != null:
-		gallery_grid.columns = 1 if target_size.x < 1280.0 else 2
+		gallery_grid.columns = 1 if target_size.x < 960.0 else 2
 
 func _style_shell() -> void:
 	var panel_style := StyleBoxFlat.new()
@@ -416,42 +416,38 @@ func _make_tips_panel() -> Control:
 
 func _make_gallery_grid() -> Control:
 	gallery_grid = GridContainer.new()
-	gallery_grid.columns = 1
+	gallery_grid.columns = 2
 	gallery_grid.add_theme_constant_override("h_separation", 14)
 	gallery_grid.add_theme_constant_override("v_separation", 14)
 
 	var gallery_items := [
 		{
-			"title": "ODS 06: Agua limpia y saneamiento",
-			"caption": "Ejemplo de pregunta sobre ahorro de agua. La respuesta correcta apunta a ducharse en vez de llenar una bañera.",
+			"title": "ODS 06",
 			"texture": SCREENSHOT_BOARD
 		},
 		{
-			"title": "ODS 09: Industria, innovación e infraestructura",
-			"caption": "Aquí se evalúa qué significa una empresa sostenible: una que opera sin causar daños al medio ambiente.",
+			"title": "ODS 09",
 			"texture": SCREENSHOT_QUIZ
 		},
 		{
-			"title": "ODS 15: Vida de ecosistemas terrestres",
-			"caption": "Ejemplo centrado en la protección de los bosques. La clave es reconocer que producen oxígeno y sostienen la vida.",
+			"title": "ODS 15",
 			"texture": SCREENSHOT_RESULT
 		},
 		{
-			"title": "ODS 16: Paz e instituciones sólidas",
-			"caption": "Pregunta sobre democracia y participación ciudadana. Sirve para conectar el tablero con valores cívicos y sociales.",
+			"title": "ODS 16",
 			"texture": SCREENSHOT_PAUSE
 		}
 	]
 
 	for item in gallery_items:
-		gallery_grid.add_child(_make_gallery_card(item.title, item.caption, item.texture))
+		gallery_grid.add_child(_make_gallery_card(item.title, item.texture))
 
 	return gallery_grid
 
-func _make_gallery_card(title: String, caption: String, texture: Texture2D) -> Control:
+func _make_gallery_card(title: String, texture: Texture2D) -> Control:
 	var card := PanelContainer.new()
 	card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	card.custom_minimum_size = Vector2(0, 332)
+	card.custom_minimum_size = Vector2(0, 286)
 	card.add_theme_stylebox_override("panel", _panel_style(Color(0.08, 0.12, 0.18, 0.94), Color(0.29, 0.46, 0.73, 0.35), 18))
 
 	var margin := MarginContainer.new()
@@ -462,12 +458,12 @@ func _make_gallery_card(title: String, caption: String, texture: Texture2D) -> C
 	card.add_child(margin)
 
 	var box := VBoxContainer.new()
-	box.add_theme_constant_override("separation", 10)
+	box.add_theme_constant_override("separation", 8)
 	margin.add_child(box)
 
 	var image := TextureRect.new()
 	image.texture = texture
-	image.custom_minimum_size = Vector2(0, 224)
+	image.custom_minimum_size = Vector2(0, 226)
 	image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	box.add_child(image)
@@ -475,16 +471,10 @@ func _make_gallery_card(title: String, caption: String, texture: Texture2D) -> C
 	var title_label := Label.new()
 	title_label.text = title
 	title_label.add_theme_font_override("font", DISPLAY_FONT)
-	title_label.add_theme_font_size_override("font_size", 21)
+	title_label.add_theme_font_size_override("font_size", 18)
 	title_label.add_theme_color_override("font_color", Color(0.98, 0.99, 1.0))
+	title_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	box.add_child(title_label)
-
-	var caption_label := Label.new()
-	caption_label.text = caption
-	caption_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	caption_label.add_theme_font_size_override("font_size", 14)
-	caption_label.add_theme_color_override("font_color", Color(0.74, 0.82, 0.9))
-	box.add_child(caption_label)
 
 	return card
 
