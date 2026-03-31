@@ -448,6 +448,7 @@ func _setup_selection_modal() -> void:
 		return
 
 	_ensure_selection_overlay()
+	panel_seleccion.mouse_filter = Control.MOUSE_FILTER_STOP
 	_center_selection_panel()
 	_apply_selection_panel_style(panel_seleccion)
 	_style_selection_close_button(btn_cancelar_sel)
@@ -539,6 +540,7 @@ func _ensure_selection_overlay() -> void:
 	selection_overlay.z_index = 20
 	panel_seleccion.z_index = 21
 	add_child(selection_overlay)
+	move_child(selection_overlay, panel_seleccion.get_index())
 	selection_overlay.gui_input.connect(_on_selection_overlay_input)
 
 func _on_selection_overlay_input(event: InputEvent) -> void:
