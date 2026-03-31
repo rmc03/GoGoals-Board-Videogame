@@ -1,70 +1,148 @@
-# GoGoals Architecture
+# Architecture
 
-This document summarizes the system context, the main game flow, and the architectural pattern that governs the project.
+Technical reference for the GoGoals system design. Covers the architectural pattern, component responsibilities, communication model, and design decisions.
 
-## 1. Executive Summary
+---
 
-The game does not use pure MVC or strict Clean Architecture. The most accurate way to describe it is:
+## 1. Pattern Definition
 
-**Hierarchical Node-Based Architecture with global services, lightweight entities, and central application coordination.**
+The project does not follow pure MVC, MVVM, or Clean Architecture. The closest description is:
 
-The design is built on four fundamental pillars:
+> **Hierarchical Node-Based Architecture** with global services, lightweight domain entities, and central application coordination via signals.
 
-- **Scene-Driven Architecture**: Navigation and UI boundaries rely on Godot's native scene system. The main menu, the interactive game screen, and the end-game menu act as natural presentation boundaries. Within the game, the main level acts as a local composition root, assembling dependencies and connecting the UI with logic without directly mixing their responsibilities.
+This is not an arbitrary label. Each part of the name maps to a concrete structural decision:
 
-- **Global Services via Autoloads**: Godot facilitates the Singleton pattern through globally registered nodes, allowing cross-cutting concerns to be accessed from any scene. The project uses `GameData` to maintain game configuration and load the question bank, `AudioManager` to centralize music and sound effect playback, and `RecordsManager` to manage local score persistence in a structured and independent manner.
+- **Hierarchical Node-Based**: The Godot scene tree provides the runtime structure. Scenes are both composition units and navigation boundaries.
+- **Global Services**: Autoload singletons handle cross-cutting concerns (data, audio, persistence).
+- **Lightweight Domain Entities**: `BoardEntity`, `TileEntity`, and `PlayerEntity` encapsulate local behavior without governing the game loop.
+- **Central Application Coordination**: `GameManager` owns the use cases and orchestrates the flow.
 
-- **Central Coordination and Event-Driven Communication**: Instead of a strict Model-View-Controller pattern, the game flow is orchestrated by a central application coordinator (`GameManager`). This component concentrates the main use cases: turn control, movement, questions, and victory. To achieve low coupling, communication to the UI is governed by signals (Event Bus). Interfaces like the quiz panel react independently to events without depending on the coordinator's internal code.
+---
 
-- **Separated State Model and Lightweight Entities**: The mutable game state (game phase, current turn, roll count) is isolated in an explicit state model (`GameState`), which facilitates managing pauses or game overs. Additionally, the domain is represented through lightweight interactive entities (board logic, tiles, and tokens) that encapsulate their own behavior but delegate global flow control to the game coordinator.
+## 2. Design Pillars
 
-## 2. Context Diagram
+### 2.1 Scene-Driven Architecture
 
-The following diagram is written in Mermaid and organized as a Visual Paradigm-style context diagram: actors outside, system boundary in the center, and external services around.
+Navigation depends on Godot's native scene system. Each scene (`MenuPrincipal`, `pantalla_de_juego`, `EndGameMenu`) acts as a self-contained presentation boundary. The scene is not merely a view — it is a composition unit that assembles its own dependencies.
+
+Within the game scene, `MainBoard` serves as the local **composition root**. It instantiates the coordinator, the HUD, the quiz panel, and the pause menu, then wires their signals together. This keeps presentation assembly separate from domain logic.
+
+### 2.2 Global Services via Autoloads
+
+Three autoload singletons handle concerns that span scene boundaries:
+
+| Service | Responsibility |
+|---------|----------------|
+| `GameData` | Loads the question bank from JSON at startup. Provides randomized questions per SDG category with cycle-without-repeats logic. |
+| `AudioManager` | Manages a persistent music player and ephemeral SFX players. Persists volume settings to disk. |
+| `RecordsManager` | Stores and retrieves the top 10 ranking records. Applies sorting criteria (fewer turns first, then less time). |
+
+These services are accessible from any node via `/root/ServiceName`. They simplify wiring but introduce global coupling — a deliberate trade-off for a project of this scale.
+
+### 2.3 Central Coordination and Event-Driven Communication
+
+`GameManager` concentrates the primary use cases: turn management, dice rolling, movement animation, quiz flow, pause/resume, and victory detection. It acts as an application service — not a Godot node that renders anything, but a node that orchestrates everything.
+
+Communication from `GameManager` to the UI layer uses **Godot signals** (Observer pattern). The coordinator emits high-level events:
+
+| Signal | When |
+|--------|------|
+| `game_initialized` | After board and players are set up |
+| `turn_started` | When a player's turn begins |
+| `dice_rolled` | After the dice value is generated |
+| `movement_started` | When token animation begins |
+| `movement_finished` | When token reaches its destination |
+| `quiz_requested` | When a quiz tile triggers a question |
+| `feedback_requested` | When a status message should appear |
+| `victory` | When a player reaches the finish |
+| `input_state_changed` | When the dice button should enable/disable |
+| `pause_state_changed` | When pause is toggled |
+
+The UI components subscribe to these signals and react independently. They never call game logic directly — they emit their own signals (`dice_requested`, `answer_selected`, `pause_requested`) that `MainBoard` forwards to `GameManager`.
+
+### 2.4 Separated State Model and Lightweight Entities
+
+`GameState` is an explicit state holder that isolates mutable session data:
+
+- Current phase (`MENU`, `PLAYING`, `PAUSED`, `GAME_OVER`)
+- Active player index
+- Per-player positions and turn counts
+- Accumulated game time
+- Movement and dice-rolling flags
+
+This separation makes it possible to inspect, reset, or test game state without touching the coordinator or the UI.
+
+Domain entities (`BoardEntity`, `TileEntity`, `PlayerEntity`) are lightweight. They encapsulate local behavior — path calculation, tile classification, position offsets — but do not control the game loop. Flow control is the coordinator's responsibility.
+
+---
+
+## 3. Component Map
+
+```
+MainBoard (composition root)
+├── GameManager (coordinator)
+│   ├── BoardEntity (domain)
+│   │   └── TileEntity[] (domain)
+│   ├── PlayerEntity[] (domain)
+│   ├── GameState (state model)
+│   └── BoardConfig (data)
+├── GameHUD (ui)
+├── QuizPanelUI (ui)
+└── PauseMenuUI (ui)
+
+Autoloads (global)
+├── GameData
+├── AudioManager
+└── RecordsManager
+```
+
+---
+
+## 4. Context Diagram
 
 ```mermaid
 flowchart LR
-    player["<<Actor>>\nPlayer"]:::actor
-    questions["<<External Data>>\nquestions.json\nSDG Question Bank"]:::external
-    records["<<External Storage>>\nuser://records.save\nLocal Ranking"]:::external
-    audio_engine["<<Platform Service>>\nGodot Audio Engine"]:::external
-    scene_tree["<<Platform Runtime>>\nGodot SceneTree"]:::external
+    player["Player"]:::actor
+    questions["questions.json"]:::external
+    records["user://records.save"]:::external
+    audio["Godot Audio Engine"]:::external
+    tree["Godot SceneTree"]:::external
 
-    subgraph system["System Boundary: GoGoals"]
-        menu["<<UI Scene>>\nMenuPrincipal"]:::ui
-        board_scene["<<UI Scene>>\npantalla_de_juego\nMainBoard"]:::ui
-        hud["<<UI Component>>\nGameHUD"]:::ui
-        quiz["<<UI Component>>\nQuizPanelUI"]:::ui
-        endgame["<<UI Scene>>\nEndGameMenu"]:::ui
+    subgraph system["GoGoals"]
+        menu["MenuPrincipal"]:::ui
+        board_scene["pantalla_de_juego / MainBoard"]:::ui
+        hud["GameHUD"]:::ui
+        quiz["QuizPanelUI"]:::ui
+        endgame["EndGameMenu"]:::ui
 
-        manager["<<Application Core>>\nGameManager"]:::core
-        state["<<State Model>>\nGameState"]:::state
-        board["<<Domain Model>>\nBoardEntity"]:::domain
-        tile["<<Domain Model>>\nTileEntity"]:::domain
-        token["<<Domain Model>>\nPlayerEntity"]:::domain
-        config["<<Config>>\nBoardConfig"]:::config
+        manager["GameManager"]:::core
+        state["GameState"]:::state
+        board["BoardEntity"]:::domain
+        tile["TileEntity"]:::domain
+        token["PlayerEntity"]:::domain
+        config["BoardConfig"]:::config
 
-        gdata["<<Autoload Service>>\nGameData"]:::service
-        ranking["<<Autoload Service>>\nRecordsManager"]:::service
-        sound["<<Autoload Service>>\nAudioManager"]:::service
+        gdata["GameData"]:::service
+        ranking["RecordsManager"]:::service
+        sound["AudioManager"]:::service
     end
 
-    player -->|"selects players"| menu
-    player -->|"rolls dice and observes state"| hud
-    player -->|"answers questions"| quiz
-    player -->|"saves name"| endgame
+    player --> menu
+    player --> hud
+    player --> quiz
+    player --> endgame
 
-    menu -->|"changes scene"| scene_tree
-    menu -->|"stores players_count"| gdata
+    menu --> tree
+    menu --> gdata
 
-    board_scene -->|"creates and connects"| manager
-    board_scene -->|"creates and connects"| hud
-    board_scene -->|"creates and connects"| quiz
-    board_scene -->|"opens end-game menu"| endgame
+    board_scene --> manager
+    board_scene --> hud
+    board_scene --> quiz
+    board_scene --> endgame
 
-    manager -->|"queries questions"| gdata
-    manager -->|"coordinates final ranking"| ranking
-    manager -->|"plays music and sfx"| sound
+    manager --> gdata
+    manager --> ranking
+    manager --> sound
     manager --> state
     manager --> board
     board --> tile
@@ -73,273 +151,225 @@ flowchart LR
 
     gdata --> questions
     ranking --> records
-    sound --> audio_engine
+    sound --> audio
 
-    classDef actor fill:#fff2cc,stroke:#b45f06,color:#111,stroke-width:1.5px;
-    classDef external fill:#f3f3f3,stroke:#666,color:#111,stroke-width:1.2px;
-    classDef ui fill:#dae8fc,stroke:#6c8ebf,color:#111,stroke-width:1.5px;
-    classDef core fill:#d5e8d4,stroke:#82b366,color:#111,stroke-width:2px;
-    classDef state fill:#e1d5e7,stroke:#9673a6,color:#111,stroke-width:1.5px;
-    classDef domain fill:#ffe6cc,stroke:#d79b00,color:#111,stroke-width:1.5px;
-    classDef service fill:#f8cecc,stroke:#b85450,color:#111,stroke-width:1.5px;
-    classDef config fill:#fff2cc,stroke:#bf9000,color:#111,stroke-width:1.5px;
+    classDef actor fill:#fff2cc,stroke:#b45f06,color:#111,stroke-width:1.5px
+    classDef external fill:#f3f3f3,stroke:#666,color:#111,stroke-width:1.2px
+    classDef ui fill:#dae8fc,stroke:#6c8ebf,color:#111,stroke-width:1.5px
+    classDef core fill:#d5e8d4,stroke:#82b366,color:#111,stroke-width:2px
+    classDef state fill:#e1d5e7,stroke:#9673a6,color:#111,stroke-width:1.5px
+    classDef domain fill:#ffe6cc,stroke:#d79b00,color:#111,stroke-width:1.5px
+    classDef service fill:#f8cecc,stroke:#b85450,color:#111,stroke-width:1.5px
+    classDef config fill:#fff2cc,stroke:#bf9000,color:#111,stroke-width:1.5px
 ```
 
-### Component Diagram (Image)
-
-The following version presents the architecture as a component diagram, with a visual style closer to UML tools like Visual Paradigm.
-
-![GoGoals Component Diagram](./images/diagrama_componentes.png)
-
-## 3. Contextual Flow of a Match
-
-### 3.1 System Entry
-
-1. `MenuPrincipal` initiates the interaction.
-2. The player selects the number of participants.
-3. The value is stored in `GameData.players_count`.
-4. The `SceneTree` changes to the `pantalla_de_juego` scene.
-
-### 3.2 Main Scene Assembly
+A rendered component diagram is available at [`./images/diagrama_componentes.png`](./images/diagrama_componentes.png).
 
-1. `MainBoard` loads as the root of the playable scene.
-2. `MainBoard` instantiates `GameManager`.
-3. `MainBoard` instantiates `GameHUD`.
-4. `MainBoard` instantiates `QuizPanelUI`.
-5. `MainBoard` instantiates `PauseMenuUI`.
-6. `MainBoard` connects signals between UI and logic.
-7. `MainBoard` calls `GameManager.initialize_game(...)`.
+---
 
-### 3.3 Game Initialization
-
-1. `GameManager` creates `BoardEntity`.
-2. `BoardEntity` takes the board nodes from the scene and transforms them into `TileEntity` instances.
-3. `BoardConfig` provides the fixed board rules:
-   - Ladders
-   - Slides
-   - Quiz tiles
-4. `GameState` resets:
-   - Time
-   - Active player
-   - Positions
-   - Turn counts
-5. `GameManager` instantiates one `PlayerEntity` per player.
-6. `AudioManager` starts background music.
+## 5. Match Flow
 
-### 3.4 Turn Execution
+### 5.1 Entry
 
-1. `GameHUD` receives the dice button action.
-2. `GameHUD` emits `dice_requested`.
-3. `MainBoard` forwards the request to `GameManager.roll_dice()`.
-4. `GameManager` validates whether the game accepts input.
-5. `GameManager` generates the random dice value.
-6. `GameState` increments the active player's roll count.
-7. `GameManager` emits signals to:
-   - Update the HUD
-   - Disable input
-   - Play SFX
-8. `BoardEntity` calculates the complete path.
-9. `GameManager` animates the token tile by tile.
-10. If movement overshoots the finish, the path bounces backward.
+1. `MenuPrincipal` displays. The player selects 1–4 participants.
+2. The count is stored in `GameData.players_count`.
+3. `SceneTree` transitions to `pantalla_de_juego`.
 
-### 3.5 Tile Resolution
+### 5.2 Scene Assembly
 
-When movement finishes, `GameManager` inspects the destination tile:
+`MainBoard._ready()` executes the following sequence:
 
-- **Normal**: Ends the turn.
-- **Ladder**: Moves to the destination and re-evaluates.
-- **Slide**: Moves to the destination and re-evaluates.
-- **Quiz**: Requests a question from `GameData`.
-- **Finish**: Marks the game as over.
+1. Creates `GameManager` and attaches it to the tree.
+2. Configures audio streams on the manager.
+3. Creates `GameHUD` and wires it to the canvas layer.
+4. Creates `QuizPanelUI` and connects its answer signal.
+5. Creates `PauseMenuUI` and connects resume/restart/menu signals.
+6. Calls `GameManager.initialize_game(board_tiles, player_count, textures)`.
 
-### 3.6 SDG Quiz
+### 5.3 Initialization
 
-1. `GameData` reads questions from `questions.json`.
-2. `GameManager` requests a question based on the ODS associated with the tile.
-3. `QuizPanelUI` renders the content.
-4. The player answers.
-5. `QuizPanelUI` calculates whether the selected option matches `correct`.
-6. `GameManager.answer_quiz(...)` resolves the effect:
-   - **Correct**: The same player rolls again
-   - **Incorrect**: Turn passes to the next player
+`GameManager.initialize_game()`:
 
-### 3.7 Game Closure
+1. Creates `BoardEntity` and loads `BoardConfig` data (ladders, slides, quiz tiles, ODS metadata).
+2. Iterates over the scene's board nodes, creating a `TileEntity` for each and classifying its type.
+3. Resets `GameState`: time to zero, active player to zero, all positions to tile 0, all turn counts to zero.
+4. Instantiates one `PlayerEntity` per player with an offset so tokens do not overlap.
+5. Starts background music via `AudioManager`.
+6. Emits `game_initialized` and `turn_started`.
 
-1. `GameManager` emits `victory`.
-2. `MainBoard` instantiates `EndGameMenu`.
-3. `EndGameMenu` displays time and turns.
-4. `RecordsManager` saves the record to `user://records.save`.
-5. The player can:
-   - Return to menu
-   - Restart the scene
-   - Register their name
+### 5.4 Turn Execution
 
-## 4. Actual Architectural Pattern
+1. Player clicks the dice button. `GameHUD` emits `dice_requested`.
+2. `MainBoard` forwards to `GameManager.roll_dice()`.
+3. Manager validates: game is `PLAYING`, no movement in progress, no quiz active.
+4. Generates `randi_range(1, 6)`. Increments the active player's turn count.
+5. Emits `dice_rolled` and `turn_started`. Disables input.
+6. Calls `move_player(steps)`:
+   - `BoardEntity.calculate_path(from, steps)` returns the tile indices to visit.
+   - If the path would exceed the finish tile, it **bounces** backward (e.g., 60 + 4 → 61, 62, 61, 60).
+   - A `Tween` animates the token through each position with a step SFX callback.
 
-### Practical Pattern Name
+### 5.5 Tile Resolution
 
-**Modular monolith scene-driven with autoload services and central signal-based coordination.**
+After animation completes, `_check_tile()` inspects the destination:
 
-This name better reflects the current implementation than labels like MVC, MVVM, ECS, or Hexagonal.
+| Tile type | Behavior |
+|-----------|----------|
+| `NORMAL` | End turn. |
+| `LADDER` | Animate to `target_position`, then re-check the destination tile. |
+| `SLIDE` | Animate to `target_position`, then re-check the destination tile. |
+| `QUIZ` | Request a question from `GameData` for the tile's ODS ID. Show the quiz panel. |
+| `FINISH` | Trigger victory. |
 
-## 5. Structural Characteristics
+Ladder and slide resolution is recursive: landing on a special tile that leads to another special tile will chain.
 
-### 5.1 Scene-Driven Architecture
+### 5.6 Quiz Flow
 
-- Main navigation depends on Godot's scene system.
-- Each scene delimits a distinct UI context.
-- `MenuPrincipal`, `pantalla_de_juego`, and `EndGameMenu` are natural screen boundaries.
-- The scene remains a composition unit, not just a view.
+1. `GameManager._request_quiz()` calls `GameData.get_question(ods_id)`.
+2. `GameData` selects a random unused question for that SDG. If all have been used, it resets the cycle.
+3. Options are shuffled. The correct index is recalculated.
+4. `GameManager` emits `quiz_requested(player_index, ods_id, question_data)`.
+5. `QuizPanelUI` renders the question with animated entry.
+6. Player selects an option. `QuizPanelUI` shows color feedback (green = correct, red = incorrect) for 1.8 seconds.
+7. `QuizPanelUI` emits `answer_selected(result_data)`.
+8. `GameManager.answer_quiz()` resolves:
+   - **Correct**: Play success SFX. Emit feedback. Re-enable dice input (same player rolls again).
+   - **Incorrect**: Play failure SFX. Emit feedback. Call `_end_turn()`.
 
-### 5.2 Local Composition Root
+### 5.7 Victory
 
-- `MainBoard` creates and connects components but does not decide rules.
-- This file serves as the dependency assembly point.
-- The main responsibility of `MainBoard` is to wire the flow.
-- This reduces coupling between UI and domain logic.
+1. `GameManager` sets phase to `GAME_OVER`.
+2. Plays victory SFX, stops background music.
+3. Emits `victory(player_index, time, turns)`.
+4. `MainBoard` waits 1.5 seconds, then instantiates `EndGameMenu`.
+5. `EndGameMenu` displays match summary: time, turns, accuracy, streaks, ODS categories visited.
+6. Player can enter a name and save to ranking, restart, or return to menu.
 
-### 5.3 Central Application Coordinator
+---
 
-- `GameManager` concentrates the game's use cases.
-- Controls the game lifecycle.
-- Orchestrates movement, quiz, turns, victory, and audio.
-- Acts as an application service.
-- Also the main concentration point for complexity.
+## 6. Communication Model
 
-### 5.4 Separated State Model
+### 6.1 Signal Topology
 
-- `GameState` maintains the mutable session state.
-- State is no longer scattered across multiple visual nodes.
-- This facilitates reset, inspection, and rule testing.
-- `GameState` functions as a state holder, not a coordinator.
+The system uses a hub-and-spoke model centered on `MainBoard`:
 
-### 5.5 Lightweight Domain Entities
+```
+GameHUD ──dice_requested──► MainBoard ──► GameManager.roll_dice()
+QuizPanelUI ──answer_selected──► MainBoard ──► GameManager.answer_quiz()
+PauseMenuUI ──resume_requested──► MainBoard ──► GameManager.toggle_pause()
 
-- `BoardEntity` represents the board structure.
-- `TileEntity` represents tile type and metadata.
-- `PlayerEntity` represents a token and its visible position.
-- These entities contain useful local behavior but do not govern the entire game.
+GameManager ──turn_started──► GameHUD
+GameManager ──dice_rolled──► GameHUD
+GameManager ──quiz_requested──► QuizPanelUI
+GameManager ──feedback_requested──► GameHUD
+GameManager ──victory──► MainBoard ──► EndGameMenu
+GameManager ──input_state_changed──► GameHUD
+GameManager ──pause_state_changed──► MainBoard ──► PauseMenuUI
+```
 
-### 5.6 Semi-Data-Driven Configuration
+UI components never reference `GameManager` directly. They emit domain-intent signals and subscribe to presentation-update signals through `MainBoard`.
 
-- `BoardConfig` externalizes fixed board rules within a data class.
-- `questions.json` externalizes the question bank.
-- The board is not fully data-driven because configuration remains in GDScript code.
-- Quiz content does follow a more data-oriented approach.
+### 6.2 Coupling Profile
 
-### 5.7 Global Services via Autoload
+| Layer | Coupled to | Type |
+|-------|-----------|------|
+| UI → MainBoard | Signal contracts | Loose |
+| MainBoard → GameManager | Direct reference | Tight (expected) |
+| GameManager → GameData | Autoload singleton | Moderate |
+| GameManager → AudioManager | Autoload singleton | Moderate |
+| EndGameMenu → RecordsManager | Autoload singleton | Moderate |
+| GameManager → GameState | Owned child node | Tight (expected) |
+| GameManager → BoardEntity | Owned child node | Tight (expected) |
 
-- `GameData` — question reading and access service.
-- `RecordsManager` — centralizes ranking persistence.
-- `AudioManager` — centralizes music and effects playback.
-- Global singletons accessible from any scene.
+The UI layer is well decoupled. The application layer has moderate global coupling through autoloads — acceptable for this scale, but a point of attention if the project grows.
 
-## 6. Communication Characteristics
+---
 
-### 6.1 Observer Pattern with Signals
+## 7. State Management
 
-- Component communication uses Godot signals.
-- `GameHUD` does not need to know movement internals.
-- `QuizPanelUI` does not resolve rules; it only emits the result.
-- `GameManager` publishes high-level events:
-  - Turn started
-  - Dice rolled
-  - Feedback requested
-  - Quiz requested
-  - Victory
-- This model reduces direct dependencies between layers.
+### 7.1 Phase Machine
 
-### 6.2 Low UI-Logic Coupling
+`GameState.current_phase` constrains valid transitions:
 
-- The HUD and quiz panel depend on signal contracts, not on the internal board structure.
-- The main logic does not directly write each visual element.
-- The UI reacts to events emitted by the application layer.
+```
+MENU ──initialize_game()──► PLAYING
+PLAYING ──pause_game()──► PAUSED
+PAUSED ──resume_game()──► PLAYING
+PLAYING ──_handle_victory()──► GAME_OVER
+GAME_OVER ──reset()──► MENU
+```
 
-### 6.3 Moderate Coupling to Global Services
+There is no formal state machine with per-state classes. The phase is an enum checked imperatively by `GameManager` before accepting input.
 
-- Although the UI is well decoupled, the application layer does depend on autoloads.
-- `GameManager` knows `GameData` and `AudioManager`.
-- `EndGameMenu` knows `RecordsManager`.
-- This simplifies the project but is not strict dependency inversion.
+### 7.2 Movement Lock
 
-## 7. Control and State Characteristics
+`GameManager.is_moving` and `GameManager.is_quiz_active` are boolean guards. The dice button is disabled when either is true, and `can_player_roll()` checks all conditions before accepting a roll.
 
-### 7.1 Coordinated Imperative Flow
+### 7.3 Timer
 
-- Match progression is resolved sequentially.
-- The system follows a clear chain:
-  - Input → Roll → Movement → Tile Resolution → Quiz or Victory or Turn Change
-- No complex scheduler or self-organizing entities.
+`GameState.game_time` accumulates via `_process(delta)` only when the game is `PLAYING` and no movement or quiz is active. This excludes time spent in pauses, animations, and quiz panels from the ranking score.
 
-### 7.2 Lightweight State Machine
+---
 
-- `GameState` uses phases: `MENU`, `PLAYING`, `PAUSED`, and `GAME_OVER`.
-- There is no formal state machine with per-state classes.
-- Still, the game phase acts as a constraint on valid transitions.
+## 8. Persistence
 
-### 7.3 Centralized Turn Control
+### 8.1 Ranking
 
-- The active turn lives in a single place.
-- Player rotation is not duplicated across layers.
-- Rules for when a player can roll are centralized in `GameManager`.
+`RecordsManager` persists up to 10 records to `user://records.save` as a JSON array. Each record contains `name`, `time`, and `turns`.
 
-## 8. Persistence and Data Characteristics
+Sorting criteria:
+1. Fewer turns is better.
+2. On equal turns, less time is better.
 
-### 8.1 Simple Local Persistence
+If a player name already exists, the record is only replaced if the new result is better.
 
-- Ranking is persisted in a local JSON file.
-- No complex repositories or external databases.
-- The strategy is sufficient for a small local game.
+### 8.2 Audio Settings
 
-### 8.2 Embedded Business Rules
+`AudioManager` persists `music_volume_db` and `sfx_volume_db` to `user://settings.save` as JSON. Settings are loaded on startup and applied before any audio plays.
 
-- `RecordsManager` applies ranking rules:
-  - Fewer turns wins
-  - On equal turns, less time wins
-- Persistence does not just store data; it also applies domain criteria.
+### 8.3 Questions
 
-### 8.3 Content Loading Separated from UI Flow
+The question bank lives in `res://data/questions.json`. It is loaded once by `GameData._ready()` and kept in memory. It is read-only at runtime.
 
-- Questions are not embedded in buttons or labels.
-- `GameData` loads them once and serves them to the rest of the system.
-- This separates presentation from content.
+---
 
-## 9. Advantages of the Current Pattern
+## 9. Test Coverage
 
-- Strong improvement over the initial monolith.
-- More readable responsibilities.
-- Better UI component reuse.
-- Lower coupling between presentation and rules.
-- Easy to understand for small teams working with Godot.
-- Compatible with the natural way of building games in scenes.
-- Allows continued modularization without rewriting the entire project.
+The test suite (`tests/run_tests.gd`) runs as a headless `SceneTree` script. It covers:
 
-## 10. Limitations of the Current Pattern
+| Test | Validates |
+|------|-----------|
+| `_test_game_state_turn_rotation` | Player index advances correctly; turn counts are isolated per player |
+| `_test_board_bounce_path` | Path calculation bounces backward when overshooting the finish tile |
+| `_test_question_cycle_without_repeats` | Questions are not repeated within a cycle; bank recycles when exhausted |
+| `_test_game_manager_pause_resume` | Pause/resume transitions update phase and input state correctly |
 
-- `GameManager` is still a large module.
-- Autoloads are practical but create global dependency.
-- The board is not yet fully configurable from external data.
-- No formal ports/adapters layer or domain interfaces.
-- The model remains oriented to Godot's runtime, not to full engine independence.
+---
 
-## 11. What This Architecture Is Not
+## 10. Design Decisions and Trade-offs
 
-- **Not pure MVC**: The scene is not just a view; the controller is not classically separated.
-- **Not MVVM**: There are no view-models or declarative binding.
-- **Not ECS**: Entities are not simple IDs with data components.
-- **Not strict Clean Architecture**: There are direct dependencies on Godot and autoloads.
-- **Not Event Sourcing**: State is not reconstructed from persisted events.
+### What this is
 
-## 12. Final Assessment
+- A modular monolith organized around Godot's scene tree.
+- Signal-driven communication between presentation and application layers.
+- Explicit state separation for testability and pause handling.
+- Data-driven quiz content with code-driven board configuration.
 
-The game's architecture can be summarized as follows:
+### What this is not
 
-1. Godot provides the scenes and interaction runtime.
-2. `MainBoard` assembles the play use case.
-3. `GameManager` coordinates the session.
-4. `GameState` holds the mutable state.
-5. Entities model the board, tiles, and tokens.
-6. The UI reacts via signals.
-7. Global services handle data, ranking, and audio.
+- **Not MVC**: The scene is not a passive view. `MainBoard` is both composition root and wiring layer.
+- **Not MVVM**: No view-models, no declarative bindings.
+- **Not ECS**: Entities are behavior-bearing nodes, not data-only component bags.
+- **Not Clean Architecture**: Direct dependencies on Godot types and autoload singletons.
+- **Not Event Sourcing**: State is mutated in place, not reconstructed from an event log.
 
-The result is a modular and maintainable architecture for a small-to-medium game, though still with a strong center in `GameManager`. The natural evolution would be to split that coordinator into smaller turn, movement, and quiz services without losing the scene-driven approach that already fits well with Godot.
+### Known Limitations
+
+- `GameManager` is the primary complexity bottleneck. It handles turn logic, movement, quiz, audio, pause, and victory in a single 464-line file.
+- Board configuration is code-defined in `BoardConfig.gd`. Changing the board layout requires modifying GDScript, not a data file.
+- Autoload coupling makes unit testing individual components harder without the full Godot runtime.
+- `GameState.get_finish_tile_index()` returns a hardcoded `62` instead of querying the board.
+
+### Evolution Path
+
+The natural next step would be to extract turn management, movement logic, and quiz handling into separate service classes, keeping `GameManager` as a thin orchestrator. This would reduce the file's surface area without disrupting the scene-driven model that fits well with Godot's architecture.
