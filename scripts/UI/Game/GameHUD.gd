@@ -154,6 +154,7 @@ func _build_hud() -> void:
 	dice_button.reparent(button_inset)
 	dice_button.custom_minimum_size = Vector2(0, 42)
 	dice_button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	dice_button.focus_mode = Control.FOCUS_NONE
 	dice_button.add_theme_constant_override("icon_max_width", 24)
 	dice_button.add_theme_constant_override("h_separation", 12)
 	_style_dice_button()
@@ -252,6 +253,7 @@ func _style_dice_button() -> void:
 	dice_button.add_theme_stylebox_override("hover", btn_hover)
 	dice_button.add_theme_stylebox_override("pressed", btn_pressed)
 	dice_button.add_theme_stylebox_override("disabled", btn_disabled)
+	dice_button.add_theme_stylebox_override("focus", btn_normal)
 	dice_button.add_theme_font_size_override("font_size", 18)
 	dice_button.add_theme_color_override("font_color", Color.WHITE)
 	dice_button.add_theme_color_override("font_hover_color", Color.WHITE)
