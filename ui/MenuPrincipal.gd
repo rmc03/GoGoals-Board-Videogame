@@ -2,11 +2,13 @@ extends Control
 
 const MenuOptionsUIScript := preload("res://scripts/UI/Menu/OptionsMenu.gd")
 const DEBUG_SEED_RANKING := true
+const DISPLAY_FONT := preload("res://Assets/Fonts/adventure-request/Adventure ReQuest.otf")
 
 @onready var btn_jugar: Button = $ButtonJugar
 @onready var btn_ranking: Button = $ButtonRanking
 @onready var btn_salir: Button = $ButtonSalir
 @onready var btn_options: Button = $ButtonOptions
+@onready var main_title_label: Label = $Label
 
 @onready var panel_seleccion: Panel = $PanelSeleccion
 @onready var selection_title_label: Label = $PanelSeleccion/Label
@@ -167,6 +169,7 @@ func _style_menu() -> void:
 	_style_menu_button(btn_ranking, Color(0.14, 0.32, 0.55))
 	_style_menu_button(btn_options, Color(0.12, 0.26, 0.48))
 	_style_menu_button(btn_salir, Color(0.55, 0.18, 0.2))
+	_style_main_title()
 
 	_setup_selection_modal()
 	_apply_panel_style(ventana_ranking)
@@ -204,9 +207,27 @@ func _style_menu_button(button: Button, base_color: Color) -> void:
 	button.add_theme_stylebox_override("normal", normal)
 	button.add_theme_stylebox_override("hover", hover)
 	button.add_theme_stylebox_override("pressed", pressed)
+	button.add_theme_font_override("font", DISPLAY_FONT)
 	button.add_theme_font_size_override("font_size", 20)
 	button.add_theme_color_override("font_color", Color(0.98, 0.99, 1.0))
 	button.add_theme_color_override("font_hover_color", Color(1, 1, 0.9))
+
+func _style_main_title() -> void:
+	if main_title_label == null:
+		return
+
+	var settings: LabelSettings = main_title_label.label_settings
+	if settings == null:
+		settings = LabelSettings.new()
+	else:
+		settings = settings.duplicate()
+
+	settings.font = DISPLAY_FONT
+	settings.font_size = 62
+	settings.font_color = Color(0.97, 0.99, 1.0)
+	settings.outline_size = 6
+	settings.outline_color = Color(0.04, 0.08, 0.14, 0.85)
+	main_title_label.label_settings = settings
 
 func _apply_panel_style(panel: Panel) -> void:
 	if panel == null:
@@ -305,6 +326,7 @@ func _ensure_ranking_ui() -> void:
 
 	var title := Label.new()
 	title.text = "🏆 RANKING"
+	title.add_theme_font_override("font", DISPLAY_FONT)
 	title.add_theme_font_size_override("font_size", 26)
 	title.add_theme_color_override("font_color", Color(0.95, 0.97, 1.0))
 	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -487,6 +509,7 @@ func _setup_selection_modal() -> void:
 
 	selection_title_label.reparent(title_box)
 	selection_title_label.text = "Elige la partida"
+	selection_title_label.add_theme_font_override("font", DISPLAY_FONT)
 	selection_title_label.add_theme_font_size_override("font_size", 30)
 	selection_title_label.add_theme_color_override("font_color", Color(0.96, 0.98, 1.0))
 
@@ -619,6 +642,7 @@ func _configure_player_button(button: Button, title: String, description: String
 	title_label.text = title
 	title_label.custom_minimum_size = Vector2(0, 36)
 	title_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	title_label.add_theme_font_override("font", DISPLAY_FONT)
 	title_label.add_theme_font_size_override("font_size", 24)
 	title_label.add_theme_color_override("font_color", Color(0.96, 0.98, 1.0))
 	title_label.mouse_filter = Control.MOUSE_FILTER_IGNORE

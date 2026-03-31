@@ -2,6 +2,7 @@ extends Node
 class_name GameHUD
 
 const HUD_ACCENT_FONT: FontFile = preload("res://Assets/Fonts/ticketing/TICKETING/Ticketing.ttf")
+const HUD_DISPLAY_FONT: FontFile = preload("res://Assets/Fonts/adventure-request/Adventure ReQuest.otf")
 const PLAYER_COLORS: Array[Color] = [
 	Color(0.6, 0.2, 0.8),
 	Color(0.9, 0.2, 0.2),
@@ -254,6 +255,7 @@ func _style_dice_button() -> void:
 	dice_button.add_theme_stylebox_override("pressed", btn_pressed)
 	dice_button.add_theme_stylebox_override("disabled", btn_disabled)
 	dice_button.add_theme_stylebox_override("focus", btn_normal)
+	dice_button.add_theme_font_override("font", HUD_DISPLAY_FONT)
 	dice_button.add_theme_font_size_override("font_size", 18)
 	dice_button.add_theme_color_override("font_color", Color.WHITE)
 	dice_button.add_theme_color_override("font_hover_color", Color.WHITE)
