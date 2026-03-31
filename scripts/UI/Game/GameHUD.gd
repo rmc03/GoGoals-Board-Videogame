@@ -25,7 +25,6 @@ var feedback_label: Label
 var pause_button: Button
 var dice_base_text: String = ""
 var dice_text_before_pause: String = ""
-var hud_title: Label
 var player_chip_label: Label
 var turn_chip_label: Label
 
@@ -58,11 +57,9 @@ func _hide_legacy_labels() -> void:
 		legacy_result_label.visible = false
 
 func _build_hud() -> void:
-	var edge_margin := 18.0
-	var stats_width := 260.0
-	var stats_height := 214.0
-	var dice_width := 260.0
-	var dice_height := 100.0
+	var edge_margin := 16.0
+	var stats_width := 236.0
+	var stats_height := 148.0
 
 	stats_panel = Panel.new()
 	stats_panel.anchor_left = 1.0
@@ -79,10 +76,10 @@ func _build_hud() -> void:
 	var stats_margin := MarginContainer.new()
 	stats_margin.anchor_right = 1.0
 	stats_margin.anchor_bottom = 1.0
-	stats_margin.offset_left = 14.0
-	stats_margin.offset_top = 12.0
-	stats_margin.offset_right = -14.0
-	stats_margin.offset_bottom = -12.0
+	stats_margin.offset_left = 12.0
+	stats_margin.offset_top = 10.0
+	stats_margin.offset_right = -12.0
+	stats_margin.offset_bottom = -10.0
 	stats_panel.add_child(stats_margin)
 
 	var stats_box := VBoxContainer.new()
@@ -92,37 +89,29 @@ func _build_hud() -> void:
 	stats_box.offset_top = 0.0
 	stats_box.offset_right = 0.0
 	stats_box.offset_bottom = 0.0
-	stats_box.add_theme_constant_override("separation", 10)
+	stats_box.add_theme_constant_override("separation", 6)
 	stats_margin.add_child(stats_box)
 
 	var header_row := HBoxContainer.new()
 	header_row.add_theme_constant_override("separation", 8)
 	stats_box.add_child(header_row)
 
-	hud_title = Label.new()
-	hud_title.text = "Estado"
-	hud_title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	hud_title.add_theme_font_override("font", HUD_ACCENT_FONT)
-	hud_title.add_theme_font_size_override("font_size", 14)
-	hud_title.add_theme_color_override("font_color", Color(0.98, 0.86, 0.55))
-	header_row.add_child(hud_title)
-
 	pause_button = Button.new()
 	pause_button.text = "Pausa"
-	pause_button.custom_minimum_size = Vector2(92, 28)
+	pause_button.custom_minimum_size = Vector2(82, 26)
 	_style_pause_button()
-	header_row.add_child(pause_button)
 
 	var timer_card_data := _create_info_chip(
 		"Tiempo 00:00.00",
 		Color(0.22, 0.17, 0.1, 0.92),
 		Color(0.96, 0.81, 0.42, 0.8),
 		Color(1.0, 0.92, 0.68),
-		18
+		16
 	)
-	stats_box.add_child(timer_card_data["panel"])
+	header_row.add_child(timer_card_data["panel"])
 	timer_display = timer_card_data["label"]
 	timer_display.add_theme_font_override("font", HUD_ACCENT_FONT)
+	header_row.add_child(pause_button)
 
 	var info_row := HBoxContainer.new()
 	info_row.add_theme_constant_override("separation", 8)
@@ -133,7 +122,7 @@ func _build_hud() -> void:
 		Color(0.18, 0.11, 0.22, 0.95),
 		Color(0.74, 0.52, 0.84, 0.75),
 		Color(0.96, 0.88, 1.0),
-		14
+		13
 	)
 	info_row.add_child(player_chip_data["panel"])
 	player_chip_label = player_chip_data["label"]
@@ -143,70 +132,26 @@ func _build_hud() -> void:
 		Color(0.15, 0.16, 0.22, 0.95),
 		Color(0.48, 0.66, 0.86, 0.68),
 		Color(0.87, 0.93, 1.0),
-		14
+		13
 	)
 	info_row.add_child(turn_chip_data["panel"])
 	turn_chip_label = turn_chip_data["label"]
 
 	turn_display = Label.new()
-	turn_display.text = "Esperando tirada"
+	turn_display.text = _default_status_text()
 	turn_display.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 	turn_display.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	turn_display.add_theme_font_size_override("font_size", 13)
+	turn_display.add_theme_font_size_override("font_size", 12)
 	turn_display.add_theme_color_override("font_color", Color(0.75, 0.71, 0.63))
 	stats_box.add_child(turn_display)
 
-	feedback_label = Label.new()
-	feedback_label.text = ""
-	feedback_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
-	feedback_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	feedback_label.add_theme_font_size_override("font_size", 13)
-	feedback_label.add_theme_color_override("font_color", Color(0.98, 0.86, 0.56))
-	stats_box.add_child(feedback_label)
-
-	dice_panel = Panel.new()
-	dice_panel.anchor_left = 1.0
-	dice_panel.anchor_right = 1.0
-	dice_panel.anchor_top = 0.0
-	dice_panel.anchor_bottom = 0.0
-	dice_panel.offset_left = -(dice_width + edge_margin)
-	dice_panel.offset_top = stats_panel.offset_bottom + 12.0
-	dice_panel.offset_right = -edge_margin
-	dice_panel.offset_bottom = stats_panel.offset_bottom + 12.0 + dice_height
-	_apply_action_panel_style(dice_panel)
-	hud_host.add_child(dice_panel)
-
-	var dice_margin := MarginContainer.new()
-	dice_margin.anchor_right = 1.0
-	dice_margin.anchor_bottom = 1.0
-	dice_margin.offset_left = 14.0
-	dice_margin.offset_top = 12.0
-	dice_margin.offset_right = -14.0
-	dice_margin.offset_bottom = -12.0
-	dice_panel.add_child(dice_margin)
-
-	var dice_box := VBoxContainer.new()
-	dice_box.anchor_right = 1.0
-	dice_box.anchor_bottom = 1.0
-	dice_box.offset_left = 0.0
-	dice_box.offset_top = 0.0
-	dice_box.offset_right = 0.0
-	dice_box.offset_bottom = 0.0
-	dice_box.add_theme_constant_override("separation", 6)
-	dice_margin.add_child(dice_box)
-
-	var action_label := Label.new()
-	action_label.text = "Accion"
-	action_label.add_theme_font_override("font", HUD_ACCENT_FONT)
-	action_label.add_theme_font_size_override("font_size", 13)
-	action_label.add_theme_color_override("font_color", Color(0.98, 0.86, 0.55))
-	dice_box.add_child(action_label)
-
-	dice_button.reparent(dice_box)
-	dice_button.custom_minimum_size = Vector2(0, 54)
+	feedback_label = turn_display
+	dice_panel = stats_panel
+	dice_button.reparent(stats_box)
+	dice_button.custom_minimum_size = Vector2(0, 42)
 	dice_button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	dice_button.add_theme_constant_override("icon_max_width", 44)
-	dice_button.add_theme_constant_override("h_separation", 12)
+	dice_button.add_theme_constant_override("icon_max_width", 30)
+	dice_button.add_theme_constant_override("h_separation", 8)
 	_style_dice_button()
 
 func _apply_panel_style(panel: Panel, bg: Color, border: Color) -> void:
@@ -225,22 +170,6 @@ func _apply_panel_style(panel: Panel, bg: Color, border: Color) -> void:
 	hud_style.shadow_size = 6
 	panel.add_theme_stylebox_override("panel", hud_style)
 
-func _apply_dice_container_style(panel: Panel) -> void:
-	var hud_style: StyleBoxFlat = StyleBoxFlat.new()
-	hud_style.bg_color = Color(0, 0, 0, 0)
-	hud_style.corner_radius_top_left = 16
-	hud_style.corner_radius_top_right = 16
-	hud_style.corner_radius_bottom_left = 16
-	hud_style.corner_radius_bottom_right = 16
-	hud_style.border_width_left = 0
-	hud_style.border_width_right = 0
-	hud_style.border_width_top = 0
-	hud_style.border_width_bottom = 0
-	hud_style.border_color = Color(0, 0, 0, 0)
-	hud_style.shadow_color = Color(0, 0, 0, 0)
-	hud_style.shadow_size = 0
-	panel.add_theme_stylebox_override("panel", hud_style)
-
 func _apply_stats_panel_style(panel: Panel) -> void:
 	var hud_style: StyleBoxFlat = StyleBoxFlat.new()
 	hud_style.bg_color = Color(0.11, 0.1, 0.08, 0.92)
@@ -253,23 +182,7 @@ func _apply_stats_panel_style(panel: Panel) -> void:
 	hud_style.border_width_top = 2
 	hud_style.border_width_bottom = 2
 	hud_style.border_color = Color(0.94, 0.79, 0.45, 0.75)
-	hud_style.shadow_color = Color(0.05, 0.04, 0.03, 0.5)
-	hud_style.shadow_size = 8
-	panel.add_theme_stylebox_override("panel", hud_style)
-
-func _apply_action_panel_style(panel: Panel) -> void:
-	var hud_style: StyleBoxFlat = StyleBoxFlat.new()
-	hud_style.bg_color = Color(0.1, 0.09, 0.08, 0.94)
-	hud_style.corner_radius_top_left = 18
-	hud_style.corner_radius_top_right = 18
-	hud_style.corner_radius_bottom_left = 18
-	hud_style.corner_radius_bottom_right = 18
-	hud_style.border_width_left = 2
-	hud_style.border_width_right = 2
-	hud_style.border_width_top = 2
-	hud_style.border_width_bottom = 2
-	hud_style.border_color = Color(0.95, 0.73, 0.36, 0.82)
-	hud_style.shadow_color = Color(0.05, 0.04, 0.03, 0.45)
+	hud_style.shadow_color = Color(0.05, 0.04, 0.03, 0.42)
 	hud_style.shadow_size = 8
 	panel.add_theme_stylebox_override("panel", hud_style)
 
@@ -288,10 +201,10 @@ func _create_info_chip(text: String, bg: Color, border: Color, font_color: Color
 	chip_style.border_width_top = 1
 	chip_style.border_width_bottom = 1
 	chip_style.border_color = border
-	chip_style.content_margin_left = 10
-	chip_style.content_margin_right = 10
-	chip_style.content_margin_top = 6
-	chip_style.content_margin_bottom = 6
+	chip_style.content_margin_left = 9
+	chip_style.content_margin_right = 9
+	chip_style.content_margin_top = 5
+	chip_style.content_margin_bottom = 5
 	panel_chip.add_theme_stylebox_override("panel", chip_style)
 
 	var label := Label.new()
@@ -333,7 +246,7 @@ func _style_dice_button() -> void:
 	dice_button.add_theme_stylebox_override("hover", btn_hover)
 	dice_button.add_theme_stylebox_override("pressed", btn_pressed)
 	dice_button.add_theme_stylebox_override("disabled", btn_disabled)
-	dice_button.add_theme_font_size_override("font_size", 22)
+	dice_button.add_theme_font_size_override("font_size", 17)
 	dice_button.add_theme_color_override("font_color", Color.WHITE)
 	dice_button.add_theme_color_override("font_hover_color", Color(1.0, 0.97, 0.85))
 	dice_button.add_theme_color_override("font_disabled_color", Color(0.5, 0.5, 0.55))
@@ -361,7 +274,7 @@ func _style_pause_button() -> void:
 	pause_button.add_theme_stylebox_override("normal", pause_normal)
 	pause_button.add_theme_stylebox_override("hover", pause_hover)
 	pause_button.add_theme_stylebox_override("pressed", pause_pressed)
-	pause_button.add_theme_font_size_override("font_size", 14)
+	pause_button.add_theme_font_size_override("font_size", 13)
 	pause_button.add_theme_color_override("font_color", Color(0.98, 0.93, 0.84))
 
 func _connect_button() -> void:
@@ -392,7 +305,7 @@ func _on_turn_started(player_index: int, turn_count: int) -> void:
 		player_chip_label.add_theme_color_override("font_color", color.lightened(0.4))
 	if turn_chip_label:
 		turn_chip_label.text = "Tirada #%d" % [turn_count]
-	turn_display.text = "Listo para lanzar el dado."
+	turn_display.text = _default_status_text()
 	turn_display.add_theme_color_override("font_color", Color(0.79, 0.75, 0.68))
 
 func _on_dice_rolled(_player_index: int, value: int) -> void:
@@ -428,8 +341,13 @@ func show_feedback(text: String, color: Color) -> void:
 
 	var tween: Tween = create_tween()
 	tween.tween_property(feedback_label, "modulate", Color(1, 1, 1, 1), 0.2)
-	tween.tween_interval(2.5)
+	tween.tween_interval(1.8)
 	tween.tween_property(feedback_label, "modulate", Color(1, 1, 1, 0), 0.5)
+	tween.tween_callback(func():
+		feedback_label.text = _default_status_text()
+		feedback_label.add_theme_color_override("font_color", Color(0.79, 0.75, 0.68))
+		feedback_label.modulate = Color.WHITE
+	)
 
 func set_dice_enabled(enabled: bool) -> void:
 	if dice_button:
@@ -455,9 +373,12 @@ func _animate_dice_roll(final_value: int) -> void:
 
 	tween.tween_callback(func():
 		dice_button.text = dice_faces[final_value - 1] + "  ¡" + str(final_value) + "!"
-		dice_button.add_theme_font_size_override("font_size", 22)
+		dice_button.add_theme_font_size_override("font_size", 18)
 	)
 	tween.tween_interval(0.15)
 	tween.tween_callback(func():
-		dice_button.add_theme_font_size_override("font_size", 20)
+		dice_button.add_theme_font_size_override("font_size", 17)
 	)
+
+func _default_status_text() -> String:
+	return "Tira para avanzar."
