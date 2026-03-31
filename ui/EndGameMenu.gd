@@ -264,7 +264,7 @@ func _populate_summary() -> void:
 	var correct_answers: int = int(final_summary.get("correct_answers", 0))
 
 	title_lbl.text = "Fin de la partida"
-	stats_lbl.text = "%s logro la meta. Aqui tienes el resumen final." % winner_text
+	stats_lbl.text = "%s logró la meta. Aquí tienes el resumen final." % winner_text
 	time_value.text = time_str
 	turns_value.text = str(final_turns)
 	accuracy_value.text = "%d%%" % int(round(accuracy))
@@ -300,13 +300,13 @@ func _format_turns(turn_values: Array) -> String:
 
 func _on_submit_pressed() -> void:
 	if input_name.text.strip_edges().length() <= 0:
-		submit_btn.text = "Introduce un nombre valido"
+		submit_btn.text = "Introduce un nombre válido"
 		return
 
 	var player_name: String = input_name.text.strip_edges()
 	var success: bool = RecordsManager.submit_new_record(player_name, final_time, final_turns)
 	submit_btn.disabled = true
-	submit_btn.text = "Guardado" if success else "No mejora el record"
+	submit_btn.text = "Guardado" if success else "No mejora el récord"
 
 func _on_menu_pressed() -> void:
 	AudioManager.stop_music()

@@ -22,7 +22,7 @@ var reset_records_timer: Timer
 var reset_records_state: int = 0
 
 const RESET_RECORDS_TEXT := "Restablecer ranking"
-const RESET_RECORDS_CONFIRM_TEXT := "Confirmar reset"
+const RESET_RECORDS_CONFIRM_TEXT := "Confirmar borrado"
 const RESET_RECORDS_DONE_TEXT := "Ranking reiniciado"
 
 func setup(target_host: Control) -> void:
@@ -70,13 +70,13 @@ func _build_menu() -> void:
 	panel.add_child(title_label)
 
 	var subtitle_label: Label = Label.new()
-	subtitle_label.text = "Ajusta audio, pantalla y datos locales."
+	subtitle_label.text = "Ajusta el audio, la pantalla y los datos locales."
 	subtitle_label.position = Vector2(30, 58)
 	subtitle_label.add_theme_font_size_override("font_size", 16)
 	subtitle_label.add_theme_color_override("font_color", Color(0.7, 0.78, 0.9))
 	panel.add_child(subtitle_label)
 
-	_add_slider_row("Musica", 116, true)
+	_add_slider_row("Música", 116, true)
 	_add_slider_row("Efectos", 182, false)
 	_add_display_mode_row(248)
 
@@ -143,9 +143,9 @@ func _add_display_mode_row(y: float) -> void:
 	display_mode_option = OptionButton.new()
 	display_mode_option.position = Vector2(120, y - 4)
 	display_mode_option.size = Vector2(330, 32)
-	display_mode_option.add_item("Pantalla Completa", 0)
+	display_mode_option.add_item("Pantalla completa", 0)
 	display_mode_option.add_item("Ventana", 1)
-	display_mode_option.add_item("Sin Bordes", 2)
+	display_mode_option.add_item("Sin bordes", 2)
 	display_mode_option.item_selected.connect(_on_display_mode_selected)
 	panel.add_child(display_mode_option)
 

@@ -306,7 +306,7 @@
             "q": "La educación te ayudará a:",
             "options": [
                 "Nada, solo es útil para niños muy inteligentes",
-                "Hacerla difícil que consigas un buen trabajo",
+                "Dificultar que consigas un buen trabajo",
                 "Conseguir un buen trabajo y mejorar tu vida"
             ],
             "correct": 2
@@ -370,7 +370,7 @@
         {
             "q": "¿Cómo puede ayudar la tecnología según el ODS 5?",
             "options": [
-                "A dar poder y oportunidades a las mujeres y niñas",
+                "Dar poder y oportunidades a las mujeres y niñas",
                 "Haciendo que pasen más tiempo en redes sociales",
                 "Regalando teléfonos móviles"
             ],
@@ -1222,7 +1222,7 @@
             "correct": 1
         },
         {
-            "q": "La extinción de las especies animales es debido a:",
+            "q": "La extinción de las especies animales se debe a:",
             "options": [
                 "Animales que se comen los unos a los otros",
                 "Actividades humanas",
@@ -1424,9 +1424,9 @@
             "correct": 0
         },
         {
-            "q": "¿Qué se necesita para conseguir lograr los 17 ODS?",
+            "q": "¿Qué se necesita para lograr los 17 ODS?",
             "options": [
-                "El involucramiento de todos los países",
+                "La participación de todos los países",
                 "Que los países desarrollados lideren el cambio",
                 "Que los países en desarrollo lideren el cambio"
             ],

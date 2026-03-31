@@ -63,20 +63,20 @@ func _build_menu() -> void:
 	panel.add_child(title_label)
 
 	var subtitle_label: Label = Label.new()
-	subtitle_label.text = "Ajusta audio o continua la partida."
+	subtitle_label.text = "Ajusta el audio o continúa la partida."
 	subtitle_label.position = Vector2(30, 60)
 	subtitle_label.add_theme_font_size_override("font_size", 16)
 	subtitle_label.add_theme_color_override("font_color", Color(0.7, 0.78, 0.9))
 	panel.add_child(subtitle_label)
 
-	_add_slider_row("Musica", 118, true)
+	_add_slider_row("Música", 118, true)
 	_add_slider_row("Efectos", 184, false)
 
 	_add_display_mode_row(250)
 
 	resume_button = _build_button("Continuar", Vector2(30, 310), Vector2(170, 44), Color(0.16, 0.45, 0.84))
 	restart_button = _build_button("Reiniciar", Vector2(230, 310), Vector2(170, 44), Color(0.18, 0.32, 0.58))
-	menu_button = _build_button("Menu principal", Vector2(30, 362), Vector2(370, 44), Color(0.32, 0.18, 0.24))
+	menu_button = _build_button("Menú principal", Vector2(30, 362), Vector2(370, 44), Color(0.32, 0.18, 0.24))
 
 	resume_button.pressed.connect(func(): resume_requested.emit())
 	restart_button.pressed.connect(func(): restart_requested.emit())
@@ -131,9 +131,9 @@ func _add_display_mode_row(y: float) -> void:
 	display_mode_option.position = Vector2(110, y - 4)
 	display_mode_option.size = Vector2(290, 32)
 	
-	display_mode_option.add_item("Pantalla Completa", 0)
+	display_mode_option.add_item("Pantalla completa", 0)
 	display_mode_option.add_item("Ventana", 1)
-	display_mode_option.add_item("Sin Bordes", 2)
+	display_mode_option.add_item("Sin bordes", 2)
 	
 	_sync_display_mode()
 	display_mode_option.item_selected.connect(_on_display_mode_selected)

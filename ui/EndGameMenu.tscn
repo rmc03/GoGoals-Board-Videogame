@@ -39,7 +39,7 @@ text = "🏆"
 
 [node name="Label" type="Label" parent="Center/Panel/Margin/Content/HeaderRow"]
 layout_mode = 2
-text = "Fin del juego"
+text = "Fin de la partida"
 
 [node name="LabelStats" type="Label" parent="Center/Panel/Margin/Content"]
 layout_mode = 2
@@ -99,7 +99,7 @@ offset_bottom = 0.0
 
 [node name="CardAccuracyTitle" type="Label" parent="Center/Panel/Margin/Content/HighlightsRow/CardAccuracy/CardAccuracyBox"]
 layout_mode = 2
-text = "Precision"
+text = "Precisión"
 
 [node name="CardAccuracyValue" type="Label" parent="Center/Panel/Margin/Content/HighlightsRow/CardAccuracy/CardAccuracyBox"]
 layout_mode = 2
@@ -167,7 +167,7 @@ layout_mode = 2
 
 [node name="ButtonSubmit" type="Button" parent="Center/Panel/Margin/Content/ButtonsRow"]
 layout_mode = 2
-text = "Guardar puntuacion"
+text = "Guardar puntuación"
 size_flags_horizontal = 3
 
 [node name="ButtonRestart" type="Button" parent="Center/Panel/Margin/Content/ButtonsRow"]
@@ -177,5 +177,5 @@ size_flags_horizontal = 3
 
 [node name="ButtonMenu" type="Button" parent="Center/Panel/Margin/Content/ButtonsRow"]
 layout_mode = 2
-text = "Menu principal"
+text = "Menú principal"
 size_flags_horizontal = 3
