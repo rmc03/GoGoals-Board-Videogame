@@ -2,7 +2,7 @@ extends Control
 
 const MenuOptionsUIScript := preload("res://scripts/UI/Menu/OptionsMenu.gd")
 const DEBUG_SEED_RANKING := true
-const DISPLAY_FONT := preload("res://Assets/Fonts/fredoka/Fredoka[wdth,wght].ttf")
+const DISPLAY_FONT := preload("res://Assets/Fonts/lilita-one/LilitaOne-Regular.ttf")
 
 @onready var btn_jugar: Button = $ButtonJugar
 @onready var btn_ranking: Button = $ButtonRanking
@@ -204,7 +204,7 @@ func _style_menu_button(button: Button, base_color: Color) -> void:
 	button.add_theme_stylebox_override("hover", hover)
 	button.add_theme_stylebox_override("pressed", pressed)
 	button.add_theme_font_override("font", DISPLAY_FONT)
-	button.add_theme_font_size_override("font_size", 20)
+	button.add_theme_font_size_override("font_size", 18)
 	button.add_theme_color_override("font_color", Color(0.98, 0.99, 1.0))
 	button.add_theme_color_override("font_hover_color", Color(1, 1, 0.9))
 
@@ -306,7 +306,7 @@ func _ensure_ranking_ui() -> void:
 	var title := Label.new()
 	title.text = "🏆 RANKING"
 	title.add_theme_font_override("font", DISPLAY_FONT)
-	title.add_theme_font_size_override("font_size", 26)
+	title.add_theme_font_size_override("font_size", 24)
 	title.add_theme_color_override("font_color", Color(0.95, 0.97, 1.0))
 	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -489,7 +489,7 @@ func _setup_selection_modal() -> void:
 	selection_title_label.reparent(title_box)
 	selection_title_label.text = "Elige la partida"
 	selection_title_label.add_theme_font_override("font", DISPLAY_FONT)
-	selection_title_label.add_theme_font_size_override("font_size", 30)
+	selection_title_label.add_theme_font_size_override("font_size", 28)
 	selection_title_label.add_theme_color_override("font_color", Color(0.96, 0.98, 1.0))
 
 	selection_subtitle_label = Label.new()
@@ -622,7 +622,7 @@ func _configure_player_button(button: Button, title: String, description: String
 	title_label.custom_minimum_size = Vector2(0, 36)
 	title_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	title_label.add_theme_font_override("font", DISPLAY_FONT)
-	title_label.add_theme_font_size_override("font_size", 24)
+	title_label.add_theme_font_size_override("font_size", 22)
 	title_label.add_theme_color_override("font_color", Color(0.96, 0.98, 1.0))
 	title_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	content.add_child(title_label)
