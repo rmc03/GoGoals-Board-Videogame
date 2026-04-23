@@ -27,6 +27,11 @@
 [ext_resource type="Texture2D" uid="uid://brgs5ryvhgjvq" path="res://Assets/images/Flotantes/image-Picsart-BackgroundRemover (10).png" id="17_sdu42"]
 [ext_resource type="Texture2D" uid="uid://34dyh0w4l5em" path="res://Assets/images/Flotantes/image-Picsart-BackgroundRemover (9).png" id="18_x0q1v"]
 [ext_resource type="Texture2D" uid="uid://bpfpf0hweihbl" path="res://Assets/images/Flotantes/image-Picsart-BackgroundRemover (8).png" id="19_t1jn0"]
+[ext_resource type="Texture2D" uid="uid://dqa57hs6dlwdp" path="res://Assets/stickfigures/figure_01_216x154.png" id="20_sf01"]
+[ext_resource type="Texture2D" uid="uid://djyf5iaogklpr" path="res://Assets/stickfigures/figure_05_206x199.png" id="21_sf05"]
+[ext_resource type="Texture2D" uid="uid://evfm0gvt6ig0" path="res://Assets/stickfigures/figure_08_191x243.png" id="22_sf08"]
+[ext_resource type="Texture2D" uid="uid://cj1coepf2f610" path="res://Assets/stickfigures/figure_15_248x256.png" id="23_sf15"]
+[ext_resource type="Texture2D" uid="uid://spxnaboaom51" path="res://Assets/stickfigures/figure_20_229x521.png" id="24_sf20"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j1l1s"]
 size = Vector2(96, 47.5)
@@ -477,3 +482,43 @@ float_range = 1.0
 position = Vector2(1000, 77)
 scale = Vector2(0.31228667, 0.33529413)
 texture = ExtResource("19_t1jn0")
+
+[node name="Stickfigure1" type="Sprite2D" parent="."]
+position = Vector2(150, 650)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("20_sf01")
+script = ExtResource("13_38h61")
+speed = 0.5
+float_range = 1.0
+
+[node name="Stickfigure2" type="Sprite2D" parent="."]
+position = Vector2(500, 250)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("21_sf05")
+script = ExtResource("13_38h61")
+speed = 0.6
+float_range = 1.5
+
+[node name="Stickfigure3" type="Sprite2D" parent="."]
+position = Vector2(700, 200)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("22_sf08")
+script = ExtResource("13_38h61")
+speed = 0.4
+float_range = 2.0
+
+[node name="Stickfigure4" type="Sprite2D" parent="."]
+position = Vector2(1000, 500)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("23_sf15")
+script = ExtResource("13_38h61")
+speed = 0.7
+float_range = 1.0
+
+[node name="Stickfigure5" type="Sprite2D" parent="."]
+position = Vector2(1150, 150)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("24_sf20")
+script = ExtResource("13_38h61")
+speed = 0.3
+float_range = 2.5
