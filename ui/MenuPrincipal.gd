@@ -4,6 +4,9 @@ const MenuOptionsUIScript := preload("res://scripts/UI/Menu/OptionsMenu.gd")
 const DEBUG_SEED_RANKING := true
 const DISPLAY_FONT := preload("res://Assets/Fonts/lilita-one/LilitaOne-Regular.ttf")
 
+@export var click_sound: AudioStream
+@export var music_sound: AudioStream
+
 @onready var btn_jugar: Button = $ButtonJugar
 @onready var btn_ranking: Button = $ButtonRanking
 @onready var btn_salir: Button = $ButtonSalir
@@ -20,6 +23,9 @@ const DISPLAY_FONT := preload("res://Assets/Fonts/lilita-one/LilitaOne-Regular.t
 @onready var ventana_ranking: Panel = $VentanaRanking
 @onready var ranking_lbl: RichTextLabel = $VentanaRanking/LabelRanking
 @onready var btn_cerrar_ranking: Button = $VentanaRanking/BotonCerrar
+
+@onready var click_audio_player: AudioStreamPlayer = AudioStreamPlayer.new()
+@onready var music_audio_player: AudioStreamPlayer = AudioStreamPlayer.new()
 
 var options_menu: MenuOptionsUI
 var ranking_root: Control
@@ -50,6 +56,26 @@ func _ready() -> void:
 	_set_selection_visible(false)
 	_style_menu()
 	_create_options_menu()
+	
+	# Initialize audio players
+	click_audio_player.stream = click_sound
+	music_audio_player.stream = music_sound
+	add_child(click_audio_player)
+	add_child(music_audio_player)
+	if music_audio_player.stream:
+		music_audio_player.finished.connect(_on_music_finished)
+	
+	# Start menu music if available
+	if music_sound:
+		music_audio_player.play()
+
+func _play_click_sound() -> void:
+	if click_sound and click_audio_player:
+		click_audio_player.play()
+
+func _on_music_finished() -> void:
+	if music_audio_player.stream:
+		music_audio_player.play()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_ESCAPE:
@@ -66,6 +92,7 @@ func _unhandled_input(event: InputEvent) -> void:
 # --- EVENTS ---
 
 func _on_jugar_pressed() -> void:
+	_play_click_sound()
 	_set_selection_visible(true)
 
 func _on_players_selected(cantidad: int) -> void:
@@ -73,6 +100,8 @@ func _on_players_selected(cantidad: int) -> void:
 	get_tree().change_scene_to_file("res://scenes/pantalla_de_juego.tscn")
 
 func _on_ranking_pressed() -> void:
+	if click_sound:
+		click_audio_player.play()
 	display_leaderboard()
 	ventana_ranking.visible = true
 	
@@ -80,6 +109,7 @@ func _on_cerrar_ranking_pressed() -> void:
 	ventana_ranking.visible = false
  
 func _on_como_jugar_pressed() -> void:
+	_play_click_sound()
 	get_tree().change_scene_to_file("res://ui/ComoJugar.tscn")
 
 func _on_salir_pressed() -> void:
@@ -87,6 +117,7 @@ func _on_salir_pressed() -> void:
 
 func _on_options_pressed() -> void:
 	if options_menu:
+		_play_click_sound()
 		_set_selection_visible(false)
 		ventana_ranking.visible = false
 		options_menu.show_menu()
