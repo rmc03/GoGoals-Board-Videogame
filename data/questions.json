@@ -323,7 +323,7 @@
         {
             "q": "¿Qué porcentaje de adultos está alfabetizado hoy en día?",
             "options": [
-                "80%",
+                "87%",
                 "30%",
                 "60%"
             ],
@@ -380,7 +380,7 @@
             "q": "¿Qué porcentaje de los escaños parlamentarios a nivel mundial son ocupados por mujeres?",
             "options": [
                 "Más del 50%",
-                "Alrededor del 26%",
+                "Alrededor del 27%",
                 "Menos del 5%"
             ],
             "correct": 1
@@ -415,7 +415,7 @@
             "q": "¿Qué porcentaje de mujeres son investigadoras en ciencia y tecnología?",
             "options": [
                 "70%",
-                "30%",
+                "33%",
                 "50%"
             ],
             "correct": 1
@@ -538,7 +538,7 @@
             "options": [
                 "Unos 5 millones",
                 "Menos de 1 millón",
-                "Alrededor de 760 millones"
+                "Alrededor de 730 millones"
             ],
             "correct": 2
         },
@@ -1157,9 +1157,9 @@
             "correct": 1
         },
         {
-            "q": "¿Qué porcentaje de especies que viven en el océano se han identificado?",
+            "q": "¿Qué porcentaje de las especies que viven en el océano se ha identificado?",
             "options": [
-                "Sobre el 5%",
+                "Cerca del 10%",
                 "Sobre el 50%",
                 "Más del 80%"
             ],
@@ -1325,7 +1325,7 @@
         {
             "q": "¿Qué es un niño soldado?",
             "options": [
-                "Ambos",
+                "Un niño que se disfraza de soldado en un acto escolar",
                 "Un niño que juega a hacer la guerra con otros niños",
                 "Un niño que está dentro de un grupo armado"
             ],
