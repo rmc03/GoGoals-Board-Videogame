@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://dyikafyuejum7" path="res://Assets/images/Personaje/Picsart_25-12-10_18-10-23-091.png" id="5_fd6nh"]
 [ext_resource type="AudioStream" uid="uid://c6j07tj8bm66a" path="res://Assets/audio/click_001.ogg" id="6_2me0o"]
 [ext_resource type="AudioStream" uid="uid://lqrdm8g6pfen" path="res://Assets/audio/switch_003.ogg" id="6_2ovio"]
-[ext_resource type="Texture2D" uid="uid://ccx5q1ihd5hwf" path="res://Assets/images/Wallpapers/Picsart_25-12-10_23-12-02-751.jpg" id="6_fd6nh"]
 [ext_resource type="AudioStream" uid="uid://cciufm4n8gwbj" path="res://Assets/audio/The_Legend_of_Dragoon_OST_Royal_Castle_ExtendedMP3_160K.mp3" id="6_mk414"]
 [ext_resource type="AudioStream" uid="uid://cgfbftipvpqat" path="res://Assets/audio/maximize_001.ogg" id="8_mk414"]
 [ext_resource type="AudioStream" uid="uid://d1x8siwyguftt" path="res://Assets/audio/maximize_006.ogg" id="9_ic1vc"]
@@ -22,23 +21,41 @@
 [ext_resource type="Texture2D" uid="uid://kikntsdvc0o1" path="res://Assets/images/Flotantes/Picsart_25-12-10_23-43-27-820-Picsart-BackgroundRemover.png" id="11_o0hyk"]
 [ext_resource type="AudioStream" uid="uid://dgoabxj5q2tha" path="res://Assets/audio/question_004.ogg" id="12_r02rp"]
 [ext_resource type="Script" uid="uid://bnqloxjj2itlb" path="res://scripts/IconoFlotante.gd" id="13_38h61"]
-[ext_resource type="Texture2D" uid="uid://87wxytyb68dl" path="res://Assets/images/Flotantes/image-Picsart-BackgroundRemover (12).png" id="15_m1tsj"]
-[ext_resource type="Texture2D" uid="uid://8kpufbvuyeo1" path="res://Assets/images/Flotantes/image-Picsart-BackgroundRemover (11).png" id="16_2me0o"]
-[ext_resource type="Texture2D" uid="uid://brgs5ryvhgjvq" path="res://Assets/images/Flotantes/image-Picsart-BackgroundRemover (10).png" id="17_sdu42"]
-[ext_resource type="Texture2D" uid="uid://34dyh0w4l5em" path="res://Assets/images/Flotantes/image-Picsart-BackgroundRemover (9).png" id="18_x0q1v"]
-[ext_resource type="Texture2D" uid="uid://bpfpf0hweihbl" path="res://Assets/images/Flotantes/image-Picsart-BackgroundRemover (8).png" id="19_t1jn0"]
-[ext_resource type="Texture2D" uid="uid://dqa57hs6dlwdp" path="res://Assets/stickfigures/figure_01_216x154.png" id="20_sf01"]
-[ext_resource type="Texture2D" uid="uid://djyf5iaogklpr" path="res://Assets/stickfigures/figure_05_206x199.png" id="21_sf05"]
-[ext_resource type="Texture2D" uid="uid://evfm0gvt6ig0" path="res://Assets/stickfigures/figure_08_191x243.png" id="22_sf08"]
-[ext_resource type="Texture2D" uid="uid://cj1coepf2f610" path="res://Assets/stickfigures/figure_15_248x256.png" id="23_sf15"]
-[ext_resource type="Texture2D" uid="uid://spxnaboaom51" path="res://Assets/stickfigures/figure_20_229x521.png" id="24_sf20"]
-
-[ext_resource type="Texture2D" path="res://Assets/icons/icon_03_168x115.png" id="new_icon_1"]
-[ext_resource type="Texture2D" path="res://Assets/icons/icon_10_118x152.png" id="new_icon_2"]
-[ext_resource type="Texture2D" path="res://Assets/icons/icon_11_204x201.png" id="new_icon_3"]
-[ext_resource type="Texture2D" path="res://Assets/icons/icon_20_222x152.png" id="new_icon_4"]
-[ext_resource type="Texture2D" path="res://Assets/icons/icon_21_145x149.png" id="new_icon_5"]
-[ext_resource type="Texture2D" path="res://Assets/icons/icon_25_159x197.png" id="new_icon_6"]
+[ext_resource type="Texture2D" uid="uid://cxn2qswhsycxk" path="res://Assets/enviroment/ChatGPT Image 30 abr 2026, 17_08_15.png" id="14_wnw6p"]
+[ext_resource type="Texture2D" uid="uid://ctyfjjcgb3j6u" path="res://Assets/icons/ODS 1 – Fin de la pobreza.png" id="16_keqsp"]
+[ext_resource type="Texture2D" uid="uid://c77c4yiv0g8ha" path="res://Assets/icons/Casilla normal 1.png" id="21_ll512"]
+[ext_resource type="Texture2D" uid="uid://ekcpwf5ifa3t" path="res://Assets/icons/ODS 2 – Hambre cero.png" id="22_a6yef"]
+[ext_resource type="Texture2D" uid="uid://uisfbkyrqpwr" path="res://Assets/icons/Casilla normal 2.png" id="22_g7536"]
+[ext_resource type="Texture2D" uid="uid://m5iwtla56j44" path="res://Assets/icons/Up.png" id="22_ghjd5"]
+[ext_resource type="Texture2D" uid="uid://cdotp500l3md0" path="res://Assets/icons/ODS 3 – Salud y bienestar.png" id="23_ea0p1"]
+[ext_resource type="Texture2D" uid="uid://blu2ofdmjbvlw" path="res://Assets/icons/Casilla normal 3.png" id="24_3ekoe"]
+[ext_resource type="Texture2D" uid="uid://b1362wjy1dvcg" path="res://Assets/icons/ODS 4 – Educación de calidad.png" id="24_o7qbw"]
+[ext_resource type="Texture2D" uid="uid://bu06l8yswk5u8" path="res://Assets/icons/ODS 5 – Igualdad de género.png" id="25_qgfif"]
+[ext_resource type="Texture2D" uid="uid://dywdyplivm5qi" path="res://Assets/stickfigures/ChatGPT Image 30 abr 2026, 16_23_29 (3).png" id="26_20i6x"]
+[ext_resource type="Texture2D" uid="uid://dyk6tvd0mhjjq" path="res://Assets/icons/Down.png" id="26_psxmu"]
+[ext_resource type="Texture2D" uid="uid://opn0ns41gdt3" path="res://Assets/icons/ODS 6 - Agua limpia y saneamiento.png" id="26_uxomr"]
+[ext_resource type="Texture2D" uid="uid://uocxblh1d8h3" path="res://Assets/icons/Casilla normal 4.png" id="27_4wpby"]
+[ext_resource type="Texture2D" uid="uid://d11kiq1qo6nuv" path="res://Assets/icons/Casilla Normal.png" id="27_16kt2"]
+[ext_resource type="Texture2D" uid="uid://cqcwspmbbniyg" path="res://Assets/icons/ODS 7 – Energía asequible y no contaminante.png" id="27_o662m"]
+[ext_resource type="Texture2D" uid="uid://xy8b3ra818gk" path="res://Assets/icons/ODS 8 - Trabajo decente y crecimiento económico.png" id="28_3ekoe"]
+[ext_resource type="Texture2D" uid="uid://cugj6i7ogb4vx" path="res://Assets/icons/ODS 9 – Industria, innovación e infraestructura.png" id="29_yxdwj"]
+[ext_resource type="Texture2D" uid="uid://cabd32xdfwa7j" path="res://Assets/icons/ODS 10 – Reducción de las desigualdades.png" id="30_4wpby"]
+[ext_resource type="Texture2D" uid="uid://bi2k070iyjtin" path="res://Assets/icons/ODS 11 – Ciudades y comunidades sostenibles.png" id="31_16kt2"]
+[ext_resource type="Texture2D" uid="uid://c8go2hydsxoyn" path="res://Assets/icons/ODS 12 – Producción y consumo responsables.png" id="32_1cqd1"]
+[ext_resource type="Texture2D" uid="uid://pr7xo3t05m2v" path="res://Assets/icons/ODS 13 – Acción por el clima.png" id="33_ghjd5"]
+[ext_resource type="Texture2D" uid="uid://bbq6eeay78itk" path="res://Assets/icons/ODS 14 – Vida submarina.png" id="34_psxmu"]
+[ext_resource type="Texture2D" uid="uid://bbmupmxsui4t3" path="res://Assets/icons/ODS 15 – Vida de ecosistemas terrestres.png" id="35_w4umy"]
+[ext_resource type="Texture2D" uid="uid://bac7s1vlg28in" path="res://Assets/icons/ODS 16 – Paz, justicia e instituciones sólidas.png" id="36_ic3w5"]
+[ext_resource type="Texture2D" uid="uid://bg70e5kfb7anm" path="res://Assets/icons/ODS 17 – Alianzas para lograr los objetivos.png" id="37_t0rd0"]
+[ext_resource type="Texture2D" uid="uid://cbey6e181yekt" path="res://Assets/stickfigures/ChatGPT Image 4 may 2026, 16_37_55 (5).png" id="45_1cqd1"]
+[ext_resource type="Texture2D" uid="uid://r7xyhmswyvh1" path="res://Assets/stickfigures/ChatGPT Image 4 may 2026, 16_37_55 (6).png" id="46_ghjd5"]
+[ext_resource type="Texture2D" uid="uid://2q0rg80g2416" path="res://Assets/stickfigures/ChatGPT Image 4 may 2026, 16_37_55 (7).png" id="47_psxmu"]
+[ext_resource type="Texture2D" uid="uid://d0w5aomps0et4" path="res://Assets/stickfigures/ChatGPT Image 4 may 2026, 16_37_55 (9).png" id="49_ghjd5"]
+[ext_resource type="Texture2D" uid="uid://cjuqd457qdwd5" path="res://Assets/stickfigures/ChatGPT Image 4 may 2026, 16_37_55 (4).png" id="50_psxmu"]
+[ext_resource type="Texture2D" uid="uid://bjsceuaj8q4jh" path="res://Assets/stickfigures/ChatGPT Image 4 may 2026, 16_37_55 (2).png" id="51_w4umy"]
+[ext_resource type="Texture2D" uid="uid://i3pipiqpga71" path="res://Assets/stickfigures/ChatGPT Image 4 may 2026, 16_37_55 (3).png" id="52_ic3w5"]
+[ext_resource type="Texture2D" uid="uid://d1ncspxbj7vax" path="res://Assets/stickfigures/ChatGPT Image 4 may 2026, 16_37_55 (10).png" id="53_w4umy"]
+[ext_resource type="Texture2D" uid="uid://cqnkr31tc6ovw" path="res://Assets/stickfigures/ChatGPT Image 4 may 2026, 16_37_55 (1).png" id="55_t0rd0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j1l1s"]
 size = Vector2(96, 47.5)
@@ -46,7 +63,7 @@ size = Vector2(96, 47.5)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m1tsj"]
 bg_color = Color(0.0836, 0.16544, 0.22, 0.9607843)
 
-[node name="Pantalla de Juego" type="Node2D" unique_id=783577294 node_paths=PackedStringArray("board_tiles")]
+[node name="Pantalla de Juego" type="Node2D" unique_id=1712149851 node_paths=PackedStringArray("board_tiles")]
 script = ExtResource("1_injw7")
 board_tiles = [NodePath("Casilla Start"), NodePath("Casilla Generica 1"), NodePath("Casilla ODS 1"), NodePath("Casilla Generica 2"), NodePath("Casilla Generica 3"), NodePath("Casilla Generica 4"), NodePath("Casilla ODS 2"), NodePath("Casilla Generica 5"), NodePath("Casilla Desplazamiento 1"), NodePath("Casilla Generica 6"), NodePath("Casilla Generica 7"), NodePath("Casilla ODS 3"), NodePath("Casilla Generica 8"), NodePath("Casilla Generica 9"), NodePath("Casilla ODS 4"), NodePath("Casilla Generica 10"), NodePath("Casilla Generica 11"), NodePath("Casilla ODS 5"), NodePath("Casilla Desplazamiento 2"), NodePath("Casilla ODS 6"), NodePath("Casilla Generica 12"), NodePath("Casilla Generica 13"), NodePath("Casilla Generica 14"), NodePath("Casilla ODS 7"), NodePath("Casilla Generica 15"), NodePath("Casilla Generica 16"), NodePath("Casilla Generica 17"), NodePath("Casilla ODS 8"), NodePath("Casilla Desplazamiento 3"), NodePath("Casilla Generica 18"), NodePath("Casilla Generica 19"), NodePath("Casilla ODS 9"), NodePath("Casilla Generica 20"), NodePath("Casilla Generica 21"), NodePath("Casilla ODS 10"), NodePath("Casilla Generica 22"), NodePath("Casilla Generica 23"), NodePath("Casilla ODS 11"), NodePath("Casilla Generica 24"), NodePath("Casilla Generica 25"), NodePath("Casilla Desplazamiento 4"), NodePath("Casilla ODS 12"), NodePath("Casilla Generica 26"), NodePath("Casilla Desplazamiento 5"), NodePath("Casilla ODS 13"), NodePath("Casilla Generica 27"), NodePath("Casilla Generica 28"), NodePath("Casilla ODS 14"), NodePath("Casilla Generica 29"), NodePath("Casilla Generica 30"), NodePath("Casilla Generica 31"), NodePath("Casilla Generica 32"), NodePath("Casilla ODS 15"), NodePath("Casilla Generica 33"), NodePath("Casilla Generica 34"), NodePath("Casilla ODS 16"), NodePath("Casilla Generica 35"), NodePath("Casilla Generica 36"), NodePath("Casilla Generica 37"), NodePath("Casilla Desplazamiento 6"), NodePath("Casilla Generica 38"), NodePath("Casilla ODS 17"), NodePath("Casilla Generica 39"), NodePath("Casilla 2030")]
 player_textures = Array[Texture2D]([ExtResource("2_2drks"), ExtResource("3_80wyr"), ExtResource("4_j1l1s"), ExtResource("5_fd6nh")])
@@ -59,21 +76,24 @@ sfx_correct = ExtResource("10_m0ce2")
 sfx_wrong = ExtResource("11_iwr2h")
 sfx_win = ExtResource("12_r02rp")
 
-[node name="CapturaDePantalla20251011211215" type="Sprite2D" parent="." unique_id=564574126]
-position = Vector2(683, 382.5)
-scale = Vector2(0.7114583, 0.7083334)
-texture = ExtResource("6_fd6nh")
+[node name="CapturaDePantalla20251011211215" type="Sprite2D" parent="." unique_id=676669557]
+position = Vector2(683, 383.00006)
+scale = Vector2(0.81116384, 0.8201285)
+texture = ExtResource("14_wnw6p")
 
-[node name="Casilla ODS 1" parent="." unique_id=798978065 instance=ExtResource("3_0k5li")]
-position = Vector2(315, 663)
+[node name="Casilla ODS 1" parent="." unique_id=945109753 instance=ExtResource("3_0k5li")]
+position = Vector2(307, 658)
 rotation = -0.058575556
 scale = Vector2(0.8983054, 0.8495948)
+ods_texture = ExtResource("16_keqsp")
 
-[node name="Casilla Start" parent="." unique_id=1360224394 instance=ExtResource("4_2drks")]
-position = Vector2(104, 679)
+[node name="Casilla Start" parent="." unique_id=1141789813 instance=ExtResource("4_2drks")]
+position = Vector2(73, 680)
+rotation = -3.1415927
 scale = Vector2(-1.1167462, -0.6862064)
+generic_texture = ExtResource("27_16kt2")
 
-[node name="Picsart251210233329505PicsartBackgroundRemover" type="Sprite2D" parent="." unique_id=1652855440]
+[node name="Picsart251210233329505PicsartBackgroundRemover" type="Sprite2D" parent="." unique_id=1759357108]
 position = Vector2(721, 569)
 rotation = 0.2617994
 scale = Vector2(0.4710301, 0.45382687)
@@ -84,311 +104,372 @@ float_range = 0.5
 rotate_speed = 0.5
 rotate_range = 2.0
 
-[node name="Picsart251210233329505PicsartBackgroundRemover2" type="Sprite2D" parent="." unique_id=1768764555]
+[node name="Picsart251210233329505PicsartBackgroundRemover2" type="Sprite2D" parent="." unique_id=1472425130]
 position = Vector2(776.4001, 187.65001)
 rotation = 0.2617994
 scale = Vector2(0.58706266, 0.40956095)
 texture = ExtResource("9_q8jts")
 
-[node name="Casilla Desplazamiento 1" parent="." unique_id=1270299582 instance=ExtResource("5_80wyr")]
-position = Vector2(736, 693)
+[node name="Casilla Desplazamiento 1" parent="." unique_id=1544304241 instance=ExtResource("5_80wyr")]
+position = Vector2(738.00006, 706.00006)
 scale = Vector2(0.65282625, 0.56744045)
+generic_texture = ExtResource("22_ghjd5")
 
-[node name="Casilla Generica 1" parent="." unique_id=1475426529 instance=ExtResource("4_2drks")]
-position = Vector2(212.00005, 673)
+[node name="Casilla Generica 1" parent="." unique_id=790817504 instance=ExtResource("4_2drks")]
+position = Vector2(207, 679)
+scale = Vector2(0.7, 0.56)
+generic_texture = ExtResource("27_16kt2")
+
+[node name="Casilla Generica 2" parent="." unique_id=1298165997 instance=ExtResource("4_2drks")]
+position = Vector2(406, 649)
+scale = Vector2(0.7, 0.56)
+generic_texture = ExtResource("27_16kt2")
+
+[node name="Casilla Generica 3" parent="." unique_id=156759034 instance=ExtResource("4_2drks")]
+position = Vector2(460.00003, 709)
 scale = Vector2(0.5999999, 0.4799903)
+generic_texture = ExtResource("27_4wpby")
 
-[node name="Casilla Generica 2" parent="." unique_id=1688954121 instance=ExtResource("4_2drks")]
-position = Vector2(404.00003, 658)
-scale = Vector2(0.5999999, 0.4799903)
-
-[node name="Casilla Generica 3" parent="." unique_id=1164390330 instance=ExtResource("4_2drks")]
-position = Vector2(448, 708)
-scale = Vector2(0.5999999, 0.4799903)
-
-[node name="Picsart251210234327820PicsartBackgroundRemover" type="Sprite2D" parent="." unique_id=267277736]
+[node name="Picsart251210234327820PicsartBackgroundRemover" type="Sprite2D" parent="." unique_id=125161986]
 position = Vector2(1145.6758, 561.29456)
 rotation = -2.6179938
 scale = Vector2(0.6875873, 0.8810114)
 texture = ExtResource("11_o0hyk")
 
-[node name="Picsart251210234327820PicsartBackgroundRemover2" type="Sprite2D" parent="." unique_id=1129063557]
+[node name="Picsart251210234327820PicsartBackgroundRemover2" type="Sprite2D" parent="." unique_id=388011001]
 position = Vector2(581.51135, 449.53577)
 rotation = -2.6179938
 scale = Vector2(0.4066151, 0.5173322)
 texture = ExtResource("11_o0hyk")
 
-[node name="Picsart251210234327820PicsartBackgroundRemover3" type="Sprite2D" parent="." unique_id=946897680]
+[node name="Picsart251210234327820PicsartBackgroundRemover3" type="Sprite2D" parent="." unique_id=132636651]
 position = Vector2(287.99997, 595)
 rotation = -2.0943952
 scale = Vector2(0.4066151, 0.55884784)
 texture = ExtResource("11_o0hyk")
 
-[node name="Picsart251210234327820PicsartBackgroundRemover4" type="Sprite2D" parent="." unique_id=602251969]
+[node name="Picsart251210234327820PicsartBackgroundRemover4" type="Sprite2D" parent="." unique_id=1412277647]
 position = Vector2(230, 313)
 rotation = -3.1415927
 scale = Vector2(0.38982132, 0.48090395)
 texture = ExtResource("11_o0hyk")
 
-[node name="Casilla Generica 4" parent="." unique_id=1639998411 instance=ExtResource("4_2drks")]
-position = Vector2(533, 705.00006)
-scale = Vector2(0.5999999, 0.4799903)
+[node name="Casilla Generica 4" parent="." unique_id=212897848 instance=ExtResource("4_2drks")]
+position = Vector2(557, 713)
+scale = Vector2(0.7, 0.56)
+generic_texture = ExtResource("27_16kt2")
 
-[node name="Casilla ODS 2" parent="." unique_id=1248990243 instance=ExtResource("3_0k5li")]
+[node name="Casilla ODS 2" parent="." unique_id=2118508956 instance=ExtResource("3_0k5li")]
 position = Vector2(593, 643.00006)
 rotation = -0.058575556
 scale = Vector2(0.8983054, 0.8495948)
+ods_texture = ExtResource("22_a6yef")
 
-[node name="Casilla Generica 5" parent="." unique_id=857890168 instance=ExtResource("4_2drks")]
-position = Vector2(684.00006, 644.00006)
-scale = Vector2(0.5999999, 0.4799903)
+[node name="Casilla Generica 5" parent="." unique_id=820103754 instance=ExtResource("4_2drks")]
+position = Vector2(691, 651)
+scale = Vector2(0.7, 0.56)
+generic_texture = ExtResource("27_16kt2")
 
-[node name="Casilla Desplazamiento 2" parent="." unique_id=1679931671 instance=ExtResource("5_80wyr")]
+[node name="Casilla Desplazamiento 2" parent="." unique_id=2094675011 instance=ExtResource("5_80wyr")]
 position = Vector2(1185.0001, 438.00003)
 scale = Vector2(0.65282625, 0.56744045)
+generic_texture = ExtResource("26_psxmu")
 
-[node name="Casilla Generica 6" parent="." unique_id=1733171185 instance=ExtResource("4_2drks")]
-position = Vector2(812, 692.00006)
+[node name="Casilla Generica 6" parent="." unique_id=1257038179 instance=ExtResource("4_2drks")]
+position = Vector2(823, 698)
 scale = Vector2(0.5999999, 0.4799903)
+generic_texture = ExtResource("22_g7536")
 
-[node name="Casilla ODS 3" parent="." unique_id=1151660500 instance=ExtResource("3_0k5li")]
-position = Vector2(956.0001, 630)
+[node name="Casilla ODS 3" parent="." unique_id=1605298862 instance=ExtResource("3_0k5li")]
+position = Vector2(952, 623.00006)
 rotation = -0.058575556
 scale = Vector2(0.8983054, 0.8495948)
+ods_texture = ExtResource("23_ea0p1")
 
-[node name="Casilla Generica 7" parent="." unique_id=2102432868 instance=ExtResource("4_2drks")]
-position = Vector2(857.0001, 648)
-scale = Vector2(0.5999999, 0.4799903)
+[node name="Casilla Generica 7" parent="." unique_id=23254181 instance=ExtResource("4_2drks")]
+position = Vector2(922.00006, 698)
+scale = Vector2(0.7, 0.56)
+generic_texture = ExtResource("27_16kt2")
 
-[node name="Casilla ODS 4" parent="." unique_id=108279073 instance=ExtResource("3_0k5li")]
+[node name="Casilla ODS 4" parent="." unique_id=1195911740 instance=ExtResource("3_0k5li")]
 position = Vector2(1205, 673)
 rotation = -0.058575556
 scale = Vector2(0.8983054, 0.8495948)
+ods_texture = ExtResource("24_o7qbw")
 
-[node name="Casilla Desplazamiento 3" parent="." unique_id=1387212759 instance=ExtResource("5_80wyr")]
-position = Vector2(354, 529)
+[node name="Casilla Desplazamiento 3" parent="." unique_id=1074886921 instance=ExtResource("5_80wyr")]
+position = Vector2(374.00003, 518)
+rotation = 0.37175512
 scale = Vector2(0.65282625, 0.56744045)
+generic_texture = ExtResource("26_psxmu")
 
-[node name="Casilla Generica 8" parent="." unique_id=492240680 instance=ExtResource("4_2drks")]
+[node name="Casilla Generica 8" parent="." unique_id=1453736892 instance=ExtResource("4_2drks")]
 position = Vector2(1054.0001, 632)
 scale = Vector2(0.5999999, 0.4799903)
+generic_texture = ExtResource("21_ll512")
 
-[node name="Casilla Generica 9" parent="." unique_id=23338026 instance=ExtResource("4_2drks")]
-position = Vector2(1108, 680)
-scale = Vector2(0.5999999, 0.4799903)
+[node name="Casilla Generica 9" parent="." unique_id=1378153629 instance=ExtResource("4_2drks")]
+position = Vector2(1104, 696)
+scale = Vector2(0.7, 0.56)
+generic_texture = ExtResource("27_16kt2")
 
-[node name="Casilla Generica 10" parent="." unique_id=530979346 instance=ExtResource("4_2drks")]
-position = Vector2(1246, 618.00006)
-scale = Vector2(0.5999999, 0.4799903)
+[node name="Casilla Generica 10" parent="." unique_id=896910352 instance=ExtResource("4_2drks")]
+position = Vector2(1261, 614)
+scale = Vector2(0.7, 0.56)
+generic_texture = ExtResource("27_16kt2")
 
-[node name="Casilla Generica 11" parent="." unique_id=589021872 instance=ExtResource("4_2drks")]
-position = Vector2(1279, 561)
-scale = Vector2(0.5999999, 0.4799903)
+[node name="Casilla Generica 11" parent="." unique_id=602173817 instance=ExtResource("4_2drks")]
+position = Vector2(1304.0001, 549)
+scale = Vector2(0.65, 0.52)
+generic_texture = ExtResource("27_16kt2")
 
-[node name="Casilla ODS 5" parent="." unique_id=698853301 instance=ExtResource("3_0k5li")]
+[node name="Casilla ODS 5" parent="." unique_id=2018006623 instance=ExtResource("3_0k5li")]
 position = Vector2(1240, 494.00003)
 rotation = -0.058575556
 scale = Vector2(0.8983054, 0.8495948)
+ods_texture = ExtResource("25_qgfif")
 
-[node name="Casilla ODS 6" parent="." unique_id=955281112 instance=ExtResource("3_0k5li")]
-position = Vector2(1166.0001, 364)
+[node name="Casilla ODS 6" parent="." unique_id=1872713549 instance=ExtResource("3_0k5li")]
+position = Vector2(1161, 379.99997)
 rotation = -0.058575556
 scale = Vector2(0.8983054, 0.8495948)
+ods_texture = ExtResource("26_uxomr")
 
-[node name="Casilla ODS 7" parent="." unique_id=750014015 instance=ExtResource("3_0k5li")]
-position = Vector2(818, 442)
+[node name="Casilla ODS 7" parent="." unique_id=428877015 instance=ExtResource("3_0k5li")]
+position = Vector2(814, 436.00006)
 rotation = -0.058575556
 scale = Vector2(0.8983054, 0.8495948)
+ods_texture = ExtResource("27_o662m")
 
-[node name="Casilla ODS 8" parent="." unique_id=1916266601 instance=ExtResource("3_0k5li")]
-position = Vector2(458.00003, 521)
+[node name="Casilla ODS 8" parent="." unique_id=1224523367 instance=ExtResource("3_0k5li")]
+position = Vector2(458, 518)
 rotation = -0.058575556
 scale = Vector2(0.8983054, 0.8495948)
+ods_texture = ExtResource("28_3ekoe")
 
-[node name="Casilla ODS 9" parent="." unique_id=2053126232 instance=ExtResource("3_0k5li")]
-position = Vector2(130, 577.99994)
+[node name="Casilla ODS 9" parent="." unique_id=1242255520 instance=ExtResource("3_0k5li")]
+position = Vector2(123, 575)
 rotation = -0.058575556
 scale = Vector2(0.8983054, 0.8495948)
+ods_texture = ExtResource("29_yxdwj")
 
-[node name="Casilla ODS 10" parent="." unique_id=457984778 instance=ExtResource("3_0k5li")]
-position = Vector2(163, 396.00003)
+[node name="Casilla ODS 10" parent="." unique_id=1186631504 instance=ExtResource("3_0k5li")]
+position = Vector2(163, 388.00006)
 rotation = -0.058575556
 scale = Vector2(0.8983054, 0.8495948)
+ods_texture = ExtResource("30_4wpby")
 
-[node name="Casilla ODS 11" parent="." unique_id=1536729933 instance=ExtResource("3_0k5li")]
-position = Vector2(381, 427.00003)
+[node name="Casilla ODS 11" parent="." unique_id=1241362648 instance=ExtResource("3_0k5li")]
+position = Vector2(395, 428.00006)
 rotation = -0.058575556
 scale = Vector2(0.8983054, 0.8495948)
+ods_texture = ExtResource("31_16kt2")
 
-[node name="Casilla ODS 12" parent="." unique_id=1512453557 instance=ExtResource("3_0k5li")]
+[node name="Casilla ODS 12" parent="." unique_id=1553477447 instance=ExtResource("3_0k5li")]
 position = Vector2(685, 367.00003)
 rotation = -0.058575556
 scale = Vector2(0.8983054, 0.8495948)
+ods_texture = ExtResource("32_1cqd1")
 
-[node name="Casilla ODS 13" parent="." unique_id=594137877 instance=ExtResource("3_0k5li")]
+[node name="Casilla ODS 13" parent="." unique_id=1085319058 instance=ExtResource("3_0k5li")]
 position = Vector2(903, 297.00006)
 rotation = -0.058575556
 scale = Vector2(0.8983054, 0.8495948)
+ods_texture = ExtResource("33_ghjd5")
 
-[node name="Casilla ODS 14" parent="." unique_id=772422846 instance=ExtResource("3_0k5li")]
+[node name="Casilla ODS 14" parent="." unique_id=1322713859 instance=ExtResource("3_0k5li")]
 position = Vector2(933, 115.00006)
 rotation = -0.058575556
 scale = Vector2(0.8983054, 0.8495948)
+ods_texture = ExtResource("34_psxmu")
 
-[node name="Casilla ODS 15" parent="." unique_id=5221973 instance=ExtResource("3_0k5li")]
-position = Vector2(527, 74.00001)
+[node name="Casilla ODS 15" parent="." unique_id=1182986466 instance=ExtResource("3_0k5li")]
+position = Vector2(492.00003, 67)
 rotation = -0.058575556
 scale = Vector2(0.8983054, 0.8495948)
+ods_texture = ExtResource("35_w4umy")
 
-[node name="Casilla ODS 16" parent="." unique_id=119040508 instance=ExtResource("3_0k5li")]
-position = Vector2(247.00002, 88)
+[node name="Casilla ODS 16" parent="." unique_id=1032713191 instance=ExtResource("3_0k5li")]
+position = Vector2(220, 80)
 rotation = -0.058575556
 scale = Vector2(0.8983054, 0.8495948)
+ods_texture = ExtResource("36_ic3w5")
 
-[node name="Casilla ODS 17" parent="." unique_id=1254520162 instance=ExtResource("3_0k5li")]
+[node name="Casilla ODS 17" parent="." unique_id=851728568 instance=ExtResource("3_0k5li")]
 position = Vector2(376, 201.00002)
 rotation = -0.058575556
 scale = Vector2(0.8983054, 0.8495948)
+ods_texture = ExtResource("37_t0rd0")
 
-[node name="Casilla Generica 12" parent="." unique_id=456737322 instance=ExtResource("4_2drks")]
-position = Vector2(1062.0001, 352.00003)
+[node name="Casilla Generica 12" parent="." unique_id=1332511072 instance=ExtResource("4_2drks")]
+position = Vector2(1065.0001, 357)
 scale = Vector2(0.5999999, 0.4799903)
+generic_texture = ExtResource("27_16kt2")
 
-[node name="Casilla Generica 13" parent="." unique_id=781084092 instance=ExtResource("4_2drks")]
-position = Vector2(971.00006, 370)
+[node name="Casilla Generica 13" parent="." unique_id=525150560 instance=ExtResource("4_2drks")]
+position = Vector2(1007, 405)
+scale = Vector2(0.55, 0.44)
+generic_texture = ExtResource("21_ll512")
+
+[node name="Casilla Generica 14" parent="." unique_id=167456698 instance=ExtResource("4_2drks")]
+position = Vector2(910.00006, 422.00003)
+scale = Vector2(0.65, 0.52)
+generic_texture = ExtResource("27_16kt2")
+
+[node name="Casilla Generica 15" parent="." unique_id=1079029334 instance=ExtResource("4_2drks")]
+position = Vector2(717.00006, 447.00003)
+scale = Vector2(0.65, 0.52)
+generic_texture = ExtResource("27_16kt2")
+
+[node name="Casilla Generica 16" parent="." unique_id=333097667 instance=ExtResource("4_2drks")]
+position = Vector2(654, 499)
 scale = Vector2(0.5999999, 0.4799903)
+generic_texture = ExtResource("22_g7536")
 
-[node name="Casilla Generica 14" parent="." unique_id=1763540267 instance=ExtResource("4_2drks")]
-position = Vector2(905, 417)
+[node name="Casilla Generica 17" parent="." unique_id=27425098 instance=ExtResource("4_2drks")]
+position = Vector2(555, 513)
+scale = Vector2(0.65, 0.52)
+generic_texture = ExtResource("27_16kt2")
+
+[node name="Casilla Generica 18" parent="." unique_id=1670134748 instance=ExtResource("4_2drks")]
+position = Vector2(290, 514)
 scale = Vector2(0.5999999, 0.4799903)
+generic_texture = ExtResource("27_16kt2")
 
-[node name="Casilla Generica 15" parent="." unique_id=207103826 instance=ExtResource("4_2drks")]
-position = Vector2(712.00006, 451)
+[node name="Casilla Generica 19" parent="." unique_id=1108847722 instance=ExtResource("4_2drks")]
+position = Vector2(214.00002, 556)
 scale = Vector2(0.5999999, 0.4799903)
+generic_texture = ExtResource("27_16kt2")
 
-[node name="Casilla Generica 16" parent="." unique_id=1581940965 instance=ExtResource("4_2drks")]
-position = Vector2(644, 503)
+[node name="Casilla Generica 20" parent="." unique_id=882986075 instance=ExtResource("4_2drks")]
+position = Vector2(80.00001, 513)
 scale = Vector2(0.5999999, 0.4799903)
+generic_texture = ExtResource("27_16kt2")
 
-[node name="Casilla Generica 17" parent="." unique_id=108018116 instance=ExtResource("4_2drks")]
-position = Vector2(556.00006, 514)
+[node name="Casilla Generica 21" parent="." unique_id=1154544816 instance=ExtResource("4_2drks")]
+position = Vector2(108.00001, 444.00003)
 scale = Vector2(0.5999999, 0.4799903)
+generic_texture = ExtResource("22_g7536")
 
-[node name="Casilla Generica 18" parent="." unique_id=1753220006 instance=ExtResource("4_2drks")]
-position = Vector2(276.00018, 530)
+[node name="Casilla Generica 22" parent="." unique_id=1936124984 instance=ExtResource("4_2drks")]
+position = Vector2(254.00003, 383)
 scale = Vector2(0.5999999, 0.4799903)
+generic_texture = ExtResource("27_16kt2")
 
-[node name="Casilla Generica 19" parent="." unique_id=462912944 instance=ExtResource("4_2drks")]
-position = Vector2(225.00012, 576)
+[node name="Casilla Generica 23" parent="." unique_id=103177166 instance=ExtResource("4_2drks")]
+position = Vector2(343, 372.00003)
 scale = Vector2(0.5999999, 0.4799903)
+generic_texture = ExtResource("27_16kt2")
 
-[node name="Casilla Generica 20" parent="." unique_id=1538117428 instance=ExtResource("4_2drks")]
-position = Vector2(79, 515)
+[node name="Casilla Generica 24" parent="." unique_id=493011389 instance=ExtResource("4_2drks")]
+position = Vector2(487.00003, 411)
 scale = Vector2(0.5999999, 0.4799903)
+generic_texture = ExtResource("27_16kt2")
 
-[node name="Casilla Generica 21" parent="." unique_id=1505460545 instance=ExtResource("4_2drks")]
-position = Vector2(104.00001, 457)
+[node name="Casilla Generica 25" parent="." unique_id=836060733 instance=ExtResource("4_2drks")]
+position = Vector2(535.00006, 358)
 scale = Vector2(0.5999999, 0.4799903)
+generic_texture = ExtResource("27_16kt2")
 
-[node name="Casilla Generica 22" parent="." unique_id=1887463051 instance=ExtResource("4_2drks")]
-position = Vector2(251.00003, 382)
+[node name="Casilla Generica 26" parent="." unique_id=396649242 instance=ExtResource("4_2drks")]
+position = Vector2(776, 353)
 scale = Vector2(0.5999999, 0.4799903)
+generic_texture = ExtResource("27_16kt2")
 
-[node name="Casilla Generica 23" parent="." unique_id=1274795767 instance=ExtResource("4_2drks")]
-position = Vector2(327.00012, 369)
+[node name="Casilla Generica 27" parent="." unique_id=54559352 instance=ExtResource("4_2drks")]
+position = Vector2(950.00006, 240)
 scale = Vector2(0.5999999, 0.4799903)
+generic_texture = ExtResource("27_16kt2")
 
-[node name="Casilla Generica 24" parent="." unique_id=1279948937 instance=ExtResource("4_2drks")]
-position = Vector2(471, 420)
+[node name="Casilla Generica 28" parent="." unique_id=852802651 instance=ExtResource("4_2drks")]
+position = Vector2(974, 177)
 scale = Vector2(0.5999999, 0.4799903)
+generic_texture = ExtResource("27_16kt2")
 
-[node name="Casilla Generica 25" parent="." unique_id=598526577 instance=ExtResource("4_2drks")]
-position = Vector2(517, 376)
+[node name="Casilla Generica 29" parent="." unique_id=737439356 instance=ExtResource("4_2drks")]
+position = Vector2(838, 112)
 scale = Vector2(0.5999999, 0.4799903)
+generic_texture = ExtResource("27_16kt2")
 
-[node name="Casilla Generica 26" parent="." unique_id=879353860 instance=ExtResource("4_2drks")]
-position = Vector2(778, 355)
+[node name="Casilla Generica 30" parent="." unique_id=783564733 instance=ExtResource("4_2drks")]
+position = Vector2(779.00006, 55)
 scale = Vector2(0.5999999, 0.4799903)
+generic_texture = ExtResource("27_4wpby")
 
-[node name="Casilla Generica 27" parent="." unique_id=1626941954 instance=ExtResource("4_2drks")]
-position = Vector2(947, 235.00002)
+[node name="Casilla Generica 31" parent="." unique_id=1603245342 instance=ExtResource("4_2drks")]
+position = Vector2(684.00006, 52)
 scale = Vector2(0.5999999, 0.4799903)
+generic_texture = ExtResource("27_16kt2")
 
-[node name="Casilla Generica 28" parent="." unique_id=1961598641 instance=ExtResource("4_2drks")]
-position = Vector2(986.00006, 179.00002)
+[node name="Casilla Generica 32" parent="." unique_id=254194418 instance=ExtResource("4_2drks")]
+position = Vector2(592.00006, 57)
 scale = Vector2(0.5999999, 0.4799903)
+generic_texture = ExtResource("24_3ekoe")
 
-[node name="Casilla Generica 29" parent="." unique_id=2060617801 instance=ExtResource("4_2drks")]
-position = Vector2(833, 111)
+[node name="Casilla Generica 33" parent="." unique_id=1970889689 instance=ExtResource("4_2drks")]
+position = Vector2(399, 66)
 scale = Vector2(0.5999999, 0.4799903)
+generic_texture = ExtResource("27_16kt2")
 
-[node name="Casilla Generica 30" parent="." unique_id=1661388143 instance=ExtResource("4_2drks")]
-position = Vector2(779, 65)
+[node name="Casilla Generica 34" parent="." unique_id=1210446262 instance=ExtResource("4_2drks")]
+position = Vector2(311.00003, 69)
 scale = Vector2(0.5999999, 0.4799903)
+generic_texture = ExtResource("27_16kt2")
 
-[node name="Casilla Generica 31" parent="." unique_id=1562122888 instance=ExtResource("4_2drks")]
-position = Vector2(699.00006, 68)
+[node name="Casilla Generica 35" parent="." unique_id=513084262 instance=ExtResource("4_2drks")]
+position = Vector2(127, 96)
 scale = Vector2(0.5999999, 0.4799903)
+generic_texture = ExtResource("27_16kt2")
 
-[node name="Casilla Generica 32" parent="." unique_id=2028674013 instance=ExtResource("4_2drks")]
-position = Vector2(617.00006, 65)
+[node name="Casilla Generica 36" parent="." unique_id=376460380 instance=ExtResource("4_2drks")]
+position = Vector2(76, 149.00002)
 scale = Vector2(0.5999999, 0.4799903)
+generic_texture = ExtResource("22_g7536")
 
-[node name="Casilla Generica 33" parent="." unique_id=1519266595 instance=ExtResource("4_2drks")]
-position = Vector2(424, 75)
+[node name="Casilla Generica 37" parent="." unique_id=1025822307 instance=ExtResource("4_2drks")]
+position = Vector2(139, 203)
 scale = Vector2(0.5999999, 0.4799903)
+generic_texture = ExtResource("27_16kt2")
 
-[node name="Casilla Generica 34" parent="." unique_id=1689262942 instance=ExtResource("4_2drks")]
-position = Vector2(338, 76)
+[node name="Casilla Generica 38" parent="." unique_id=349529943 instance=ExtResource("4_2drks")]
+position = Vector2(279, 204)
 scale = Vector2(0.5999999, 0.4799903)
+generic_texture = ExtResource("27_16kt2")
 
-[node name="Casilla Generica 35" parent="." unique_id=529721943 instance=ExtResource("4_2drks")]
-position = Vector2(143.00002, 97)
+[node name="Casilla Generica 39" parent="." unique_id=344781408 instance=ExtResource("4_2drks")]
+position = Vector2(470.00003, 200)
 scale = Vector2(0.5999999, 0.4799903)
+generic_texture = ExtResource("27_16kt2")
 
-[node name="Casilla Generica 36" parent="." unique_id=1127387446 instance=ExtResource("4_2drks")]
-position = Vector2(103.00006, 147)
-scale = Vector2(0.5999999, 0.4799903)
-
-[node name="Casilla Generica 37" parent="." unique_id=1017038804 instance=ExtResource("4_2drks")]
-position = Vector2(140.00005, 202)
-scale = Vector2(0.5999999, 0.4799903)
-
-[node name="Casilla Generica 38" parent="." unique_id=282870161 instance=ExtResource("4_2drks")]
-position = Vector2(277, 208)
-scale = Vector2(0.5999999, 0.4799903)
-
-[node name="Casilla Generica 39" parent="." unique_id=1728794249 instance=ExtResource("4_2drks")]
-position = Vector2(469.00003, 205.00002)
-scale = Vector2(0.5999999, 0.4799903)
-
-[node name="Casilla Desplazamiento 4" parent="." unique_id=1119608620 instance=ExtResource("5_80wyr")]
-position = Vector2(598.00006, 380.00003)
+[node name="Casilla Desplazamiento 4" parent="." unique_id=1471280337 instance=ExtResource("5_80wyr")]
+position = Vector2(608, 378.00003)
 scale = Vector2(0.65282625, 0.56744045)
 
-[node name="Casilla Desplazamiento 5" parent="." unique_id=2082630560 instance=ExtResource("5_80wyr")]
-position = Vector2(815.00006, 308.00003)
+[node name="Casilla Desplazamiento 5" parent="." unique_id=868638506 instance=ExtResource("5_80wyr")]
+position = Vector2(815.00006, 305.00003)
 scale = Vector2(0.65282625, 0.56744045)
+generic_texture = ExtResource("22_ghjd5")
 
-[node name="Casilla Desplazamiento 6" parent="." unique_id=1834467031 instance=ExtResource("5_80wyr")]
+[node name="Casilla Desplazamiento 6" parent="." unique_id=1554450527 instance=ExtResource("5_80wyr")]
 position = Vector2(213.00002, 236.00002)
 scale = Vector2(0.65282625, 0.56744045)
+generic_texture = ExtResource("26_psxmu")
 
-[node name="Casilla 2030" type="StaticBody2D" parent="." unique_id=1782665997]
+[node name="Casilla 2030" type="StaticBody2D" parent="." unique_id=322742288]
 
-[node name="Sprite2D" type="Sprite2D" parent="Casilla 2030" unique_id=462373220]
-position = Vector2(600.00006, 202.00002)
+[node name="Sprite2D" type="Sprite2D" parent="Casilla 2030" unique_id=1963599734]
+position = Vector2(634, 203.00002)
 scale = Vector2(0.32366917, 0.3032227)
 texture = ExtResource("10_80wyr")
 script = ExtResource("13_38h61")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Casilla 2030" unique_id=1085927964]
-position = Vector2(600, 203)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Casilla 2030" unique_id=1811923215]
+position = Vector2(635, 203)
 shape = SubResource("RectangleShape2D_j1l1s")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1096981893]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1316661957]
 
-[node name="BotonDado" type="Button" parent="CanvasLayer" unique_id=527419531]
+[node name="BotonDado" type="Button" parent="CanvasLayer" unique_id=1718399278]
 offset_left = 1101.0
 offset_top = 100.0
 offset_right = 1281.0
@@ -397,25 +478,25 @@ text = "Tirar Dados"
 icon = ExtResource("11_j1l1s")
 expand_icon = true
 
-[node name="LabelResultado" type="Label" parent="CanvasLayer" unique_id=1474757339]
+[node name="LabelResultado" type="Label" parent="CanvasLayer" unique_id=2013981748]
 offset_left = 1102.0
 offset_top = 164.0
 offset_right = 1280.0
 offset_bottom = 215.0
 
-[node name="LabelTurnos" type="Label" parent="CanvasLayer" unique_id=1215384432]
+[node name="LabelTurnos" type="Label" parent="CanvasLayer" unique_id=142226457]
 offset_left = 1104.0
 offset_top = 196.0
 offset_right = 1198.0
 offset_bottom = 233.0
 
-[node name="LabelCronometro" type="Label" parent="CanvasLayer" unique_id=532493471]
+[node name="LabelCronometro" type="Label" parent="CanvasLayer" unique_id=702374639]
 offset_left = 1102.0
 offset_top = 57.0
 offset_right = 1170.0
 offset_bottom = 93.0
 
-[node name="PanelQuiz" type="Panel" parent="CanvasLayer" unique_id=460086176]
+[node name="PanelQuiz" type="Panel" parent="CanvasLayer" unique_id=1194043812]
 visible = false
 offset_left = 118.0
 offset_top = 98.0
@@ -423,7 +504,7 @@ offset_right = 1254.0
 offset_bottom = 632.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_m1tsj")
 
-[node name="LabelPregunta" type="Label" parent="CanvasLayer/PanelQuiz" unique_id=72800390]
+[node name="LabelPregunta" type="Label" parent="CanvasLayer/PanelQuiz" unique_id=1381026723]
 layout_mode = 0
 offset_left = 126.0
 offset_top = 21.0
@@ -432,138 +513,100 @@ offset_bottom = 208.0
 theme_override_font_sizes/font_size = 28
 autowrap_mode = 3
 
-[node name="BtnOp1" type="Button" parent="CanvasLayer/PanelQuiz" unique_id=684164680]
+[node name="BtnOp1" type="Button" parent="CanvasLayer/PanelQuiz" unique_id=805130400]
 layout_mode = 0
 offset_left = 155.0
 offset_top = 262.0
 offset_right = 920.0
 offset_bottom = 332.0
 
-[node name="BtnOp2" type="Button" parent="CanvasLayer/PanelQuiz" unique_id=366319991]
+[node name="BtnOp2" type="Button" parent="CanvasLayer/PanelQuiz" unique_id=1198485490]
 layout_mode = 0
 offset_left = 154.0
 offset_top = 347.0
 offset_right = 919.0
 offset_bottom = 417.0
 
-[node name="BtnOp3" type="Button" parent="CanvasLayer/PanelQuiz" unique_id=1409487807]
+[node name="BtnOp3" type="Button" parent="CanvasLayer/PanelQuiz" unique_id=15719835]
 layout_mode = 0
 offset_left = 153.0
 offset_top = 431.0
 offset_right = 918.0
 offset_bottom = 501.0
 
-[node name="ImagePicsartBackgroundRemover(12)" type="Sprite2D" parent="." unique_id=1309754585]
-position = Vector2(527.00006, 597)
-scale = Vector2(0.35121107, 0.3057971)
-texture = ExtResource("15_m1tsj")
+[node name="ImagePicsartBackgroundRemover(12)" type="Sprite2D" parent="." unique_id=1067665118]
+position = Vector2(510, 617.4931)
+scale = Vector2(0.35121107, 0.3450384)
+texture = ExtResource("45_1cqd1")
 script = ExtResource("13_38h61")
 speed = 0.5
 float_range = 1.0
 
-[node name="ImagePicsartBackgroundRemover(11)" type="Sprite2D" parent="." unique_id=275781889]
-position = Vector2(820.00006, 575)
+[node name="ImagePicsartBackgroundRemover(11)" type="Sprite2D" parent="." unique_id=1860392794]
+position = Vector2(825.00006, 631)
 scale = Vector2(0.3265306, 0.33458647)
-texture = ExtResource("16_2me0o")
+texture = ExtResource("46_ghjd5")
 script = ExtResource("13_38h61")
 speed = 1.0
 float_range = 3.0
 
-[node name="ImagePicsartBackgroundRemover(10)" type="Sprite2D" parent="." unique_id=1045162909]
-position = Vector2(1162.7499, 314.75)
-scale = Vector2(0.3309663, 0.2855263)
-texture = ExtResource("17_sdu42")
+[node name="ImagePicsartBackgroundRemover(10)" type="Sprite2D" parent="." unique_id=938072872]
+position = Vector2(1165, 293)
+scale = Vector2(0.58064574, 0.5568864)
+texture = ExtResource("47_psxmu")
 script = ExtResource("13_38h61")
 speed = 0.5
 float_range = 1.0
 
-[node name="ImagePicsartBackgroundRemover(9)" type="Sprite2D" parent="." unique_id=718142973]
-position = Vector2(108.00001, 315)
-scale = Vector2(0.5285088, 0.4207693)
-texture = ExtResource("18_x0q1v")
+[node name="ImagePicsartBackgroundRemover(10)6" type="Sprite2D" parent="." unique_id=1832769632]
+position = Vector2(647, 582)
+scale = Vector2(0.4586771, 0.4537387)
+texture = ExtResource("49_ghjd5")
 script = ExtResource("13_38h61")
 speed = 0.5
 float_range = 1.0
 
-[node name="ImagePicsartBackgroundRemover(8)" type="Sprite2D" parent="." unique_id=1577116710]
-position = Vector2(1000, 77)
-scale = Vector2(0.31228667, 0.33529413)
-texture = ExtResource("19_t1jn0")
-
-[node name="Stickfigure1" type="Sprite2D" parent="." unique_id=1192848686]
-position = Vector2(317, 629)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("20_sf01")
+[node name="ImagePicsartBackgroundRemover(10)5" type="Sprite2D" parent="." unique_id=930755861]
+position = Vector2(1304.0958, 432.79507)
+scale = Vector2(0.44326055, 0.40406975)
+texture = ExtResource("50_psxmu")
 script = ExtResource("13_38h61")
 speed = 0.5
 float_range = 1.0
 
-[node name="Stickfigure2" type="Sprite2D" parent="." unique_id=906088673]
-position = Vector2(500, 250)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("21_sf05")
+[node name="ImagePicsartBackgroundRemover(10)3" type="Sprite2D" parent="." unique_id=611225746]
+position = Vector2(1011.9989, 548.223)
+scale = Vector2(0.41728175, 0.39545128)
+texture = ExtResource("51_w4umy")
 script = ExtResource("13_38h61")
-speed = 0.6
-float_range = 1.5
-
-[node name="Stickfigure3" type="Sprite2D" parent="." unique_id=1617045367]
-position = Vector2(700, 200)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("22_sf08")
-script = ExtResource("13_38h61")
-speed = 0.4
-float_range = 2.0
-
-[node name="Stickfigure4" type="Sprite2D" parent="." unique_id=1187395329]
-visible = false
-position = Vector2(1000, 500)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("23_sf15")
-script = ExtResource("13_38h61")
-speed = 0.7
+speed = 0.5
 float_range = 1.0
 
-[node name="Stickfigure5" type="Sprite2D" parent="." unique_id=370956067]
-position = Vector2(1150, 150)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("24_sf20")
+[node name="ImagePicsartBackgroundRemover(10)4" type="Sprite2D" parent="." unique_id=219625834]
+position = Vector2(217, 469.99997)
+scale = Vector2(0.4668886, 0.47329542)
+texture = ExtResource("52_ic3w5")
 script = ExtResource("13_38h61")
-speed = 0.3
-float_range = 2.5
+speed = 0.5
+float_range = 1.0
 
-
-[node name="DecoIcon1" type="Sprite2D" parent="."]
-position = Vector2(150, 150)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("new_icon_1")
+[node name="ImagePicsartBackgroundRemover(10)2" type="Sprite2D" parent="." unique_id=1857044855]
+position = Vector2(428.99997, 347)
+scale = Vector2(0.4722745, 0.4422585)
+texture = ExtResource("26_20i6x")
 script = ExtResource("13_38h61")
+speed = 0.5
+float_range = 1.0
 
-[node name="DecoIcon2" type="Sprite2D" parent="."]
-position = Vector2(850, 200)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("new_icon_2")
+[node name="ImagePicsartBackgroundRemover(9)" type="Sprite2D" parent="." unique_id=1441765110]
+position = Vector2(101.206696, 315)
+scale = Vector2(0.46023428, 0.4207693)
+texture = ExtResource("53_w4umy")
 script = ExtResource("13_38h61")
+speed = 0.5
+float_range = 1.0
 
-[node name="DecoIcon3" type="Sprite2D" parent="."]
-position = Vector2(300, 450)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("new_icon_3")
-script = ExtResource("13_38h61")
-
-[node name="DecoIcon4" type="Sprite2D" parent="."]
-position = Vector2(100, 600)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("new_icon_4")
-script = ExtResource("13_38h61")
-
-[node name="DecoIcon5" type="Sprite2D" parent="."]
-position = Vector2(750, 650)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("new_icon_5")
-script = ExtResource("13_38h61")
-
-[node name="DecoIcon6" type="Sprite2D" parent="."]
-position = Vector2(500, 100)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("new_icon_6")
-script = ExtResource("13_38h61")
+[node name="ImagePicsartBackgroundRemover(8)" type="Sprite2D" parent="." unique_id=75562890]
+position = Vector2(1015.1963, 90.399994)
+scale = Vector2(0.49760693, 0.46666667)
+texture = ExtResource("55_t0rd0")

@@ -1,18 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8gkw5ud1npkm"]
+[gd_scene format=3 uid="uid://c8gkw5ud1npkm"]
 
-[ext_resource type="Script" path="res://scripts/UI/Game/BoardTileVisual.gd" id="1_rkjq0"]
 [ext_resource type="Texture2D" uid="uid://dowmpktwv8f4t" path="res://Assets/images/image-Picsart-BackgroundRemover (7).png" id="1_qjqtg"]
+[ext_resource type="Script" uid="uid://lr2wiirv2k5" path="res://scripts/UI/Game/BoardTileVisual.gd" id="1_rkjq0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ye8q"]
 size = Vector2(65.25, 61.5)
 
-[node name="Casilla Generica" type="StaticBody2D"]
+[node name="Casilla Generica" type="StaticBody2D" unique_id=486422349]
 script = ExtResource("1_rkjq0")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1176739565]
 position = Vector2(0, -1.9073486e-06)
 scale = Vector2(0.62500006, 0.5632296)
 texture = ExtResource("1_qjqtg")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=10887593]
 shape = SubResource("RectangleShape2D_7ye8q")

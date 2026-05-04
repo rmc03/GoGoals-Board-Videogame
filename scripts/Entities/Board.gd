@@ -153,4 +153,3 @@ func _apply_tile_visual(board_node: Node2D, tile: TileEntity) -> void:
 		"ods_meta": ods_visuals.get(tile.ods_id, {}).duplicate(true)
 	}
 	board_node.configure_visual(visual_data)
-

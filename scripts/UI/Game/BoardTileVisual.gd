@@ -1,3 +1,4 @@
+@tool
 extends StaticBody2D
 
 const HEX_NEUTRAL_TEXTURE := preload("res://Assets/images/image-Picsart-BackgroundRemover (7).png")
@@ -8,7 +9,82 @@ const SLIDE_ACCENT := Color(0.11, 0.58, 0.70, 1.0)
 const DARK_TEXT := Color(0.13, 0.11, 0.09, 1.0)
 const LIGHT_TEXT := Color(1.0, 1.0, 1.0, 1.0)
 
-@onready var sprite: Sprite2D = $Sprite2D
+@export_group("Texturas")
+@export var ods_texture: Texture2D :
+	set(value):
+		ods_texture = value
+		var s := _get_sprite()
+		if s:
+			if ods_texture != null:
+				s.texture = ods_texture
+				s.modulate = Color.WHITE
+			else:
+				_apply_best_fallback_texture()
+
+@export var generic_texture: Texture2D :
+	set(value):
+		generic_texture = value
+		var s := _get_sprite()
+		if s and ods_texture == null:
+			if generic_texture != null:
+				s.texture = generic_texture
+				s.modulate = Color.WHITE
+			else:
+				_apply_best_fallback_texture()
+
+@export var normal_texture: Texture2D :
+	set(value):
+		normal_texture = value
+		var s := _get_sprite()
+		if s and ods_texture == null and generic_texture == null:
+			if normal_texture != null:
+				s.texture = normal_texture
+				s.modulate = Color.WHITE
+			else:
+				_apply_best_fallback_texture()
+
+@export var special_texture: Texture2D :
+	set(value):
+		special_texture = value
+		var s := _get_sprite()
+		if s and ods_texture == null and generic_texture == null and normal_texture == null:
+			if special_texture != null:
+				s.texture = special_texture
+				s.modulate = Color.WHITE
+			else:
+				_apply_best_fallback_texture()
+
+@export_group("Ajustes de Sprite")
+@export var texture_scale: Vector2 = Vector2.ZERO :
+	set(value):
+		texture_scale = value
+		var s := _get_sprite()
+		if s:
+			if texture_scale != Vector2.ZERO:
+				s.scale = texture_scale
+			queue_redraw()
+
+@export var texture_offset: Vector2 = Vector2.ZERO :
+	set(value):
+		texture_offset = value
+		var s := _get_sprite()
+		if s:
+			s.position = texture_offset
+			queue_redraw()
+
+func _get_sprite() -> Sprite2D:
+	if not is_inside_tree():
+		return null
+	return get_node_or_null("Sprite2D") as Sprite2D
+
+func _ready() -> void:
+	_apply_best_fallback_texture()
+	var s := _get_sprite()
+	if s:
+		if texture_scale != Vector2.ZERO:
+			s.scale = texture_scale
+		if texture_offset != Vector2.ZERO:
+			s.position = texture_offset
 
 var visual_root: Node2D
 var number_label: Label
@@ -110,9 +186,11 @@ func _create_label(
 
 func _reset_visual_state() -> void:
 	visible = true
-	sprite.visible = true
-	sprite.texture = HEX_NEUTRAL_TEXTURE
-	sprite.modulate = Color.WHITE
+	var s := _get_sprite()
+	if s:
+		s.visible = true
+		s.texture = HEX_NEUTRAL_TEXTURE
+		s.modulate = Color.WHITE
 
 	number_label.visible = false
 	number_label.text = ""
@@ -135,9 +213,36 @@ func _apply_mirror_fix() -> void:
 		-1.0 if scale.y < 0.0 else 1.0
 	)
 
+func _apply_best_fallback_texture() -> void:
+	var s := _get_sprite()
+	if s == null:
+		return
+	if generic_texture != null:
+		s.texture = generic_texture
+		s.modulate = Color.WHITE
+	elif normal_texture != null:
+		s.texture = normal_texture
+		s.modulate = Color.WHITE
+	elif special_texture != null:
+		s.texture = special_texture
+		s.modulate = Color.WHITE
+	else:
+		s.texture = HEX_NEUTRAL_TEXTURE
+		s.modulate = NEUTRAL_HEX_COLOR
+
 func _configure_normal() -> void:
-	sprite.texture = HEX_NEUTRAL_TEXTURE
-	sprite.modulate = NEUTRAL_HEX_COLOR
+	var s := _get_sprite()
+	if s == null:
+		return
+	if generic_texture != null:
+		s.texture = generic_texture
+		s.modulate = Color.WHITE
+	elif normal_texture != null:
+		s.texture = normal_texture
+		s.modulate = Color.WHITE
+	else:
+		s.texture = HEX_NEUTRAL_TEXTURE
+		s.modulate = NEUTRAL_HEX_COLOR
 
 func _configure_start() -> void:
 	_configure_normal()
@@ -148,28 +253,36 @@ func _configure_start() -> void:
 	_set_label_style(title_label, 16, DARK_TEXT, 3)
 
 func _configure_special(text: String, accent: Color) -> void:
-	_configure_normal()
-	badge_label.visible = true
-	badge_label.text = text
-	_set_label_style(badge_label, 22, accent, 4)
+	var s := _get_sprite()
+	if s:
+		if special_texture != null:
+			s.texture = special_texture
+			s.modulate = Color.WHITE
+		elif generic_texture != null:
+			s.texture = generic_texture
+			s.modulate = Color.WHITE
+		else:
+			s.texture = HEX_NEUTRAL_TEXTURE
+			s.modulate = NEUTRAL_HEX_COLOR
+	badge_label.visible = false
 
 func _configure_quiz(data: Dictionary) -> void:
-	var ods_id: int = int(data.get("ods_id", 0))
 	var ods_meta: Dictionary = data.get("ods_meta", {})
-	var title: String = str(ods_meta.get("title", "ODS"))
-	var font_size: int = 10
 	var color_code: String = str(ods_meta.get("color", "#56C02B"))
 	var tile_color := Color.from_string(color_code, Color(0.34, 0.75, 0.17, 1.0))
 
-	sprite.texture = HEX_NEUTRAL_TEXTURE
-	sprite.modulate = tile_color
+	var s := _get_sprite()
+	if s:
+		if ods_texture != null:
+			s.texture = ods_texture
+			s.modulate = Color.WHITE
+		else:
+			s.texture = HEX_NEUTRAL_TEXTURE
+			s.modulate = tile_color
 
+	# Los textos ODS se omiten — ahora se usan iconos visuales
 	number_label.visible = false
-	number_label.text = ""
-
-	title_label.visible = true
-	title_label.text = title
-	_set_label_style(title_label, font_size, LIGHT_TEXT, 3)
+	title_label.visible = false
 
 func _set_label_style(label: Label, font_size: int, font_color: Color, outline_size: int) -> void:
 	var settings: LabelSettings = label.label_settings

@@ -1,18 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://5qm5d5egkaw3"]
+[gd_scene format=3 uid="uid://5qm5d5egkaw3"]
 
-[ext_resource type="Script" path="res://scripts/UI/Game/BoardTileVisual.gd" id="1_lavoq"]
 [ext_resource type="Texture2D" uid="uid://b84ps8rqier1p" path="res://Assets/images/Picsart_25-12-10_11-57-01-036.png" id="1_acott"]
+[ext_resource type="Script" uid="uid://lr2wiirv2k5" path="res://scripts/UI/Game/BoardTileVisual.gd" id="1_lavoq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ylcch"]
 size = Vector2(65.25, 61.5)
 
-[node name="Casilla ODS" type="StaticBody2D"]
+[node name="Casilla ODS" type="StaticBody2D" unique_id=895501538]
 script = ExtResource("1_lavoq")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=526526480]
 position = Vector2(0, -1.9073486e-06)
 scale = Vector2(0.5025964, 0.41392735)
 texture = ExtResource("1_acott")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2082138818]
 shape = SubResource("RectangleShape2D_ylcch")
