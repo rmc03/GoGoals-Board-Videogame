@@ -2,3 +2,6 @@
 .godot/
 /android/
 docs/**/*.import
+.kilo/
+.ziva/
+godot_cli_*.log
