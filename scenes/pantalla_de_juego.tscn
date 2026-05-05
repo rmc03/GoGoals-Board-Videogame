@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://kikntsdvc0o1" path="res://Assets/images/Flotantes/Picsart_25-12-10_23-43-27-820-Picsart-BackgroundRemover.png" id="11_o0hyk"]
 [ext_resource type="AudioStream" uid="uid://dgoabxj5q2tha" path="res://Assets/audio/question_004.ogg" id="12_r02rp"]
 [ext_resource type="Script" uid="uid://bnqloxjj2itlb" path="res://scripts/IconoFlotante.gd" id="13_38h61"]
-[ext_resource type="Texture2D" uid="uid://cxn2qswhsycxk" path="res://Assets/enviroment/ChatGPT Image 30 abr 2026, 17_08_15.png" id="14_wnw6p"]
+[ext_resource type="Texture2D" uid="uid://cxn2qswhsycxk" path="res://Assets/enviroment/environment_background_01.png" id="14_wnw6p"]
 [ext_resource type="Texture2D" uid="uid://ctyfjjcgb3j6u" path="res://Assets/icons/ODS 1 – Fin de la pobreza.png" id="16_keqsp"]
 [ext_resource type="Texture2D" uid="uid://c77c4yiv0g8ha" path="res://Assets/icons/Casilla normal 1.png" id="21_ll512"]
 [ext_resource type="Texture2D" uid="uid://ekcpwf5ifa3t" path="res://Assets/icons/ODS 2 – Hambre cero.png" id="22_a6yef"]
@@ -31,7 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://blu2ofdmjbvlw" path="res://Assets/icons/Casilla normal 3.png" id="24_3ekoe"]
 [ext_resource type="Texture2D" uid="uid://b1362wjy1dvcg" path="res://Assets/icons/ODS 4 – Educación de calidad.png" id="24_o7qbw"]
 [ext_resource type="Texture2D" uid="uid://bu06l8yswk5u8" path="res://Assets/icons/ODS 5 – Igualdad de género.png" id="25_qgfif"]
-[ext_resource type="Texture2D" uid="uid://dywdyplivm5qi" path="res://Assets/stickfigures/ChatGPT Image 30 abr 2026, 16_23_29 (3).png" id="26_20i6x"]
+[ext_resource type="Texture2D" uid="uid://dywdyplivm5qi" path="res://Assets/stickfigures/decor_figure_01.png" id="26_20i6x"]
 [ext_resource type="Texture2D" uid="uid://dyk6tvd0mhjjq" path="res://Assets/icons/Down.png" id="26_psxmu"]
 [ext_resource type="Texture2D" uid="uid://opn0ns41gdt3" path="res://Assets/icons/ODS 6 - Agua limpia y saneamiento.png" id="26_uxomr"]
 [ext_resource type="Texture2D" uid="uid://uocxblh1d8h3" path="res://Assets/icons/Casilla normal 4.png" id="27_4wpby"]
@@ -47,15 +47,15 @@
 [ext_resource type="Texture2D" uid="uid://bbmupmxsui4t3" path="res://Assets/icons/ODS 15 – Vida de ecosistemas terrestres.png" id="35_w4umy"]
 [ext_resource type="Texture2D" uid="uid://bac7s1vlg28in" path="res://Assets/icons/ODS 16 – Paz, justicia e instituciones sólidas.png" id="36_ic3w5"]
 [ext_resource type="Texture2D" uid="uid://bg70e5kfb7anm" path="res://Assets/icons/ODS 17 – Alianzas para lograr los objetivos.png" id="37_t0rd0"]
-[ext_resource type="Texture2D" uid="uid://cbey6e181yekt" path="res://Assets/stickfigures/ChatGPT Image 4 may 2026, 16_37_55 (5).png" id="45_1cqd1"]
-[ext_resource type="Texture2D" uid="uid://r7xyhmswyvh1" path="res://Assets/stickfigures/ChatGPT Image 4 may 2026, 16_37_55 (6).png" id="46_ghjd5"]
-[ext_resource type="Texture2D" uid="uid://2q0rg80g2416" path="res://Assets/stickfigures/ChatGPT Image 4 may 2026, 16_37_55 (7).png" id="47_psxmu"]
-[ext_resource type="Texture2D" uid="uid://d0w5aomps0et4" path="res://Assets/stickfigures/ChatGPT Image 4 may 2026, 16_37_55 (9).png" id="49_ghjd5"]
-[ext_resource type="Texture2D" uid="uid://cjuqd457qdwd5" path="res://Assets/stickfigures/ChatGPT Image 4 may 2026, 16_37_55 (4).png" id="50_psxmu"]
-[ext_resource type="Texture2D" uid="uid://bjsceuaj8q4jh" path="res://Assets/stickfigures/ChatGPT Image 4 may 2026, 16_37_55 (2).png" id="51_w4umy"]
-[ext_resource type="Texture2D" uid="uid://i3pipiqpga71" path="res://Assets/stickfigures/ChatGPT Image 4 may 2026, 16_37_55 (3).png" id="52_ic3w5"]
-[ext_resource type="Texture2D" uid="uid://d1ncspxbj7vax" path="res://Assets/stickfigures/ChatGPT Image 4 may 2026, 16_37_55 (10).png" id="53_w4umy"]
-[ext_resource type="Texture2D" uid="uid://cqnkr31tc6ovw" path="res://Assets/stickfigures/ChatGPT Image 4 may 2026, 16_37_55 (1).png" id="55_t0rd0"]
+[ext_resource type="Texture2D" uid="uid://cbey6e181yekt" path="res://Assets/stickfigures/decor_figure_06.png" id="45_1cqd1"]
+[ext_resource type="Texture2D" uid="uid://r7xyhmswyvh1" path="res://Assets/stickfigures/decor_figure_07.png" id="46_ghjd5"]
+[ext_resource type="Texture2D" uid="uid://2q0rg80g2416" path="res://Assets/stickfigures/decor_figure_08.png" id="47_psxmu"]
+[ext_resource type="Texture2D" uid="uid://d0w5aomps0et4" path="res://Assets/stickfigures/decor_figure_10.png" id="49_ghjd5"]
+[ext_resource type="Texture2D" uid="uid://cjuqd457qdwd5" path="res://Assets/stickfigures/decor_figure_05.png" id="50_psxmu"]
+[ext_resource type="Texture2D" uid="uid://bjsceuaj8q4jh" path="res://Assets/stickfigures/decor_figure_03.png" id="51_w4umy"]
+[ext_resource type="Texture2D" uid="uid://i3pipiqpga71" path="res://Assets/stickfigures/decor_figure_04.png" id="52_ic3w5"]
+[ext_resource type="Texture2D" uid="uid://d1ncspxbj7vax" path="res://Assets/stickfigures/decor_figure_11.png" id="53_w4umy"]
+[ext_resource type="Texture2D" uid="uid://cqnkr31tc6ovw" path="res://Assets/stickfigures/decor_figure_02.png" id="55_t0rd0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j1l1s"]
 size = Vector2(96, 47.5)
@@ -89,7 +89,7 @@ ods_texture = ExtResource("16_keqsp")
 
 [node name="Casilla Start" parent="." unique_id=1141789813 instance=ExtResource("4_2drks")]
 position = Vector2(73, 680)
-rotation = -3.1415927
+rotation = 3.1415927
 scale = Vector2(-1.1167462, -0.6862064)
 generic_texture = ExtResource("27_16kt2")
 
@@ -171,7 +171,8 @@ scale = Vector2(0.7, 0.56)
 generic_texture = ExtResource("27_16kt2")
 
 [node name="Casilla Desplazamiento 2" parent="." unique_id=2094675011 instance=ExtResource("5_80wyr")]
-position = Vector2(1185.0001, 438.00003)
+position = Vector2(1190.0001, 442.00003)
+rotation = 0.20594884
 scale = Vector2(0.65282625, 0.56744045)
 generic_texture = ExtResource("26_psxmu")
 
@@ -199,7 +200,7 @@ ods_texture = ExtResource("24_o7qbw")
 
 [node name="Casilla Desplazamiento 3" parent="." unique_id=1074886921 instance=ExtResource("5_80wyr")]
 position = Vector2(374.00003, 518)
-rotation = 0.37175512
+rotation = 0.082030475
 scale = Vector2(0.65282625, 0.56744045)
 generic_texture = ExtResource("26_psxmu")
 
@@ -535,7 +536,7 @@ offset_right = 918.0
 offset_bottom = 501.0
 
 [node name="ImagePicsartBackgroundRemover(12)" type="Sprite2D" parent="." unique_id=1067665118]
-position = Vector2(510, 617.4931)
+position = Vector2(513, 653)
 scale = Vector2(0.35121107, 0.3450384)
 texture = ExtResource("45_1cqd1")
 script = ExtResource("13_38h61")
@@ -543,7 +544,7 @@ speed = 0.5
 float_range = 1.0
 
 [node name="ImagePicsartBackgroundRemover(11)" type="Sprite2D" parent="." unique_id=1860392794]
-position = Vector2(825.00006, 631)
+position = Vector2(825.00006, 645)
 scale = Vector2(0.3265306, 0.33458647)
 texture = ExtResource("46_ghjd5")
 script = ExtResource("13_38h61")
@@ -551,7 +552,7 @@ speed = 1.0
 float_range = 3.0
 
 [node name="ImagePicsartBackgroundRemover(10)" type="Sprite2D" parent="." unique_id=938072872]
-position = Vector2(1165, 293)
+position = Vector2(1085, 285)
 scale = Vector2(0.58064574, 0.5568864)
 texture = ExtResource("47_psxmu")
 script = ExtResource("13_38h61")
@@ -559,7 +560,7 @@ speed = 0.5
 float_range = 1.0
 
 [node name="ImagePicsartBackgroundRemover(10)6" type="Sprite2D" parent="." unique_id=1832769632]
-position = Vector2(647, 582)
+position = Vector2(645, 582)
 scale = Vector2(0.4586771, 0.4537387)
 texture = ExtResource("49_ghjd5")
 script = ExtResource("13_38h61")
@@ -567,7 +568,7 @@ speed = 0.5
 float_range = 1.0
 
 [node name="ImagePicsartBackgroundRemover(10)5" type="Sprite2D" parent="." unique_id=930755861]
-position = Vector2(1304.0958, 432.79507)
+position = Vector2(1324, 480)
 scale = Vector2(0.44326055, 0.40406975)
 texture = ExtResource("50_psxmu")
 script = ExtResource("13_38h61")
@@ -575,7 +576,7 @@ speed = 0.5
 float_range = 1.0
 
 [node name="ImagePicsartBackgroundRemover(10)3" type="Sprite2D" parent="." unique_id=611225746]
-position = Vector2(1011.9989, 548.223)
+position = Vector2(1029, 576.00006)
 scale = Vector2(0.41728175, 0.39545128)
 texture = ExtResource("51_w4umy")
 script = ExtResource("13_38h61")
@@ -583,7 +584,7 @@ speed = 0.5
 float_range = 1.0
 
 [node name="ImagePicsartBackgroundRemover(10)4" type="Sprite2D" parent="." unique_id=219625834]
-position = Vector2(217, 469.99997)
+position = Vector2(222, 482.99997)
 scale = Vector2(0.4668886, 0.47329542)
 texture = ExtResource("52_ic3w5")
 script = ExtResource("13_38h61")
@@ -599,7 +600,7 @@ speed = 0.5
 float_range = 1.0
 
 [node name="ImagePicsartBackgroundRemover(9)" type="Sprite2D" parent="." unique_id=1441765110]
-position = Vector2(101.206696, 315)
+position = Vector2(144, 312.00003)
 scale = Vector2(0.46023428, 0.4207693)
 texture = ExtResource("53_w4umy")
 script = ExtResource("13_38h61")
@@ -607,6 +608,6 @@ speed = 0.5
 float_range = 1.0
 
 [node name="ImagePicsartBackgroundRemover(8)" type="Sprite2D" parent="." unique_id=75562890]
-position = Vector2(1015.1963, 90.399994)
+position = Vector2(1027, 101)
 scale = Vector2(0.49760693, 0.46666667)
 texture = ExtResource("55_t0rd0")

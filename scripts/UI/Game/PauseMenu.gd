@@ -17,6 +17,8 @@ var resume_button: Button
 var restart_button: Button
 var menu_button: Button
 var display_mode_option: OptionButton
+var use_keyboard_navigation: bool = false
+var interactive_controls: Array[Control] = []
 
 func setup(target_host: CanvasLayer) -> void:
 	host = target_host
@@ -85,6 +87,8 @@ func _build_menu() -> void:
 	root.resized.connect(_reposition_panel)
 	_reposition_panel()
 	_sync_slider_values()
+	_register_interactive_controls()
+	_apply_navigation_mode()
 
 func _add_slider_row(label_text: String, y: float, is_music: bool) -> void:
 	var row_label: Label = Label.new()
@@ -228,13 +232,67 @@ func _build_button(text: String, position: Vector2, size: Vector2, color: Color)
 	pressed.bg_color = color.darkened(0.12)
 	pressed.border_width_bottom = 1
 
+	var focus: StyleBoxFlat = normal.duplicate()
+	focus.border_width_left = 2
+	focus.border_width_right = 2
+	focus.border_width_top = 2
+	focus.border_width_bottom = 2
+	focus.border_color = Color(1.0, 1.0, 1.0, 0.9)
+
 	button.add_theme_stylebox_override("normal", normal)
 	button.add_theme_stylebox_override("hover", hover)
 	button.add_theme_stylebox_override("pressed", pressed)
+	button.add_theme_stylebox_override("focus", focus)
 	button.add_theme_font_size_override("font_size", 18)
 	button.add_theme_color_override("font_color", Color.WHITE)
 	panel.add_child(button)
 	return button
+
+func _register_interactive_controls() -> void:
+	interactive_controls = [
+		music_slider,
+		sfx_slider,
+		display_mode_option,
+		resume_button,
+		restart_button,
+		menu_button
+	]
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		_set_keyboard_navigation(false)
+	elif event is InputEventMouseButton and event.pressed:
+		_set_keyboard_navigation(false)
+	elif event is InputEventKey and event.pressed and not event.echo:
+		_set_keyboard_navigation(true)
+	elif event is InputEventJoypadButton and event.pressed:
+		_set_keyboard_navigation(true)
+
+func _set_keyboard_navigation(enabled: bool) -> void:
+	if use_keyboard_navigation == enabled:
+		return
+
+	use_keyboard_navigation = enabled
+	_apply_navigation_mode()
+
+	if not root or not root.visible:
+		return
+
+	if use_keyboard_navigation:
+		if not _menu_has_focus() and resume_button:
+			resume_button.grab_focus()
+	else:
+		get_viewport().gui_release_focus()
+
+func _apply_navigation_mode() -> void:
+	var focus_mode := Control.FOCUS_ALL if use_keyboard_navigation else Control.FOCUS_NONE
+	for control in interactive_controls:
+		if control:
+			control.focus_mode = focus_mode
+
+func _menu_has_focus() -> bool:
+	var focus_owner := get_viewport().gui_get_focus_owner()
+	return focus_owner != null and root != null and root.is_ancestor_of(focus_owner)
 
 func _reposition_panel() -> void:
 	if panel == null:
@@ -279,11 +337,15 @@ func show_menu() -> void:
 	_sync_slider_values()
 	_sync_display_mode()
 	root.show()
-	if resume_button:
+	_apply_navigation_mode()
+	if use_keyboard_navigation and resume_button:
 		resume_button.grab_focus()
+	else:
+		get_viewport().gui_release_focus()
 
 func hide_menu() -> void:
 	if root:
+		get_viewport().gui_release_focus()
 		root.hide()
 
 func is_open() -> bool:

@@ -60,7 +60,7 @@ func _hide_legacy_labels() -> void:
 func _build_hud() -> void:
 	var edge_margin := 18.0
 	var stats_width := 280.0
-	var stats_height := 162.0
+	var stats_height := 188.0
 
 	stats_panel = Panel.new()
 	stats_panel.anchor_left = 1.0
@@ -135,6 +135,7 @@ func _build_hud() -> void:
 
 	turn_display = Label.new()
 	turn_display.text = _default_status_text()
+	turn_display.custom_minimum_size = Vector2(0, 36)
 	turn_display.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 	turn_display.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	turn_display.add_theme_font_size_override("font_size", 12)
