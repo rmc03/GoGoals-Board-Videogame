@@ -6,7 +6,7 @@ const PauseMenuUIScript := preload("res://scripts/UI/Game/PauseMenu.gd")
 @export var player_textures: Array[Texture2D]
 
 @export_group("Camara")
-@export var camera_zoom: Vector2 = Vector2(1.15, 1.15)
+@export var camera_zoom: Vector2 = Vector2(1.4, 1.4)
 @export var camera_speed: float = 2.5
 @export var camera_look_ahead: float = 40.0
 
