@@ -248,11 +248,23 @@ func _configure_start() -> void:
 	_configure_normal()
 	title_label.visible = true
 	title_label.text = "INICIO"
-	title_label.position = Vector2(-50.0, -18.0)
-	title_label.size = Vector2(100.0, 40.0)
+	title_label.position = Vector2(-50.0, -16.0)
+	title_label.size = Vector2(100.0, 36.0)
+	title_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	title_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	title_label.pivot_offset = title_label.size / 2.0
 	title_label.rotation = PI
-	_set_label_style(title_label, 16, DARK_TEXT, 3)
+	title_label.uppercase = true
+
+	var settings := LabelSettings.new()
+	settings.font_size = 22
+	settings.font_color = Color(1.0, 1.0, 1.0, 1.0)       # Blanco puro
+	settings.outline_size = 6
+	settings.outline_color = Color(0.25, 0.18, 0.10, 1.0)  # Marrón oscuro
+	settings.shadow_size = 4
+	settings.shadow_color = Color(0.0, 0.0, 0.0, 0.5)
+	settings.shadow_offset = Vector2(1.0, 3.0)
+	title_label.label_settings = settings
 
 func _configure_special(text: String, accent: Color) -> void:
 	var s := _get_sprite()

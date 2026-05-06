@@ -5,6 +5,11 @@ const PauseMenuUIScript := preload("res://scripts/UI/Game/PauseMenu.gd")
 @export var board_tiles: Array[Node2D]
 @export var player_textures: Array[Texture2D]
 
+@export_group("Camara")
+@export var camera_zoom: Vector2 = Vector2(1.15, 1.15)
+@export var camera_speed: float = 2.5
+@export var camera_look_ahead: float = 40.0
+
 @export_group("Personajes")
 @export var player_scale: Vector2 = Vector2(3.2, 3.2)
 
@@ -33,6 +38,8 @@ var game_manager: GameManager
 var game_hud: GameHUD
 var quiz_ui: QuizPanelUI
 var pause_menu: Node
+var camera: Camera2D
+var _prev_player_pos: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	randomize()
@@ -42,6 +49,11 @@ func _ready() -> void:
 	_create_pause_menu()
 	_connect_flow()
 	game_manager.initialize_game(board_tiles, GameData.players_count, player_textures, player_scale)
+	_create_camera()
+	# Posicionar la cámara directamente sobre el primer jugador
+	if not game_manager.players.is_empty():
+		camera.position = game_manager.players[0].position
+		_prev_player_pos = game_manager.players[0].position
 
 func _create_game_manager() -> void:
 	game_manager = GameManager.new()
@@ -76,6 +88,38 @@ func _create_pause_menu() -> void:
 	pause_menu.name = "PauseMenuUI"
 	add_child(pause_menu)
 	pause_menu.setup(canvas_layer)
+
+func _create_camera() -> void:
+	camera = Camera2D.new()
+	camera.name = "JugadorCamera"
+	camera.zoom = camera_zoom
+	
+	# Establecer límites de la cámara al tamaño de la pantalla original (resolución del proyecto)
+	camera.limit_left = 0
+	camera.limit_top = 0
+	camera.limit_right = 1366
+	camera.limit_bottom = 766
+	
+	# Para un movimiento suave 
+	camera.position_smoothing_enabled = true
+	camera.position_smoothing_speed = camera_speed
+	
+	add_child(camera)
+	camera.make_current()
+
+func _process(_delta: float) -> void:
+	if game_manager and game_manager.game_state and camera:
+		var active_idx: int = game_manager.game_state.active_player_idx()
+		if active_idx >= 0 and active_idx < game_manager.players.size():
+			var active_player: Node2D = game_manager.players[active_idx]
+			var player_pos: Vector2 = active_player.position
+			
+			# Look-ahead: desplazar la cámara en la dirección del movimiento
+			var direction: Vector2 = (player_pos - _prev_player_pos).normalized()
+			var look_offset: Vector2 = direction * camera_look_ahead
+			camera.position = player_pos + look_offset
+			
+			_prev_player_pos = player_pos
 
 func _connect_flow() -> void:
 	game_hud.dice_requested.connect(_on_dice_requested)
