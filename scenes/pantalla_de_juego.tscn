@@ -13,16 +13,17 @@
 [ext_resource type="AudioStream" uid="uid://cciufm4n8gwbj" path="res://Assets/audio/The_Legend_of_Dragoon_OST_Royal_Castle_ExtendedMP3_160K.mp3" id="6_mk414"]
 [ext_resource type="AudioStream" uid="uid://cgfbftipvpqat" path="res://Assets/audio/maximize_001.ogg" id="8_mk414"]
 [ext_resource type="AudioStream" uid="uid://d1x8siwyguftt" path="res://Assets/audio/maximize_006.ogg" id="9_ic1vc"]
-[ext_resource type="Texture2D" uid="uid://dg74gbx3uxqfp" path="res://Assets/images/Flotantes/Picsart_25-12-10_23-33-29-505-Picsart-BackgroundRemover.png" id="9_q8jts"]
 [ext_resource type="Texture2D" uid="uid://b4dtk1mhhlemy" path="res://Assets/images/image-Picsart-BackgroundRemover.png" id="10_80wyr"]
 [ext_resource type="AudioStream" uid="uid://bstq1aqjkico4" path="res://Assets/audio/confirmation_002.ogg" id="10_m0ce2"]
 [ext_resource type="AudioStream" uid="uid://cy1l0veuoimrl" path="res://Assets/audio/error_004.ogg" id="11_iwr2h"]
 [ext_resource type="Texture2D" uid="uid://muyf2m04rotp" path="res://Assets/images/dice_detailed.png" id="11_j1l1s"]
-[ext_resource type="Texture2D" uid="uid://kikntsdvc0o1" path="res://Assets/images/Flotantes/Picsart_25-12-10_23-43-27-820-Picsart-BackgroundRemover.png" id="11_o0hyk"]
 [ext_resource type="AudioStream" uid="uid://dgoabxj5q2tha" path="res://Assets/audio/question_004.ogg" id="12_r02rp"]
 [ext_resource type="Script" uid="uid://bnqloxjj2itlb" path="res://scripts/IconoFlotante.gd" id="13_38h61"]
-[ext_resource type="Texture2D" uid="uid://cxn2qswhsycxk" path="res://Assets/enviroment/environment_background_01.png" id="14_wnw6p"]
+[ext_resource type="Texture2D" uid="uid://cpf4g5hwcrb3a" path="res://Assets/enviroment/environment_background_01.png" id="14_wnw6p"]
 [ext_resource type="Texture2D" uid="uid://ctyfjjcgb3j6u" path="res://Assets/icons/ODS 1 – Fin de la pobreza.png" id="16_keqsp"]
+[ext_resource type="Texture2D" uid="uid://wfdmnxuh7dno" path="res://Assets/enviroment/Escalera 2.png" id="17_ic3w5"]
+[ext_resource type="Texture2D" uid="uid://ww70h2w1eeul" path="res://Assets/enviroment/Cascada 1.png" id="18_t0rd0"]
+[ext_resource type="Texture2D" uid="uid://08krthxfhrgg" path="res://Assets/enviroment/Cascada 2.png" id="19_up2gk"]
 [ext_resource type="Texture2D" uid="uid://c77c4yiv0g8ha" path="res://Assets/icons/Casilla normal 1.png" id="21_ll512"]
 [ext_resource type="Texture2D" uid="uid://ekcpwf5ifa3t" path="res://Assets/icons/ODS 2 – Hambre cero.png" id="22_a6yef"]
 [ext_resource type="Texture2D" uid="uid://uisfbkyrqpwr" path="res://Assets/icons/Casilla normal 2.png" id="22_g7536"]
@@ -84,10 +85,11 @@ scale = Vector2(0.81116384, 0.8201285)
 texture = ExtResource("14_wnw6p")
 
 [node name="FloatingDecoration01" type="Sprite2D" parent="Decoraciones" unique_id=1759357108]
-position = Vector2(721, 569)
-rotation = 0.2617994
-scale = Vector2(0.4710301, 0.45382687)
-texture = ExtResource("9_q8jts")
+position = Vector2(662, 466.00003)
+rotation = -0.1850049
+scale = Vector2(0.41770288, 0.54776216)
+texture = ExtResource("17_ic3w5")
+centered = false
 script = ExtResource("13_38h61")
 speed = 0.1
 float_range = 0.5
@@ -95,34 +97,34 @@ rotate_speed = 0.5
 rotate_range = 2.0
 
 [node name="FloatingDecoration02" type="Sprite2D" parent="Decoraciones" unique_id=1472425130]
-position = Vector2(776.4001, 187.65001)
-rotation = 0.2617994
-scale = Vector2(0.58706266, 0.40956095)
-texture = ExtResource("9_q8jts")
+position = Vector2(790.9527, 184.2352)
+rotation = 2.8012536
+scale = Vector2(0.38640693, 0.48426557)
+texture = ExtResource("17_ic3w5")
 
 [node name="FloatingDecoration03" type="Sprite2D" parent="Decoraciones" unique_id=125161986]
-position = Vector2(1145.6758, 561.29456)
-rotation = -2.6179938
-scale = Vector2(0.6875873, 0.8810114)
-texture = ExtResource("11_o0hyk")
+position = Vector2(1156, 550.00006)
+rotation = -2.7838001
+scale = Vector2(0.62303776, 0.7614785)
+texture = ExtResource("18_t0rd0")
 
 [node name="FloatingDecoration04" type="Sprite2D" parent="Decoraciones" unique_id=388011001]
 position = Vector2(581.51135, 449.53577)
 rotation = -2.6179938
 scale = Vector2(0.4066151, 0.5173322)
-texture = ExtResource("11_o0hyk")
+texture = ExtResource("19_up2gk")
 
 [node name="FloatingDecoration05" type="Sprite2D" parent="Decoraciones" unique_id=132636651]
-position = Vector2(287.99997, 595)
-rotation = -2.0943952
-scale = Vector2(0.4066151, 0.55884784)
-texture = ExtResource("11_o0hyk")
+position = Vector2(344.3923, 582.0808)
+rotation = -2.5935593
+scale = Vector2(0.4066151, 0.5336192)
+texture = ExtResource("19_up2gk")
 
 [node name="FloatingDecoration06" type="Sprite2D" parent="Decoraciones" unique_id=1412277647]
 position = Vector2(230, 313)
 rotation = -3.1415927
 scale = Vector2(0.38982132, 0.48090395)
-texture = ExtResource("11_o0hyk")
+texture = ExtResource("18_t0rd0")
 
 [node name="FigureDecoration01" type="Sprite2D" parent="Decoraciones" unique_id=1067665118]
 position = Vector2(513, 653)
@@ -149,7 +151,7 @@ speed = 0.5
 float_range = 1.0
 
 [node name="FigureDecoration04" type="Sprite2D" parent="Decoraciones" unique_id=1832769632]
-position = Vector2(645, 582)
+position = Vector2(630, 574)
 scale = Vector2(0.4586771, 0.4537387)
 texture = ExtResource("49_ghjd5")
 script = ExtResource("13_38h61")
@@ -241,14 +243,14 @@ scale = Vector2(0.7, 0.56)
 generic_texture = ExtResource("27_16kt2")
 
 [node name="Casilla ODS 2" parent="Tablero" unique_id=2118508956 instance=ExtResource("3_0k5li")]
-position = Vector2(593, 643.00006)
+position = Vector2(589, 637.00006)
 rotation = -0.058575556
 scale = Vector2(0.8983054, 0.8495948)
 ods_texture = ExtResource("22_a6yef")
 
 [node name="Casilla Generica 5" parent="Tablero" unique_id=820103754 instance=ExtResource("4_2drks")]
-position = Vector2(691, 651)
-scale = Vector2(0.7, 0.56)
+position = Vector2(677, 663.00006)
+scale = Vector2(0.6, 0.48)
 generic_texture = ExtResource("27_16kt2")
 
 [node name="Casilla Desplazamiento 2" parent="Tablero" unique_id=2094675011 instance=ExtResource("5_80wyr")]
@@ -526,6 +528,7 @@ generic_texture = ExtResource("27_16kt2")
 [node name="Casilla Desplazamiento 4" parent="Tablero" unique_id=1471280337 instance=ExtResource("5_80wyr")]
 position = Vector2(608, 378.00003)
 scale = Vector2(0.65282625, 0.56744045)
+generic_texture = ExtResource("26_psxmu")
 
 [node name="Casilla Desplazamiento 5" parent="Tablero" unique_id=868638506 instance=ExtResource("5_80wyr")]
 position = Vector2(815.00006, 305.00003)
@@ -579,6 +582,7 @@ offset_right = 1170.0
 offset_bottom = 93.0
 
 [node name="PanelQuiz" type="Panel" parent="CanvasLayer" unique_id=1194043812]
+visible = false
 offset_left = 118.0
 offset_top = 98.0
 offset_right = 1254.0

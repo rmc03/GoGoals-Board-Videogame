@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpf4g5hwcrb3a"
-path="res://.godot/imported/environment_background_01.png-2b7c3282efaf368580f12b1661875569.ctex"
+uid="uid://08krthxfhrgg"
+path="res://.godot/imported/Cascada 2.png-479e9d20ce28013323c1c9aab15c55a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/enviroment/environment_background_01.png"
-dest_files=["res://.godot/imported/environment_background_01.png-2b7c3282efaf368580f12b1661875569.ctex"]
+source_file="res://Assets/enviroment/Cascada 2.png"
+dest_files=["res://.godot/imported/Cascada 2.png-479e9d20ce28013323c1c9aab15c55a8.ctex"]
 
 [params]
 
