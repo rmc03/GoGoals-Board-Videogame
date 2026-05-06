@@ -117,7 +117,7 @@ func configure_audio(
 	sfx_wrong = wrong_sfx
 	sfx_win = win_sfx
 
-func initialize_game(board_nodes: Array[Node2D], player_count: int, textures: Array[Texture2D]) -> void:
+func initialize_game(board_nodes: Array[Node2D], player_count: int, textures: Array[Texture2D], p_scale: Vector2 = Vector2(3.2, 3.2)) -> void:
 	_ensure_core()
 	_clear_runtime_nodes()
 
@@ -141,7 +141,7 @@ func initialize_game(board_nodes: Array[Node2D], player_count: int, textures: Ar
 	if game_data and game_data.has_method("reset_question_history"):
 		game_data.reset_question_history()
 
-	_create_players(player_count, textures)
+	_create_players(player_count, textures, p_scale)
 
 	if music_background:
 		_play_music(music_background)
@@ -164,10 +164,11 @@ func _clear_runtime_nodes() -> void:
 			player.queue_free()
 	players.clear()
 
-func _create_players(count: int, textures: Array[Texture2D]) -> void:
+func _create_players(count: int, textures: Array[Texture2D], p_scale: Vector2 = Vector2(3.2, 3.2)) -> void:
 	for i in range(count):
 		var player: PlayerEntity = player_scene.instantiate()
 		player.name = "Player_%d" % i
+		player.scale_factor = p_scale
 		add_child(player)
 		player.set_player_index(i)
 

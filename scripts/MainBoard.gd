@@ -5,6 +5,9 @@ const PauseMenuUIScript := preload("res://scripts/UI/Game/PauseMenu.gd")
 @export var board_tiles: Array[Node2D]
 @export var player_textures: Array[Texture2D]
 
+@export_group("Personajes")
+@export var player_scale: Vector2 = Vector2(3.2, 3.2)
+
 @export_group("Sonidos y Música")
 @export var music_background: AudioStream
 @export var sfx_dice_roll: AudioStream
@@ -38,7 +41,7 @@ func _ready() -> void:
 	_create_quiz_ui()
 	_create_pause_menu()
 	_connect_flow()
-	game_manager.initialize_game(board_tiles, GameData.players_count, player_textures)
+	game_manager.initialize_game(board_tiles, GameData.players_count, player_textures, player_scale)
 
 func _create_game_manager() -> void:
 	game_manager = GameManager.new()

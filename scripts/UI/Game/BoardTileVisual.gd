@@ -250,6 +250,8 @@ func _configure_start() -> void:
 	title_label.text = "INICIO"
 	title_label.position = Vector2(-50.0, -18.0)
 	title_label.size = Vector2(100.0, 40.0)
+	title_label.pivot_offset = title_label.size / 2.0
+	title_label.rotation = PI
 	_set_label_style(title_label, 16, DARK_TEXT, 3)
 
 func _configure_special(text: String, accent: Color) -> void:

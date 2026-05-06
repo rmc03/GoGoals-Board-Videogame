@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="UID_BOARD_CONFIG"]
+
+[ext_resource path="res://scripts/Data/BoardConfig.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+custom_ladders = {
+"8": 24,
+"43": 49
+}
+custom_slides = {
+"18": 13,
+"28": 1,
+"40": 26,
+"59": 35
+}
