@@ -34,7 +34,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 
 func _on_volver_pressed() -> void:
-	get_tree().change_scene_to_file("res://ui/MenuPrincipal.tscn")
+	get_tree().change_scene_to_file(Constants.SCENE_MENU_PRINCIPAL)
 
 func _sync_scroll_width() -> void:
 	if guide_scroll == null or content == null:

@@ -103,7 +103,7 @@ func _on_cerrar_ranking_pressed() -> void:
  
 func _on_como_jugar_pressed() -> void:
 	_play_click_sound()
-	get_tree().change_scene_to_file("res://ui/ComoJugar.tscn")
+	get_tree().change_scene_to_file(Constants.SCENE_COMO_JUGAR)
 
 func _on_salir_pressed() -> void:
 	get_tree().quit()

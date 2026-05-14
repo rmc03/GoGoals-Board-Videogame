@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cv1w1xwh0p6eg"]
 
-[ext_resource type="Script" uid="uid://s3jj4ryslvkp" path="res://ui/MenuPrincipal.gd" id="1_0oe1n"]
+[ext_resource type="Script" uid="uid://s3jj4ryslvkp" path="res://scripts/UI/Menu/MenuPrincipal.gd" id="1_0oe1n"]
 [ext_resource type="Texture2D" uid="uid://dvj5xfmcrxp71" path="res://Assets/images/Wallpapers/Picsart_25-12-10_19-09-01-870.jpg" id="2_oh4jq"]
 [ext_resource type="FontFile" uid="uid://e43x2moucoqe" path="res://Assets/Fonts/ticketing/TICKETING/Ticketing.ttf" id="3_5dpk2"]
 [ext_resource type="Texture2D" uid="uid://c3j0yq6fhx5v8" path="res://Assets/images/Flotantes/image-Picsart-BackgroundRemover (3).png" id="4_knros"]

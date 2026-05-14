@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bd42qkqabxdii"]
 
-[ext_resource type="Script" path="res://ui/ComoJugar.gd" id="1_kh3m0"]
+[ext_resource type="Script" path="res://scripts/UI/Menu/ComoJugar.gd" id="1_kh3m0"]
 [ext_resource type="Texture2D" path="res://Assets/images/Wallpapers/Picsart_25-12-10_19-09-01-870.jpg" id="2_f8v4t"]
 [ext_resource type="Texture2D" path="res://Assets/images/Icons/cross_large.png" id="3_22slx"]
 

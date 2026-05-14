@@ -6,10 +6,10 @@ class_name Constants
 # ============================================
 
 # --- RUTAS DE ESCENAS ---
-const SCENE_MENU_PRINCIPAL := "res://ui/MenuPrincipal.tscn"
+const SCENE_MENU_PRINCIPAL := "res://scenes/MenuPrincipal.tscn"
 const SCENE_PANTALLA_JUEGO := "res://scenes/pantalla_de_juego.tscn"
-const SCENE_END_GAME := "res://ui/EndGameMenu.tscn"
-const SCENE_COMO_JUGAR := "res://ui/ComoJugar.tscn"
+const SCENE_END_GAME := "res://scenes/EndGameMenu.tscn"
+const SCENE_COMO_JUGAR := "res://scenes/ComoJugar.tscn"
 
 # --- RUTAS DE RECURSOS ---
 const QUESTIONS_FILE := "res://data/questions.json"

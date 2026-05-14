@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://08krthxfhrgg"
-path="res://.godot/imported/Cascada 2.png-479e9d20ce28013323c1c9aab15c55a8.ctex"
+uid="uid://wfdmnxuh7dno"
+path="res://.godot/imported/Escalera 2.png-7ba021e5a481819a742335dcff40411b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/enviroment/Cascada 2.png"
-dest_files=["res://.godot/imported/Cascada 2.png-479e9d20ce28013323c1c9aab15c55a8.ctex"]
+source_file="res://Assets/environment/Escalera 2.png"
+dest_files=["res://.godot/imported/Escalera 2.png-7ba021e5a481819a742335dcff40411b.ctex"]
 
 [params]
 

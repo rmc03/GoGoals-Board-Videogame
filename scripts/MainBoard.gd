@@ -171,7 +171,7 @@ func _on_menu_requested() -> void:
 func _on_victory(_player_index: int, time: float, turns: int) -> void:
 	_on_pause_state_changed(false)
 	await get_tree().create_timer(1.5).timeout
-	var end_game_menu = preload("res://ui/EndGameMenu.tscn").instantiate()
+	var end_game_menu = preload("res://scenes/EndGameMenu.tscn").instantiate()
 	end_game_menu.final_time = time
 	end_game_menu.final_turns = turns
 	end_game_menu.winner_index = _player_index
