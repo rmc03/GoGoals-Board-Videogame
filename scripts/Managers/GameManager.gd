@@ -132,7 +132,7 @@ func initialize_game(board_nodes: Array[Node2D], player_count: int, textures: Ar
 	)
 	board.setup(board_nodes)
 
-	game_state.initialize_game(player_count)
+	game_state.initialize_game(player_count, board_nodes.size())
 	is_moving = false
 	is_quiz_active = false
 	_reset_quiz_state()
@@ -226,12 +226,19 @@ func _play_step_sfx() -> void:
 	if sfx_step:
 		_play_sfx(sfx_step, Constants.SFX_STEP_VOLUME_MOD)
 
+const MAX_TILE_CHECK_DEPTH := 10
+
 func _on_movement_finished(player_idx: int, new_index: int) -> void:
 	game_state.set_player_position(player_idx, new_index)
 	movement_finished.emit(player_idx, new_index)
 	_check_tile(player_idx, new_index)
 
-func _check_tile(player_idx: int, tile_index: int) -> void:
+func _check_tile(player_idx: int, tile_index: int, depth: int = 0) -> void:
+	if depth >= MAX_TILE_CHECK_DEPTH:
+		push_warning("_check_tile: max recursion depth reached at tile %d" % tile_index)
+		_end_turn()
+		return
+
 	var tile: TileEntity = board.get_tile(tile_index)
 
 	if tile == null:
@@ -239,7 +246,7 @@ func _check_tile(player_idx: int, tile_index: int) -> void:
 		return
 
 	if tile.is_special():
-		_handle_special_tile(player_idx, tile)
+		_handle_special_tile(player_idx, tile, depth)
 		return
 
 	if tile.is_quiz():
@@ -252,7 +259,7 @@ func _check_tile(player_idx: int, tile_index: int) -> void:
 
 	_end_turn()
 
-func _handle_special_tile(player_idx: int, tile: TileEntity) -> void:
+func _handle_special_tile(player_idx: int, tile: TileEntity, depth: int = 0) -> void:
 	_ensure_match_stats()
 	var player: PlayerEntity = players[player_idx]
 	var target_pos: int = tile.target_position
@@ -279,7 +286,7 @@ func _handle_special_tile(player_idx: int, tile: TileEntity) -> void:
 
 	game_state.set_player_position(player_idx, target_pos)
 	movement_finished.emit(player_idx, target_pos)
-	_check_tile(player_idx, target_pos)
+	_check_tile(player_idx, target_pos, depth + 1)
 
 func _request_quiz(player_idx: int, ods_id: int) -> void:
 	_ensure_match_stats()

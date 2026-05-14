@@ -11,6 +11,7 @@ enum GamePhase {
 var current_phase: GamePhase = GamePhase.MENU
 var players_count: int = 1
 var game_time: float = 0.0
+var total_tiles: int = 63
 
 var active_player_index: int = 0
 var players_turns: Array[int] = []
@@ -24,8 +25,9 @@ signal player_position_changed(player_index: int, new_position: int)
 signal turn_info_changed(player_index: int, turn_count: int)
 signal game_time_updated(new_time: float)
 
-func initialize_game(num_players: int) -> void:
+func initialize_game(num_players: int, num_tiles: int = 63) -> void:
 	players_count = num_players
+	total_tiles = num_tiles
 	players_turns.clear()
 	players_positions.clear()
 
@@ -77,7 +79,7 @@ func set_player_position(player_index: int, position: int) -> void:
 		player_position_changed.emit(player_index, position)
 
 func get_finish_tile_index() -> int:
-	return 62
+	return total_tiles - 1
 
 func update_time(delta: float) -> void:
 	if current_phase == GamePhase.PLAYING:
@@ -102,6 +104,7 @@ func is_playing() -> bool:
 func reset() -> void:
 	current_phase = GamePhase.MENU
 	players_count = 1
+	total_tiles = 63
 	game_time = 0.0
 	active_player_index = 0
 	players_turns.clear()

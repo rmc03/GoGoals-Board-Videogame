@@ -94,10 +94,12 @@ func _create_camera() -> void:
 	camera.zoom = camera_zoom
 	
 	# Establecer límites de la cámara al tamaño de la pantalla original (resolución del proyecto)
+	var viewport_w: int = ProjectSettings.get_setting("display/window/size/viewport_width", 1366)
+	var viewport_h: int = ProjectSettings.get_setting("display/window/size/viewport_height", 766)
 	camera.limit_left = 0
 	camera.limit_top = 0
-	camera.limit_right = 1366
-	camera.limit_bottom = 766
+	camera.limit_right = viewport_w
+	camera.limit_bottom = viewport_h
 	
 	# Para un movimiento suave 
 	camera.position_smoothing_enabled = true
