@@ -10,24 +10,24 @@ extends Sprite2D # <--- IMPORTANTE: Ahora extiende de Sprite2D
 @export var rotate_range : float = 5.0 # Grados de inclinación
 
 # Variables internas
-var time = 0.0
-var initial_y = 0.0
-var random_offset = 0.0
+var time: float = 0.0
+var initial_y: float = 0.0
+var random_offset: float = 0.0
 
-func _ready():
+func _ready() -> void:
 	# Guardamos la altura inicial donde pusiste el sprite en el editor
 	initial_y = position.y
 	
 	# Generamos un desfase aleatorio para que no se muevan todos igual
 	random_offset = randf_range(0.0, 10.0)
 
-func _process(delta):
+func _process(delta: float) -> void:
 	time += delta
 	
 	# 1. Flotar (Seno)
-	var float_offset = sin((time + random_offset) * speed) * float_range
+	var float_offset: float = sin((time + random_offset) * speed) * float_range
 	position.y = initial_y + float_offset
 	
 	# 2. Rotar (Coseno) - Balanceo suave
-	var rot_offset = cos((time + random_offset) * rotate_speed) * rotate_range
+	var rot_offset: float = cos((time + random_offset) * rotate_speed) * rotate_range
 	rotation_degrees = rot_offset
