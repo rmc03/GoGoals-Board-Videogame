@@ -68,16 +68,27 @@ func reset_settings() -> void:
 	set_sfx_volume(Constants.SFX_VOLUME_DEFAULT, false)
 	_save_settings()
 
-func play_music(stream: AudioStream) -> void:
+func play_music(stream: AudioStream, loop: bool = true) -> void:
 	if stream == null or _is_headless():
 		return
 	
 	if music_player.stream == stream and music_player.playing:
 		return
-		
+	
+	# Disconnect any previous loop connection
+	if music_player.finished.is_connected(_on_music_finished):
+		music_player.finished.disconnect(_on_music_finished)
+	
 	music_player.stream = stream
 	music_player.volume_db = music_volume_db
 	music_player.play()
+	
+	if loop:
+		music_player.finished.connect(_on_music_finished)
+
+func _on_music_finished() -> void:
+	if music_player.stream:
+		music_player.play()
 
 func play_sfx(stream: AudioStream, volume_mod: float = 0.0) -> void:
 	if stream == null or _is_headless():

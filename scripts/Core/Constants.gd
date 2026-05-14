@@ -56,4 +56,3 @@ const MSG_INCORRECT := "Incorrecto."
 const MSG_DICE_ROLL := "J%d sacó: %d"
 const MSG_TURN := "Turno: Jugador %d (Tirada #%d)"
 const MSG_TIME := "Tiempo: %s"
-

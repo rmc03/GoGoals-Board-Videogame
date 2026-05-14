@@ -25,7 +25,6 @@ const DISPLAY_FONT := preload("res://Assets/Fonts/lilita-one/LilitaOne-Regular.t
 @onready var btn_cerrar_ranking: Button = $VentanaRanking/BotonCerrar
 
 @onready var click_audio_player: AudioStreamPlayer = AudioStreamPlayer.new()
-@onready var music_audio_player: AudioStreamPlayer = AudioStreamPlayer.new()
 
 var options_menu: MenuOptionsUI
 var ranking_root: Control
@@ -57,25 +56,19 @@ func _ready() -> void:
 	_style_menu()
 	_create_options_menu()
 	
-	# Initialize audio players
+	# Initialize click audio player
 	click_audio_player.stream = click_sound
-	music_audio_player.stream = music_sound
 	add_child(click_audio_player)
-	add_child(music_audio_player)
-	if music_audio_player.stream:
-		music_audio_player.finished.connect(_on_music_finished)
 	
-	# Start menu music if available
+	# Start menu music via AudioManager (handles looping and volume)
 	if music_sound:
-		music_audio_player.play()
+		AudioManager.play_music(music_sound)
 
 func _play_click_sound() -> void:
 	if click_sound and click_audio_player:
 		click_audio_player.play()
 
-func _on_music_finished() -> void:
-	if music_audio_player.stream:
-		music_audio_player.play()
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_ESCAPE:
