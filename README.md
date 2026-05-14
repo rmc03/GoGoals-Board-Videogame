@@ -6,9 +6,6 @@
 
 **GoGoals** is a dynamic, educational board game built with **Godot Engine 4.6**. Designed to raise awareness about the United Nations Sustainable Development Goals (SDGs), the game challenges up to 4 players to navigate a 63-tile board, overcome obstacles, and answer trivia questions to reach the finish line.
 
-![Gameplay Screenshot Placeholder](Assets/images/icon.svg)  
-*(Note: Replace with an actual gameplay screenshot)*
-
 ---
 
 ## ✨ Key Features
