@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://7knyr7tvewtn"]
 
 [ext_resource type="Script" path="res://scripts/UI/Menu/MenuPrincipal.gd" id="1_iiinc"]
-[ext_resource type="Texture2D" uid="uid://dvj5xfmcrxp71" path="res://Assets/images/Wallpapers/Picsart_25-12-10_19-09-01-870.jpg" id="2_n8p0c"]
+[ext_resource type="Texture2D" path="res://Assets/images/Wallpapers/sdg_menu_background.jpg" id="2_n8p0c"]
 [ext_resource type="FontFile" uid="uid://e43x2moucoqe" path="res://Assets/Fonts/ticketing/TICKETING/Ticketing.ttf" id="3_jmig2"]
-[ext_resource type="Texture2D" uid="uid://c3j0yq6fhx5v8" path="res://Assets/images/Flotantes/image-Picsart-BackgroundRemover (3).png" id="4_sqtrp"]
+[ext_resource type="Texture2D" path="res://Assets/images/Flotantes/floating_hex_confetti.png" id="4_sqtrp"]
 [ext_resource type="Script" uid="uid://bnqloxjj2itlb" path="res://scripts/IconoFlotante.gd" id="5_xkvsj"]
-[ext_resource type="Texture2D" uid="uid://xpf6yre73ng1" path="res://Assets/images/Flotantes/image-Picsart-BackgroundRemover (4).png" id="6_vx820"]
-[ext_resource type="Texture2D" uid="uid://bdwsc2nalq80q" path="res://Assets/images/Flotantes/image-Picsart-BackgroundRemover (5).png" id="7_ty5lk"]
-[ext_resource type="Texture2D" uid="uid://cmgbe0nyiwiud" path="res://Assets/images/Flotantes/image-Picsart-BackgroundRemover (6).png" id="8_154sd"]
+[ext_resource type="Texture2D" path="res://Assets/images/Flotantes/floating_hex_heart.png" id="6_vx820"]
+[ext_resource type="Texture2D" path="res://Assets/images/Flotantes/floating_hex_sanitation.png" id="7_ty5lk"]
+[ext_resource type="Texture2D" path="res://Assets/images/Flotantes/floating_hex_balance_world.png" id="8_154sd"]
 [ext_resource type="Texture2D" uid="uid://cwent3thvovu2" path="res://Assets/images/Icons/cross_large.png" id="9_0hmsv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ba235"]
@@ -86,25 +86,25 @@ La Búsqueda de los 17 Tesoros."
 label_settings = SubResource("LabelSettings_ba235")
 horizontal_alignment = 1
 
-[node name="ImagePicsartBackgroundRemover(3)" type="Sprite2D" parent="." unique_id=1003936363]
+[node name="FloatingHexConfetti" type="Sprite2D" parent="." unique_id=1003936363]
 position = Vector2(141.99998, 255.99998)
 scale = Vector2(0.9693396, 0.90829694)
 texture = ExtResource("4_sqtrp")
 script = ExtResource("5_xkvsj")
 
-[node name="ImagePicsartBackgroundRemover(4)" type="Sprite2D" parent="." unique_id=256549023]
+[node name="FloatingHexHeart" type="Sprite2D" parent="." unique_id=256549023]
 position = Vector2(406, 405)
 texture = ExtResource("6_vx820")
 script = ExtResource("5_xkvsj")
 
-[node name="ImagePicsartBackgroundRemover(5)" type="Sprite2D" parent="." unique_id=1738922953]
+[node name="FloatingHexSanitation" type="Sprite2D" parent="." unique_id=1738922953]
 position = Vector2(207, 604)
 texture = ExtResource("7_ty5lk")
 script = ExtResource("5_xkvsj")
 speed = 1.5
 float_range = 15.0
 
-[node name="ImagePicsartBackgroundRemover(6)" type="Sprite2D" parent="." unique_id=744226226]
+[node name="FloatingHexBalanceWorld" type="Sprite2D" parent="." unique_id=744226226]
 position = Vector2(1176, 300)
 texture = ExtResource("8_154sd")
 script = ExtResource("5_xkvsj")

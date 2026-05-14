@@ -1,7 +1,7 @@
 @tool
 extends StaticBody2D
 
-const HEX_NEUTRAL_TEXTURE := preload("res://Assets/images/image-Picsart-BackgroundRemover (7).png")
+const HEX_NEUTRAL_TEXTURE := preload("res://Assets/images/board_hex_tile_neutral.png")
 
 const NEUTRAL_HEX_COLOR := Color(0.92, 0.90, 0.86, 1.0)
 const LADDER_ACCENT := Color(0.23, 0.55, 0.28, 1.0)

@@ -1,10 +1,10 @@
 extends Control
 
 const DISPLAY_FONT: FontFile = preload("res://Assets/Fonts/lilita-one/LilitaOne-Regular.ttf")
-const SCREENSHOT_BOARD: Texture2D = preload("res://Assets/images/quiz/Screenshot 2025-12-10 201025.png")
-const SCREENSHOT_QUIZ: Texture2D = preload("res://Assets/images/quiz/Screenshot 2025-12-10 201219.png")
-const SCREENSHOT_RESULT: Texture2D = preload("res://Assets/images/quiz/Screenshot 2025-12-10 201254.png")
-const SCREENSHOT_PAUSE: Texture2D = preload("res://Assets/images/quiz/Screenshot 2025-12-10 201338.png")
+const SCREENSHOT_BOARD: Texture2D = preload("res://Assets/images/quiz/how_to_play_board.png")
+const SCREENSHOT_QUIZ: Texture2D = preload("res://Assets/images/quiz/how_to_play_quiz.png")
+const SCREENSHOT_RESULT: Texture2D = preload("res://Assets/images/quiz/how_to_play_result.png")
+const SCREENSHOT_PAUSE: Texture2D = preload("res://Assets/images/quiz/how_to_play_pause_menu.png")
 
 @onready var guide_panel: PanelContainer = $GuidePanel
 @onready var title_label: Label = $GuidePanel/GuideMargin/GuideVBox/HeaderRow/HeaderText/TitleLabel
