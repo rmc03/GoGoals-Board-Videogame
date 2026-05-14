@@ -42,7 +42,6 @@ var camera: Camera2D
 var _prev_player_pos: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
-	randomize()
 	_create_game_manager()
 	_create_hud()
 	_create_quiz_ui()

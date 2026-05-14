@@ -57,12 +57,3 @@ const MSG_DICE_ROLL := "J%d sacó: %d"
 const MSG_TURN := "Turno: Jugador %d (Tirada #%d)"
 const MSG_TIME := "Tiempo: %s"
 
-# --- TIPO DE CASILLAS ---
-enum TileType {
-	NORMAL,
-	QUIZ,
-	SPECIAL_LADDER,  # Escalera - sube
-	SPECIAL_SLIDE,   # Deslizador - baja
-	START,
-	FINISH
-}

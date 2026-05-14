@@ -6,7 +6,6 @@ var questions_db: Dictionary = {}
 var question_history: Dictionary = {}
 
 func _ready() -> void:
-	randomize()
 	load_questions()
 
 func load_questions() -> void:
