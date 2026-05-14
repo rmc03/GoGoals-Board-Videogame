@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="GoGoals"
-run/main_scene="uid://cv1w1xwh0p6eg"
+run/main_scene="uid://7knyr7tvewtn"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://Assets/images/icon.svg"
 

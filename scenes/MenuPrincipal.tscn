@@ -1,17 +1,17 @@
-[gd_scene format=3 uid="uid://cv1w1xwh0p6eg"]
+[gd_scene format=3 uid="uid://7knyr7tvewtn"]
 
-[ext_resource type="Script" uid="uid://s3jj4ryslvkp" path="res://scripts/UI/Menu/MenuPrincipal.gd" id="1_0oe1n"]
-[ext_resource type="Texture2D" uid="uid://dvj5xfmcrxp71" path="res://Assets/images/Wallpapers/Picsart_25-12-10_19-09-01-870.jpg" id="2_oh4jq"]
-[ext_resource type="FontFile" uid="uid://e43x2moucoqe" path="res://Assets/Fonts/ticketing/TICKETING/Ticketing.ttf" id="3_5dpk2"]
-[ext_resource type="Texture2D" uid="uid://c3j0yq6fhx5v8" path="res://Assets/images/Flotantes/image-Picsart-BackgroundRemover (3).png" id="4_knros"]
-[ext_resource type="Script" uid="uid://bnqloxjj2itlb" path="res://scripts/IconoFlotante.gd" id="5_348rq"]
-[ext_resource type="Texture2D" uid="uid://xpf6yre73ng1" path="res://Assets/images/Flotantes/image-Picsart-BackgroundRemover (4).png" id="5_oh4jq"]
-[ext_resource type="Texture2D" uid="uid://bdwsc2nalq80q" path="res://Assets/images/Flotantes/image-Picsart-BackgroundRemover (5).png" id="6_348rq"]
-[ext_resource type="Texture2D" uid="uid://cmgbe0nyiwiud" path="res://Assets/images/Flotantes/image-Picsart-BackgroundRemover (6).png" id="8_348rq"]
-[ext_resource type="Texture2D" uid="uid://cwent3thvovu2" path="res://Assets/images/Icons/cross_large.png" id="9_xhhru"]
+[ext_resource type="Script" path="res://ui/MenuPrincipal.gd" id="1_iiinc"]
+[ext_resource type="Texture2D" uid="uid://dvj5xfmcrxp71" path="res://Assets/images/Wallpapers/Picsart_25-12-10_19-09-01-870.jpg" id="2_n8p0c"]
+[ext_resource type="FontFile" uid="uid://e43x2moucoqe" path="res://Assets/Fonts/ticketing/TICKETING/Ticketing.ttf" id="3_jmig2"]
+[ext_resource type="Texture2D" uid="uid://c3j0yq6fhx5v8" path="res://Assets/images/Flotantes/image-Picsart-BackgroundRemover (3).png" id="4_sqtrp"]
+[ext_resource type="Script" uid="uid://bnqloxjj2itlb" path="res://scripts/IconoFlotante.gd" id="5_xkvsj"]
+[ext_resource type="Texture2D" uid="uid://xpf6yre73ng1" path="res://Assets/images/Flotantes/image-Picsart-BackgroundRemover (4).png" id="6_vx820"]
+[ext_resource type="Texture2D" uid="uid://bdwsc2nalq80q" path="res://Assets/images/Flotantes/image-Picsart-BackgroundRemover (5).png" id="7_ty5lk"]
+[ext_resource type="Texture2D" uid="uid://cmgbe0nyiwiud" path="res://Assets/images/Flotantes/image-Picsart-BackgroundRemover (6).png" id="8_154sd"]
+[ext_resource type="Texture2D" uid="uid://cwent3thvovu2" path="res://Assets/images/Icons/cross_large.png" id="9_0hmsv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ba235"]
-font = ExtResource("3_5dpk2")
+font = ExtResource("3_jmig2")
 font_size = 60
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xhhru"]
@@ -22,13 +22,13 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1366.0
 offset_bottom = 766.0
-script = ExtResource("1_0oe1n")
+script = ExtResource("1_iiinc")
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=1650058569]
 layout_mode = 0
 offset_right = 1366.0
 offset_bottom = 766.0
-texture = ExtResource("2_oh4jq")
+texture = ExtResource("2_n8p0c")
 expand_mode = 1
 
 [node name="ButtonJugar" type="Button" parent="." unique_id=227174837]
@@ -89,25 +89,25 @@ horizontal_alignment = 1
 [node name="ImagePicsartBackgroundRemover(3)" type="Sprite2D" parent="." unique_id=1003936363]
 position = Vector2(141.99998, 255.99998)
 scale = Vector2(0.9693396, 0.90829694)
-texture = ExtResource("4_knros")
-script = ExtResource("5_348rq")
+texture = ExtResource("4_sqtrp")
+script = ExtResource("5_xkvsj")
 
 [node name="ImagePicsartBackgroundRemover(4)" type="Sprite2D" parent="." unique_id=256549023]
 position = Vector2(406, 405)
-texture = ExtResource("5_oh4jq")
-script = ExtResource("5_348rq")
+texture = ExtResource("6_vx820")
+script = ExtResource("5_xkvsj")
 
 [node name="ImagePicsartBackgroundRemover(5)" type="Sprite2D" parent="." unique_id=1738922953]
 position = Vector2(207, 604)
-texture = ExtResource("6_348rq")
-script = ExtResource("5_348rq")
+texture = ExtResource("7_ty5lk")
+script = ExtResource("5_xkvsj")
 speed = 1.5
 float_range = 15.0
 
 [node name="ImagePicsartBackgroundRemover(6)" type="Sprite2D" parent="." unique_id=744226226]
 position = Vector2(1176, 300)
-texture = ExtResource("8_348rq")
-script = ExtResource("5_348rq")
+texture = ExtResource("8_154sd")
+script = ExtResource("5_xkvsj")
 
 [node name="PanelSeleccion" type="Panel" parent="." unique_id=870863421]
 layout_mode = 0
@@ -162,7 +162,7 @@ layout_mode = 0
 offset_left = 305.0
 offset_right = 352.0
 offset_bottom = 44.0
-icon = ExtResource("9_xhhru")
+icon = ExtResource("9_0hmsv")
 expand_icon = true
 
 [node name="VentanaRanking" type="Panel" parent="." unique_id=1055287207]
@@ -178,7 +178,7 @@ layout_mode = 0
 offset_left = 387.0
 offset_right = 439.0
 offset_bottom = 47.0
-icon = ExtResource("9_xhhru")
+icon = ExtResource("9_0hmsv")
 expand_icon = true
 
 [node name="LabelRanking" type="RichTextLabel" parent="VentanaRanking" unique_id=561774599]
