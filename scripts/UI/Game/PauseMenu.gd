@@ -146,69 +146,20 @@ func _add_display_mode_row(y: float) -> void:
 func _sync_display_mode() -> void:
 	if display_mode_option == null:
 		return
-	var window := _get_window()
-	var current_mode: int = window.mode
-	if current_mode == Window.MODE_FULLSCREEN or current_mode == Window.MODE_EXCLUSIVE_FULLSCREEN:
-		display_mode_option.selected = 0
-	else:
-		# In windowed or maximized mode, check borderless flag
-		if window.borderless:
-			display_mode_option.selected = 2
-		else:
-			display_mode_option.selected = 1
-
-func _on_display_mode_selected(index: int) -> void:
-	match index:
-		0: # Pantalla Completa
-			_request_window_mode(Window.MODE_FULLSCREEN, false, false)
-		1: # Ventana
-			_request_window_mode(Window.MODE_WINDOWED, false, false)
-		2: # Sin Bordes
-			_request_window_mode(Window.MODE_WINDOWED, true, true)
-
-func _request_window_mode(target_mode: int, borderless: bool, maximize: bool) -> void:
-	call_deferred("_apply_window_mode", target_mode, borderless, maximize)
-
-func _apply_window_mode(target_mode: int, borderless: bool, maximize: bool) -> void:
-	var window := _get_window()
-	if window == null:
-		return
-
-	window.borderless = borderless
-	window.mode = target_mode
-	if target_mode == Window.MODE_FULLSCREEN and window.mode != Window.MODE_FULLSCREEN:
-		window.mode = Window.MODE_EXCLUSIVE_FULLSCREEN
-
-	if maximize:
-		window.mode = Window.MODE_MAXIMIZED
-
-	_apply_displayserver_fallback(window, target_mode, borderless, maximize)
-
-func _apply_displayserver_fallback(window: Window, target_mode: int, borderless: bool, maximize: bool) -> void:
-	var window_id: int = window.get_window_id()
-	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, borderless, window_id)
-	DisplayServer.window_set_mode(_to_displayserver_mode(target_mode), window_id)
-	if maximize:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED, window_id)
-
-func _to_displayserver_mode(window_mode: int) -> int:
-	match window_mode:
-		Window.MODE_WINDOWED:
-			return DisplayServer.WINDOW_MODE_WINDOWED
-		Window.MODE_FULLSCREEN:
-			return DisplayServer.WINDOW_MODE_FULLSCREEN
-		Window.MODE_EXCLUSIVE_FULLSCREEN:
-			return DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN
-		Window.MODE_MAXIMIZED:
-			return DisplayServer.WINDOW_MODE_MAXIMIZED
-		_:
-			return DisplayServer.WINDOW_MODE_WINDOWED
-
-func _get_window() -> Window:
-	var window := get_window()
+	var window: Window = get_window()
 	if window == null:
 		window = get_tree().get_root()
-	return window
+	display_mode_option.selected = UIHelpers.get_current_display_mode_index(window)
+
+func _on_display_mode_selected(index: int) -> void:
+	var config: Dictionary = UIHelpers.resolve_display_mode_selection(index)
+	call_deferred("_apply_window_mode", config["target_mode"], config["borderless"], config["maximize"])
+
+func _apply_window_mode(target_mode: int, borderless: bool, maximize: bool) -> void:
+	var window: Window = get_window()
+	if window == null:
+		window = get_tree().get_root()
+	UIHelpers.apply_window_mode(window, target_mode, borderless, maximize)
 
 func _build_button(text: String, position: Vector2, size: Vector2, color: Color) -> Button:
 	var button: Button = Button.new()
@@ -301,21 +252,13 @@ func _reposition_panel() -> void:
 	var viewport_size: Vector2 = root.get_viewport_rect().size
 	panel.position = (viewport_size - panel.size) / 2.0
 
-func _db_to_percent(value_db: float, min_db: float, max_db: float) -> float:
-	if is_equal_approx(min_db, max_db):
-		return 0.0
-	return clampf(((value_db - min_db) / (max_db - min_db)) * 100.0, 0.0, 100.0)
-
-func _percent_to_db(value_percent: float, min_db: float, max_db: float) -> float:
-	return lerpf(min_db, max_db, clampf(value_percent, 0.0, 100.0) / 100.0)
-
 func _sync_slider_values() -> void:
 	if music_slider:
-		music_slider.value = _db_to_percent(AudioManager.get_music_volume(), Constants.MUSIC_VOLUME_MIN, Constants.MUSIC_VOLUME_MAX)
+		music_slider.value = UIHelpers.db_to_percent(AudioManager.get_music_volume(), Constants.MUSIC_VOLUME_MIN, Constants.MUSIC_VOLUME_MAX)
 		_update_value_label(music_value_label, music_slider.value)
 
 	if sfx_slider:
-		sfx_slider.value = _db_to_percent(AudioManager.get_sfx_volume(), Constants.SFX_VOLUME_MIN, Constants.SFX_VOLUME_MAX)
+		sfx_slider.value = UIHelpers.db_to_percent(AudioManager.get_sfx_volume(), Constants.SFX_VOLUME_MIN, Constants.SFX_VOLUME_MAX)
 		_update_value_label(sfx_value_label, sfx_slider.value)
 
 func _update_value_label(label: Label, value_percent: float) -> void:
@@ -324,11 +267,11 @@ func _update_value_label(label: Label, value_percent: float) -> void:
 
 func _on_music_slider_changed(value: float) -> void:
 	_update_value_label(music_value_label, value)
-	AudioManager.set_music_volume(_percent_to_db(value, Constants.MUSIC_VOLUME_MIN, Constants.MUSIC_VOLUME_MAX))
+	AudioManager.set_music_volume(UIHelpers.percent_to_db(value, Constants.MUSIC_VOLUME_MIN, Constants.MUSIC_VOLUME_MAX))
 
 func _on_sfx_slider_changed(value: float) -> void:
 	_update_value_label(sfx_value_label, value)
-	AudioManager.set_sfx_volume(_percent_to_db(value, Constants.SFX_VOLUME_MIN, Constants.SFX_VOLUME_MAX))
+	AudioManager.set_sfx_volume(UIHelpers.percent_to_db(value, Constants.SFX_VOLUME_MIN, Constants.SFX_VOLUME_MAX))
 
 func show_menu() -> void:
 	if root == null:
