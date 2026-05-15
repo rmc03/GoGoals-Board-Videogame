@@ -8,7 +8,7 @@
 
 ---
 
-## ✨ Key Features
+## ⚡ Key Features
 
 * **Multiplayer Support:** Local hot-seat multiplayer for 1 to 4 players.
 * **Educational Core:** Integrated quiz system featuring questions across all 17 UN Sustainable Development Goals (SDGs).
@@ -80,7 +80,7 @@ go-goals/
 
 ## 🛠️ Exporting
 
-This project is optimized for the **Mobile Renderer**, making it suitable for Android, iOS, and Web exports. 
+This project is optimized for the **Mobile Renderer**, making it suitable for Windows , Linux, Android, iOS, and Web exports. 
 
 1. Go to **Project > Export** in the Godot editor.
 2. Select the desired preset (already pre-configured in `export_presets.cfg`).
